@@ -16,12 +16,10 @@ architecture testbench of alu_tb is
 --signal;
 begin  
 	uut:entity aluIO port map(
-		clk => clk,
 		inReg1 => ir1,
 		inReg2 => ir2,
 		inReg3 => ir3,	
-		insReg3 => insR3,
-		insReg4 => insR4,
+		insReg => insR,
 		outReg => oReg
 		);		
 	process
