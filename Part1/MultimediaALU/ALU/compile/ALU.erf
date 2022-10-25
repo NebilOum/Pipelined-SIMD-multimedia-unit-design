@@ -1,9 +1,11 @@
 WARNING DAGGEN_0523: "The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available."
-MESSAGE "File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd" 
-MESSAGE "Compile Entity "alu_tb"" 
-MESSAGE "Compile Architecture "testbench" of Entity "alu_tb"" 
-ERROR COMP96_0078: "Unknown identifier "insReg3"." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd" 23 3
-ERROR COMP96_0078: "Unknown identifier "insReg4"." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd" 24 3
-ERROR COMP96_0133: "Cannot find object declaration." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd" 23 3
-ERROR COMP96_0112: ""insReg3" does not match the formal name." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd" 23 3
-FAILURE "Compile failure 4 Errors 0 Warnings  Analysis time :  0.0 [ms]" 
+MESSAGE "File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 
+MESSAGE "Compile Entity "multiplication"" 
+MESSAGE "Compile Architecture "multAlu" of Entity "multiplication"" 
+MESSAGE "Compile Entity "addition"" 
+MESSAGE "Compile Architecture "addAlu" of Entity "addition"" 
+MESSAGE "Compile Entity "subtraction"" 
+MESSAGE "Compile Architecture "subAlu" of Entity "subtraction"" 
+MESSAGE "Compile Entity "aluIO"" 
+MESSAGE "Compile Architecture "alu" of Entity "aluIO"" 
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]" 

@@ -50,8 +50,8 @@ entity addition	is
 	generic (a : integer := 16); --- generic used so we can do operation on multiple bit lengths
 	port(
 	clk, xsign : in std_logic;---- xsign used to do either unsigned or signed operations
-	input1,input2 :in std_logic_vector(m-1 downto 0); --input values
-	output: out std_logic_vector(m-1 downto 0) --- output values
+	input1,input2 :in std_logic_vector(a-1 downto 0); --input values
+	output: out std_logic_vector(a-1 downto 0) --- output values
 	);
 end addition; 
 
@@ -112,7 +112,7 @@ begin
 	end process;
 end architecture subAlu; --- behavioral archtitecure for subtraction
 -----------------------------------------------------------------------------------------
-library ieee;								  	`
+library ieee;								  	
 use ieee.std_logic_1164.all; 
 use ieee.numeric_std.all;
 use work.all;  
