@@ -1,1 +1,10 @@
-0
+19
+~E 1 "../src/ALU.vhd" 42 addition
+~A 1 "../src/ALU.vhd" 52 addAlu
+~E 1 "../src/ALU-tb.vhd" 8 alu_tb
+~E 1 "../src/ALU.vhd" 110 aluIO
+~A 1 "../src/ALU.vhd" 122 alu
+~E 1 "../src/ALU.vhd" 7 multiplication
+~A 1 "../src/ALU.vhd" 16 multAlu
+~E 1 "../src/ALU.vhd" 77 subtraction
+~A 1 "../src/ALU.vhd" 88 subAlu

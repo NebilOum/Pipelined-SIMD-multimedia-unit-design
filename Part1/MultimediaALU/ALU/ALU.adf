@@ -19,8 +19,10 @@ FAMILY=
 [Files]
 /ALU.vhd=-1
 /ALU-tb.vhd=-1
+/ALU-tb.vhd=-1
 [Files.Data]
 .\src\ALU.vhd=VHDL Source Code
+.\src\ALU-tb.vhd=VHDL Source Code
 .\src\ALU-tb.vhd=VHDL Source Code
 [HierarchyViewer]
 HierarchyInformation=
