@@ -22,7 +22,7 @@ architecture alu of aluIO is
 	-------------------------------------------------------------------------
    	----- procedure to do multiplication of two n-bit inputs
 	procedure mult(signal in1,in2 : in std_logic_vector(m-1 downto 0);
-				   signal sign : in std_logic;
+				   signal xsign : in std_logic;
 				   signal oput : out std_logic_vector(m-1 downto 0)) is
 	begin
 		if xsign = '0'then 	--- unsigned multiplicatin
@@ -37,7 +37,7 @@ architecture alu of aluIO is
 	-------------------------------------------------------------------------  
 	---- prodcedure to do  adddition of two n bit inputs
 	procedure add(signal in1,in2 : in std_logic_vector(a-1 downto 0);
-				   signal sign : in std_logic;
+				   signal xsign : in std_logic;
 				   signal oput : out std_logic_vector(a-1 downto 0)) is
 	begin
 		if xsign = '0'then 	  ---- unsigned addition
@@ -51,7 +51,7 @@ architecture alu of aluIO is
 	-------------------------------------------------------------------------
 	---- prodcedure to do  subtraction of two n bit inputs
 	procedure sub(signal in1,in2 : in std_logic_vector(s-1 downto 0);
-				   signal sign : in std_logic;
+				   signal xsign : in std_logic;
 				   signal oput : out std_logic_vector(s-1 downto 0)) is
 	begin
 		if xsign = '0'then 	  --- unsigned subtraction
@@ -62,12 +62,10 @@ architecture alu of aluIO is
 	end procedure;
 	---------------------------------------------------------------------------
 begin 	   
-	process(input1,input2)
-	begin
-		if rising_edge(clk)	then
+--	process(insReg)
+--	begin
 --			mult(input1,input2,xsign,output); 
 --			add(input1,input2,xsign,output);
 --			sub(input1,input2,xsign,output);
-		end if;
-	end process;	  
+--	end process;	  
 end architecture alu;
