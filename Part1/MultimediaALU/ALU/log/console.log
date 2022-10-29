@@ -1,1140 +1,486 @@
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "multiplication"
-# Compile Architecture "multAlu" of Entity "multiplication"
-# Compile Entity "addition"
-# Compile Architecture "addAlu" of Entity "addition"
-# Error: COMP96_0078: ALU.vhd : (52, 53): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (52, 53): Cannot find object declaration.
-# Error: COMP96_0094: ALU.vhd : (52, 53): Locally static expression is required in the range definition.
-# Error: COMP96_0078: ALU.vhd : (54, 43): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (54, 43): Cannot find object declaration.
-# Error: COMP96_0094: ALU.vhd : (54, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: ALU.vhd : (57, 66): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (57, 66): Cannot find object declaration.
-# Error: COMP96_0104: ALU.vhd : (57, 66): Undefined type of expression.
-# Error: COMP96_0078: ALU.vhd : (59, 64): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (59, 64): Cannot find object declaration.
-# Error: COMP96_0093: ALU.vhd : (59, 36): The type of a parameter in a subprogram call does not match to a formal parameter of the "ieee.NUMERIC_STD.RESIZE(ARG : UNSIGNED; NEW_SIZE : NATURAL) return UNSIGNED" subprogram.
-# Error: COMP96_0104: ALU.vhd : (59, 64): Undefined type of expression.
-# Compile Entity "subtraction"
-# Compile Architecture "subAlu" of Entity "subtraction"
-# Error: COMP96_0078: ALU.vhd : (86, 53): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (86, 53): Cannot find object declaration.
-# Error: COMP96_0094: ALU.vhd : (86, 53): Locally static expression is required in the range definition.
-# Error: COMP96_0078: ALU.vhd : (88, 43): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (88, 43): Cannot find object declaration.
-# Error: COMP96_0094: ALU.vhd : (88, 43): Locally static expression is required in the range definition.
-# Error: COMP96_0078: ALU.vhd : (90, 6): Unknown identifier "xsign".
-# Error: COMP96_0133: ALU.vhd : (90, 6): Cannot find object declaration.
-# Error: COMP96_0077: ALU.vhd : (90, 6): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: ALU.vhd : (91, 66): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (91, 66): Cannot find object declaration.
-# Error: COMP96_0104: ALU.vhd : (91, 66): Undefined type of expression.
-# Error: COMP96_0078: ALU.vhd : (93, 64): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (93, 64): Cannot find object declaration.
-# Error: COMP96_0093: ALU.vhd : (93, 36): The type of a parameter in a subprogram call does not match to a formal parameter of the "ieee.NUMERIC_STD.RESIZE(ARG : UNSIGNED; NEW_SIZE : NATURAL) return UNSIGNED" subprogram.
-# Error: COMP96_0104: ALU.vhd : (93, 64): Undefined type of expression.
-# Error: COMP96_0078: ALU.vhd : (97, 10): Unknown identifier "clk".
-# Error: COMP96_0348: ALU.vhd : (97, 10): Name on sensitivity list must denote a signal.
-# Error: COMP96_0078: ALU.vhd : (99, 18): Unknown identifier "clk".
-# Error: COMP96_0133: ALU.vhd : (99, 18): Cannot find object declaration.
-# Error: COMP96_0104: ALU.vhd : (99, 18): Undefined type of expression.
-# Error: COMP96_0152: ALU.vhd : (99, 18): Formal "s" of class signal must be associated with a signal.
-# Error: COMP96_0078: ALU.vhd : (100, 23): Unknown identifier "xsign".
 # Compile Entity "aluIO"
+# Error: COMP96_0019: ALU.vhd : (14, 2): Keyword 'end' expected.
+# Error: COMP96_0015: ALU.vhd : (14, 2): ';' expected.
+# Error: COMP96_0016: ALU.vhd : (14, 9): Design unit declaration expected.
 # Compile Architecture "alu" of Entity "aluIO"
-# Compile failure 36 Errors 0 Warnings  Analysis time :  47.0 [ms]
+# Error: COMP96_0019: ALU.vhd : (30, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (31, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (32, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (41, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (42, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (43, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (51, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (52, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (53, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (60, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (61, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (62, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (70, 68): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (71, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (72, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (80, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (81, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (82, 15): Identifier or string literal expected.
+# Error: COMP96_0018: ALU.vhd : (85, 65): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (89, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (89, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (91, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (91, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (91, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (91, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (93, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (93, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (97, 2): Keyword 'end' expected.
+# Error: COMP96_0018: ALU.vhd : (97, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (101, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (101, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (103, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (103, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (103, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (103, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (105, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (105, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (108, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (109, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (109, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (206, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (206, 21): Identifier expected.
+# Compile failure 45 Errors 0 Warnings  Analysis time :  0.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "multiplication"
-# Compile Architecture "multAlu" of Entity "multiplication"
-# Compile Entity "addition"
-# Compile Architecture "addAlu" of Entity "addition"
-# Compile Entity "subtraction"
-# Compile Architecture "subAlu" of Entity "subtraction"
-# Error: COMP96_0078: ALU.vhd : (90, 6): Unknown identifier "xsign".
-# Error: COMP96_0133: ALU.vhd : (90, 6): Cannot find object declaration.
-# Error: COMP96_0077: ALU.vhd : (90, 6): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: ALU.vhd : (97, 10): Unknown identifier "clk".
-# Error: COMP96_0348: ALU.vhd : (97, 10): Name on sensitivity list must denote a signal.
-# Error: COMP96_0078: ALU.vhd : (99, 18): Unknown identifier "clk".
-# Error: COMP96_0133: ALU.vhd : (99, 18): Cannot find object declaration.
-# Error: COMP96_0104: ALU.vhd : (99, 18): Undefined type of expression.
-# Error: COMP96_0152: ALU.vhd : (99, 18): Formal "s" of class signal must be associated with a signal.
-# Error: COMP96_0078: ALU.vhd : (100, 23): Unknown identifier "xsign".
 # Compile Entity "aluIO"
+# Error: COMP96_0019: ALU.vhd : (14, 2): Keyword 'end' expected.
+# Error: COMP96_0015: ALU.vhd : (14, 2): ';' expected.
+# Error: COMP96_0016: ALU.vhd : (14, 9): Design unit declaration expected.
 # Compile Architecture "alu" of Entity "aluIO"
-# Compile failure 10 Errors 0 Warnings  Analysis time :  62.0 [ms]
+# Error: COMP96_0019: ALU.vhd : (30, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (31, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (32, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (41, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (42, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (43, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (51, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (52, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (53, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (60, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (61, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (62, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (70, 68): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (71, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (72, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (80, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (81, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (82, 15): Identifier or string literal expected.
+# Error: COMP96_0018: ALU.vhd : (85, 65): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (89, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (89, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (91, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (91, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (91, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (91, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (93, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (93, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (97, 2): Keyword 'end' expected.
+# Error: COMP96_0018: ALU.vhd : (97, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (101, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (101, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (103, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (103, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (103, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (103, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (105, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (105, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (108, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (109, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (109, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (206, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (206, 21): Identifier expected.
+# Compile failure 45 Errors 0 Warnings  Analysis time :  0.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "multiplication"
-# Compile Architecture "multAlu" of Entity "multiplication"
-# Compile Entity "addition"
-# Compile Architecture "addAlu" of Entity "addition"
-# Compile Entity "subtraction"
-# Compile Architecture "subAlu" of Entity "subtraction"
-# Error: COMP96_0415: ALU.vhd : (101, 29): Cannot assign to object "output" of mode "in".
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Compile failure 1 Errors 0 Warnings  Analysis time :  63.0 [ms]
+# Error: COMP96_0019: ALU.vhd : (31, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (32, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (33, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (42, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (43, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (44, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (52, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (53, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (54, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (61, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (62, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (63, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (71, 68): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (72, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (73, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (81, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (82, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (83, 15): Identifier or string literal expected.
+# Error: COMP96_0018: ALU.vhd : (86, 65): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (90, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (90, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (92, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (92, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (92, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (92, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (94, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (94, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (98, 2): Keyword 'end' expected.
+# Error: COMP96_0018: ALU.vhd : (98, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (102, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (102, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (104, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (104, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (104, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (104, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (106, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (106, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (109, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (110, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (110, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (207, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (207, 21): Identifier expected.
+# Compile failure 42 Errors 0 Warnings  Analysis time :  16.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "multiplication"
-# Compile Architecture "multAlu" of Entity "multiplication"
-# Compile Entity "addition"
-# Compile Architecture "addAlu" of Entity "addition"
-# Compile Entity "subtraction"
-# Compile Architecture "subAlu" of Entity "subtraction"
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
+# Error: COMP96_0019: ALU.vhd : (46, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (47, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (48, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (56, 67): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (57, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (58, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (65, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (66, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (67, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (75, 68): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (76, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (77, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (85, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (86, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (87, 15): Identifier or string literal expected.
+# Error: COMP96_0018: ALU.vhd : (90, 65): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (94, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (94, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (96, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (96, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (96, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (96, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (98, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (98, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (102, 2): Keyword 'end' expected.
+# Error: COMP96_0018: ALU.vhd : (102, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (106, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (106, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (108, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (108, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (108, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (108, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (110, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (110, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (113, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (114, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (114, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (211, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (211, 21): Identifier expected.
+# Compile failure 39 Errors 0 Warnings  Analysis time :  16.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "multiplication"
-# Compile Architecture "multAlu" of Entity "multiplication"
-# Compile Entity "addition"
-# Compile Architecture "addAlu" of Entity "addition"
-# Compile Entity "subtraction"
-# Compile Architecture "subAlu" of Entity "subtraction"
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
-# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
-# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0724: ALU-tb.vhd : (20, 3): ',' or ')' expected.
-# Error: COMP96_0724: ALU-tb.vhd : (21, 3): ',' or ')' expected.
-# Error: COMP96_0724: ALU-tb.vhd : (22, 3): ',' or ')' expected.
-# Error: COMP96_0015: ALU-tb.vhd : (34, 1): ';' expected.
-# Error: COMP96_0019: ALU-tb.vhd : (34, 14): Keyword 'end' expected.
-# Compile failure 5 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0015: ALU-tb.vhd : (34, 1): ';' expected.
-# Error: COMP96_0019: ALU-tb.vhd : (34, 14): Keyword 'end' expected.
-# Compile failure 2 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0078: ALU-tb.vhd : (18, 13): Unknown identifier "alu".
-# Error: COMP96_0056: ALU-tb.vhd : (18, 13): Cannot find referenced entity declaration "alu".
-# Error: COMP96_0055: ALU-tb.vhd : (18, 13): Cannot find context item "alu".
-# Compile failure 3 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd $dsn/src/ALU-tb.vhd
+# Error: COMP96_0019: ALU.vhd : (71, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (72, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (73, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (81, 68): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (82, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (83, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (91, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (92, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (93, 15): Identifier or string literal expected.
+# Error: COMP96_0018: ALU.vhd : (96, 65): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (100, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (100, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (102, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (102, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (102, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (102, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (104, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (104, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (108, 2): Keyword 'end' expected.
+# Error: COMP96_0018: ALU.vhd : (108, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (112, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (112, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (114, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (114, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (114, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (114, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (116, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (116, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (119, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (120, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (120, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (217, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (217, 21): Identifier expected.
+# Compile failure 33 Errors 0 Warnings  Analysis time :  15.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Error: COMP96_0010: ALU.vhd : (108, 25): Invalid literal.
-# Compile Entity "multiplication"
-# Compile Architecture "multAlu" of Entity "multiplication"
-# Compile Entity "addition"
-# Error: COMP96_0078: ALU.vhd : (47, 37): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (47, 37): Cannot find object declaration.
-# Error: COMP96_0094: ALU.vhd : (47, 37): Locally static expression is required in the range definition.
-# Error: COMP96_0078: ALU.vhd : (48, 31): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (48, 31): Cannot find object declaration.
-# Error: COMP96_0094: ALU.vhd : (48, 31): Locally static expression is required in the range definition.
-# Compile Architecture "addAlu" of Entity "addition"
-# Compile Entity "subtraction"
-# Compile Architecture "subAlu" of Entity "subtraction"
-# Error: COMP96_0016: ALU.vhd : (108, 25): Design unit declaration expected.
 # Compile Entity "aluIO"
-# Error: COMP96_0078: ALU.vhd : (109, 5): Unknown identifier "ieee".
-# Error: COMP96_0078: ALU.vhd : (110, 5): Unknown identifier "ieee".
-# Error: COMP96_0078: ALU.vhd : (115, 10): Unknown identifier "std_logic".
-# Error: COMP96_0064: ALU.vhd : (115, 10): Unknown type.
-# Error: COMP96_0078: ALU.vhd : (116, 29): Unknown identifier "std_logic_vector".
-# Error: COMP96_0064: ALU.vhd : (116, 29): Unknown type.
-# Error: COMP96_0078: ALU.vhd : (118, 14): Unknown identifier "std_logic_vector".
-# Error: COMP96_0064: ALU.vhd : (118, 14): Unknown type.
 # Compile Architecture "alu" of Entity "aluIO"
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0078: ALU-tb.vhd : (24, 15): Unknown identifier "iR4".
-# Error: COMP96_0078: ALU-tb.vhd : (25, 13): Unknown identifier "oReg".
-# Compile failure 18 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
+# Error: COMP96_0027: ALU.vhd : (28, 51): Discrete range expected.
+# Error: COMP96_0018: ALU.vhd : (29, 19): Identifier expected.
+# Error: COMP96_0329: ALU.vhd : (31, 3): Generate statement must have a label.
+# Error: COMP96_0019: ALU.vhd : (31, 19): Keyword 'generate' expected.
+# Error: COMP96_0019: ALU.vhd : (33, 3): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (34, 4): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (220, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (220, 21): Identifier expected.
+# Compile failure 8 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0122: ALU-tb.vhd : (14, 2): Symbol "iR3" has already been declared in this scope.
-# Error: COMP96_0078: ALU-tb.vhd : (23, 3): Unknown identifier "intsReg3".
-# Error: COMP96_0078: ALU-tb.vhd : (24, 3): Unknown identifier "intsReg4".
-# Error: COMP96_0367: ALU-tb.vhd : (22, 13): Improper array length (25). Expected length is 128.
-# Error: COMP96_0133: ALU-tb.vhd : (23, 3): Cannot find object declaration.
-# Error: COMP96_0112: ALU-tb.vhd : (23, 3): "intsReg3" does not match the formal name.
-# Compile failure 6 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0019: ALU.vhd : (84, 68): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (85, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (86, 15): Identifier or string literal expected.
+# Error: COMP96_0019: ALU.vhd : (94, 72): Keyword 'then' expected.
+# Error: COMP96_0015: ALU.vhd : (95, 7): ';' expected.
+# Error: COMP96_0025: ALU.vhd : (96, 15): Identifier or string literal expected.
+# Error: COMP96_0018: ALU.vhd : (99, 65): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (103, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (103, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (105, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (105, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (105, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (105, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (107, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (107, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (111, 2): Keyword 'end' expected.
+# Error: COMP96_0018: ALU.vhd : (111, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (115, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (115, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (117, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (117, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (117, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (117, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (119, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (119, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (122, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (123, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (123, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (220, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (220, 21): Identifier expected.
+# Compile failure 30 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0078: ALU-tb.vhd : (23, 3): Unknown identifier "intsReg3".
-# Error: COMP96_0078: ALU-tb.vhd : (24, 3): Unknown identifier "intsReg4".
-# Error: COMP96_0133: ALU-tb.vhd : (23, 3): Cannot find object declaration.
-# Error: COMP96_0112: ALU-tb.vhd : (23, 3): "intsReg3" does not match the formal name.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0015: ALU.vhd : (81, 8): ')' expected.
+# Error: COMP96_0015: ALU.vhd : (81, 8): ';' expected.
+# Error: COMP96_0018: ALU.vhd : (81, 25): Identifier expected.
+# Error: COMP96_0018: ALU.vhd : (82, 22): Identifier expected.
+# Error: COMP96_0329: ALU.vhd : (84, 3): Generate statement must have a label.
+# Error: COMP96_0019: ALU.vhd : (84, 19): Keyword 'generate' expected.
+# Error: COMP96_0019: ALU.vhd : (86, 3): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (87, 4): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (223, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (223, 21): Identifier expected.
+# Compile failure 10 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0078: ALU-tb.vhd : (23, 3): Unknown identifier "insReg3".
-# Error: COMP96_0078: ALU-tb.vhd : (24, 3): Unknown identifier "insReg4".
-# Error: COMP96_0133: ALU-tb.vhd : (23, 3): Cannot find object declaration.
-# Error: COMP96_0112: ALU-tb.vhd : (23, 3): "insReg3" does not match the formal name.
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0018: ALU.vhd : (105, 64): Identifier expected.
+# Error: COMP96_0021: ALU.vhd : (106, 7): Signal declaration not allowed in this region.
+# Error: COMP96_0018: ALU.vhd : (114, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (118, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (118, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (120, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (120, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (120, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (120, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (122, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (122, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (125, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (126, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (126, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (223, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (223, 21): Identifier expected.
+# Compile failure 16 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0021: ALU.vhd : (106, 7): Signal declaration not allowed in this region.
+# Error: COMP96_0018: ALU.vhd : (114, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (118, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (118, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (120, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (120, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (120, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (120, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (122, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (122, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (125, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (126, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (126, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (223, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (223, 21): Identifier expected.
+# Compile failure 15 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0018: ALU.vhd : (114, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (118, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (118, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (120, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (120, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (120, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (120, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (122, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (122, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (125, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (126, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (126, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (223, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (223, 21): Identifier expected.
+# Compile failure 14 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0015: ALU.vhd : (113, 2): ';' expected.
+# Error: COMP96_0018: ALU.vhd : (117, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (121, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (121, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (123, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (123, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (123, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (123, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (125, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (125, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (128, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (129, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (129, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (226, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (226, 21): Identifier expected.
+# Compile failure 15 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0018: ALU.vhd : (115, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (119, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (119, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (121, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (121, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (121, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (121, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (123, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (123, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (126, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (127, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (127, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (224, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (224, 21): Identifier expected.
+# Compile failure 14 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0018: ALU.vhd : (115, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (119, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (119, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (121, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (121, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (121, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (121, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (123, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (123, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (126, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (127, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (127, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (224, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (224, 21): Identifier expected.
+# Compile failure 14 Errors 0 Warnings  Analysis time :  16.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0018: ALU.vhd : (115, 63): Identifier expected.
+# Error: COMP96_0015: ALU.vhd : (119, 3): ';' expected.
+# Error: COMP96_0049: ALU.vhd : (119, 35): Syntax error in expression.
+# Error: COMP96_0015: ALU.vhd : (121, 11): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (121, 19): ';' expected.
+# Error: COMP96_0015: ALU.vhd : (121, 27): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (121, 27): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (123, 6): Keyword 'if' expected.
+# Error: COMP96_0015: ALU.vhd : (123, 6): ';' expected.
+# Error: COMP96_0019: ALU.vhd : (126, 1): Keyword 'end' expected.
+# Error: COMP96_0019: ALU.vhd : (127, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (127, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (224, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (224, 21): Identifier expected.
+# Compile failure 14 Errors 0 Warnings  Analysis time :  0.0 [ms]
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
+# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0019: ALU.vhd : (127, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (127, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (224, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (224, 21): Identifier expected.
 # Compile failure 4 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
+acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0078: ALU-tb.vhd : (23, 3): Unknown identifier "insReg3".
-# Error: COMP96_0078: ALU-tb.vhd : (24, 3): Unknown identifier "insReg4".
-# Error: COMP96_0133: ALU-tb.vhd : (23, 3): Cannot find object declaration.
-# Error: COMP96_0112: ALU-tb.vhd : (23, 3): "insReg3" does not match the formal name.
+# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
+# Compile Entity "aluIO"
+# Compile Architecture "alu" of Entity "aluIO"
+# Error: COMP96_0019: ALU.vhd : (127, 2): Keyword 'end' expected.
+# Error: COMP96_0016: ALU.vhd : (127, 9): Design unit declaration expected.
+# Error: COMP96_0019: ALU.vhd : (224, 21): Keyword 'of' expected.
+# Error: COMP96_0018: ALU.vhd : (224, 21): Identifier expected.
 # Compile failure 4 Errors 0 Warnings  Analysis time :  0.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Error: COMP96_0010: ALU.vhd : (115, 25): Invalid literal.
-# Compile Entity "multiplication"
-# Compile Architecture "multAlu" of Entity "multiplication"
-# Compile Entity "addition"
-# Error: COMP96_0078: ALU.vhd : (53, 37): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (53, 37): Cannot find object declaration.
-# Error: COMP96_0094: ALU.vhd : (53, 37): Locally static expression is required in the range definition.
-# Error: COMP96_0078: ALU.vhd : (54, 31): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (54, 31): Cannot find object declaration.
-# Error: COMP96_0094: ALU.vhd : (54, 31): Locally static expression is required in the range definition.
-# Compile Architecture "addAlu" of Entity "addition"
-# Compile Entity "subtraction"
-# Compile Architecture "subAlu" of Entity "subtraction"
-# Error: COMP96_0016: ALU.vhd : (115, 25): Design unit declaration expected.
-# Compile Entity "aluIO"
-# Error: COMP96_0078: ALU.vhd : (116, 5): Unknown identifier "ieee".
-# Error: COMP96_0078: ALU.vhd : (117, 5): Unknown identifier "ieee".
-# Error: COMP96_0078: ALU.vhd : (122, 10): Unknown identifier "std_logic".
-# Error: COMP96_0064: ALU.vhd : (122, 10): Unknown type.
-# Error: COMP96_0078: ALU.vhd : (123, 29): Unknown identifier "std_logic_vector".
-# Error: COMP96_0064: ALU.vhd : (123, 29): Unknown type.
-# Error: COMP96_0078: ALU.vhd : (124, 23): Unknown identifier "std_logic_vector".
-# Error: COMP96_0064: ALU.vhd : (124, 23): Unknown type.
-# Error: COMP96_0078: ALU.vhd : (125, 14): Unknown identifier "std_logic_vector".
-# Error: COMP96_0064: ALU.vhd : (125, 14): Unknown type.
-# Compile Architecture "alu" of Entity "aluIO"
-# Compile failure 18 Errors 0 Warnings  Analysis time :  62.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "multiplication"
-# Compile Architecture "multAlu" of Entity "multiplication"
-# Compile Entity "addition"
-# Error: COMP96_0078: ALU.vhd : (53, 37): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (53, 37): Cannot find object declaration.
-# Error: COMP96_0094: ALU.vhd : (53, 37): Locally static expression is required in the range definition.
-# Error: COMP96_0078: ALU.vhd : (54, 31): Unknown identifier "m".
-# Error: COMP96_0133: ALU.vhd : (54, 31): Cannot find object declaration.
-# Error: COMP96_0094: ALU.vhd : (54, 31): Locally static expression is required in the range definition.
-# Compile Architecture "addAlu" of Entity "addition"
-# Compile Entity "subtraction"
-# Compile Architecture "subAlu" of Entity "subtraction"
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Compile failure 6 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "multiplication"
-# Compile Architecture "multAlu" of Entity "multiplication"
-# Compile Entity "addition"
-# Compile Architecture "addAlu" of Entity "addition"
-# Compile Entity "subtraction"
-# Compile Architecture "subAlu" of Entity "subtraction"
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0015: ALU-tb.vhd : (34, 4): ';' expected.
-# Error: COMP96_0015: ALU-tb.vhd : (34, 9): ';' expected.
-# Error: COMP96_0015: ALU-tb.vhd : (45, 9): ';' expected.
-# Error: COMP96_0015: ALU-tb.vhd : (55, 9): ';' expected.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0015: ALU-tb.vhd : (34, 4): ';' expected.
-# Compile failure 1 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0078: ALU-tb.vhd : (22, 3): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (22, 3): Cannot find object declaration.
-# Error: COMP96_0112: ALU-tb.vhd : (22, 3): "insReg" does not match the formal name.
-# Error: COMP96_0207: ALU-tb.vhd : (18, 2): No actual specified for local port "clk".
-# Error: COMP96_0207: ALU-tb.vhd : (18, 2): No actual specified for local port "insReg3".
-# Error: COMP96_0207: ALU-tb.vhd : (18, 2): No actual specified for local port "insReg4".
-# Error: COMP96_0078: ALU-tb.vhd : (29, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (29, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (30, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (30, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (31, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (31, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (32, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (32, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (33, 11): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (33, 11): Cannot find object declaration.
-# Error: COMP96_0077: ALU-tb.vhd : (33, 11): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: ALU-tb.vhd : (38, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (38, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (39, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (39, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (40, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (40, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (41, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (41, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (42, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (42, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (43, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (43, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (49, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (49, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (50, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (50, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (51, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (51, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (52, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (52, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (53, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (53, 4): Cannot find object declaration.
-# Compile failure 39 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0019: ALU-tb.vhd : (17, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU-tb.vhd : (17, 9): Design unit declaration expected.
-# Compile failure 2 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0078: ALU-tb.vhd : (21, 11): Unknown identifier "insReg".
-# Error: COMP96_0078: ALU-tb.vhd : (28, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (28, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (29, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (29, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (30, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (30, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (31, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (31, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (32, 11): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (32, 11): Cannot find object declaration.
-# Error: COMP96_0077: ALU-tb.vhd : (32, 11): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: ALU-tb.vhd : (37, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (37, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (38, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (38, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (39, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (39, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (40, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (40, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (41, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (41, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (42, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (42, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (48, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (48, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (49, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (49, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (50, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (50, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (51, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (51, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (52, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (52, 4): Cannot find object declaration.
-# Compile failure 34 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0078: ALU-tb.vhd : (21, 3): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (21, 3): Cannot find object declaration.
-# Error: COMP96_0112: ALU-tb.vhd : (21, 3): "insReg" does not match the formal name.
-# Error: COMP96_0207: ALU-tb.vhd : (17, 2): No actual specified for local port "clk".
-# Error: COMP96_0207: ALU-tb.vhd : (17, 2): No actual specified for local port "insReg3".
-# Error: COMP96_0207: ALU-tb.vhd : (17, 2): No actual specified for local port "insReg4".
-# Error: COMP96_0078: ALU-tb.vhd : (28, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (28, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (29, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (29, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (30, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (30, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (31, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (31, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (32, 11): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (32, 11): Cannot find object declaration.
-# Error: COMP96_0077: ALU-tb.vhd : (32, 11): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: ALU-tb.vhd : (37, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (37, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (38, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (38, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (39, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (39, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (40, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (40, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (41, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (41, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (42, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (42, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (48, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (48, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (49, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (49, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (50, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (50, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (51, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (51, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (52, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (52, 4): Cannot find object declaration.
-# Compile failure 39 Errors 0 Warnings  Analysis time :  16.0 [ms]
+# Error: COMP96_0018: ALU.vhd : (126, 18): Identifier expected.
+# Error: COMP96_0018: ALU.vhd : (127, 19): Identifier expected.
+# Error: COMP96_0049: ALU.vhd : (131, 28): Syntax error in expression.
+# Error: COMP96_0049: ALU.vhd : (145, 31): Syntax error in expression.
+# Error: COMP96_0049: ALU.vhd : (159, 31): Syntax error in expression.
+# Error: COMP96_0049: ALU.vhd : (173, 31): Syntax error in expression.
+# Error: COMP96_0049: ALU.vhd : (187, 31): Syntax error in expression.
+# Error: COMP96_0049: ALU.vhd : (196, 31): Syntax error in expression.
+# Error: COMP96_0049: ALU.vhd : (204, 31): Syntax error in expression.
+# Error: COMP96_0049: ALU.vhd : (212, 31): Syntax error in expression.
+# Compile failure 10 Errors 0 Warnings  Analysis time :  15.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0078: ALU.vhd : (28, 6): Unknown identifier "xsign".
-# Error: COMP96_0133: ALU.vhd : (28, 6): Cannot find object declaration.
-# Error: COMP96_0077: ALU.vhd : (28, 6): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: ALU.vhd : (43, 6): Unknown identifier "xsign".
-# Error: COMP96_0133: ALU.vhd : (43, 6): Cannot find object declaration.
-# Error: COMP96_0077: ALU.vhd : (43, 6): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: ALU.vhd : (57, 6): Unknown identifier "xsign".
-# Error: COMP96_0133: ALU.vhd : (57, 6): Cannot find object declaration.
-# Error: COMP96_0077: ALU.vhd : (57, 6): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: ALU.vhd : (65, 10): Unknown identifier "input1".
-# Error: COMP96_0078: ALU.vhd : (65, 17): Unknown identifier "input2".
-# Error: COMP96_0348: ALU.vhd : (65, 10): Name on sensitivity list must denote a signal.
-# Error: COMP96_0348: ALU.vhd : (65, 17): Name on sensitivity list must denote a signal.
-# Error: COMP96_0078: ALU.vhd : (67, 18): Unknown identifier "clk".
-# Error: COMP96_0133: ALU.vhd : (67, 18): Cannot find object declaration.
-# Error: COMP96_0104: ALU.vhd : (67, 18): Undefined type of expression.
-# Error: COMP96_0152: ALU.vhd : (67, 18): Formal "s" of class signal must be associated with a signal.
-# Compile failure 17 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0078: ALU.vhd : (65, 10): Unknown identifier "input1".
-# Error: COMP96_0078: ALU.vhd : (65, 17): Unknown identifier "input2".
-# Error: COMP96_0348: ALU.vhd : (65, 10): Name on sensitivity list must denote a signal.
-# Error: COMP96_0348: ALU.vhd : (65, 17): Name on sensitivity list must denote a signal.
-# Error: COMP96_0078: ALU.vhd : (67, 18): Unknown identifier "clk".
-# Error: COMP96_0133: ALU.vhd : (67, 18): Cannot find object declaration.
-# Error: COMP96_0104: ALU.vhd : (67, 18): Undefined type of expression.
-# Error: COMP96_0152: ALU.vhd : (67, 18): Formal "s" of class signal must be associated with a signal.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0078: ALU.vhd : (65, 10): Unknown identifier "input1".
-# Error: COMP96_0078: ALU.vhd : (65, 17): Unknown identifier "input2".
-# Error: COMP96_0348: ALU.vhd : (65, 10): Name on sensitivity list must denote a signal.
-# Error: COMP96_0348: ALU.vhd : (65, 17): Name on sensitivity list must denote a signal.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Warning: DAGGEN_0002: ALU.vhd : (65, 0): Process has no effect - no sequential statements.
-# Compile success 0 Errors 1 Warnings  Analysis time :  62.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0078: ALU-tb.vhd : (29, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (29, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (30, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (30, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (31, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (31, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (32, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (32, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (33, 11): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (33, 11): Cannot find object declaration.
-# Error: COMP96_0077: ALU-tb.vhd : (33, 11): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: ALU-tb.vhd : (38, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (38, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (39, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (39, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (40, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (40, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (41, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (41, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (42, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (42, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (43, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (43, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (49, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (49, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (50, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (50, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (51, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (51, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (52, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (52, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (53, 4): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (53, 4): Cannot find object declaration.
-# Compile failure 33 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0078: ALU-tb.vhd : (29, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (29, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (30, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (30, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (31, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (31, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (32, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (32, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (33, 11): Unknown identifier "inReg".
-# Error: COMP96_0133: ALU-tb.vhd : (33, 11): Cannot find object declaration.
-# Error: COMP96_0077: ALU-tb.vhd : (33, 11): Undefined type of expression. Expected type 'BOOLEAN'.
-# Error: COMP96_0078: ALU-tb.vhd : (38, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (38, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (39, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (39, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (40, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (40, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (41, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (41, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (42, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (42, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (43, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (43, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (49, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (49, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (50, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (50, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (51, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (51, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (52, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (52, 4): Cannot find object declaration.
-# Error: COMP96_0078: ALU-tb.vhd : (53, 4): Unknown identifier "insReg".
-# Error: COMP96_0133: ALU-tb.vhd : (53, 4): Cannot find object declaration.
-# Compile failure 33 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Warning: COMP96_0367: ALU-tb.vhd : (31, 25): Improper array length (15). Expected length is 16.
-# Warning: COMP96_0367: ALU-tb.vhd : (32, 24): Improper array length (3). Expected length is 6.
-# Warning: COMP96_0367: ALU-tb.vhd : (39, 27): Improper array length (2). Expected length is 3.
-# Warning: COMP96_0367: ALU-tb.vhd : (40, 26): Improper array length (3). Expected length is 5.
-# Warning: COMP96_0367: ALU-tb.vhd : (41, 26): Improper array length (3). Expected length is 5.
-# Warning: COMP96_0367: ALU-tb.vhd : (42, 24): Improper array length (3). Expected length is 5.
-# Warning: COMP96_0367: ALU-tb.vhd : (43, 24): Improper array length (3). Expected length is 6.
-# Warning: COMP96_0367: ALU-tb.vhd : (50, 27): Improper array length (7). Expected length is 8.
-# Warning: COMP96_0367: ALU-tb.vhd : (51, 26): Improper array length (3). Expected length is 5.
-# Warning: COMP96_0367: ALU-tb.vhd : (52, 24): Improper array length (3). Expected length is 5.
-# Warning: COMP96_0367: ALU-tb.vhd : (53, 24): Improper array length (3). Expected length is 5.
-# Compile success 0 Errors 11 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 0 Warnings  Analysis time :  32.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Warning: DAGGEN_0002: ALU.vhd : (65, 0): Process has no effect - no sequential statements.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 1 Warnings  Analysis time :  62.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 0 Warnings  Analysis time :  63.0 [ms]
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# Error: Accelerated Waveform: Simulation database is not connected. Initialize simulation or load simulation database by opening waveform file (AWC, ASDB).
-asim -O5 +access +r +m+aluIO aluIO alu
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# VSIM: Stack memory: 32MB
-# VSIM: Retval memory: 32MB
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5570 kB (elbread=427 elab2=5004 kernel=138 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-# Stimuli: Warning: The stimuli set "StimuliSet1" has been made inactive.
-#  7:49 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-run
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-# VSIM: 5 object(s) traced.
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-run 100 ns
-# KERNEL: stopped at time: 100 ns
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0019: ALU-tb.vhd : (17, 2): Keyword 'begin' expected.
-# Error: COMP96_0016: ALU-tb.vhd : (17, 6): Design unit declaration expected.
-# Compile Entity "aluIO"
-# Error: COMP96_0019: ALU-tb.vhd : (19, 19): Keyword 'is' expected.
-# Error: COMP96_0015: ALU-tb.vhd : (19, 24): '(' expected.
-# Error: COMP96_0028: ALU-tb.vhd : (19, 24): Identifier or keyword expected.
-# Error: COMP96_0015: ALU-tb.vhd : (19, 24): ';' expected.
-# Error: COMP96_0019: ALU-tb.vhd : (19, 27): Keyword 'end' expected.
-# Error: COMP96_0015: ALU-tb.vhd : (19, 27): ';' expected.
-# Error: COMP96_0016: ALU-tb.vhd : (20, 3): Design unit declaration expected.
-# Compile failure 9 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Error: COMP96_0019: ALU-tb.vhd : (17, 2): Keyword 'begin' expected.
-# Error: COMP96_0016: ALU-tb.vhd : (17, 6): Design unit declaration expected.
-# Compile Entity "aluIO"
-# Error: COMP96_0019: ALU-tb.vhd : (19, 19): Keyword 'is' expected.
-# Error: COMP96_0015: ALU-tb.vhd : (19, 24): '(' expected.
-# Error: COMP96_0028: ALU-tb.vhd : (19, 24): Identifier or keyword expected.
-# Error: COMP96_0015: ALU-tb.vhd : (19, 24): ';' expected.
-# Error: COMP96_0019: ALU-tb.vhd : (19, 27): Keyword 'end' expected.
-# Error: COMP96_0015: ALU-tb.vhd : (19, 27): ';' expected.
-# Error: COMP96_0016: ALU-tb.vhd : (20, 3): Design unit declaration expected.
-# Compile failure 9 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5570 kB (elbread=427 elab2=5004 kernel=138 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  7:54 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run 100 ns
-# KERNEL: stopped at time: 100 ns
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5570 kB (elbread=427 elab2=5004 kernel=138 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  7:54 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-run
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-asim -O5 +access +r +m+alu_tb alu_tb testbench
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# VSIM: Stack memory: 32MB
-# VSIM: Retval memory: 32MB
-# 
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5574 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  7:55 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# VSIM: 5 object(s) traced.
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run
-# EXECUTION:: ERROR  : Load failed
-# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /alu_tb,  Process: line__25.
-# RUNTIME: Fatal Error: RUNTIME_0047 ALU-tb.vhd (32): Index 32 out of range (24 downto 0).
-# KERNEL: Time: 10 ns,  Iteration: 0,  Instance: /alu_tb,  Process: line__25.
-# KERNEL: Stopped at time 10 ns + 0.
-# VSIM: Error: Fatal error occurred during simulation.
-run 101 ns
-run
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5574 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  7:56 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run 10 ns
-# EXECUTION:: ERROR  : Load failed
-# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /alu_tb,  Process: line__25.
-# RUNTIME: Fatal Error: RUNTIME_0047 ALU-tb.vhd (32): Index 32 out of range (24 downto 0).
-# KERNEL: Time: 10 ns,  Iteration: 0,  Instance: /alu_tb,  Process: line__25.
-# KERNEL: stopped at time: 10 ns
-# VSIM: Error: Fatal error occurred during simulation.
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 0 Warnings  Analysis time :  32.0 [ms]
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5574 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  7:58 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run @10ns
-# EXECUTION:: ERROR  : Load failed
-# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /alu_tb,  Process: line__25.
-# RUNTIME: Fatal Error: RUNTIME_0047 ALU-tb.vhd (32): Index 31 out of range (24 downto 0).
-# KERNEL: Time: 10 ns,  Iteration: 0,  Instance: /alu_tb,  Process: line__25.
-# KERNEL: stopped at time: 10 ns
-# VSIM: Error: Fatal error occurred during simulation.
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5574 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  7:58 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run @10ns
-# EXECUTION:: FAILURE: Load failed
-# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /alu_tb,  Process: line__25.
-# KERNEL: Stopped at time 0 ps + 0.
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5574 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  7:59 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run @10ns
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 0 Warnings  Analysis time :  32.0 [ms]
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5574 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  7:59 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run @10ns
-# EXECUTION:: FAILURE: Load failed
-# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /alu_tb,  Process: line__25.
-# KERNEL: Stopped at time 0 ps + 0.
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5574 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  7:59 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run 10 ns
-# EXECUTION:: FAILURE: Load failed
-# EXECUTION:: Time: 0 ps,  Iteration: 0,  Instance: /alu_tb,  Process: line__25.
-# KERNEL: Stopped at time 0 ps + 0.
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 0 Warnings  Analysis time :  32.0 [ms]
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5573 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  8:02 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run @10ns
-# KERNEL: stopped at time: 10 ns
-run @20ns
-# KERNEL: stopped at time: 20 ns
-run 10 ns
-# KERNEL: stopped at time: 30 ns
-run
-endsim
-# KERNEL: stopped at time: 16141640 ns
-# VSIM: Simulation has finished.
-asim -O5 +access +r +m+alu_tb alu_tb testbench
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# VSIM: Stack memory: 32MB
-# VSIM: Retval memory: 32MB
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5573 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  8:03 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5573 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  8:03 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run
-endsim
-# KERNEL: stopped at time: 51501610 ns
-# VSIM: Simulation has finished.
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU-tb.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd
-# Compile Entity "alu_tb"
-# Compile Architecture "testbench" of Entity "alu_tb"
-# Compile success 0 Errors 0 Warnings  Analysis time :  31.0 [ms]
-asim -O5 +access +r +m+alu_tb alu_tb testbench
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# VSIM: Stack memory: 32MB
-# VSIM: Retval memory: 32MB
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5573 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  8:05 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5573 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  8:05 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run 10 ns
-# KERNEL: stopped at time: 10 ns
-restart
-# ELBREAD: Elaboration process.
-# ELBREAD: Elaboration time 0.0 [s].
-# 
-# KERNEL: Main thread initiated.
-# KERNEL: Kernel process initialization phase.
-# ELAB2: Elaboration final pass...
-# ELAB2: Create instances ...
-# KERNEL: Time resolution set to 1ps.
-# ELAB2: Create instances complete.
-# SLP: Started
-# SLP: Elaboration phase ...
-# SLP: Elaboration phase ... skipped, nothing to simulate in SLP mode : 0.0 [s]
-# SLP: Finished : 0.0 [s]
-# ELAB2: Elaboration final pass complete - time: 0.0 [s].
-# KERNEL: Warning: You are using the Active-HDL Student Edition. The performance of simulation is running at a reduced rate.
-# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
-# KERNEL: Kernel process initialization done.
-# Allocation: Simulator allocated 5573 kB (elbread=427 elab2=5007 kernel=139 sdf=0)
-# KERNEL: ASDB file was created in location C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\wave.asdb
-#  8:05 AM, Friday, October 28, 2022
-#  Simulation has been initialized
-# Waveform file 'untitled.awc' connected to 'C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/wave.asdb'.
-run
-# KERNEL: Simulation has finished. There are no more test vectors to simulate.
+# Error: COMP96_0

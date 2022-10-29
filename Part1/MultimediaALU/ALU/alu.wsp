@@ -2,21 +2,17 @@
 Built-in symbols=0
 ALU=0
 [COMPILESTATUS|.\src\ALU.vhd]
-FileTimeLow=1017981285
-FileTimeHigh=30993091
-Status=Compiled
+FileTimeLow=2050421492
+FileTimeHigh=30993205
+Status=Modified
 [General]
 CurrentVersion=103
 [CACHEDOC|Aldec.Project.Generic.7|.\ALU\ALU.adf|]
 Path=/alu_tb
 [COMPILESTATUS|.\src\ALU-tb.vhd]
-FileTimeLow=2947002087
-FileTimeHigh=30992510
-Status=Error
-[COMPILESTATUS|.\src\ALU-tb.vhd]
 FileTimeLow=3733187763
 FileTimeHigh=30993093
-Status=Modified
+Status=Compiled
 [CACHESIMPLE|Aldec.DebuggerPlugIn.DebuggerPlugIn.7]
 WI0=/addition/input2
 [OPENDOC|Aldec.Hde.HdePlugIn.7|.\ALU\src/ALU.vhd|]
