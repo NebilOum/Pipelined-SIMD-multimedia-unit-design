@@ -221,8 +221,9 @@ begin
 			sub_long(signOp,inReg1(127 downto 64),Tempout_L,outReg(127 downto 64));
 		end if;	
 		
---		if(insReg(24) = "0") then
---		end if;
+		if(insReg(24) = "0") then
+				load(instruc,oput);
+		end if;
 --
 --		if(insReg(24 downto 23) = "11") then
 --		end if;
