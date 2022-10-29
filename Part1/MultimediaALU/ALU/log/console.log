@@ -2,485 +2,415 @@ acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
 # Compile Entity "aluIO"
-# Error: COMP96_0019: ALU.vhd : (14, 2): Keyword 'end' expected.
-# Error: COMP96_0015: ALU.vhd : (14, 2): ';' expected.
-# Error: COMP96_0016: ALU.vhd : (14, 9): Design unit declaration expected.
 # Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0019: ALU.vhd : (30, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (31, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (32, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (41, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (42, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (43, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (51, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (52, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (53, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (60, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (61, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (62, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (70, 68): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (71, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (72, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (80, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (81, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (82, 15): Identifier or string literal expected.
-# Error: COMP96_0018: ALU.vhd : (85, 65): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (89, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (89, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (91, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (91, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (91, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (91, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (93, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (93, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (97, 2): Keyword 'end' expected.
-# Error: COMP96_0018: ALU.vhd : (97, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (101, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (101, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (103, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (103, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (103, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (103, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (105, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (105, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (108, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (109, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (109, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (206, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (206, 21): Identifier expected.
-# Compile failure 45 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Error: COMP96_0019: ALU.vhd : (14, 2): Keyword 'end' expected.
-# Error: COMP96_0015: ALU.vhd : (14, 2): ';' expected.
-# Error: COMP96_0016: ALU.vhd : (14, 9): Design unit declaration expected.
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0019: ALU.vhd : (30, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (31, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (32, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (41, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (42, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (43, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (51, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (52, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (53, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (60, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (61, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (62, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (70, 68): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (71, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (72, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (80, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (81, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (82, 15): Identifier or string literal expected.
-# Error: COMP96_0018: ALU.vhd : (85, 65): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (89, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (89, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (91, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (91, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (91, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (91, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (93, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (93, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (97, 2): Keyword 'end' expected.
-# Error: COMP96_0018: ALU.vhd : (97, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (101, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (101, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (103, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (103, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (103, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (103, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (105, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (105, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (108, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (109, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (109, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (206, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (206, 21): Identifier expected.
-# Compile failure 45 Errors 0 Warnings  Analysis time :  0.0 [ms]
+# Error: COMP96_0152: ALU.vhd : (134, 9): Formal "xsign" of class signal must be associated with a signal.
+# Error: COMP96_0273: ALU.vhd : (135, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (137, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0152: ALU.vhd : (137, 9): Formal "xsign" of class signal must be associated with a signal.
+# Error: COMP96_0273: ALU.vhd : (138, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (140, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (141, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (143, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (144, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (146, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (146, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (148, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (149, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (151, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (152, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (154, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (155, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (157, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (158, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (160, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (160, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (162, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (163, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (165, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (166, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (168, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (169, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (171, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (172, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (174, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (174, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (176, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (177, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (179, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (180, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (182, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (183, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (185, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (186, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (188, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (188, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (190, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (191, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (191, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (193, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (194, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (194, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (197, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (197, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (199, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (200, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (200, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (202, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (203, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (203, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (205, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (205, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (207, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (208, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (208, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (210, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (211, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (211, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (213, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (213, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (214, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (215, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (215, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (217, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (218, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (218, 4): Cannot find "sub_long" procedure declaration.
+# Compile failure 71 Errors 0 Warnings  Analysis time :  0.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0019: ALU.vhd : (31, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (32, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (33, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (42, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (43, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (44, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (52, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (53, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (54, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (61, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (62, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (63, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (71, 68): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (72, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (73, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (81, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (82, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (83, 15): Identifier or string literal expected.
-# Error: COMP96_0018: ALU.vhd : (86, 65): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (90, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (90, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (92, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (92, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (92, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (92, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (94, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (94, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (98, 2): Keyword 'end' expected.
-# Error: COMP96_0018: ALU.vhd : (98, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (102, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (102, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (104, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (104, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (104, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (104, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (106, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (106, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (109, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (110, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (110, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (207, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (207, 21): Identifier expected.
-# Compile failure 42 Errors 0 Warnings  Analysis time :  16.0 [ms]
+# Error: COMP96_0152: ALU.vhd : (135, 9): Formal "xsign" of class signal must be associated with a signal.
+# Error: COMP96_0273: ALU.vhd : (136, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (138, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0152: ALU.vhd : (138, 9): Formal "xsign" of class signal must be associated with a signal.
+# Error: COMP96_0273: ALU.vhd : (139, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (141, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (142, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (144, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (145, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (147, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (147, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (149, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (150, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (152, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (153, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (155, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (156, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (158, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (159, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (161, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (161, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (163, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (164, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (166, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (167, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (169, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (170, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (172, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (173, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (175, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (175, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (177, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (178, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (180, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (181, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (183, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (184, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (186, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (187, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (189, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (189, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (191, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (192, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (192, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (194, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (195, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (195, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (198, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (198, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (200, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (201, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (201, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (203, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (204, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (204, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (206, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (206, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (208, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (209, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (209, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (211, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (212, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (212, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (214, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (214, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (215, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (216, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (216, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (218, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (219, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (219, 4): Cannot find "sub_long" procedure declaration.
+# Compile failure 71 Errors 0 Warnings  Analysis time :  16.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0019: ALU.vhd : (46, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (47, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (48, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (56, 67): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (57, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (58, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (65, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (66, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (67, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (75, 68): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (76, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (77, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (85, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (86, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (87, 15): Identifier or string literal expected.
-# Error: COMP96_0018: ALU.vhd : (90, 65): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (94, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (94, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (96, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (96, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (96, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (96, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (98, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (98, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (102, 2): Keyword 'end' expected.
-# Error: COMP96_0018: ALU.vhd : (102, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (106, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (106, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (108, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (108, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (108, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (108, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (110, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (110, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (113, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (114, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (114, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (211, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (211, 21): Identifier expected.
-# Compile failure 39 Errors 0 Warnings  Analysis time :  16.0 [ms]
+# Error: COMP96_0273: ALU.vhd : (136, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (138, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0152: ALU.vhd : (138, 9): Formal "xsign" of class signal must be associated with a signal.
+# Error: COMP96_0273: ALU.vhd : (139, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (141, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (142, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (144, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (145, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (147, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (147, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (149, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (150, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (152, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (153, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (155, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (156, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (158, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (159, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (161, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (161, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (163, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (164, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (166, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (167, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (169, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (170, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (172, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (173, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (175, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (175, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (177, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (178, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (180, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (181, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (183, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (184, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (186, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (187, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (189, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (189, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (191, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (192, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (192, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (194, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (195, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (195, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (198, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (198, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (200, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (201, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (201, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (203, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (204, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (204, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (206, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (206, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (208, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (209, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (209, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (211, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (212, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (212, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (214, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (214, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (215, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (216, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (216, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (218, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (219, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (219, 4): Cannot find "sub_long" procedure declaration.
+# Compile failure 70 Errors 0 Warnings  Analysis time :  0.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0019: ALU.vhd : (71, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (72, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (73, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (81, 68): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (82, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (83, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (91, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (92, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (93, 15): Identifier or string literal expected.
-# Error: COMP96_0018: ALU.vhd : (96, 65): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (100, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (100, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (102, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (102, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (102, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (102, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (104, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (104, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (108, 2): Keyword 'end' expected.
-# Error: COMP96_0018: ALU.vhd : (108, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (112, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (112, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (114, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (114, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (114, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (114, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (116, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (116, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (119, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (120, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (120, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (217, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (217, 21): Identifier expected.
-# Compile failure 33 Errors 0 Warnings  Analysis time :  15.0 [ms]
+# Error: COMP96_0756: ALU.vhd : (138, 4): Subprogram call is ambiguous. At least two matching subprograms "add(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" and "add(xsign : std_logic; in1 : std_logic_vector(a - 1 downto 0); in2 : std_logic_vector(a - 1 downto 0); oput : std_logic_vector(a - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (141, 4): Subprogram call is ambiguous. At least two matching subprograms "add(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" and "add(xsign : std_logic; in1 : std_logic_vector(a - 1 downto 0); in2 : std_logic_vector(a - 1 downto 0); oput : std_logic_vector(a - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (144, 4): Subprogram call is ambiguous. At least two matching subprograms "add(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" and "add(xsign : std_logic; in1 : std_logic_vector(a - 1 downto 0); in2 : std_logic_vector(a - 1 downto 0); oput : std_logic_vector(a - 1 downto 0))" were detected.
+# Error: COMP96_0078: ALU.vhd : (147, 8): Unknown identifier "isSignedTempout".
+# Error: COMP96_0121: ALU.vhd : (149, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (149, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (151, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (152, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (154, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (155, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (157, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (158, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (160, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (161, 4): Cannot find procedure "add" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (163, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (163, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (165, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (166, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (168, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (169, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (171, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (172, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (174, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (175, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (177, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (177, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (179, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (180, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (182, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (183, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (185, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (186, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0093: ALU.vhd : (188, 9): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult(xsign : std_logic; in1 : std_logic_vector(m - 1 downto 0); in2 : std_logic_vector(m - 1 downto 0); oput : std_logic_vector(m - 1 downto 0))" subprogram.
+# Error: COMP96_0273: ALU.vhd : (189, 4): Cannot find procedure "sub" for these actuals.
+# Error: COMP96_0121: ALU.vhd : (191, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (191, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (193, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (194, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (194, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (196, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (197, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (197, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (200, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (200, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (202, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (203, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (203, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (205, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (206, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (206, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (208, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (208, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (210, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (211, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (211, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (213, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (214, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (214, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (216, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (216, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0093: ALU.vhd : (217, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (218, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (218, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0093: ALU.vhd : (220, 14): The type of a parameter in a subprogram call does not match to a formal parameter of the "mult_long(xsign : std_logic; in1 : std_logic_vector(m_long - 1 downto 0); in2 : std_logic_vector(m_long - 1 downto 0); oput : std_logic_vector(m_long - 1 downto 0))" subprogram.
+# Error: COMP96_0078: ALU.vhd : (221, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (221, 4): Cannot find "sub_long" procedure declaration.
+# Compile failure 66 Errors 0 Warnings  Analysis time :  16.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0027: ALU.vhd : (28, 51): Discrete range expected.
-# Error: COMP96_0018: ALU.vhd : (29, 19): Identifier expected.
-# Error: COMP96_0329: ALU.vhd : (31, 3): Generate statement must have a label.
-# Error: COMP96_0019: ALU.vhd : (31, 19): Keyword 'generate' expected.
-# Error: COMP96_0019: ALU.vhd : (33, 3): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (34, 4): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (220, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (220, 21): Identifier expected.
-# Compile failure 8 Errors 0 Warnings  Analysis time :  16.0 [ms]
+# Error: COMP96_0756: ALU.vhd : (138, 4): Subprogram call is ambiguous. At least two matching subprograms "add(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" and "add(xsign : std_logic; in1 : std_logic_vector(a - 1 downto 0); in2 : std_logic_vector(a - 1 downto 0); oput : std_logic_vector(a - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (141, 4): Subprogram call is ambiguous. At least two matching subprograms "add(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" and "add(xsign : std_logic; in1 : std_logic_vector(a - 1 downto 0); in2 : std_logic_vector(a - 1 downto 0); oput : std_logic_vector(a - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (144, 4): Subprogram call is ambiguous. At least two matching subprograms "add(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" and "add(xsign : std_logic; in1 : std_logic_vector(a - 1 downto 0); in2 : std_logic_vector(a - 1 downto 0); oput : std_logic_vector(a - 1 downto 0))" were detected.
+# Error: COMP96_0078: ALU.vhd : (147, 8): Unknown identifier "signOpTempout".
+# Error: COMP96_0121: ALU.vhd : (149, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (149, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0756: ALU.vhd : (152, 4): Subprogram call is ambiguous. At least two matching subprograms "add(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" and "add(xsign : std_logic; in1 : std_logic_vector(a - 1 downto 0); in2 : std_logic_vector(a - 1 downto 0); oput : std_logic_vector(a - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (155, 4): Subprogram call is ambiguous. At least two matching subprograms "add(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" and "add(xsign : std_logic; in1 : std_logic_vector(a - 1 downto 0); in2 : std_logic_vector(a - 1 downto 0); oput : std_logic_vector(a - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (158, 4): Subprogram call is ambiguous. At least two matching subprograms "add(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" and "add(xsign : std_logic; in1 : std_logic_vector(a - 1 downto 0); in2 : std_logic_vector(a - 1 downto 0); oput : std_logic_vector(a - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (161, 4): Subprogram call is ambiguous. At least two matching subprograms "add(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" and "add(xsign : std_logic; in1 : std_logic_vector(a - 1 downto 0); in2 : std_logic_vector(a - 1 downto 0); oput : std_logic_vector(a - 1 downto 0))" were detected.
+# Error: COMP96_0121: ALU.vhd : (163, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (163, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0756: ALU.vhd : (166, 4): Subprogram call is ambiguous. At least two matching subprograms "sub(xsign : std_logic; in1 : std_logic_vector(s_long - 1 downto 0); in2 : std_logic_vector(s_long - 1 downto 0); oput : std_logic_vector(s_long - 1 downto 0))" and "sub(xsign : std_logic; in1 : std_logic_vector(s - 1 downto 0); in2 : std_logic_vector(s - 1 downto 0); oput : std_logic_vector(s - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (169, 4): Subprogram call is ambiguous. At least two matching subprograms "sub(xsign : std_logic; in1 : std_logic_vector(s_long - 1 downto 0); in2 : std_logic_vector(s_long - 1 downto 0); oput : std_logic_vector(s_long - 1 downto 0))" and "sub(xsign : std_logic; in1 : std_logic_vector(s - 1 downto 0); in2 : std_logic_vector(s - 1 downto 0); oput : std_logic_vector(s - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (172, 4): Subprogram call is ambiguous. At least two matching subprograms "sub(xsign : std_logic; in1 : std_logic_vector(s_long - 1 downto 0); in2 : std_logic_vector(s_long - 1 downto 0); oput : std_logic_vector(s_long - 1 downto 0))" and "sub(xsign : std_logic; in1 : std_logic_vector(s - 1 downto 0); in2 : std_logic_vector(s - 1 downto 0); oput : std_logic_vector(s - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (175, 4): Subprogram call is ambiguous. At least two matching subprograms "sub(xsign : std_logic; in1 : std_logic_vector(s_long - 1 downto 0); in2 : std_logic_vector(s_long - 1 downto 0); oput : std_logic_vector(s_long - 1 downto 0))" and "sub(xsign : std_logic; in1 : std_logic_vector(s - 1 downto 0); in2 : std_logic_vector(s - 1 downto 0); oput : std_logic_vector(s - 1 downto 0))" were detected.
+# Error: COMP96_0121: ALU.vhd : (177, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (177, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0756: ALU.vhd : (180, 4): Subprogram call is ambiguous. At least two matching subprograms "sub(xsign : std_logic; in1 : std_logic_vector(s_long - 1 downto 0); in2 : std_logic_vector(s_long - 1 downto 0); oput : std_logic_vector(s_long - 1 downto 0))" and "sub(xsign : std_logic; in1 : std_logic_vector(s - 1 downto 0); in2 : std_logic_vector(s - 1 downto 0); oput : std_logic_vector(s - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (183, 4): Subprogram call is ambiguous. At least two matching subprograms "sub(xsign : std_logic; in1 : std_logic_vector(s_long - 1 downto 0); in2 : std_logic_vector(s_long - 1 downto 0); oput : std_logic_vector(s_long - 1 downto 0))" and "sub(xsign : std_logic; in1 : std_logic_vector(s - 1 downto 0); in2 : std_logic_vector(s - 1 downto 0); oput : std_logic_vector(s - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (186, 4): Subprogram call is ambiguous. At least two matching subprograms "sub(xsign : std_logic; in1 : std_logic_vector(s_long - 1 downto 0); in2 : std_logic_vector(s_long - 1 downto 0); oput : std_logic_vector(s_long - 1 downto 0))" and "sub(xsign : std_logic; in1 : std_logic_vector(s - 1 downto 0); in2 : std_logic_vector(s - 1 downto 0); oput : std_logic_vector(s - 1 downto 0))" were detected.
+# Error: COMP96_0756: ALU.vhd : (189, 4): Subprogram call is ambiguous. At least two matching subprograms "sub(xsign : std_logic; in1 : std_logic_vector(s_long - 1 downto 0); in2 : std_logic_vector(s_long - 1 downto 0); oput : std_logic_vector(s_long - 1 downto 0))" and "sub(xsign : std_logic; in1 : std_logic_vector(s - 1 downto 0); in2 : std_logic_vector(s - 1 downto 0); oput : std_logic_vector(s - 1 downto 0))" were detected.
+# Error: COMP96_0121: ALU.vhd : (191, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (191, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: ALU.vhd : (194, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (194, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0078: ALU.vhd : (197, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (197, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (200, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (200, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: ALU.vhd : (203, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (203, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0078: ALU.vhd : (206, 4): Unknown identifier "add_long".
+# Error: COMP96_0066: ALU.vhd : (206, 4): Cannot find "add_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (208, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (208, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: ALU.vhd : (211, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (211, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0078: ALU.vhd : (214, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (214, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0121: ALU.vhd : (216, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (216, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0078: ALU.vhd : (218, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (218, 4): Cannot find "sub_long" procedure declaration.
+# Error: COMP96_0078: ALU.vhd : (221, 4): Unknown identifier "sub_long".
+# Error: COMP96_0066: ALU.vhd : (221, 4): Cannot find "sub_long" procedure declaration.
+# Compile failure 46 Errors 0 Warnings  Analysis time :  16.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0019: ALU.vhd : (84, 68): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (85, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (86, 15): Identifier or string literal expected.
-# Error: COMP96_0019: ALU.vhd : (94, 72): Keyword 'then' expected.
-# Error: COMP96_0015: ALU.vhd : (95, 7): ';' expected.
-# Error: COMP96_0025: ALU.vhd : (96, 15): Identifier or string literal expected.
-# Error: COMP96_0018: ALU.vhd : (99, 65): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (103, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (103, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (105, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (105, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (105, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (105, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (107, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (107, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (111, 2): Keyword 'end' expected.
-# Error: COMP96_0018: ALU.vhd : (111, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (115, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (115, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (117, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (117, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (117, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (117, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (119, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (119, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (122, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (123, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (123, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (220, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (220, 21): Identifier expected.
-# Compile failure 30 Errors 0 Warnings  Analysis time :  16.0 [ms]
+# Error: COMP96_0078: ALU.vhd : (147, 8): Unknown identifier "signOpTempout".
+# Error: COMP96_0121: ALU.vhd : (149, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (149, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0121: ALU.vhd : (163, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (163, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0121: ALU.vhd : (177, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (177, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0121: ALU.vhd : (191, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (191, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0393: ALU.vhd : (197, 45): Cannot read output : "outReg".
+# Error: COMP96_0093: ALU.vhd : (197, 13): The type of a parameter in a subprogram call does not match to a formal parameter of the "add_long(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" subprogram.
+# Error: COMP96_0121: ALU.vhd : (200, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (200, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0121: ALU.vhd : (208, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (208, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0121: ALU.vhd : (216, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (216, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Compile failure 17 Errors 0 Warnings  Analysis time :  15.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0015: ALU.vhd : (81, 8): ')' expected.
-# Error: COMP96_0015: ALU.vhd : (81, 8): ';' expected.
-# Error: COMP96_0018: ALU.vhd : (81, 25): Identifier expected.
-# Error: COMP96_0018: ALU.vhd : (82, 22): Identifier expected.
-# Error: COMP96_0329: ALU.vhd : (84, 3): Generate statement must have a label.
-# Error: COMP96_0019: ALU.vhd : (84, 19): Keyword 'generate' expected.
-# Error: COMP96_0019: ALU.vhd : (86, 3): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (87, 4): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (223, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (223, 21): Identifier expected.
-# Compile failure 10 Errors 0 Warnings  Analysis time :  0.0 [ms]
+# Error: COMP96_0121: ALU.vhd : (149, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (149, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0121: ALU.vhd : (163, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (163, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0121: ALU.vhd : (177, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (177, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0121: ALU.vhd : (191, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (191, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0393: ALU.vhd : (197, 45): Cannot read output : "outReg".
+# Error: COMP96_0093: ALU.vhd : (197, 13): The type of a parameter in a subprogram call does not match to a formal parameter of the "add_long(xsign : std_logic; in1 : std_logic_vector(a_long - 1 downto 0); in2 : std_logic_vector(a_long - 1 downto 0); oput : std_logic_vector(a_long - 1 downto 0))" subprogram.
+# Error: COMP96_0121: ALU.vhd : (200, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (200, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0121: ALU.vhd : (208, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (208, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Error: COMP96_0121: ALU.vhd : (216, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (216, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Compile failure 16 Errors 0 Warnings  Analysis time :  15.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0018: ALU.vhd : (105, 64): Identifier expected.
-# Error: COMP96_0021: ALU.vhd : (106, 7): Signal declaration not allowed in this region.
-# Error: COMP96_0018: ALU.vhd : (114, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (118, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (118, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (120, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (120, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (120, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (120, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (122, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (122, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (125, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (126, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (126, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (223, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (223, 21): Identifier expected.
-# Compile failure 16 Errors 0 Warnings  Analysis time :  0.0 [ms]
+# Error: COMP96_0121: ALU.vhd : (191, 16): The type bounds of this range are not compatible.
+# Error: COMP96_0077: ALU.vhd : (191, 9): Undefined type of expression. Expected type 'BOOLEAN'.
+# Compile failure 2 Errors 0 Warnings  Analysis time :  16.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
 # File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
 # Compile Entity "aluIO"
 # Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0021: ALU.vhd : (106, 7): Signal declaration not allowed in this region.
-# Error: COMP96_0018: ALU.vhd : (114, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (118, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (118, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (120, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (120, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (120, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (120, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (122, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (122, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (125, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (126, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (126, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (223, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (223, 21): Identifier expected.
-# Compile failure 15 Errors 0 Warnings  Analysis time :  0.0 [ms]
+# Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]
 acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
 # Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0018: ALU.vhd : (114, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (118, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (118, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (120, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (120, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (120, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (120, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (122, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (122, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (125, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (126, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (126, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (223, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (223, 21): Identifier expected.
-# Compile failure 14 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0015: ALU.vhd : (113, 2): ';' expected.
-# Error: COMP96_0018: ALU.vhd : (117, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (121, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (121, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (123, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (123, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (123, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (123, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (125, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (125, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (128, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (129, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (129, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (226, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (226, 21): Identifier expected.
-# Compile failure 15 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0018: ALU.vhd : (115, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (119, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (119, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (121, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (121, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (121, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (121, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (123, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (123, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (126, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (127, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (127, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (224, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (224, 21): Identifier expected.
-# Compile failure 14 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0018: ALU.vhd : (115, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (119, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (119, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (121, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (121, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (121, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (121, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (123, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (123, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (126, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (127, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (127, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (224, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (224, 21): Identifier expected.
-# Compile failure 14 Errors 0 Warnings  Analysis time :  16.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0018: ALU.vhd : (115, 63): Identifier expected.
-# Error: COMP96_0015: ALU.vhd : (119, 3): ';' expected.
-# Error: COMP96_0049: ALU.vhd : (119, 35): Syntax error in expression.
-# Error: COMP96_0015: ALU.vhd : (121, 11): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (121, 19): ';' expected.
-# Error: COMP96_0015: ALU.vhd : (121, 27): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (121, 27): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (123, 6): Keyword 'if' expected.
-# Error: COMP96_0015: ALU.vhd : (123, 6): ';' expected.
-# Error: COMP96_0019: ALU.vhd : (126, 1): Keyword 'end' expected.
-# Error: COMP96_0019: ALU.vhd : (127, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (127, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (224, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (224, 21): Identifier expected.
-# Compile failure 14 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0019: ALU.vhd : (127, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (127, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (224, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (224, 21): Identifier expected.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0019: ALU.vhd : (127, 2): Keyword 'end' expected.
-# Error: COMP96_0016: ALU.vhd : (127, 9): Design unit declaration expected.
-# Error: COMP96_0019: ALU.vhd : (224, 21): Keyword 'of' expected.
-# Error: COMP96_0018: ALU.vhd : (224, 21): Identifier expected.
-# Compile failure 4 Errors 0 Warnings  Analysis time :  0.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0018: ALU.vhd : (126, 18): Identifier expected.
-# Error: COMP96_0018: ALU.vhd : (127, 19): Identifier expected.
-# Error: COMP96_0049: ALU.vhd : (131, 28): Syntax error in expression.
-# Error: COMP96_0049: ALU.vhd : (145, 31): Syntax error in expression.
-# Error: COMP96_0049: ALU.vhd : (159, 31): Syntax error in expression.
-# Error: COMP96_0049: ALU.vhd : (173, 31): Syntax error in expression.
-# Error: COMP96_0049: ALU.vhd : (187, 31): Syntax error in expression.
-# Error: COMP96_0049: ALU.vhd : (196, 31): Syntax error in expression.
-# Error: COMP96_0049: ALU.vhd : (204, 31): Syntax error in expression.
-# Error: COMP96_0049: ALU.vhd : (212, 31): Syntax error in expression.
-# Compile failure 10 Errors 0 Warnings  Analysis time :  15.0 [ms]
-acom -O3 -e 100 -work ALU -2002  $dsn/src/ALU.vhd
-# Warning: DAGGEN_0523: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
-# File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd
-# Compile Entity "aluIO"
-# Compile Architecture "alu" of Entity "aluIO"
-# Error: COMP96_0
+# File: C

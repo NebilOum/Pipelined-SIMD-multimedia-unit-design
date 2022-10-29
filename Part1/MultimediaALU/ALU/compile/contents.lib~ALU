@@ -1,10 +1,10 @@
-39
+41
 ~E 1 "../src/ALU.vhd" 42 addition
 ~A 1 "../src/ALU.vhd" 58 addAlu
 ~E 1 "../src/ALU-tb.vhd" 8 alu_tb
 ~A 1 "../src/ALU-tb.vhd" 11 testbench
 ~E 1 "../src/ALU.vhd" 12 aluIO
-~A 1 "../src/ALU.vhd" 21 alu
+~A 1 "../src/ALU.vhd" 24 alu
 ~E 1 "../src/ALU.vhd" 7 multiplication
 ~A 1 "../src/ALU.vhd" 22 multAlu
 ~E 1 "../src/ALU.vhd" 77 subtraction

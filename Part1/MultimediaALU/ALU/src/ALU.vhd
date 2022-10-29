@@ -23,7 +23,7 @@ end aluIO;
 
 architecture alu of aluIO is	 
 -------------------------------------------------------------------------
- ----- procedure to do multiplication of two n-bit inputs
+ ----- procedure to do multiplication of two 16-bit inputs
  	procedure mult(signal xsign : in std_logic;
  				signal in1,in2 : in std_logic_vector(m-1 downto 0);
 				signal oput : out std_logic_vector(m-1 downto 0)) is
@@ -37,7 +37,7 @@ architecture alu of aluIO is
 ------------------------------------------------------------------------- 
 	
 -------------------------------------------------------------------------  
-	---- prodcedure to do  adddition of two n bit inputs
+	---- prodcedure to do  adddition of two 32 bit inputs
 	procedure add(signal xsign : in std_logic; 
 				  signal in1,in2 : in std_logic_vector(a-1 downto 0);
 				  signal oput : out std_logic_vector(a-1 downto 0)) is
@@ -51,7 +51,7 @@ architecture alu of aluIO is
 ------------------- 
 -------------------------------------------------------------------------
 -------------------------------------------------------------------------
-	---- prodcedure to do  subtraction of two n bit inputs
+	---- prodcedure to do  subtraction of two 32 bit inputs
 	procedure sub(signal xsign : in std_logic;
 				  signal in1,in2 : in std_logic_vector(s-1 downto 0);
 				  signal oput : out std_logic_vector(s-1 downto 0)) is
@@ -76,8 +76,8 @@ architecture alu of aluIO is
 	end procedure;
 ------------------------------------------------------------------------- 
 -------------------------------------------------------------------------  
-	---- prodcedure to do long adddition of two n bit inputs
-	procedure add( signal xsign : in std_logic;
+	---- prodcedure to do long adddition of two 64 bit inputs
+	procedure add_long( signal xsign : in std_logic;
 				   signal in1,in2 : in std_logic_vector(a_long-1 downto 0);
 				   signal oput : out std_logic_vector(a_long-1 downto 0)) is
 	begin
@@ -89,8 +89,8 @@ architecture alu of aluIO is
 	end procedure;
 -------------------------------------------------------------------------
 -------------------------------------------------------------------------
-	---- procedure to do  subtraction of two n bit inputs
-	procedure sub( signal xsign : in std_logic;
+	---- procedure to do  subtraction of two 64 bit inputs
+	procedure sub_long( signal xsign : in std_logic;
 				   signal in1,in2 : in std_logic_vector(s_long-1 downto 0);
 				   signal oput : out std_logic_vector(s_long-1 downto 0)) is
 	begin 
@@ -106,7 +106,7 @@ architecture alu of aluIO is
 			   	   signal output:out std_logic_vector(127 downto 0)) is	
 			   variable position : integer;
 	begin
-		position <= to_integer(unsigned(instruc(23 downto 21)));
+		position := to_integer(unsigned(instruc(23 downto 21)));
 		output((position*16)-15 downto (position*16)) <= instruc(20 downto 5);
 	end procedure;
 
@@ -123,99 +123,102 @@ architecture alu of aluIO is
 --	end procedure;
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
-	signal tempout: std_logic_vector(31 downto 0);
-	signal tempout_L: std_logic_vector(63 downto 0); 
+	signal Tempout: std_logic_vector(31 downto 0);
+	signal Tempout_L: std_logic_vector(63 downto 0);
+	signal signOp : std_logic := '1';
+	signal notSignOp : std_logic := '0';
+	
 begin  
 	process(insReg)
 	begin					--a=32, m=16--
-	if(insReg(24) = "10") then 
-		if insReg(22 down to 20)='000' then
+	if(insReg(24 downto 23) = "10") then 
+		if insReg(22 downto 20)= "000" then
 			
-			mult(inReg3(m-1 downto 0),inReg2(m-1 downto 0),Tempout);
-			add(Tempout,inReg1(a-1 downto 0),outReg(a-1 downto 0));
+			mult(signOp,inReg3(m-1 downto 0),inReg2(m-1 downto 0),Tempout);
+			add(signOp,Tempout,inReg1(a-1 downto 0),outReg(a-1 downto 0));
 			
-			mult(inReg3(47 downto a),inReg2(47 downto a),Tempout);
-			add(Tempout,inReg1(64-1 downto a),outReg(64-1 downto a));
+			mult(signOp,inReg3(47 downto a),inReg2(47 downto a),Tempout);
+			add(signOp,Tempout,inReg1(64-1 downto a),outReg(64-1 downto a));
 			
-			mult(inReg3(79 downto 64),inReg2(79 downto 64),Tempout);
-			add(Tempout,inReg1(95 downto 64),outReg(95 downto 64));
+			mult(signOp,inReg3(79 downto 64),inReg2(79 downto 64),Tempout);
+			add(signOp,Tempout,inReg1(95 downto 64),outReg(95 downto 64));
 			
-			mult(inReg3(111 downto 96),inReg2(111 downto 96),Tempout);
-			add(Tempout,inReg1(127 downto 96),outReg(127 downto 96));
+			mult(signOp,inReg3(111 downto 96),inReg2(111 downto 96),Tempout);
+			add(signOp,Tempout,inReg1(127 downto 96),outReg(127 downto 96));
 			
-		elsif insReg(22 down to 20)='001' then
+		elsif insReg(22 downto 20) = "001" then
 			
-			mult(inReg3(a-1 downto m),inReg2(a-1 downto m),Tempout);
-			add(Tempout,inReg1(a-1 downto 0),outReg(a-1 downto 0));
+			mult(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),Tempout);
+			add(signOp,Tempout,inReg1(a-1 downto 0),outReg(a-1 downto 0));
 			
-			mult(inReg3(63 downto 48),inReg2(63 downto 48),Tempout);
-			add(Tempout,inReg1(64-1 downto a),outReg(64-1 downto a));
+			mult(signOp,inReg3(63 downto 48),inReg2(63 downto 48),Tempout);
+			add(signOp,Tempout,inReg1(64-1 downto a),outReg(64-1 downto a));
 			
-			mult(inReg3(95 downto 80),inReg2(95 downto 80),Tempout);
-			add(Tempout,inReg1(95 downto 64),outReg(95 downto 64));
+			mult(signOp,inReg3(95 downto 80),inReg2(95 downto 80),Tempout);
+			add(signOp,Tempout,inReg1(95 downto 64),outReg(95 downto 64));
 			
-			mult(inReg3(127 downto 112),inReg2(127 downto 112),Tempout);
-			add(Tempout,inReg1(127 downto 96),outReg(127 downto 96));
+			mult(signOp,inReg3(127 downto 112),inReg2(127 downto 112),Tempout);
+			add(signOp,Tempout,inReg1(127 downto 96),outReg(127 downto 96));
 			
-		elsif insReg(22 down to 20)='010' then
+		elsif insReg(22 downto 20)="010" then
 			
-			mult(inReg3(a-1 downto m),inReg2(a-1 downto m),Tempout);
-			sub(inReg1(a-1 downto 0),Tempout,outReg(a-1 downto 0));
+			mult(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),Tempout);
+			sub(signOp,inReg1(a-1 downto 0),Tempout,outReg(a-1 downto 0));
 			
-			mult(inReg3(63 downto 48),inReg2(63 downto 48),Tempout);
-			sub(inReg1(64-1 downto a),Tempout,outReg(64-1 downto a));
+			mult(signOp,inReg3(63 downto 48),inReg2(63 downto 48),Tempout);
+			sub(signOp,inReg1(64-1 downto a),Tempout,outReg(64-1 downto a));
 			
-			mult(inReg3(95 downto 80),inReg2(95 downto 80),Tempout);
-			sub(inReg1(95 downto 64),Tempout,outReg(95 downto 64));
+			mult(signOp,inReg3(95 downto 80),inReg2(95 downto 80),Tempout);
+			sub(signOp,inReg1(95 downto 64),Tempout,outReg(95 downto 64));
 			
-			mult(inReg3(127 downto 112),inReg2(127 downto 112),Tempout);
-			sub(inReg1(127 downto 96),Tempout,outReg(127 downto 96));
+			mult(signOp,inReg3(127 downto 112),inReg2(127 downto 112),Tempout);
+			sub(signOp,inReg1(127 downto 96),Tempout,outReg(127 downto 96));
 			
-		elsif insReg(22 down to 20)='011' then
+		elsif insReg(22 downto 20)="011" then
 			
-			mult(inReg3(a-1 downto m),inReg2(a-1 downto m),Tempout);
-			sub(inReg1(a-1 downto 0),Tempout,outReg(a-1 downto 0));
+			mult(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),Tempout);
+			sub(signOp,inReg1(a-1 downto 0),Tempout,outReg(a-1 downto 0));
 			
-			mult(inReg3(63 downto 48),inReg2(63 downto 48),Tempout);
-			sub(inReg1(64-1 downto a),Tempout,outReg(64-1 downto a));
+			mult(signOp,inReg3(63 downto 48),inReg2(63 downto 48),Tempout);
+			sub(signOp,inReg1(64-1 downto a),Tempout,outReg(64-1 downto a));
 			
-			mult(inReg3(95 downto 80),inReg2(95 downto 80),Tempout);
-			sub(inReg1(95 downto 64),Tempout,outReg(95 downto 64));
+			mult(signOp,inReg3(95 downto 80),inReg2(95 downto 80),Tempout);
+			sub(signOp,inReg1(95 downto 64),Tempout,outReg(95 downto 64));
 			
-			mult(inReg3(127 downto 112),inReg2(127 downto 112),Tempout);
-			sub(inReg1(127 downto 96),Tempout,outReg(127 downto 96));
+			mult(signOp,inReg3(127 downto 112),inReg2(127 downto 112),Tempout);
+			sub(signOp,inReg1(127 downto 96),Tempout,outReg(127 downto 96));
 			
-		elsif insReg(22 down to 20)='100' then
+		elsif insReg(22 downto 20)="100" then
 			
-			mult_long(inReg3(m_long-1 downto 0),inReg2(m_long-1 downto 0),Tempout_L);
-			add_long(Tempout_L,inReg1(a_long-1 downto 0),outReg(a_long-1 downto 0));
+			mult_long(signOp,inReg3(m_long-1 downto 0),inReg2(m_long-1 downto 0),Tempout_L);
+			add_long(signOp,Tempout_L,inReg1(a_long-1 downto 0),outReg(a_long-1 downto 0));
 			
-			mult_long(inReg3(95 downto 64),inReg2(95 downto 64),Tempout_L);
-			add_long(Tempout_L,inReg1(127 downto 96),outReg(127 downto 96));
+			mult_long(signOp,inReg3(95 downto 64),inReg2(95 downto 64),Tempout_L);
+			add_long(signOp,Tempout_L,inReg1(127 downto 96),outReg(127 downto 96));
 			
 			
-		elsif insReg(22 down to 20)='101' then
+		elsif insReg(22 downto 20)="101" then
 			
-			mult_long(inReg3(a_long-1 downto a),inReg2(a_long-1 downto a),Tempout_L);
-			add_long(Tempout_L,inReg1(a_long-1 downto 0),outReg(a_long-1 downto 0));
+			mult_long(signOp,inReg3(a_long-1 downto a),inReg2(a_long-1 downto a),Tempout_L);
+			add_long(signOp,Tempout_L,inReg1(a_long-1 downto 0),outReg(a_long-1 downto 0));
 			
-			mult_long(inReg3(127 downto 96),inReg2(127 downto 96),Tempout_L);
-			add_long(Tempout_L,inReg1(127 downto 64),outReg(127 downto 64));
+			mult_long(signOp,inReg3(127 downto 96),inReg2(127 downto 96),Tempout_L);
+			add_long(signOp,Tempout_L,inReg1(127 downto 64),outReg(127 downto 64));
 			
-		elsif insReg(22 down to 20)='110' then
+		elsif insReg(22 downto 20)="110" then
 			
-			mult_long(inReg3(m_long-1 downto 0),inReg2(m_long-1 downto 0),Tempout_L);
-			sub_long(inReg1(a_long-1 downto 0),Tempout_L,outReg(a_long-1 downto 0));
+			mult_long(signOp,inReg3(m_long-1 downto 0),inReg2(m_long-1 downto 0),Tempout_L);
+			sub_long(signOp,inReg1(a_long-1 downto 0),Tempout_L,outReg(a_long-1 downto 0));
 			
-			mult_long(inReg3(95 downto 64),inReg2(95 downto 64),Tempout_L);
-			sub_long(inReg1(127 downto 96),Tempout_L,outReg(127 downto 96));
+			mult_long(signOp,inReg3(95 downto 64),inReg2(95 downto 64),Tempout_L);
+			sub_long(signOp,inReg1(127 downto 96),Tempout_L,outReg(127 downto 96));
 			
-		elsif insReg(22 down to 20)='111' then
-			mult_long(inReg3(a_long-1 downto a),inReg2(a_long-1 downto a),Tempout_L);
-			sub_long(inReg1(a_long-1 downto 0),Tempout_L,outReg(a_long-1 downto 0));
+		elsif insReg(22 downto 20)="111" then
+			mult_long(signOp,inReg3(a_long-1 downto a),inReg2(a_long-1 downto a),Tempout_L);
+			sub_long(signOp,inReg1(a_long-1 downto 0),Tempout_L,outReg(a_long-1 downto 0));
 			
-			mult_long(inReg3(127 downto 96),inReg2(127 downto 96),Tempout_L);
-			sub_long(inReg1(127 downto 64),Tempout_L,outReg(127 downto 64));
+			mult_long(signOp,inReg3(127 downto 96),inReg2(127 downto 96),Tempout_L);
+			sub_long(signOp,inReg1(127 downto 64),Tempout_L,outReg(127 downto 64));
 		end if;	
 		
 --		if(insReg(24) = "0") then
@@ -227,6 +230,6 @@ begin
 -- mult(input1,input2,xsign,output);
 -- add(input1,input2,xsign,output);
 -- sub(input1,input2,xsign,output);
-			end if;
-		end process;  
+		end if;
+	end process;  
 end architecture alu;

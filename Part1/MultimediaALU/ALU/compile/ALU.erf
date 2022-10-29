@@ -2,12 +2,4 @@ WARNING DAGGEN_0523: "The source is compiled without the -dbg switch. Line break
 MESSAGE "File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 
 MESSAGE "Compile Entity "aluIO"" 
 MESSAGE "Compile Architecture "alu" of Entity "aluIO"" 
-ERROR COMP96_0049: "Syntax error in expression." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 133 28
-ERROR COMP96_0049: "Syntax error in expression." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 147 31
-ERROR COMP96_0049: "Syntax error in expression." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 161 31
-ERROR COMP96_0049: "Syntax error in expression." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 175 31
-ERROR COMP96_0049: "Syntax error in expression." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 189 31
-ERROR COMP96_0049: "Syntax error in expression." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 198 31
-ERROR COMP96_0049: "Syntax error in expression." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 206 31
-ERROR COMP96_0049: "Syntax error in expression." "C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 214 31
-FAILURE "Compile failure 8 Errors 0 Warnings  Analysis time :  16.0 [ms]" 
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]" 
