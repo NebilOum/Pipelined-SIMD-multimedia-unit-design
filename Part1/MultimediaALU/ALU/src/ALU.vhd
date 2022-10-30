@@ -168,6 +168,8 @@ architecture alu of aluIO is
 			output <= input1;
 		elsif (input1 < input2) then
 			output <= input2;
+		elsif (input1 = input2) then
+			output <= input1;
 		end if;
 	end procedure;
 
@@ -179,11 +181,13 @@ architecture alu of aluIO is
 			output <= input2;
 		elsif (input1 < input2) then
 			output <= input1;
+		elsif (input1 = input2) then
+			output <= input1;
 		end if;
 	end procedure;
 	
 ------------------------------------------------------------------------------
-	signal tempOut_half : std_logic_vector(16 downto 0);
+	signal tempOut_half : std_logic_vector(15 downto 0);
 	signal Tempout: std_logic_vector(31 downto 0);
 	signal Tempout_L: std_logic_vector(63 downto 0);
 	signal signOp : std_logic := '1';
@@ -336,14 +340,22 @@ begin
 				add_half(noSignOp,inReg1(111 downto 96),inReg2(111 downto 96),outReg(111 downto 96));
 				add_half(noSignOp,inReg1(127 downto 112),inReg2(127 downto 112),outReg(127 downto 112));
 			elsif (insReg(18 downto 15) = "0100") then ---AHS operation
-				add_half(signOp,inReg1(15 downto 0),inReg2(15 downto 0),outReg(15 downto 0));
-				add_half(signOp,inReg1(31 downto 16),inReg2(31 downto 16),outReg(31 downto 16));
-				add_half(signOp,inReg1(47 downto 32),inReg2(47 downto 32),outReg(47 downto 32));
-				add_half(signOp,inReg1(63 downto 48),inReg2(63 downto 48),outReg(63 downto 48));
-				add_half(signOp,inReg1(79 downto 64),inReg2(79 downto 64),outReg(79 downto 64));
-				add_half(signOp,inReg1(95 downto 80),inReg2(95 downto 80),outReg(95 downto 80));
-				add_half(signOp,inReg1(111 downto 96),inReg2(111 downto 96),outReg(111 downto 96));
-				add_half(signOp,inReg1(127 downto 112),inReg2(127 downto 112),outReg(127 downto 112));
+				add_half(signOp,inReg1(15 downto 0),inReg2(15 downto 0),tempOut_half);
+				sat_half(tempOut_half,outReg(15 downto 0));
+				add_half(signOp,inReg1(31 downto 16),inReg2(31 downto 16),tempOut_half);
+				sat_half(tempOut_half,outReg(31 downto 16));
+				add_half(signOp,inReg1(47 downto 32),inReg2(47 downto 32),tempOut_half);
+				sat_half(tempOut_half,outReg(47 downto 32));
+				add_half(signOp,inReg1(63 downto 48),inReg2(63 downto 48),tempOut_half);
+				sat_half(tempOut_half,outReg(63 downto 48));
+				add_half(signOp,inReg1(79 downto 64),inReg2(79 downto 64),tempOut_half);
+				sat_half(tempOut_half,outReg(79 downto 64));
+				add_half(signOp,inReg1(95 downto 80),inReg2(95 downto 80),tempOut_half);
+				sat_half(tempOut_half,outReg(95 downto 80));
+				add_half(signOp,inReg1(111 downto 96),inReg2(111 downto 96),tempOut_half);
+				sat_half(tempOut_half,outReg(111 downto 96));
+				add_half(signOp,inReg1(127 downto 112),inReg2(127 downto 112),tempOut_half);
+				sat_half(tempOut_half,outReg(127 downto 112));
 			elsif (insReg(18 downto 15) = "0101") then ---AND operation
 				outReg <= inReg1 and inReg2;
 			elsif (insReg(18 downto 15) = "0110") then ---BCW operation
