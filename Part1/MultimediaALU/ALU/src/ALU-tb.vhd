@@ -22,16 +22,31 @@ begin
 		insReg => insR,
 		outReg => oReg
 		);
+	ir1(127 downto 96) <= std_logic_vector(to_unsigned(2,32));
+	ir1(95 downto 64) <= std_logic_vector(to_unsigned(1,32));
+	ir1(63 downto 32) <= std_logic_vector(to_unsigned(2,32));
+	ir1(31 downto 0) <= std_logic_vector(to_unsigned(2,32)); 
+	
+	ir2(127 downto 96) <= std_logic_vector(to_unsigned(5,32));
+	ir2(95 downto 64) <= std_logic_vector(to_unsigned(2,32));
+	ir2(63 downto 32) <= std_logic_vector(to_unsigned(6,32));
+	ir2(31 downto 0) <= std_logic_vector(to_unsigned(2,32));
+	
+	ir3(127 downto 96) <= std_logic_vector(to_unsigned(2,32));
+	ir3(95 downto 64) <= std_logic_vector(to_unsigned(3,32));
+	ir3(63 downto 32) <= std_logic_vector(to_unsigned(2,32));
+	ir3(31 downto 0) <= std_logic_vector(to_unsigned(5,32));
+	
 	process
 	begin 
-		for i in 0 to 7 loop   ---- loop to test the load instruction
-			insR(24) <='0';  --- 24th bit set to zero so that the ALU can expect to do a load operation
-			insR(23 downto 21) <= std_logic_vector(to_unsigned(i,3)); --- choosing which position the loaded value is being placed in
-			insR(20 downto 5) <= std_logic_vector(to_unsigned(i,16)); --- value that is going to be loaded into rd
-			insR(5 downto 0) <= std_logic_vector(to_unsigned(4,6));   --- choose which register is rd, in our case rd is going to be the 4th register
---			assert insR(((i*16)+15) downto (i*16)) = std_logic_vector(to_unsigned(i,16)) report "Load failed" severity failure;  --- check that the load function was operational 
-			wait for 10ns; ---wait 20ns to clearly display waveform
-		end loop;
+--		for i in 0 to 7 loop   ---- loop to test the load instruction
+--			insR(24) <='0';  --- 24th bit set to zero so that the ALU can expect to do a load operation
+--			insR(23 downto 21) <= std_logic_vector(to_unsigned(i,3)); --- choosing which position the loaded value is being placed in
+--			insR(20 downto 5) <= std_logic_vector(to_unsigned(i+1,16)); --- value that is going to be loaded into rd
+--			insR(4 downto 0) <= std_logic_vector(to_unsigned(4,5));   --- choose which register is rd, in our case rd is going to be the 4th register
+----			assert oReg(((i*16)+15) downto (i*16)) = std_logic_vector(to_unsigned(i,16)) report "Load failed" severity failure;  --- check that the load function was operational 
+--			wait for 10ns; ---wait 20ns to clearly display waveform
+--		end loop;
 		
 		for i in 0 to 7 loop	--- loop to test R4 instructions
 			insR(24 downto 23) <= "10";   --- 24th and 23rd bit set to zero so that the ALU ca expect to do R4 operations
@@ -43,16 +58,16 @@ begin
 --			assert insR((i*16)+16 downto i*16) = std_logic_vector(to_unsigned(i,15)) report "Load failed" severity error  --- check that the load function was operational 
 			wait for 10ns; ---wait 20ns to clearly display waveform
 		end loop;
-		
-		for i in 0 to 15 loop	--- loop to test R3 instructions
-			insR(24 downto 23) <= "11";   --- 24th and 23rd bit set to zero so that the ALU ca expect to do R4 operations
-			insR(22 downto 15)	 <= std_logic_vector(to_unsigned(i,8));	 --- 3 bits that determine what operation is going to be performed, cycling through all operations in this loop
-			insR(14 downto 10) <= std_logic_vector(to_unsigned(4,5));   --- choose which register is rs2, in our case rd is going to be the 2nd register
-			insR(9 downto 5) <= std_logic_vector(to_unsigned(4,5));   	 --- choose which register is rs1, in our case rd is going to be the 1st register
-			insR(4 downto 0) <= std_logic_vector(to_unsigned(4,5));     --- choose which register is rd, in our case rd is going to be the 4th register
---			assert insR((i*16)+16 downto i*16) = std_logic_vector(to_unsigned(i,15)) report "Load failed" severity error  --- check that the load function was operational 
-			wait for 10ns; ---wait 20ns to clearly display waveform
-		end loop; 
+----		
+--		for i in 0 to 15 loop	--- loop to test R3 instructions
+--			insR(24 downto 23) <= "11";   --- 24th and 23rd bit set to zero so that the ALU ca expect to do R4 operations
+--			insR(22 downto 15)	 <= std_logic_vector(to_unsigned(i,8));	 --- 3 bits that determine what operation is going to be performed, cycling through all operations in this loop
+--			insR(14 downto 10) <= std_logic_vector(to_unsigned(4,5));   --- choose which register is rs2, in our case rd is going to be the 2nd register
+--			insR(9 downto 5) <= std_logic_vector(to_unsigned(4,5));   	 --- choose which register is rs1, in our case rd is going to be the 1st register
+--			insR(4 downto 0) <= std_logic_vector(to_unsigned(4,5));     --- choose which register is rd, in our case rd is going to be the 4th register
+----			assert insR((i*16)+16 downto i*16) = std_logic_vector(to_unsigned(i,15)) report "Load failed" severity error  --- check that the load function was operational 
+--			wait for 10ns; ---wait 20ns to clearly display waveform
+--		end loop; 
 		wait;
 	end process;
 	

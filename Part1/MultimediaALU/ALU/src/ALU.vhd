@@ -15,9 +15,9 @@ entity aluIO is   --- the three 128 bit inputs and the one 128 bit output regist
 	a,m_long,s:integer := 32;
 	a_long,s_long:integer := 64);
 	port(  
-	inReg1, inReg2, inReg3: in std_logic_vector(127 downto 0);	---- input registers
-	insReg: in std_logic_vector(24 downto 0); ---- instruction input
-	outReg: out std_logic_vector(127 downto 0)	  ---- output register
+		inReg1, inReg2, inReg3: in std_logic_vector(127 downto 0);	---- input registers
+		insReg: in std_logic_vector(24 downto 0); ---- instruction input
+		outReg: out std_logic_vector(127 downto 0) --:= std_logic_vector(to_unsigned(0,128))	  ---- output register
 	);
 end aluIO;
 
@@ -25,24 +25,24 @@ architecture alu of aluIO is
 ------------------------------------------------------------------------------ procedure to do multiplication of two 16-bit inputs
  	procedure mult(signal xsign : in std_logic;
  				signal in1,in2 : in std_logic_vector(m-1 downto 0);
-				signal oput : out std_logic_vector(m-1 downto 0)) is
+				signal oput : out std_logic_vector(m_long-1 downto 0)) is
 	begin
 		if 	xsign = '1' then	  
-			oput <= std_logic_vector(resize((signed(in1) * signed(in2)),m)); 
-		else 
-			oput <= std_logic_vector(resize((unsigned(in1) * unsigned(in2)),m));
+			oput <= std_logic_vector(resize((signed(in1) * signed(in2)),32)); 
+		elsif xsign = '0' then
+			oput <= std_logic_vector(resize((unsigned(in1) * unsigned(in2)),32));
 		end if;
 	end procedure;
 	
 ------------------------------------------------------------------------------ procedure to do multiplication of two 32-bit inputs
  	procedure mult_long( signal xsign : in std_logic;
  					  signal in1,in2 : in std_logic_vector(m_long-1 downto 0);
-				   	  signal oput : out std_logic_vector(m_long-1 downto 0)) is
+				   	  signal oput : out std_logic_vector(63 downto 0)) is
 	begin
 		if 	xsign = '1' then 			  --- signed subtraction
-			oput <= std_logic_vector(resize((signed(in1) - signed(in2)),m_long)); 
-		else 
-			oput <= std_logic_vector(resize((unsigned(in1) - unsigned(in2)),m_long));
+			oput <= std_logic_vector(resize((signed(in1) - signed(in2)),64)); 
+		elsif xsign = '0' then 
+			oput <= std_logic_vector(resize((unsigned(in1) - unsigned(in2)),64));
 		end if;
 	end procedure;
  	
@@ -53,7 +53,7 @@ architecture alu of aluIO is
 	begin
 		if 	xsign = '1' then	  
 			oput <= std_logic_vector(resize((signed(in1) + signed(in2)),a)); 
-		else 
+		elsif xsign = '0' then 
 			oput <= std_logic_vector(resize((unsigned(in1) + unsigned(in2)),a));
 		end if;
 	end procedure;
@@ -65,7 +65,7 @@ architecture alu of aluIO is
 	begin
 		if 	xsign = '1' then	  
 			oput <= std_logic_vector(resize((signed(in1) + signed(in2)),16)); 
-		else 
+		elsif xsign = '0' then 
 			oput <= std_logic_vector(resize((unsigned(in1) + unsigned(in2)),16));
 		end if;
 	end procedure;
@@ -78,8 +78,8 @@ architecture alu of aluIO is
 	begin
 		if 	xsign = '1' then 
 			oput <= std_logic_vector(resize((signed(in1) + signed(in2)),a_long)); 
-		else 
-			oput <= std_logic_vector(resize((unsigned(in1) + unsigned(in2)),a_long));
+		elsif xsign = '0' then 
+			oput <= std_logic_vector(unsigned(in1) + unsigned(in2));
 		end if;
 	end procedure; 
 -----------------------------------------------------------------------------procedure to do subtraction of two 16 bit inputs
@@ -89,7 +89,7 @@ procedure sub_half(signal xsign : in std_logic;
 	begin
 		if 	xsign = '1' then	  
 			oput <= std_logic_vector(resize((signed(in1) - signed(in2)),16)); 
-		else 
+		elsif xsign = '0' then 
 			oput <= std_logic_vector(resize((unsigned(in1) - unsigned(in2)),16));
 		end if;
 	end procedure;
@@ -100,7 +100,7 @@ procedure sub_half(signal xsign : in std_logic;
 	begin
 		if 	xsign = '1' then 			  --- signed subtraction
 			oput <= std_logic_vector(resize((signed(in1) - signed(in2)),s)); 
-		else 
+		elsif xsign = '0' then 
 			oput <= std_logic_vector(resize((unsigned(in1) - unsigned(in2)),s));
 		end if;
 	end procedure;  
@@ -112,29 +112,29 @@ procedure sub_half(signal xsign : in std_logic;
 	begin 
 		if 	xsign = '1' then
 			oput <= std_logic_vector(resize((signed(in1) - signed(in2)),s_long)); 
-		else 
+		elsif xsign = '0' then 
 			oput <= std_logic_vector(resize((unsigned(in1) - unsigned(in2)),s_long));
 		end if;
 	end procedure;
 	
 ---------------------------------------------------------------------------	
  	procedure sat_half(signal input:in std_logic_vector(15 downto 0);
-			   	   			signal output:out std_logic_vector(15 downto 0)) is	
+			   	   	   signal output:out std_logic_vector(15 downto 0)) is	
 	begin
-		if(input > x"7FFF") then
+		if(signed(input) > x"7FFF") then
 			output <= x"7FFF";
-		elsif (input < x"8000") then
+		elsif (signed(input) < x"8000") then
 			output <= x"8000";
 		end if;
 	end procedure;
 	
 ---------------------------------------------------------------------------
  	procedure sat_int(signal input:in std_logic_vector(31 downto 0);
-			   	   signal output:out std_logic_vector(31 downto 0)) is	
+			   	      signal output:out std_logic_vector(31 downto 0)) is	
 	begin
-		if(input > x"7FFFFFFF") then
+		if(signed(input) > x"7FFFFFFF") then
 			output <= x"7FFFFFFF";
-		elsif (input < x"80000000") then
+		elsif (signed(input) < x"80000000") then
 			output <= x"80000000";
 		end if;
 	end procedure;
@@ -143,20 +143,36 @@ procedure sub_half(signal xsign : in std_logic;
 	procedure sat_long(signal input:in std_logic_vector(63 downto 0);
 			   	   		   signal output:out std_logic_vector(63 downto 0)) is	
 	begin
-		if(input > x"7FFFFFFFFFFFFFFF") then
+		if(signed(input) > x"7FFFFFFFFFFFFFFF") then
 			output <= x"7FFFFFFFFFFFFFFF";
-		elsif (input < x"8000000000000000") then
+		elsif (signed(input) < x"8000000000000000") then
 			output <= x"8000000000000000";
 		end if;
 	end procedure;
 	
----------------------------------------------------------------------------
+---------------------------------------------------------------------------	load procedure
 	procedure load(signal instruc:in std_logic_vector(24 downto 0);
 			   	   signal output:out std_logic_vector(127 downto 0)) is	
 			   variable position : integer;
 	begin
 		position := to_integer(unsigned(instruc(23 downto 21)));
-		output((position*16)-15 downto (position*16)) <= instruc(20 downto 5);
+		if position = 0 then
+			output(15 downto 0) <= instruc(20 downto 5);
+		elsif position = 1 then
+			output(31 downto 16) <= instruc(20 downto 5);
+		elsif position = 2 then
+			output(47 downto 32) <= instruc(20 downto 5);
+		elsif position = 3 then
+			output(63 downto 48) <= instruc(20 downto 5);
+		elsif position = 4 then
+			output(79 downto 64) <= instruc(20 downto 5);
+		elsif position = 5 then
+			output(95 downto 80) <= instruc(20 downto 5);
+		elsif position = 6 then
+			output(111 downto 96) <= instruc(20 downto 5);
+		elsif position = 7 then
+			output(127 downto 112) <= instruc(20 downto 5);
+		end if;
 	end procedure;
 	
 ---------------------------------------------------------------------------------
@@ -167,7 +183,10 @@ procedure sub_half(signal xsign : in std_logic;
 	begin 
 		while input(i) = '0' loop
 			counter := counter + 1;
-			i := i-1;
+			i:= i-1;
+			if (i < 0) then 
+				i := 0;
+			end if;
 		end loop;
 		output <= std_logic_vector(to_unsigned(counter,32));
 	end procedure;
@@ -176,11 +195,11 @@ procedure sub_half(signal xsign : in std_logic;
 	procedure maxws(signal input1,input2:in std_logic_vector(31 downto 0);
 					signal output:out std_logic_vector(31 downto 0)) is
 	begin 
-		if( input1 > input2) then
+		if( signed(input1) > signed(input2)) then
 			output <= input1;
-		elsif (input1 < input2) then
+		elsif (signed(input1) < signed(input2)) then
 			output <= input2;
-		elsif (input1 = input2) then
+		elsif (signed(input1) = signed(input2)) then
 			output <= input1;
 		end if;
 	end procedure;
@@ -189,14 +208,15 @@ procedure sub_half(signal xsign : in std_logic;
 	procedure minws(signal input1,input2:in std_logic_vector(31 downto 0);
 					signal output:out std_logic_vector(31 downto 0)) is
 	begin 
-		if( input1 > input2) then
+		if(signed(input1) > signed(input2)) then
 			output <= input2;
-		elsif (input1 < input2) then
+		elsif (signed(input1) < signed(input2)) then
 			output <= input1;
-		elsif (input1 = input2) then
+		elsif (signed(input1) = signed(input2)) then
 			output <= input1;
 		end if;
-	end procedure;
+	end procedure; 
+	
 ------------------------------------------------------------------------------
 --MLHCU: multiply low by constant unsigned: the 16 rightmost bits of each of the four 32-bit slots in register rs1 are multiplied 
 --by a 5-bit value in the rs2 field of the instruction, treating both operands as unsigned. The four 32-bit products are placed into the 
@@ -204,7 +224,7 @@ procedure sub_half(signal xsign : in std_logic;
   procedure MLHCU(signal xsign : in std_logic;
   				  signal in1 : in std_logic_vector(m-1 downto 0);
   			      signal in2 : in std_logic_vector(4 downto 0);
-				signal oput : out std_logic_vector(m-1 downto 0)) is
+				  signal oput : out std_logic_vector(m_long-1 downto 0)) is
 	begin
 		if 	xsign = '1' then	  
 			oput <= std_logic_vector(resize((signed(in1) * signed(in2)),m_long)); 
@@ -230,37 +250,43 @@ procedure sub_half(signal xsign : in std_logic;
 	end procedure;
 
 ------------------------------------------------------------------------------
-	signal tempOut_half : std_logic_vector(15 downto 0);
-	signal Tempout: std_logic_vector(31 downto 0);
-	signal Tempout_L: std_logic_vector(63 downto 0);
+	signal tempOut_half : std_logic_vector(15 downto 0) := std_logic_vector(to_unsigned(0,16));
+	signal Tempout,t32: std_logic_vector(31 downto 0); --:= std_logic_vector(to_unsigned(0,32));
+	signal Tempout_L: std_logic_vector(63 downto 0) := std_logic_vector(to_unsigned(0,64));
+	signal tempFull : std_logic_vector(127 downto 0):= std_logic_vector(to_unsigned(0,128));
 	signal signOp : std_logic := '1';
 	signal noSignOp : std_logic := '0';
-	
-begin  
-	process(insReg)	 
-		variable counter :integer := 0;
+begin 
+	process(insReg)
 	begin		
-		load:if(insReg(24) = '0') then --check insReg is a load instruction
-				load(insReg,outReg);
+		load:if(insReg(24) = '0') then --check insReg is a load instruction				   			
+			load(insReg,outReg); 
 		end if load;
 		--a=32, m=16--
-		r4:if(insReg(24 downto 23) = "10") then --check if inReg is a r3 instruction
+		r4:if(insReg(24 downto 23) = "10") then --check if inReg is a r4 instruction 
 			if insReg(22 downto 20)= "000" then	 --signed integer multiply-add low with saturation
-				mult(signOp,inReg3(m-1 downto 0),inReg2(m-1 downto 0),Tempout); 
-				add(signOp,Tempout,inReg1(a-1 downto 0),Tempout);
-				sat_int(Tempout,outReg(a-1 downto 0));
+				mult(signOp,inReg3(15 downto 0),inReg2(15 downto 0),Tempout); 
+				t32 <= Tempout;
+				add(signOp,Tempout,inReg1(a-1 downto 0),Tempout);--tempFull(a-1 downto 0));	
+--				add(signOp,Tempout,inReg1(31 downto 0),Tempout);
+--				sat_int(Tempout,outReg(31 downto 0));
 				
-				mult(signOp,inReg3(47 downto a),inReg2(47 downto a),Tempout);
-				add(signOp,Tempout,inReg1(63 downto a),Tempout);
-				sat_int(Tempout,outReg(63 downto a));
+--				mult(signOp,inReg3(47 downto 32),inReg2(47 downto 32),Tempout);
+----				add(signOp,Tempout,inReg1(63 downto a),tempFull(63 downto a));
+--				add(signOp,Tempout,inReg1(a-1 downto 0),Tempout);
+--				sat_int(Tempout,outReg(63 downto 32));
+--				
+--				mult(signOp,inReg3(79 downto 64),inReg2(79 downto 64),Tempout);
+----				add(signOp,Tempout,inReg1(95 downto 64),tempFull(95 downto 64));  
+--				add(signOp,Tempout,inReg1(a-1 downto 0),Tempout);
+--				sat_int(Tempout,outReg(95 downto 64));
+--				
+--				mult(signOp,inReg3(111 downto 96),inReg2(111 downto 96),Tempout);
+----				add(signOp,Tempout,inReg1(127 downto 96),tempFull(111 downto 96)); 
+--				add(signOp,Tempout,inReg1(a-1 downto 0),Tempout);
+--				sat_int(Tempout,outReg(127 downto 96));
 				
-				mult(signOp,inReg3(79 downto 64),inReg2(79 downto 64),Tempout);
-				add(signOp,Tempout,inReg1(95 downto 64),Tempout);
-				sat_int(Tempout,outReg(95 downto 64));
-				
-				mult(signOp,inReg3(111 downto 96),inReg2(111 downto 96),Tempout);
-				add(signOp,Tempout,inReg1(127 downto 96),Tempout);
-				sat_int(Tempout,outReg(127 downto 96));
+				---outReg <= tempFull;
 				
 			elsif insReg(22 downto 20) = "001" then--signed integer multiply-add high with saturation
 				
@@ -281,22 +307,22 @@ begin
 				sat_int(Tempout,outReg(127 downto 96));
 				
 			elsif insReg(22 downto 20)="010" then--signed integer multiply-subtract low with saturation
-				
-				mult(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),Tempout);
-				sub(signOp,inReg1(a-1 downto 0),Tempout,Tempout);
-				sat_int(Tempout,outReg(a-1 downto 0));
-				
-				mult(signOp,inReg3(63 downto 48),inReg2(63 downto 48),Tempout);
-				sub(signOp,inReg1(63 downto a),Tempout,Tempout);
-				sat_int(Tempout,outReg(63 downto a));
-				
-				mult(signOp,inReg3(95 downto 80),inReg2(95 downto 80),Tempout);
-				sub(signOp,inReg1(95 downto 64),Tempout,Tempout);
-				sat_int(Tempout,outReg(95 downto 64));
-				
-				mult(signOp,inReg3(127 downto 112),inReg2(127 downto 112),Tempout);
-				sub(signOp,inReg1(127 downto 96),Tempout,Tempout);
-				sat_int(Tempout,outReg(127 downto 96));
+
+                mult(signOp,inReg3(m-1 downto 0),inReg2(m-1 downto 0),Tempout);
+                sub(signOp,inReg1(a-1 downto 0),Tempout,Tempout);
+                sat_int(Tempout,outReg(a-1 downto 0));
+
+                mult(signOp,inReg3(47 downto a),inReg2(47 downto a),Tempout);
+                sub(signOp,inReg1(63 downto a),Tempout,Tempout);
+                sat_int(Tempout,outReg(63 downto a));
+
+                mult(signOp,inReg3(79 downto 64),inReg2(79 downto 64),Tempout);
+                sub(signOp,inReg1(95 downto 64),Tempout,Tempout);
+                sat_int(Tempout,outReg(95 downto 64));
+
+                mult(signOp,inReg3(111 downto 96),inReg2(111 downto 96),Tempout);
+                sub(signOp,inReg1(127 downto 96),Tempout,Tempout);
+                sat_int(Tempout,outReg(127 downto 96));
 				
 			elsif insReg(22 downto 20)="011" then --signed integer multiply-subtract high with saturation
 				
@@ -363,6 +389,7 @@ begin
 		r3:if(insReg(24 downto 23) = "11") then	  -- checks if a r3 operation is being performed
 			if(insReg(18 downto 15) = "0000" ) then	-- nop operation
 				Null;
+				outReg <= tempFull;
 			elsif (insReg(18 downto 15) = "0001") then	---CLZW operation
 				clzw(inReg1(31 downto 0),outReg(31 downto 0));
 				clzw(inReg1(63 downto 32),outReg(63 downto 32));
@@ -426,13 +453,13 @@ begin
 				mult(noSignOp,inReg1(111 downto 96),inReg2(111 downto 96),Tempout);
 				sat_int(Tempout,outReg(127 downto 96));
 	        elsif (insReg(18 downto 15) = "1010") then	--MLHCU operation
-				MLHCU(noSignOp,inReg1(m-1 downto 0),inReg2(4 downto 0),Tempout); 
+				MLHCU(noSignOp,inReg1(m-1 downto 0),insReg(14 downto 10),Tempout); 
 				sat_int(Tempout,outReg(a-1 downto 0));
-				MLHCU(noSignOp,inReg1(47 downto a),inReg2(4 downto 0),Tempout);
+				MLHCU(noSignOp,inReg1(47 downto a),insReg(14 downto 10),Tempout);
 				sat_int(Tempout,outReg(63 downto a));
-				MLHCU(noSignOp,inReg1(79 downto 64),inReg2(4 downto 0),Tempout);
+				MLHCU(noSignOp,inReg1(79 downto 64),insReg(14 downto 10),Tempout);
 				sat_int(Tempout,outReg(95 downto 64));
-				MLHCU(noSignOp,inReg1(111 downto 96),inReg2(4 downto 0),Tempout);
+				MLHCU(noSignOp,inReg1(111 downto 96),insReg(14 downto 10),Tempout);
 				sat_int(Tempout,outReg(127 downto 96));
 			elsif (insReg(18 downto 15) = "1011") then	 --OR operation
 				outReg<= inReg1 or inReg2;
@@ -465,5 +492,5 @@ begin
 				sub_half(signOp,inReg2(127 downto 112),inReg1(127 downto 112),tempOut_half);
 		  	end if ;
 		end if r3;
-	end process;  
+	end process;
 end architecture alu;
