@@ -68,7 +68,9 @@ architecture alu of aluIO is
 		else 
 			oput <= std_logic_vector(resize((unsigned(in1) + unsigned(in2)),16));
 		end if;
-	end procedure;	
+	end procedure;
+	
+
 ----------------------------------------------------------------------------- prodcedure to do adddition of two 64 bit inputs
 	procedure add_long( signal xsign : in std_logic;
 				   signal in1,in2 : in std_logic_vector(a_long-1 downto 0);
@@ -80,7 +82,17 @@ architecture alu of aluIO is
 			oput <= std_logic_vector(resize((unsigned(in1) + unsigned(in2)),a_long));
 		end if;
 	end procedure; 
-	
+-----------------------------------------------------------------------------procedure to do subtraction of two 16 bit inputs
+procedure sub_half(signal xsign : in std_logic; 
+				  signal in1,in2 : in std_logic_vector(15 downto 0);
+				  signal oput : out std_logic_vector(15 downto 0)) is
+	begin
+		if 	xsign = '1' then	  
+			oput <= std_logic_vector(resize((signed(in1) - signed(in2)),16)); 
+		else 
+			oput <= std_logic_vector(resize((unsigned(in1) - unsigned(in2)),16));
+		end if;
+	end procedure;
 ----------------------------------------------------------------------------- prodcedure to do subtraction of two 32 bit inputs
 	procedure sub(signal xsign : in std_logic;
 				  signal in1,in2 : in std_logic_vector(s-1 downto 0);
@@ -185,7 +197,38 @@ architecture alu of aluIO is
 			output <= input1;
 		end if;
 	end procedure;
-	
+------------------------------------------------------------------------------
+--MLHCU: multiply low by constant unsigned: the 16 rightmost bits of each of the four 32-bit slots in register rs1 are multiplied 
+--by a 5-bit value in the rs2 field of the instruction, treating both operands as unsigned. The four 32-bit products are placed into the 
+--corresponding slots of register rd . (Comments: 4 separate 32-bit values in each 128-bit register)
+  procedure MLHCU(signal xsign : in std_logic;
+  				  signal in1 : in std_logic_vector(m-1 downto 0);
+  			      signal in2 : in std_logic_vector(4 downto 0);
+				signal oput : out std_logic_vector(m-1 downto 0)) is
+	begin
+		if 	xsign = '1' then	  
+			oput <= std_logic_vector(resize((signed(in1) * signed(in2)),m_long)); 
+		else 
+			oput <= std_logic_vector(resize((unsigned(in1) * unsigned(in2)),m_long));
+		end if;
+	end procedure;
+
+------------------------------------------------------------------------------
+--PCNTW: count ones in words: the number of ones in each of the 4 word slots in register rs1 is computed. 
+--If the word slot in register rs1 is zero, the result is also 0. 
+--The results are placed into 4 corresponding slots in register rd . (Comments: 4 separate word values in each 128-bit register)
+   procedure PCNTW(signal input:in std_logic_vector(31 downto 0);
+			   	   signal output:out std_logic_vector(31 downto 0)) is	
+			   variable i : integer := 31;
+			   variable counter : integer := 0;
+	begin 
+		while input(i) = '1' loop
+			counter := counter + 1;
+			i := i-1;
+		end loop;
+		output <= std_logic_vector(to_unsigned(counter,32));
+	end procedure;
+
 ------------------------------------------------------------------------------
 	signal tempOut_half : std_logic_vector(15 downto 0);
 	signal Tempout: std_logic_vector(31 downto 0);
@@ -373,13 +416,53 @@ begin
 				minws(inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));
 				minws(inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));
 				minws(inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));
-	--			elsif (insReg(18 downto 15) = "1001") then
-	--			elsif (insReg(18 downto 15) = "1010") then
-	--			elsif (insReg(18 downto 15) = "1011") then
-	--			elsif (insReg(18 downto 15) = "1100") then
+			elsif (insReg(18 downto 15) = "1001") then 		--MLHU Operation
+				mult(noSignOp,inReg1(m-1 downto 0),inReg2(m-1 downto 0),Tempout); 
+				sat_int(Tempout,outReg(a-1 downto 0));
+				mult(noSignOp,inReg1(47 downto a),inReg2(47 downto a),Tempout);
+				sat_int(Tempout,outReg(63 downto a));
+				mult(noSignOp,inReg1(79 downto 64),inReg2(79 downto 64),Tempout);
+				sat_int(Tempout,outReg(95 downto 64));
+				mult(noSignOp,inReg1(111 downto 96),inReg2(111 downto 96),Tempout);
+				sat_int(Tempout,outReg(127 downto 96));
+	        elsif (insReg(18 downto 15) = "1010") then	--MLHCU operation
+				MLHCU(noSignOp,inReg1(m-1 downto 0),inReg2(4 downto 0),Tempout); 
+				sat_int(Tempout,outReg(a-1 downto 0));
+				MLHCU(noSignOp,inReg1(47 downto a),inReg2(4 downto 0),Tempout);
+				sat_int(Tempout,outReg(63 downto a));
+				MLHCU(noSignOp,inReg1(79 downto 64),inReg2(4 downto 0),Tempout);
+				sat_int(Tempout,outReg(95 downto 64));
+				MLHCU(noSignOp,inReg1(111 downto 96),inReg2(4 downto 0),Tempout);
+				sat_int(Tempout,outReg(127 downto 96));
+			elsif (insReg(18 downto 15) = "1011") then	 --OR operation
+				outReg<= inReg1 or inReg2;
+			elsif (insReg(18 downto 15) = "1100") then
+				PCNTW(inReg1(31 downto 0),outReg(31 downto 0));
+				PCNTW(inReg1(63 downto 32),outReg(63 downto 32));
+				PCNTW(inReg1(95 downto 64),outReg(95 downto 64));
+				PCNTW(inReg1(127 downto 96),outReg(127 downto 96));
 	--			elsif (insReg(18 downto 15) = "1101") then
-	--			elsif (insReg(18 downto 15) = "1110") then
-	--			elsif (insReg(18 downto 15) = "1111") then
+			elsif (insReg(18 downto 15) = "1110") then	--SFWH
+				sub(noSignOp,inReg2(31 downto 0),inReg1(31 downto 0),outReg(31 downto 0));
+				sub(noSignOp,inReg2(63 downto 32),inReg1(63 downto 32),outReg(63 downto 32));
+				sub(noSignOp,inReg2(95 downto 64),inReg1(95 downto 64),outReg(95 downto 64));
+				sub(noSignOp,inReg2(127 downto 96),inReg1(127 downto 96),outReg(127 downto 96));
+			elsif (insReg(18 downto 15) = "1111") then 
+				sub_half(signOp,inReg1(15 downto 0),inReg2(15 downto 0),tempOut_half);
+				sat_half(tempOut_half,outReg(15 downto 0));
+				sub_half(signOp,inReg1(31 downto 16),inReg2(31 downto 16),tempOut_half);
+				sat_half(tempOut_half,outReg(31 downto 16));
+				sub_half(signOp,inReg1(47 downto 32),inReg2(47 downto 32),tempOut_half);
+				sat_half(tempOut_half,outReg(47 downto 32));
+				sub_half(signOp,inReg1(63 downto 48),inReg2(63 downto 48),tempOut_half);
+				sat_half(tempOut_half,outReg(63 downto 48));
+				sub_half(signOp,inReg1(79 downto 64),inReg2(79 downto 64),tempOut_half);
+				sat_half(tempOut_half,outReg(79 downto 64));
+				sub_half(signOp,inReg1(95 downto 80),inReg2(95 downto 80),tempOut_half);
+				sat_half(tempOut_half,outReg(95 downto 80));
+				sub_half(signOp,inReg1(111 downto 96),inReg2(111 downto 96),tempOut_half);
+				sat_half(tempOut_half,outReg(111 downto 96));
+				sub_half(signOp,inReg1(127 downto 112),inReg2(127 downto 112),tempOut_half);
 		  	end if ;
 		end if r3;
 	end process;  
