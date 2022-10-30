@@ -2,4 +2,7 @@ WARNING DAGGEN_0523: "The source is compiled without the -dbg switch. Line break
 MESSAGE "File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU.vhd" 
 MESSAGE "Compile Entity "aluIO"" 
 MESSAGE "Compile Architecture "alu" of Entity "aluIO"" 
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  47.0 [ms]" 
+MESSAGE "File: C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/ALU-tb.vhd" 
+MESSAGE "Compile Entity "alu_tb"" 
+MESSAGE "Compile Architecture "testbench" of Entity "alu_tb"" 
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  78.0 [ms]" 
