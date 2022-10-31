@@ -23,7 +23,7 @@ FAMILY=
 .\src\ALU.vhd=VHDL Source Code
 .\src\ALU-tb.vhd=VHDL Source Code
 [HierarchyViewer]
-HierarchyInformation=addition|addAlu|0 alu_tb|testbench|0 aluio|alu|0
+HierarchyInformation=alu_tb|testbench|0
 ShowHide=ShowTopLevel
 Selected=
 [ORDER]
