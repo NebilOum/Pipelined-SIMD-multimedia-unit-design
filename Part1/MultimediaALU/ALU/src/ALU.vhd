@@ -17,7 +17,7 @@ entity aluIO is   --- the three 128 bit inputs and the one 128 bit output regist
 	port(  
 		inReg1, inReg2, inReg3: in std_logic_vector(127 downto 0);	---- input registers
 		insReg: in std_logic_vector(24 downto 0); ---- instruction input
-		outReg: out std_logic_vector(127 downto 0) --:= std_logic_vector(to_unsigned(0,128))	  ---- output register
+		outReg: out std_logic_vector(127 downto 0)--:= std_logic_vector(to_unsigned(0,128))	  ---- output register
 	);
 end aluIO;
 
@@ -25,128 +25,134 @@ architecture alu of aluIO is
 ------------------------------------------------------------------------------ procedure to do multiplication of two 16-bit inputs
  	procedure mult(signal xsign : in std_logic;
  				signal in1,in2 : in std_logic_vector(m-1 downto 0);
-				signal oput : out std_logic_vector(m_long-1 downto 0)) is
+				variable oput : out std_logic_vector(m_long-1 downto 0)) is
 	begin
 		if 	xsign = '1' then	  
-			oput <= std_logic_vector(resize((signed(in1) * signed(in2)),32)); 
+			oput := std_logic_vector(resize((signed(in1) * signed(in2)),32)); 
 		elsif xsign = '0' then
-			oput <= std_logic_vector(resize((unsigned(in1) * unsigned(in2)),32));
+			oput := std_logic_vector(resize((unsigned(in1) * unsigned(in2)),32));
 		end if;
 	end procedure;
 	
 ------------------------------------------------------------------------------ procedure to do multiplication of two 32-bit inputs
  	procedure mult_long( signal xsign : in std_logic;
  					  signal in1,in2 : in std_logic_vector(m_long-1 downto 0);
-				   	  signal oput : out std_logic_vector(63 downto 0)) is
+				   	  variable oput : out std_logic_vector(63 downto 0)) is
 	begin
 		if 	xsign = '1' then 			  --- signed subtraction
-			oput <= std_logic_vector(resize((signed(in1) - signed(in2)),64)); 
+			oput := std_logic_vector(resize((signed(in1) - signed(in2)),64)); 
 		elsif xsign = '0' then 
-			oput <= std_logic_vector(resize((unsigned(in1) - unsigned(in2)),64));
+			oput := std_logic_vector(resize((unsigned(in1) - unsigned(in2)),64));
 		end if;
 	end procedure;
  	
 ----------------------------------------------------------------------------- prodcedure to do adddition of two 32 bit inputs
 	procedure add(signal xsign : in std_logic; 
-				  signal in1,in2 : in std_logic_vector(a-1 downto 0);
-				  signal oput : out std_logic_vector(a-1 downto 0)) is
+				  variable in1 : in std_logic_vector(a-1 downto 0);
+			      signal in2 : in std_logic_vector(a-1 downto 0);
+				  variable oput : out std_logic_vector(a-1 downto 0)) is
 	begin
 		if 	xsign = '1' then	  
-			oput <= std_logic_vector(resize((signed(in1) + signed(in2)),a)); 
+			oput := std_logic_vector(resize((signed(in1) + signed(in2)),a)); 
 		elsif xsign = '0' then 
-			oput <= std_logic_vector(resize((unsigned(in1) + unsigned(in2)),a));
+			oput := std_logic_vector(resize((unsigned(in1) + unsigned(in2)),a));
 		end if;
 	end procedure;
 	
 ----------------------------------------------------------------------------- procedure to do addition of two 16 bit inputs
 	procedure add_half(signal xsign : in std_logic; 
-				  signal in1,in2 : in std_logic_vector(15 downto 0);
-				  signal oput : out std_logic_vector(15 downto 0)) is
+					   variable in1 : in std_logic_vector(15 downto 0);
+					   signal in2 : in std_logic_vector(15 downto 0);
+				       variable oput : out std_logic_vector(15 downto 0)) is
 	begin
 		if 	xsign = '1' then	  
-			oput <= std_logic_vector(resize((signed(in1) + signed(in2)),16)); 
+			oput := std_logic_vector(resize((signed(in1) + signed(in2)),16)); 
 		elsif xsign = '0' then 
-			oput <= std_logic_vector(resize((unsigned(in1) + unsigned(in2)),16));
+			oput := std_logic_vector(resize((unsigned(in1) + unsigned(in2)),16));
 		end if;
 	end procedure;
 	
 
 ----------------------------------------------------------------------------- prodcedure to do adddition of two 64 bit inputs
 	procedure add_long( signal xsign : in std_logic;
-				   signal in1,in2 : in std_logic_vector(a_long-1 downto 0);
-				   signal oput : out std_logic_vector(a_long-1 downto 0)) is
+						variable in1 : in std_logic_vector(a_long-1 downto 0);
+						signal in2 : in std_logic_vector(a_long-1 downto 0);
+				   		variable oput : out std_logic_vector(a_long-1 downto 0)) is
 	begin
 		if 	xsign = '1' then 
-			oput <= std_logic_vector(resize((signed(in1) + signed(in2)),a_long)); 
+			oput := std_logic_vector(resize((signed(in1) + signed(in2)),a_long)); 
 		elsif xsign = '0' then 
-			oput <= std_logic_vector(unsigned(in1) + unsigned(in2));
+			oput := std_logic_vector(unsigned(in1) + unsigned(in2));
 		end if;
 	end procedure; 
 -----------------------------------------------------------------------------procedure to do subtraction of two 16 bit inputs
-procedure sub_half(signal xsign : in std_logic; 
-				  signal in1,in2 : in std_logic_vector(15 downto 0);
-				  signal oput : out std_logic_vector(15 downto 0)) is
+    procedure sub_half(signal xsign : in std_logic; 
+					   signal in1 : in std_logic_vector(15 downto 0);
+					   variable in2 : in std_logic_vector(15 downto 0);
+				       variable oput : out std_logic_vector(15 downto 0)) is
 	begin
 		if 	xsign = '1' then	  
-			oput <= std_logic_vector(resize((signed(in1) - signed(in2)),16)); 
+			oput := std_logic_vector(resize((signed(in1) - signed(in2)),16)); 
 		elsif xsign = '0' then 
-			oput <= std_logic_vector(resize((unsigned(in1) - unsigned(in2)),16));
+			oput := std_logic_vector(resize((unsigned(in1) - unsigned(in2)),16));
 		end if;
 	end procedure;
 ----------------------------------------------------------------------------- prodcedure to do subtraction of two 32 bit inputs
 	procedure sub(signal xsign : in std_logic;
-				  signal in1,in2 : in std_logic_vector(s-1 downto 0);
-				  signal oput : out std_logic_vector(s-1 downto 0)) is
+				  signal in1 : in std_logic_vector(s-1 downto 0);
+				  variable in2 : in std_logic_vector(s-1 downto 0);
+				  variable oput : out std_logic_vector(s-1 downto 0)) is
 	begin
 		if 	xsign = '1' then 			  --- signed subtraction
-			oput <= std_logic_vector(resize((signed(in1) - signed(in2)),s)); 
+			oput := std_logic_vector(resize((signed(in1) - signed(in2)),s)); 
 		elsif xsign = '0' then 
-			oput <= std_logic_vector(resize((unsigned(in1) - unsigned(in2)),s));
+			oput := std_logic_vector(resize((unsigned(in1) - unsigned(in2)),s));
 		end if;
 	end procedure;  
 	
 ----------------------------------------------------------------------------- procedure to do subtraction of two 64 bit inputs
 	procedure sub_long( signal xsign : in std_logic;
-				   signal in1,in2 : in std_logic_vector(s_long-1 downto 0);
-				   signal oput : out std_logic_vector(s_long-1 downto 0)) is
+						signal in1 : in std_logic_vector(s_long-1 downto 0);
+				   		variable in2 : in std_logic_vector(s_long-1 downto 0);
+				   		variable oput : out std_logic_vector(s_long-1 downto 0)) is
 	begin 
 		if 	xsign = '1' then
-			oput <= std_logic_vector(resize((signed(in1) - signed(in2)),s_long)); 
+			oput := std_logic_vector(resize((signed(in1) - signed(in2)),s_long)); 
 		elsif xsign = '0' then 
-			oput <= std_logic_vector(resize((unsigned(in1) - unsigned(in2)),s_long));
+			oput := std_logic_vector(resize((unsigned(in1) - unsigned(in2)),s_long));
 		end if;
 	end procedure;
 	
 ---------------------------------------------------------------------------	
  	procedure sat_half(signal input:in std_logic_vector(15 downto 0);
-			   	   	   signal output:out std_logic_vector(15 downto 0)) is	
+			   	   	   variable output:out std_logic_vector(15 downto 0)) is	
 	begin
-		if(signed(input) > x"7FFF") then
-			output <= x"7FFF";
-		elsif (signed(input) < x"8000") then
-			output <= x"8000";
+		if(signed(input) > signed(x"7FFF")) then
+			output := x"7FFF";
+		elsif (signed(input) < signed(x"8000")) then
+			output := x"8000";
 		end if;
 	end procedure;
 	
 ---------------------------------------------------------------------------
  	procedure sat_int(signal input:in std_logic_vector(31 downto 0);
-			   	      signal output:out std_logic_vector(31 downto 0)) is	
+			   	      variable output:out std_logic_vector(31 downto 0)) is	
 	begin
-		if(signed(input) > x"7FFFFFFF") then
-			output <= x"7FFFFFFF";
-		elsif (signed(input) < x"80000000") then
-			output <= x"80000000";
+		if(signed(input) > signed(x"7FFFFFFF")) then
+			output := x"7FFFFFFF";
+		elsif (signed(input) < signed(x"80000000")) then
+			output := x"80000000";
 		end if;
 	end procedure;
 	
 ---------------------------------------------------------------------------
 	procedure sat_long(signal input:in std_logic_vector(63 downto 0);
-			   	   		   signal output:out std_logic_vector(63 downto 0)) is	
+			   	   	   variable output:out std_logic_vector(63 downto 0)) is	
 	begin
-		if(signed(input) > x"7FFFFFFFFFFFFFFF") then
-			output <= x"7FFFFFFFFFFFFFFF";
-		elsif (signed(input) < x"8000000000000000") then
-			output <= x"8000000000000000";
+		if(signed(input) > signed(x"7FFFFFFFFFFFFFFF")) then
+			output := x"7FFFFFFFFFFFFFFF";
+		elsif (signed(input) < signed(x"8000000000000000")) then
+			output := x"8000000000000000";
 		end if;
 	end procedure;
 	
@@ -224,12 +230,12 @@ procedure sub_half(signal xsign : in std_logic;
   procedure MLHCU(signal xsign : in std_logic;
   				  signal in1 : in std_logic_vector(m-1 downto 0);
   			      signal in2 : in std_logic_vector(4 downto 0);
-				  signal oput : out std_logic_vector(m_long-1 downto 0)) is
+				  variable oput : out std_logic_vector(m_long-1 downto 0)) is
 	begin
 		if 	xsign = '1' then	  
-			oput <= std_logic_vector(resize((signed(in1) * signed(in2)),m_long)); 
+			oput := std_logic_vector(resize((signed(in1) * signed(in2)),m_long)); 
 		else 
-			oput <= std_logic_vector(resize((unsigned(in1) * unsigned(in2)),m_long));
+			oput := std_logic_vector(resize((unsigned(in1) * unsigned(in2)),m_long));
 		end if;
 	end procedure;
 
@@ -242,22 +248,42 @@ procedure sub_half(signal xsign : in std_logic;
 			   variable i : integer := 31;
 			   variable counter : integer := 0;
 	begin 
-		while input(i) = '1' loop
-			counter := counter + 1;
-			i := i-1;
+		for i in 31 downto 0 loop  
+			if(input(i) = '1') then
+				counter := counter + 1;
+			end if;
 		end loop;
 		output <= std_logic_vector(to_unsigned(counter,32));
 	end procedure;
 
 ------------------------------------------------------------------------------
+	procedure ROTW(signal in1,in2:in std_logic_vector(31 downto 0);
+				   variable output:out std_logic_vector(31 downto 0)) is 
+		variable rotate : integer;
+		variable finalPos : std_logic_vector(31 downto 0);
+	begin
+		rotate := to_integer(unsigned(in2(4 downto 0)));
+		finalPos := in1(31 downto 0);
+		for i in 1 to rotate loop
+				output := finalPos(0) & finalPos(31 downto 1);	
+		end loop;
+	end procedure;
+	
+------------------------------------------------------------------------------
 	signal tempOut_half : std_logic_vector(15 downto 0) := std_logic_vector(to_unsigned(0,16));
-	signal Tempout,t32: std_logic_vector(31 downto 0); --:= std_logic_vector(to_unsigned(0,32));
-	signal Tempout_L: std_logic_vector(63 downto 0) := std_logic_vector(to_unsigned(0,64));
+	signal Tempout,t32: std_logic_vector(31 downto 0):= std_logic_vector(to_unsigned(0,32));
+	signal Tempout_L,t64: std_logic_vector(63 downto 0) := std_logic_vector(to_unsigned(0,64));
 	signal tempFull : std_logic_vector(127 downto 0):= std_logic_vector(to_unsigned(0,128));
 	signal signOp : std_logic := '1';
 	signal noSignOp : std_logic := '0';
 begin 
 	process(insReg)
+	variable t_half,oT_half : std_logic_vector(15 downto 0);
+	variable t,oT : std_logic_vector(31 downto 0);
+	variable t_long,oT_long : std_logic_vector(63 downto 0);
+	
+	
+	variable oT_full : std_logic_vector(127 downto 0);
 	begin		
 		load:if(insReg(24) = '0') then --check insReg is a load instruction				   			
 			load(insReg,outReg); 
@@ -265,122 +291,181 @@ begin
 		--a=32, m=16--
 		r4:if(insReg(24 downto 23) = "10") then --check if inReg is a r4 instruction 
 			if insReg(22 downto 20)= "000" then	 --signed integer multiply-add low with saturation
-				mult(signOp,inReg3(15 downto 0),inReg2(15 downto 0),Tempout); 
-				t32 <= Tempout;
-				add(signOp,Tempout,inReg1(a-1 downto 0),Tempout);--tempFull(a-1 downto 0));	
---				add(signOp,Tempout,inReg1(31 downto 0),Tempout);
---				sat_int(Tempout,outReg(31 downto 0));
+				mult(signOp,inReg3(15 downto 0),inReg2(15 downto 0),t); 
+				t32 <= t;
+				add(signOp,t,inReg1(a-1 downto 0),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(31 downto 0) <= oT;	 
 				
---				mult(signOp,inReg3(47 downto 32),inReg2(47 downto 32),Tempout);
-----				add(signOp,Tempout,inReg1(63 downto a),tempFull(63 downto a));
---				add(signOp,Tempout,inReg1(a-1 downto 0),Tempout);
---				sat_int(Tempout,outReg(63 downto 32));
---				
---				mult(signOp,inReg3(79 downto 64),inReg2(79 downto 64),Tempout);
-----				add(signOp,Tempout,inReg1(95 downto 64),tempFull(95 downto 64));  
---				add(signOp,Tempout,inReg1(a-1 downto 0),Tempout);
---				sat_int(Tempout,outReg(95 downto 64));
---				
---				mult(signOp,inReg3(111 downto 96),inReg2(111 downto 96),Tempout);
-----				add(signOp,Tempout,inReg1(127 downto 96),tempFull(111 downto 96)); 
---				add(signOp,Tempout,inReg1(a-1 downto 0),Tempout);
---				sat_int(Tempout,outReg(127 downto 96));
+				mult(signOp,inReg3(47 downto 32),inReg2(47 downto 32),t); 
+				t32 <= t;
+				add(signOp,t,inReg1(63 downto 32),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(63 downto 32) <= oT;
 				
-				---outReg <= tempFull;
+				mult(signOp,inReg3(79 downto 64),inReg2(79 downto 64),t); 
+				t32 <= t;
+				add(signOp,t,inReg1(95 downto 64),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(95 downto 64) <= oT;
+				
+				mult(signOp,inReg3(111 downto 96),inReg2(111 downto 96),t); 
+				t32 <= t;
+				add(signOp,t,inReg1(127 downto 96),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(127 downto 96) <= oT;
 				
 			elsif insReg(22 downto 20) = "001" then--signed integer multiply-add high with saturation
+				mult(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),t); 
+				t32 <= t;
+				add(signOp,t,inReg1(a-1 downto 0),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(31 downto 0) <= oT;	 
 				
-				mult(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),Tempout);
-				add(signOp,Tempout,inReg1(a-1 downto 0),Tempout);
-				sat_int(Tempout,outReg(a-1 downto 0));
+				mult(signOp,inReg3(63 downto 48),inReg2(63 downto 48),t); 
+				t32 <= t;
+				add(signOp,t,inReg1(63 downto 32),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(63 downto 32) <= oT;
 				
-				mult(signOp,inReg3(63 downto 48),inReg2(63 downto 48),Tempout);
-				add(signOp,Tempout,inReg1(63 downto a),Tempout);
-				sat_int(Tempout,outReg(63 downto a));
+				mult(signOp,inReg3(95 downto 80),inReg2(95 downto 80),t); 
+				t32 <= t;
+				add(signOp,t,inReg1(95 downto 64),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(95 downto 64) <= oT;
 				
-				mult(signOp,inReg3(95 downto 80),inReg2(95 downto 80),Tempout);
-				add(signOp,Tempout,inReg1(95 downto 64),Tempout);
-				sat_int(Tempout,outReg(95 downto 64));
-				
-				mult(signOp,inReg3(127 downto 112),inReg2(127 downto 112),Tempout);
-				add(signOp,Tempout,inReg1(127 downto 96),Tempout);
-				sat_int(Tempout,outReg(127 downto 96));
+				mult(signOp,inReg3(127 downto 96),inReg2(127 downto 96),t); 
+				t32 <= t;
+				add(signOp,t,inReg1(127 downto 96),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(127 downto 96) <= oT;
 				
 			elsif insReg(22 downto 20)="010" then--signed integer multiply-subtract low with saturation
-
-                mult(signOp,inReg3(m-1 downto 0),inReg2(m-1 downto 0),Tempout);
-                sub(signOp,inReg1(a-1 downto 0),Tempout,Tempout);
-                sat_int(Tempout,outReg(a-1 downto 0));
-
-                mult(signOp,inReg3(47 downto a),inReg2(47 downto a),Tempout);
-                sub(signOp,inReg1(63 downto a),Tempout,Tempout);
-                sat_int(Tempout,outReg(63 downto a));
-
-                mult(signOp,inReg3(79 downto 64),inReg2(79 downto 64),Tempout);
-                sub(signOp,inReg1(95 downto 64),Tempout,Tempout);
-                sat_int(Tempout,outReg(95 downto 64));
-
-                mult(signOp,inReg3(111 downto 96),inReg2(111 downto 96),Tempout);
-                sub(signOp,inReg1(127 downto 96),Tempout,Tempout);
-                sat_int(Tempout,outReg(127 downto 96));
+				mult(signOp,inReg3(15 downto 0),inReg2(15 downto 0),t); 
+				t32 <= t;
+				sub(signOp,inReg1(a-1 downto 0),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(31 downto 0) <= oT;	 
+				
+				mult(signOp,inReg3(47 downto 32),inReg2(47 downto 32),t); 
+				t32 <= t;
+				sub(signOp,inReg1(63 downto 32),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(63 downto 32) <= oT;
+				
+				mult(signOp,inReg3(79 downto 64),inReg2(79 downto 64),t); 
+				t32 <= t;
+				sub(signOp,inReg1(95 downto 64),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(95 downto 64) <= oT;
+				
+				mult(signOp,inReg3(111 downto 96),inReg2(111 downto 96),t); 
+				t32 <= t;
+				sub(signOp,inReg1(127 downto 96),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(127 downto 96) <= oT;
 				
 			elsif insReg(22 downto 20)="011" then --signed integer multiply-subtract high with saturation
 				
-				mult(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),Tempout);
-				sub(signOp,inReg1(a-1 downto 0),Tempout,Tempout);
-				sat_int(Tempout,outReg(a-1 downto 0));
+				mult(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),t); 
+				t32 <= t;
+				sub(signOp,inReg1(a-1 downto 0),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(31 downto 0) <= oT;	 
 				
-				mult(signOp,inReg3(63 downto 48),inReg2(63 downto 48),Tempout);
-				sub(signOp,inReg1(63 downto a),Tempout,Tempout);
-				sat_int(Tempout,outReg(63 downto a));
+				mult(signOp,inReg3(63 downto 48),inReg2(63 downto 48),t); 
+				t32 <= t;
+				sub(signOp,inReg1(63 downto 32),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(63 downto 32) <= oT;
 				
-				mult(signOp,inReg3(95 downto 80),inReg2(95 downto 80),Tempout);
-				sub(signOp,inReg1(95 downto 64),Tempout,Tempout); 
-				sat_int(Tempout,outReg(95 downto 64));
+				mult(signOp,inReg3(95 downto 80),inReg2(95 downto 80),t); 
+				t32 <= t;
+				sub(signOp,inReg1(95 downto 64),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(95 downto 64) <= oT;
 				
-				mult(signOp,inReg3(127 downto 112),inReg2(127 downto 112),Tempout);
-				sub(signOp,inReg1(127 downto 96),Tempout,Tempout);
-				sat_int(Tempout,outReg(127 downto 96));
+				mult(signOp,inReg3(127 downto 96),inReg2(127 downto 96),t); 
+				t32 <= t;
+				sub(signOp,inReg1(127 downto 96),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(127 downto 96) <= oT;
 				
 			elsif insReg(22 downto 20)="100" then  --signed long multiply-add low with saturation
+				mult_long(signOp,inReg3(31 downto 0),inReg2(31 downto 0),t_long); 
+				t64 <= t_long;
+				add_long(signOp,t_long,inReg1(63 downto 0),oT_long);
+				Tempout_L <= oT_long;	
+				sat_long(Tempout_L,oT_long);
+				outreg(63 downto 0) <= oT_long;	 
 				
-				mult_long(signOp,inReg3(m_long-1 downto 0),inReg2(m_long-1 downto 0),Tempout_L);
-				add_long(signOp,Tempout_L,inReg1(a_long-1 downto 0),Tempout_L);
-				sat_long(Tempout_L,outReg(a_long-1 downto 0));
-				
-				mult_long(signOp,inReg3(95 downto 64),inReg2(95 downto 64),Tempout_L);
-				add_long(signOp,Tempout_L,inReg1(127 downto 64),Tempout_L);
-				sat_long(Tempout_L,outReg(127 downto 64));
-				
-				
+				mult_long(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),t_long); 
+				t64 <= t_long;
+				add_long(signOp,t_long,inReg1(127 downto 64),oT_long);
+				Tempout_L <= oT_long;	
+				sat_long(Tempout_L,oT_long);
+				outreg(127 downto 64) <= oT_long;
+					
 			elsif insReg(22 downto 20)="101" then  --signed long multiply-add high with saturation
+				mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long); 
+				t64 <= t_long;
+				add_long(signOp,t_long,inReg1(63 downto 0),oT_long);
+				Tempout_L <= oT_long;	
+				sat_long(Tempout_L,oT_long);
+				outreg(63 downto 0) <= oT_long;	 
 				
-				mult_long(signOp,inReg3(a_long-1 downto a),inReg2(a_long-1 downto a),Tempout_L);
-				add_long(signOp,Tempout_L,inReg1(a_long-1 downto 0),Tempout_L);
-				sat_long(Tempout_L,outReg(a_long-1 downto 0));
-				
-				mult_long(signOp,inReg3(127 downto 96),inReg2(127 downto 96),Tempout_L);
-				add_long(signOp,Tempout_L,inReg1(127 downto 64),Tempout_L);
-				sat_long(Tempout_L,outReg(127 downto 64));
+				mult_long(signOp,inReg3(127 downto 96),inReg2(127 downto 96),t_long); 
+				t64 <= t_long;
+				add_long(signOp,t_long,inReg1(127 downto 64),oT_long);
+				Tempout_L <= oT_long;	
+				sat_long(Tempout_L,oT_long);
+				outreg(127 downto 64) <= oT_long;
 				
 			elsif insReg(22 downto 20)="110" then --signed long multiply-subtract low with saturation
+				mult_long(signOp,inReg3(31 downto 0),inReg2(31 downto 0),t_long); 
+				t64 <= t_long;
+				sub_long(signOp,inReg1(63 downto 0),t_long,oT_long);
+				Tempout_L <= oT_long;	
+				sat_long(Tempout_L,oT_long);
+				outreg(63 downto 0) <= oT_long;	 
 				
-				mult_long(signOp,inReg3(m_long-1 downto 0),inReg2(m_long-1 downto 0),Tempout_L);
-				sub_long(signOp,inReg1(a_long-1 downto 0),Tempout_L,Tempout_L);
-				sat_long(Tempout_L,outReg(a_long-1 downto 0));
-				
-				mult_long(signOp,inReg3(95 downto 64),inReg2(95 downto 64),Tempout_L);
-				sub_long(signOp,inReg1(127 downto 64),Tempout_L,Tempout_L);
-				sat_long(Tempout_L,outReg(127 downto 64));
+				mult_long(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),t_long); 
+				t64 <= t_long;
+				sub_long(signOp,inReg1(127 downto 64),t_long,oT_long);
+				Tempout_L <= oT_long;	
+				sat_long(Tempout_L,oT_long);
+				outreg(127 downto 64) <= oT_long;
 				
 			elsif insReg(22 downto 20)="111" then --signed long multiply-subtract high with saturation
-				mult_long(signOp,inReg3(a_long-1 downto a),inReg2(a_long-1 downto a),Tempout_L);
-				sub_long(signOp,inReg1(a_long-1 downto 0),Tempout_L,Tempout_L);
-				sat_long(Tempout_L,outReg(a_long-1 downto 0));
+				mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long); 
+				t64 <= t_long;
+				sub_long(signOp,inReg1(63 downto 0),t_long,oT_long);
+				Tempout_L <= oT_long;	
+				sat_long(Tempout_L,oT_long);
+				outreg(63 downto 0) <= oT_long;	 
 				
-				mult_long(signOp,inReg3(127 downto 96),inReg2(127 downto 96),Tempout_L);
-				sub_long(signOp,inReg1(127 downto 64),Tempout_L,Tempout_L);
-				sat_long(Tempout_L,outReg(127 downto 64));
+				mult_long(signOp,inReg3(127 downto 96),inReg2(127 downto 96),t_long); 
+				t64 <= t_long;
+				sub_long(signOp,inReg1(127 downto 64),t_long,oT_long);
+				Tempout_L <= oT_long;	
+				sat_long(Tempout_L,oT_long);
+				outreg(127 downto 64) <= oT_long;
 			end if;	--- end of if loop that goes through all possible r4 instructions
 		end if r4;
 			
@@ -396,36 +481,125 @@ begin
 				clzw(inReg1(95 downto 64),outReg(95 downto 64));
 				clzw(inReg1(127 downto 96),outReg(127 downto 96)); 
 			elsif (insReg(18 downto 15) = "0010") then  ---AU operation
-				add(noSignOp,inReg1(31 downto 0),inReg2(31 downto 0),outReg(31 downto 0));
-				add(noSignOp,inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));
-				add(noSignOp,inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));
-				add(noSignOp,inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));
+				t := inReg1(31 downto 0);
+				add(noSignOp,t,inReg2(31 downto 0),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(31 downto 0) <= oT;
+				
+				t := inReg1(63 downto 32);
+				add(noSignOp,t,inReg2(63 downto 32),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(63 downto 32) <= oT;
+				
+				t := inReg1(95 downto 64);
+				add(noSignOp,t,inReg2(95 downto 64),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(95 downto 64) <= oT;
+				
+				t := inReg1(127 downto 96);
+				add(noSignOp,t,inReg2(127 downto 96),oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(127 downto 96) <= oT;
 			elsif (insReg(18 downto 15) = "0011") then	---AHU operation
-				add_half(noSignOp,inReg1(15 downto 0),inReg2(15 downto 0),outReg(15 downto 0));
-				add_half(noSignOp,inReg1(31 downto 16),inReg2(31 downto 16),outReg(31 downto 16));
-				add_half(noSignOp,inReg1(47 downto 32),inReg2(47 downto 32),outReg(47 downto 32));
-				add_half(noSignOp,inReg1(63 downto 48),inReg2(63 downto 48),outReg(63 downto 48));
-				add_half(noSignOp,inReg1(79 downto 64),inReg2(79 downto 64),outReg(79 downto 64));
-				add_half(noSignOp,inReg1(95 downto 80),inReg2(95 downto 80),outReg(95 downto 80));
-				add_half(noSignOp,inReg1(111 downto 96),inReg2(111 downto 96),outReg(111 downto 96));
-				add_half(noSignOp,inReg1(127 downto 112),inReg2(127 downto 112),outReg(127 downto 112));
+				t_half := inReg1(15 downto 0);
+				add_half(noSignOp,t_half,inReg2(15 downto 0),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(15 downto 0) <= oT_half;
+				
+				t_half := inReg1(31 downto 16);
+				add_half(noSignOp,t_half,inReg2(31 downto 16),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(31 downto 16) <= oT_half;
+				
+				t_half := inReg1(47 downto 32);
+				add_half(noSignOp,t_half,inReg2(47 downto 32),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(47 downto 32) <= oT_half;
+				
+				t_half := inReg1(63 downto 48);
+				add_half(noSignOp,t_half,inReg2(63 downto 48),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(63 downto 48) <= oT_half;
+				
+				t_half := inReg1(79 downto 64);
+				add_half(noSignOp,t_half,inReg2(79 downto 64),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(79 downto 64) <= oT_half; 
+				
+				t_half := inReg1(95 downto 80);
+				add_half(noSignOp,t_half,inReg2(95 downto 80),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(95 downto 80) <= oT_half;
+				
+				t_half := inReg1(111 downto 96);
+				add_half(noSignOp,t_half,inReg2(111 downto 96),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(111 downto 96) <= oT_half;
+				
+				t_half := inReg1(127 downto 112);
+				add_half(noSignOp,t_half,inReg2(127 downto 112),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(127 downto 112) <= oT_half;
 			elsif (insReg(18 downto 15) = "0100") then ---AHS operation
-				add_half(signOp,inReg1(15 downto 0),inReg2(15 downto 0),tempOut_half);
-				sat_half(tempOut_half,outReg(15 downto 0));
-				add_half(signOp,inReg1(31 downto 16),inReg2(31 downto 16),tempOut_half);
-				sat_half(tempOut_half,outReg(31 downto 16));
-				add_half(signOp,inReg1(47 downto 32),inReg2(47 downto 32),tempOut_half);
-				sat_half(tempOut_half,outReg(47 downto 32));
-				add_half(signOp,inReg1(63 downto 48),inReg2(63 downto 48),tempOut_half);
-				sat_half(tempOut_half,outReg(63 downto 48));
-				add_half(signOp,inReg1(79 downto 64),inReg2(79 downto 64),tempOut_half);
-				sat_half(tempOut_half,outReg(79 downto 64));
-				add_half(signOp,inReg1(95 downto 80),inReg2(95 downto 80),tempOut_half);
-				sat_half(tempOut_half,outReg(95 downto 80));
-				add_half(signOp,inReg1(111 downto 96),inReg2(111 downto 96),tempOut_half);
-				sat_half(tempOut_half,outReg(111 downto 96));
-				add_half(signOp,inReg1(127 downto 112),inReg2(127 downto 112),tempOut_half);
-				sat_half(tempOut_half,outReg(127 downto 112));
+				t_half := inReg1(15 downto 0);
+				add_half(signOp,t_half,inReg2(15 downto 0),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(15 downto 0) <= oT_half;
+				
+				t_half := inReg1(31 downto 16);
+				add_half(signOp,t_half,inReg2(31 downto 16),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(31 downto 16) <= oT_half;
+				
+				t_half := inReg1(47 downto 32);
+				add_half(signOp,t_half,inReg2(47 downto 32),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(47 downto 32) <= oT_half;
+				
+				t_half := inReg1(63 downto 48);
+				add_half(signOp,t_half,inReg2(63 downto 48),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(63 downto 48) <= oT_half;
+				
+				t_half := inReg1(79 downto 64);
+				add_half(signOp,t_half,inReg2(79 downto 64),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(79 downto 64) <= oT_half; 
+				
+				t_half := inReg1(95 downto 80);
+				add_half(signOp,t_half,inReg2(95 downto 80),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(95 downto 80) <= oT_half;
+				
+				t_half := inReg1(111 downto 96);
+				add_half(signOp,t_half,inReg2(111 downto 96),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(111 downto 96) <= oT_half;
+				
+				t_half := inReg1(127 downto 112);
+				add_half(signOp,t_half,inReg2(127 downto 112),oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(127 downto 112) <= oT_half;
 			elsif (insReg(18 downto 15) = "0101") then ---AND operation
 				outReg <= inReg1 and inReg2;
 			elsif (insReg(18 downto 15) = "0110") then ---BCW operation
@@ -443,53 +617,137 @@ begin
 				minws(inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));
 				minws(inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));
 				minws(inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));
-			elsif (insReg(18 downto 15) = "1001") then 		--MLHU Operation
-				mult(noSignOp,inReg1(m-1 downto 0),inReg2(m-1 downto 0),Tempout); 
-				sat_int(Tempout,outReg(a-1 downto 0));
-				mult(noSignOp,inReg1(47 downto a),inReg2(47 downto a),Tempout);
-				sat_int(Tempout,outReg(63 downto a));
-				mult(noSignOp,inReg1(79 downto 64),inReg2(79 downto 64),Tempout);
-				sat_int(Tempout,outReg(95 downto 64));
-				mult(noSignOp,inReg1(111 downto 96),inReg2(111 downto 96),Tempout);
-				sat_int(Tempout,outReg(127 downto 96));
+			elsif (insReg(18 downto 15) = "1001") then 		--MLHU Operation 
+				mult(noSignOp,inReg1(15 downto 0),inReg2(15 downto 0),oT); 
+				outreg(31 downto 0) <= oT;
+				
+				mult(noSignOp,inReg1(47 downto 32),inReg2(47 downto 32),oT); 
+				outreg(63 downto 32) <= oT;	 
+				
+				mult(noSignOp,inReg1(79 downto 64),inReg2(79 downto 64),oT); 
+				outreg(95 downto 64) <= oT;	
+				
+				mult(noSignOp,inReg1(111 downto 96),inReg2(111 downto 96),oT); 
+				outreg(127 downto 96) <= oT;
 	        elsif (insReg(18 downto 15) = "1010") then	--MLHCU operation
-				MLHCU(noSignOp,inReg1(m-1 downto 0),insReg(14 downto 10),Tempout); 
-				sat_int(Tempout,outReg(a-1 downto 0));
-				MLHCU(noSignOp,inReg1(47 downto a),insReg(14 downto 10),Tempout);
-				sat_int(Tempout,outReg(63 downto a));
-				MLHCU(noSignOp,inReg1(79 downto 64),insReg(14 downto 10),Tempout);
-				sat_int(Tempout,outReg(95 downto 64));
-				MLHCU(noSignOp,inReg1(111 downto 96),insReg(14 downto 10),Tempout);
-				sat_int(Tempout,outReg(127 downto 96));
+				MLHCU(noSignOp,inReg1(m-1 downto 0),insReg(14 downto 10),oT); 
+				outreg(31 downto 0) <= oT;
+				MLHCU(noSignOp,inReg1(47 downto a),insReg(14 downto 10),oT);
+				outreg(63 downto 32) <= oT;
+				MLHCU(noSignOp,inReg1(79 downto 64),insReg(14 downto 10),oT);
+				outreg(95 downto 64) <= oT;
+				MLHCU(noSignOp,inReg1(111 downto 96),insReg(14 downto 10),oT);
+				outreg(127 downto 96) <= oT;
 			elsif (insReg(18 downto 15) = "1011") then	 --OR operation
-				outReg<= inReg1 or inReg2;
-			elsif (insReg(18 downto 15) = "1100") then
+				outReg <= inReg1 or inReg2;
+			elsif (insReg(18 downto 15) = "1100") then --- PCNTW
 				PCNTW(inReg1(31 downto 0),outReg(31 downto 0));
 				PCNTW(inReg1(63 downto 32),outReg(63 downto 32));
 				PCNTW(inReg1(95 downto 64),outReg(95 downto 64));
 				PCNTW(inReg1(127 downto 96),outReg(127 downto 96));
-	--			elsif (insReg(18 downto 15) = "1101") then
-			elsif (insReg(18 downto 15) = "1110") then	--SFWH
-				sub(noSignOp,inReg2(31 downto 0),inReg1(31 downto 0),outReg(31 downto 0));
-				sub(noSignOp,inReg2(63 downto 32),inReg1(63 downto 32),outReg(63 downto 32));
-				sub(noSignOp,inReg2(95 downto 64),inReg1(95 downto 64),outReg(95 downto 64));
-				sub(noSignOp,inReg2(127 downto 96),inReg1(127 downto 96),outReg(127 downto 96));
-			elsif (insReg(18 downto 15) = "1111") then 
-				sub_half(signOp,inReg2(15 downto 0),inReg1(15 downto 0),tempOut_half);
-				sat_half(tempOut_half,outReg(15 downto 0));
-				sub_half(signOp,inReg2(31 downto 16),inReg1(31 downto 16),tempOut_half);
-				sat_half(tempOut_half,outReg(31 downto 16));
-				sub_half(signOp,inReg2(47 downto 32),inReg1(47 downto 32),tempOut_half);
-				sat_half(tempOut_half,outReg(47 downto 32));
-				sub_half(signOp,inReg2(63 downto 48),inReg1(63 downto 48),tempOut_half);
-				sat_half(tempOut_half,outReg(63 downto 48));
-				sub_half(signOp,inReg2(79 downto 64),inReg1(79 downto 64),tempOut_half);
-				sat_half(tempOut_half,outReg(79 downto 64));
-				sub_half(signOp,inReg2(95 downto 80),inReg1(95 downto 80),tempOut_half);
-				sat_half(tempOut_half,outReg(95 downto 80));
-				sub_half(signOp,inReg2(111 downto 96),inReg1(111 downto 96),tempOut_half);
-				sat_half(tempOut_half,outReg(111 downto 96));
-				sub_half(signOp,inReg2(127 downto 112),inReg1(127 downto 112),tempOut_half);
+			elsif (insReg(18 downto 15) = "1101") then	--ROTW
+				ROTW(inReg1(31 downto 0),inReg2(31 downto 0),oT);
+				outReg(31 downto 0) <= oT; 
+				ROTW(inReg1(63 downto 32),inReg2(63 downto 32),oT);
+				outReg(63 downto 32) <= oT;
+				ROTW(inReg1(95 downto 64),inReg2(95 downto 64),oT);
+				outReg(95 downto 64) <= oT;
+				ROTW(inReg1(127 downto 96),inReg2(127 downto 96),oT);
+				outReg(127 downto 96) <= oT;
+				
+--				rotate := to_integer(unsigned(inReg2(36 downto 32)));
+--				rT := inReg1(63 downto 32);
+--				for i in 1 to rotate loop
+--					rT := rT(0) & rT(31 downto 1);	
+--				end loop;
+--				outReg(63 downto 32) <= rt;
+--				
+--				rotate := to_integer(unsigned(inReg2(68 downto 64)));
+--				rT := inReg1(95 downto 64);
+--				for i in 1 to rotate loop
+--					rT := rT(0) & rT(31 downto 1);	
+--				end loop;
+--				outReg(95 downto 64) <= rt;
+--				
+--				rotate := to_integer(unsigned(inReg2(100 downto 96)));
+--				rT := inReg1(127 downto 96);
+--				for i in 1 to rotate loop
+--					rT := rT(0) & rT(31 downto 1);	
+--				end loop;
+--				outReg(127 downto 96) <= rt;
+				
+			elsif (insReg(18 downto 15) = "1110") then	--SFWU
+				t := inReg1(31 downto 0);
+				sub(noSignOp,inReg2(31 downto 0),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(31 downto 0) <= oT;
+				
+				t := inReg1(63 downto 32);
+				sub(noSignOp,inReg2(63 downto 32),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(63 downto 32) <= oT;
+				
+				t := inReg1(95 downto 64);
+				sub(noSignOp,inReg2(95 downto 64),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(95 downto 64) <= oT;
+				
+				t := inReg1(127 downto 96);
+				sub(noSignOp,inReg2(127 downto 96),t,oT);
+				Tempout <= oT;	
+				sat_int(Tempout,oT);
+				outreg(127 downto 96) <= oT;
+		
+			elsif (insReg(18 downto 15) = "1111") then  --SFHS
+				t_half := inReg1(15 downto 0);
+				sub_half(signOp,inReg2(15 downto 0),t_half,oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(15 downto 0) <= oT_half;
+				
+				t_half := inReg1(31 downto 16);
+				sub_half(signOp,inReg2(31 downto 16),t_half,oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(31 downto 16) <= oT_half;
+				
+				t_half := inReg1(47 downto 32);
+				sub_half(signOp,inReg2(47 downto 32),t_half,oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(47 downto 32) <= oT_half;
+				
+				t_half := inReg1(63 downto 48);
+				sub_half(signOp,inReg2(63 downto 48),t_half,oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(63 downto 48) <= oT_half;
+				
+				t_half := inReg1(79 downto 64);
+				sub_half(signOp,inReg2(79 downto 64),t_half,oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(79 downto 64) <= oT_half; 
+				
+				t_half := inReg1(95 downto 80);
+				sub_half(signOp,inReg2(95 downto 80),t_half,oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(95 downto 80) <= oT_half;
+				
+				t_half := inReg1(111 downto 96);
+				sub_half(signOp,inReg2(111 downto 96),t_half,oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
+				outreg(111 downto 96) <= oT_half;
+				
+				t_half := inReg1(127 downto 112);
+				sub_half(signOp,inReg2(127 downto 112),t_half,oT_half);
+				tempout_half <= oT_half;	
+				sat_half(tempout_half,oT_half);
 		  	end if ;
 		end if r3;
 	end process;
