@@ -40,9 +40,9 @@ architecture alu of aluIO is
 				   	  variable oput : out std_logic_vector(63 downto 0)) is
 	begin
 		if 	xsign = '1' then 			  --- signed subtraction
-			oput := std_logic_vector(resize((signed(in1) - signed(in2)),64)); 
+			oput := std_logic_vector(resize((signed(in1) * signed(in2)),64)); 
 		elsif xsign = '0' then 
-			oput := std_logic_vector(resize((unsigned(in1) - unsigned(in2)),64));
+			oput := std_logic_vector(resize((unsigned(in1) * unsigned(in2)),64));
 		end if;
 	end procedure;
  	
@@ -271,8 +271,8 @@ architecture alu of aluIO is
 	
 ------------------------------------------------------------------------------
 	signal tempOut_half : std_logic_vector(15 downto 0) := std_logic_vector(to_unsigned(0,16));
-	signal Tempout,t32: std_logic_vector(31 downto 0):= std_logic_vector(to_unsigned(0,32));
-	signal Tempout_L,t64: std_logic_vector(63 downto 0) := std_logic_vector(to_unsigned(0,64));
+	signal Tempout,t32: std_logic_vector(31 downto 0);--:= std_logic_vector(to_unsigned(0,32));
+	signal Tempout_L,t64: std_logic_vector(63 downto 0); --:= std_logic_vector(to_unsigned(0,64));
 	signal tempFull : std_logic_vector(127 downto 0):= std_logic_vector(to_unsigned(0,128));
 	signal signOp : std_logic := '1';
 	signal noSignOp : std_logic := '0';
@@ -415,7 +415,7 @@ begin
 				sat_long(Tempout_L,oT_long);
 				outreg(63 downto 0) <= oT_long;	 
 				
-				mult_long(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),t_long); 
+				mult_long(signOp,inReg3(95 downto 64),inReg2(95 downto 64),t_long); 
 				t64 <= t_long;
 				add_long(signOp,t_long,inReg1(127 downto 64),oT_long);
 				Tempout_L <= oT_long;	
@@ -425,14 +425,14 @@ begin
 			elsif insReg(22 downto 20)="101" then  --signed long multiply-add high with saturation
 				mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long); 
 				t64 <= t_long;
-				add_long(signOp,t_long,inReg1(63 downto 0),oT_long);
+				sub_long(signOp,inReg1(63 downto 0),t_long,oT_long);
 				Tempout_L <= oT_long;	
 				sat_long(Tempout_L,oT_long);
 				outreg(63 downto 0) <= oT_long;	 
 				
 				mult_long(signOp,inReg3(127 downto 96),inReg2(127 downto 96),t_long); 
 				t64 <= t_long;
-				add_long(signOp,t_long,inReg1(127 downto 64),oT_long);
+				sub_long(signOp,inReg1(127 downto 64),t_long,oT_long);
 				Tempout_L <= oT_long;	
 				sat_long(Tempout_L,oT_long);
 				outreg(127 downto 64) <= oT_long;
@@ -474,7 +474,6 @@ begin
 		r3:if(insReg(24 downto 23) = "11") then	  -- checks if a r3 operation is being performed
 			if(insReg(18 downto 15) = "0000" ) then	-- nop operation
 				Null;
-				outReg <= tempFull;
 			elsif (insReg(18 downto 15) = "0001") then	---CLZW operation
 				clzw(inReg1(31 downto 0),outReg(31 downto 0));
 				clzw(inReg1(63 downto 32),outReg(63 downto 32));
