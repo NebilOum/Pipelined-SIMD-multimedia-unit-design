@@ -23,8 +23,8 @@ entity InstrctionBuffer is
     );
 end InstrctionBuffer;
 architecture behavioral of InstrctionBuffer is
-type 2d_array is array (0 to 63) of std_logic_vector(7 downto 0);
-signal registers : 2d_array;
+type twodi_array is array (0 to 63) of std_logic_vector(7 downto 0);
+signal registers : twodi_array;
 begin
     process(clk)
     begin
