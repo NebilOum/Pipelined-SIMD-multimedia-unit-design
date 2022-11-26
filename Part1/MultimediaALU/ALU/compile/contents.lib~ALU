@@ -1,4 +1,4 @@
-279
+281
 ~E 1 "../src/ALU.vhd" 42 addition
 ~A 1 "../src/ALU.vhd" 58 addAlu
 ~E 1 "../src/ALU-tb.vhd" 8 alu_tb

@@ -750,4 +750,89 @@ begin
 		  	end if ;
 		end if r3;
 	end process;
-end architecture alu;
+end architecture alu; 
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+entity fowardMux is
+	port( 
+		controlSginal : in std_logic; --- Mux control signal
+		dataIn1,dataIn2,dataIn3,dataIn4: in std_logic_vector(128 downto 0); ---- input values from memory stage
+		outReg,outReg1,outReg2,outReg3: out std_logic_vector(3 downto 0) ---- output register
+	);
+end fowardMux;	 
+
+architecture mux of fowardMux is
+begin
+end architecture mux;
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+entity dataFowarding is
+	port(  
+		dataIn: in std_logic_vector(128 downto 0); ---- input values from memory stage
+		regNumA,regNumB : in std_logic_vector(4 downto 0); ---register number that can get passed back to decode stage
+		outReg: out std_logic_vector(3 downto 0) ---- output register
+	);
+end dataFowarding;	 
+
+architecture fowarding of dataForwarding is
+begin
+end architecture fowarding;
+-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
+entity ex_wb is
+	port(  
+		inControlSignals: in std_logic_vector(0 to 1);	---- input control registers
+		dataIn: in std_logic_vector(128 downto 0); ---- input values from memory stage
+		outControlSignals: out std_logic_vector(1 downto 0);	---- output control registers used in the writeback stage
+		outRegD: out std_logic_vector(128 downto 0) ---- output register
+	);
+end ex_wb; 
+
+architecture exWB of ex_wb is
+begin
+end architecture exWB;
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+entity writeBack is
+	port(  
+		inControlSignals: in std_logic_vector(0 to 1);	---- input control registers
+		aluOut: in std_logic_vector(128 downto 0); ---- input values from memory stage
+		outRegD : out std_logic_vector(128 downto 0) ---- output register
+	);
+end writeBack;
+
+architecture wb of writeBack is
+begin
+end architecture wb;
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+entity writeResult is 
+	port(
+	cycleData: in std_logic_vector(2 downto 0);
+	);
+end writeResult; 		 
+
+architecture write_toResultFile of writeResult is
+begin
+end architecture write_toResultFile	
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+entity multimedia is
+	port(clk: in std_logic);
+end multimedia;
+
+architecture mmAlu of multimedia is	 
+--	signal control: std_logic_vector(4 downto 0);
+--	type inst_arr is array (0 to 63) of std_logic_vector(24 downto 0);
+--	type truth_table is array(0 to 2) of inst_arr;
+begin
+	process(clk)
+	---entity fowardMux port map(=>,=>,=>,=>,out=>);
+	---entity aluIO port map(=>,=>,=>,=>,out=>);
+	---entity ex_wb port map(=>,=>, outCtrlSignals =>,out=>);
+	---entity dataFowarding port map(=>,=>,out=>); 
+	---entity writeBack port map(=>,=>,out=>);	 
+	---entity writeResult port map(=>,=>,=>);
+	end process;
+end architecture mmALu;
+-----------------------------------------------------------------------------------------------------
