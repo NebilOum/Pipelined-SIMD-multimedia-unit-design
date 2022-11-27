@@ -14,6 +14,10 @@ architecture testbench of alu_tb is
 	signal insR : std_logic_vector(24 downto 0);	 
 	--- ouput
 	signal oReg : std_logic_vector(127 downto 0); 
+	
+	type inst_arr is array (0 to 2) of std_logic_vector(31 downto 0);
+	type truth_table is array(0 to 2) of inst_arr;
+	
 begin  	   
 	uut:entity aluIO port map(
 		inReg1 => ir1,
