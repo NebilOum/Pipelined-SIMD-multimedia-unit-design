@@ -34,18 +34,19 @@ begin
     variable t3:integer;
         begin
             if rising_edge(clk) then
-                if sele(24 downto 23) ="10" then
-                    t1 := to_integer(unsigned (sele(9 downto 5)));	 
-                    out1 <= registers( t1)(127 downto 0);
-			        t2 := to_integer(unsigned(sel(14 downto 10)));
-                    out2 <= registers(t2)(127 downto 0);
-			        t3 := to_integer (unsigned (sele(19 downto 15)));
-                    out3 <= regsisters(t3)(127 downto 0); 
-			    elsif sele (24 downto 23) = "11" then
+                
+			    if sele (24 downto 23) = "11" then --r3 instructions
 			        t1 := to_integer(unsigned (sele(9 downto 5)));
-				    out1 <= registers( temp1)(127 downto 0);
+				    out1 <= registers( t1)(127 downto 0);
 			        t2 := to_integer(unsigned(sele(14 downto 10)));
-                    out2 <= registers(temp2)(127 downto 0);	 
+                    out2 <= registers(t2)(127 downto 0);
+                elsif sele(24 downto 23) ="10" then--r4 instructions
+                        t1 := to_integer(unsigned (sele(9 downto 5)));	 
+                        out1 <= registers( t1)(127 downto 0);
+                        t2 := to_integer(unsigned(sel(14 downto 10)));
+                        out2 <= registers(t2)(127 downto 0);
+                        t3 := to_integer (unsigned (sele(19 downto 15)));
+                        out3 <= regsisters(t3)(127 downto 0); 	 
 			
 		
 		end if;	
@@ -53,5 +54,5 @@ begin
             registers(write_to_reg) <= writtenReg;
         end if;
     end if;
-
+end process;
 end Register_File;
