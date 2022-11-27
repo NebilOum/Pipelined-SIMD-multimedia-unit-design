@@ -189,7 +189,7 @@ while (!myfile.eof()) {
             opcode = "10011" + reg3 + reg2 + reg1 + regdes;
             outp << opcode << endl;
         }
-        if (Fword == "slimas") {
+        if (Fword == "slmals") {
             for (int i = 0; i < splitt[1].size(); i++) {
                 if (isdigit(splitt[1][i])) {
                     convert = int(splitt[1][i]);
@@ -218,7 +218,7 @@ while (!myfile.eof()) {
             outp << opcode << endl;
         }
 
-        if (Fword == "slimahs") {
+        if (Fword == "slmahs") {
             for (int i = 0; i < splitt[1].size(); i++) {
                 if (isdigit(splitt[1][i])) {
                     convert = int(splitt[1][i]);
@@ -246,7 +246,7 @@ while (!myfile.eof()) {
             opcode = "10101" + reg3 + reg2 + reg1 + regdes; 
             outp << opcode << endl;
         }
-        if (Fword == "slimsls") {
+        if (Fword == "slmsls") {
             for (int i = 0; i < splitt[1].size(); i++) {
                 if (isdigit(splitt[1][i])) {
                     convert = int(splitt[1][i]);
@@ -274,7 +274,7 @@ while (!myfile.eof()) {
             opcode = "10110" + reg3 + reg2 + reg1 + regdes;
             outp << opcode << endl;
         }
-        if (Fword == "slimshs") {
+        if (Fword == "slmshs") {
             for (int i = 0; i < splitt[1].size(); i++) {
                 if (isdigit(splitt[1][i])) {
                     convert = int(splitt[1][i]);
