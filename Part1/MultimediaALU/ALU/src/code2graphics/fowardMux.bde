@@ -51,7 +51,7 @@ PAGE ""
   }
   SIGNALASSIGN  2, 0, 0
   {
-   LABEL "block_801"
+   LABEL "block_832"
    TEXT "outReg1 <= dataIn4 when selSignal(2) = '1' else dataIn1;"
    RECT (1100,240,1501,360)
    MARGINS (20,20)
@@ -59,11 +59,11 @@ PAGE ""
    SHOWLABEL
    SHOWTEXT
    CORNER 10
-   VTX (  33, 42, 56, 62 )
+   VTX (  32, 42, 56, 71 )
   }
   SIGNALASSIGN  3, 0, 0
   {
-   LABEL "block_802"
+   LABEL "block_833"
    TEXT "outReg2 <= dataIn4 when selSignal(1) = '1' else dataIn2;"
    RECT (1100,380,1501,500)
    MARGINS (20,20)
@@ -71,11 +71,11 @@ PAGE ""
    SHOWLABEL
    SHOWTEXT
    CORNER 10
-   VTX (  36, 44, 53, 68 )
+   VTX (  35, 44, 53, 65 )
   }
   SIGNALASSIGN  4, 0, 0
   {
-   LABEL "block_803"
+   LABEL "block_834"
    TEXT "outReg3 <= dataIn4 when selSignal(0) = '1' else dataIn3;"
    RECT (1100,520,1501,640)
    MARGINS (20,20)
@@ -83,7 +83,7 @@ PAGE ""
    SHOWLABEL
    SHOWTEXT
    CORNER 10
-   VTX (  38, 48, 50, 71 )
+   VTX (  38, 47, 50, 68 )
   }
   INSTANCE  5, 0, 0
   {
@@ -135,7 +135,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (920,620)
-   VERTEXES ( (2,47) )
+   VERTEXES ( (2,48) )
   }
   INSTANCE  9, 0, 0
   {
@@ -148,7 +148,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (920,260)
-   VERTEXES ( (2,65) )
+   VERTEXES ( (2,62) )
   }
   INSTANCE  10, 0, 0
   {
@@ -161,7 +161,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (1600,260)
-   VERTEXES ( (2,32) )
+   VERTEXES ( (2,33) )
   }
   INSTANCE  11, 0, 0
   {
@@ -174,7 +174,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (1600,400)
-   VERTEXES ( (2,35) )
+   VERTEXES ( (2,36) )
   }
   INSTANCE  12, 0, 0
   {
@@ -321,7 +321,7 @@ PAGE ""
   {
    VARIABLES
    {
-    #NAME="selSignal(0)"
+    #NAME="selSignal(1)"
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
@@ -329,17 +329,17 @@ PAGE ""
   {
    VARIABLES
    {
-    #NAME="selSignal(1)"
+    #NAME="selSignal(0)"
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
   VTX  32, 0, 0
   {
-   COORD (1600,260)
+   COORD (1501,260)
   }
   VTX  33, 0, 0
   {
-   COORD (1501,260)
+   COORD (1600,260)
   }
   BUS  34, 0, 0
   {
@@ -348,11 +348,11 @@ PAGE ""
   }
   VTX  35, 0, 0
   {
-   COORD (1600,400)
+   COORD (1501,400)
   }
   VTX  36, 0, 0
   {
-   COORD (1501,400)
+   COORD (1600,400)
   }
   BUS  37, 0, 0
   {
@@ -400,11 +400,11 @@ PAGE ""
   }
   VTX  47, 0, 0
   {
-   COORD (920,620)
+   COORD (1100,620)
   }
   VTX  48, 0, 0
   {
-   COORD (1100,620)
+   COORD (920,620)
   }
   BUS  49, 0, 0
   {
@@ -421,7 +421,7 @@ PAGE ""
   }
   WIRE  52, 0, 0
   {
-   NET 30
+   NET 31
    VTX 50, 51
   }
   VTX  53, 0, 0
@@ -434,7 +434,7 @@ PAGE ""
   }
   WIRE  55, 0, 0
   {
-   NET 31
+   NET 30
    VTX 53, 54
   }
   VTX  56, 0, 0
@@ -465,20 +465,20 @@ PAGE ""
   }
   VTX  62, 0, 0
   {
-   COORD (1100,260)
+   COORD (920,260)
   }
   BUS  64, 0, 0
   {
    NET 27
-   VTX 62, 66
+   VTX 62, 72
   }
   VTX  65, 0, 0
   {
-   COORD (920,260)
+   COORD (1100,400)
   }
   VTX  66, 0, 0
   {
-   COORD (1080,260)
+   COORD (1080,400)
   }
   BUS  67, 0, 0
   {
@@ -487,11 +487,11 @@ PAGE ""
   }
   VTX  68, 0, 0
   {
-   COORD (1100,400)
+   COORD (1100,540)
   }
   VTX  69, 0, 0
   {
-   COORD (1080,400)
+   COORD (1080,540)
   }
   BUS  70, 0, 0
   {
@@ -500,11 +500,11 @@ PAGE ""
   }
   VTX  71, 0, 0
   {
-   COORD (1100,540)
+   COORD (1100,260)
   }
   VTX  72, 0, 0
   {
-   COORD (1080,540)
+   COORD (1080,260)
   }
   BUS  73, 0, 0
   {
@@ -514,12 +514,12 @@ PAGE ""
   BUS  75, 0, 0
   {
    NET 27
-   VTX 66, 69
+   VTX 72, 66
   }
   BUS  76, 0, 0
   {
    NET 27
-   VTX 69, 72
+   VTX 66, 69
   }
   VTX  77, 0, 0
   {

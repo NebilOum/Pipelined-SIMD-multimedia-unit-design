@@ -976,7 +976,7 @@ architecture structural of multimedia_pipeline is
     signal inst_if,inst_id : std_logic_vector(24 downto 0);
 
     signal outWB,outEXWB,outALU,outDF: std_logic_vector (127 downto 0);
-	signal wrToRg : std_logic;
+	signal wrToRg,tempWRG : std_logic;
     signal rs1,rs2,rs3,rd,muxRS1,muxRS2,muxRS3	: std_logic_vector (127 downto 0);
 	signal rs1ID,rs2ID,rs3ID: std_logic_vector (127 downto 0);
     signal rs1Num,rs2Num,rs3Num : std_logic_vector (4 downto 0);
@@ -997,8 +997,8 @@ begin
 --	control_table(1).reg2Num <= rs2Num;
 --	control_table(1).reg3Num <= rs3Num;	  
 	
-	id: entity Register_File port map (clk => clk,sele => inst_id,rdNum =>rdNum_DFOut ,write_to_reg => wrToRg ,
-		registers_in => register_tble ,writtenReg => outWB,registers_out => register_tble,r1Num => rs1Num,r2Num => rs2Num,r3Num => rs3Num,out1 => rs1 ,out2 => rs2 ,out3 => rs3);	 
+id: entity Register_File port map (clk => clk,sele => inst_id,registers_in => register_tble,rdNum =>rdNum_DFOut ,write_to_reg => wrToRg,
+	writtenReg => outWB,registers_out => register_tble,r1Num => rs1Num,r2Num => rs2Num,r3Num => rs3Num,out1 => rs1 ,out2 => rs2 ,out3 => rs3);	 
 	
 	id_ex: entity id_ex port map(clk=>clk,dataIn1 => rs1,dataIn2 => rs2,dataIn3 => rs3,rdNumIn =>rdNumIn,dataOut1 => rs1ID , dataOut2 => rs2ID,dataOut3 => rs3ID,rdNumOut => rdNum); 
 	
@@ -1007,7 +1007,8 @@ begin
 	fowardingCntrl(0) <= '1' when rs3Num = rdNum_DFOut else '0';
 	fmux: entity fowardMux port map(selSignal=>fowardingCntrl,dataIn1=>rs1ID,dataIn2=>rs2ID,dataIn3=>rs3ID,dataIn4=>outDF,outReg1=>muxRS1,outReg2=>muxRS2,outReg3=>muxRS3);		  
 		
-	alu :entity aluIO port map(inReg1=>muxRS1,inReg2=>muxRS2,inReg3=>muxRS3,insReg=>inst_id,writeToReg =>wrToRg, outReg=>outALU);
+	alu :entity aluIO port map(inReg1=>muxRS1,inReg2=>muxRS2,inReg3=>muxRS3,insReg=>inst_id,writeToReg => tempWRG, outReg=>outALU);
+	wrToRg <= tempWRG;
 		
 	ex_wb: entity ex_wb port map(clk=>clk,regWrite_in=>rdNum,dataIn=>outALU, regWrite_out =>rdNum,outResult=>outEXWB);	
 		

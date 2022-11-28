@@ -2,7 +2,7 @@ SCHM0106
 
 HEADER
 {
- FREEID 289
+ FREEID 290
  VARIABLES
  {
   #ARCHITECTURE="structural"
@@ -29,7 +29,7 @@ HEADER
   #DEFAULT_RANGE11="<range<index=\"0\"><name=\"rd\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE12="<range<index=\"0\"><name=\"rdnum\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE13="<range<index=\"0\"><name=\"rdnumin\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
-  #DEFAULT_RANGE14="<range<index=\"0\"><name=\"rdnum_exout\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE14="<range<index=\"0\"><name=\"rdnum_dfout\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE15="<range<index=\"0\"><name=\"register_tble\"><left=\"0\"><direction=\"to\"><right=\"31\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE16="<range<index=\"0\"><name=\"rs1\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE17="<range<index=\"0\"><name=\"rs1id\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
@@ -1590,7 +1590,7 @@ PAGE ""
 {
  PAGEHEADER
  {
-  PAGESIZE (4481,2280)
+  PAGESIZE (4540,2380)
   MARGINS (200,200,200,200)
   RECT (0,0,0,0)
  }
@@ -1637,14 +1637,26 @@ PAGE ""
    SHOWTEXT
    CORNER 10
   }
-  TEXT  3, 0, 0
+  SIGNALASSIGN  3, 0, 0
+  {
+   LABEL "Statement_1"
+   TEXT "wrToRg <= tempWRG;"
+   RECT (220,1011,560,1084)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  TEXT  4, 0, 0
   {
    TEXT "$#REFERENCE"
    RECT (235,220,235,220)
    ALIGN 4
-   PARENT 4
+   PARENT 5
   }
-  INSTANCE  4, 0, 0
+  INSTANCE  5, 0, 0
   {
    VARIABLES
    {
@@ -1656,7 +1668,7 @@ PAGE ""
    }
    COORD (220,220)
   }
-  INSTANCE  5, 0, 0
+  INSTANCE  6, 0, 0
   {
    VARIABLES
    {
@@ -1667,10 +1679,10 @@ PAGE ""
     #SYMBOL="ex_wb"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="eca5938f-20e5-4ec4-a825-c4f92ccc126b"
    }
-   COORD (2300,1160)
-   VERTEXES ( (2,171), (4,161), (6,146), (8,150) )
+   COORD (2400,960)
+   VERTEXES ( (2,143), (4,146), (6,134), (8,137) )
   }
-  INSTANCE  6, 0, 0
+  INSTANCE  7, 0, 0
   {
    VARIABLES
    {
@@ -1681,12 +1693,12 @@ PAGE ""
     #SYMBOL="Register_File"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="46f1777e-7b13-45ef-8eb9-6ecede6fed31"
    }
-   COORD (3220,1000)
-   VERTEXES ( (4,130), (6,143), (8,127), (10,139), (12,137), (14,120), (16,98), (18,110), (20,113) )
+   COORD (3380,740)
+   VERTEXES ( (4,115), (6,109), (8,128), (10,124), (12,118), (14,99), (16,89), (18,92), (20,86) )
    PINPROP 6,"#PIN_STATE","6"
    PINPROP 6,"#PORTFUNCTION","aldec_slv2int"
   }
-  INSTANCE  7, 0, 0
+  INSTANCE  8, 0, 0
   {
    VARIABLES
    {
@@ -1697,10 +1709,10 @@ PAGE ""
     #SYMBOL="id_ex"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="3e5898b4-cd6a-41b5-9dd4-5b954c1f2b51"
    }
-   COORD (1000,1240)
-   VERTEXES ( (4,219), (6,222), (8,225), (10,216), (12,201), (14,205), (16,207), (18,189) )
+   COORD (980,1040)
+   VERTEXES ( (4,197), (6,209), (8,212), (10,194), (12,182), (14,185), (16,188), (18,179) )
   }
-  INSTANCE  8, 0, 0
+  INSTANCE  9, 0, 0
   {
    VARIABLES
    {
@@ -1711,10 +1723,10 @@ PAGE ""
     #SYMBOL="IFStage"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="6bc4a7cb-c656-4a37-a3af-34baf0c9c194"
    }
-   COORD (2780,1040)
-   VERTEXES ( (4,152), (6,133) )
+   COORD (1540,1300)
+   VERTEXES ( (6,152) )
   }
-  INSTANCE  9, 0, 0
+  INSTANCE  10, 0, 0
   {
    VARIABLES
    {
@@ -1725,80 +1737,83 @@ PAGE ""
     #SYMBOL="InstrctionBuffer"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="95dc52e4-5d05-42bc-a563-d44b3c16924f"
    }
-   COORD (2300,1380)
-   VERTEXES ( (4,164), (6,168), (8,155) )
+   COORD (3940,240)
+   VERTEXES ( (4,80), (6,83), (8,76) )
   }
-  SIGNALASSIGN  10, 0, 0
+  PROCESS  11, 0, 0
   {
-   LABEL "block_954"
-   TEXT "control_table(1).fMux_cntrl <= \"000\";"
-   RECT (3660,240,4061,340)
+   LABEL "process_1019"
+   TEXT 
+"process (clk)\n"+
+"                         variable pcInc : integer := 0;\n"+
+"                       begin\n"+
+"                         if (rising_edge(clk)) then\n"+
+"                            pcInc := pcInc + 1;\n"+
+"                            pc <= pcInc;\n"+
+"                         end if;\n"+
+"                       end process;\n"+
+"                      "
+   RECT (3380,340,3781,680)
    MARGINS (20,20)
    SYNTAXCOLORED
-   SHOWLABEL
    SHOWTEXT
    CORNER 10
-   VTX (  80 )
-  }
-  SIGNALASSIGN  11, 0, 0
-  {
-   LABEL "block_953"
-   TEXT "control_table(1).inst <= inst_id;"
-   RECT (3660,360,4061,460)
-   MARGINS (20,20)
-   SYNTAXCOLORED
-   SHOWLABEL
-   SHOWTEXT
-   CORNER 10
-   VTX (  83, 124 )
+   VTX (  84, 103 )
+   VARIABLES
+   {
+    #UPDATE_SENS_LIST="0"
+   }
+   LIST (  103 )
   }
   SIGNALASSIGN  12, 0, 0
   {
-   LABEL "block_956"
-   TEXT "control_table(1).reg1Num <= rs1Num;"
-   RECT (3660,480,4061,580)
+   LABEL "block_1005"
+   TEXT "fowardingCntrl(2) <= '1' when rs1Num = rdNum_DFOut else '0';"
+   RECT (980,1340,1381,1440)
    MARGINS (20,20)
    SYNTAXCOLORED
    SHOWLABEL
    SHOWTEXT
    CORNER 10
-   VTX (  86, 101 )
+   VTX (  176, 200, 215 )
   }
   SIGNALASSIGN  13, 0, 0
   {
-   LABEL "block_957"
-   TEXT "control_table(1).reg2Num <= rs2Num;"
-   RECT (3660,600,4061,700)
+   LABEL "block_1006"
+   TEXT "fowardingCntrl(1) <= '1' when rs2Num = rdNum_DFOut else '0';"
+   RECT (980,1660,1381,1760)
    MARGINS (20,20)
    SYNTAXCOLORED
    SHOWLABEL
    SHOWTEXT
    CORNER 10
-   VTX (  89, 104 )
+   VTX (  173, 203, 221 )
   }
   SIGNALASSIGN  14, 0, 0
   {
-   LABEL "block_958"
-   TEXT "control_table(1).reg3Num <= rs3Num;"
-   RECT (3660,720,4061,820)
+   LABEL "block_1007"
+   TEXT "fowardingCntrl(0) <= '1' when rs3Num = rdNum_DFOut else '0';"
+   RECT (980,1500,1381,1600)
    MARGINS (20,20)
    SYNTAXCOLORED
    SHOWLABEL
    SHOWTEXT
    CORNER 10
-   VTX (  92, 107 )
+   VTX (  167, 206, 218 )
   }
-  SIGNALASSIGN  15, 0, 0
+  INSTANCE  15, 0, 0
   {
-   LABEL "block_955"
-   TEXT "control_table(1).writeReg <= control_table(4).writeReg;"
-   RECT (3660,840,4061,940)
-   MARGINS (20,20)
-   SYNTAXCOLORED
-   SHOWLABEL
-   SHOWTEXT
-   CORNER 10
-   VTX (  95 )
+   VARIABLES
+   {
+    #COMPONENT="fowardMux"
+    #CUSTOM_NAME=""
+    #LIBRARY="alu"
+    #REFERENCE="fmux"
+    #SYMBOL="fowardMux"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="eeb28e7c-5647-44a5-a09e-bfd1aaf33e09"
+   }
+   COORD (1540,1000)
+   VERTEXES ( (2,170), (4,183), (6,186), (8,189), (10,191), (12,158), (14,162), (16,164) )
   }
   INSTANCE  16, 0, 0
   {
@@ -1811,24 +1826,10 @@ PAGE ""
     #SYMBOL="aluIO"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="cad853db-55b6-4e1f-92f3-5b581e40e22e"
    }
-   COORD (1880,1200)
-   VERTEXES ( (2,177), (4,181), (6,183), (8,174), (10,158) )
+   COORD (1980,1000)
+   VERTEXES ( (2,159), (4,161), (6,165), (8,155), (10,149) )
   }
   INSTANCE  17, 0, 0
-  {
-   VARIABLES
-   {
-    #COMPONENT="fowardMux"
-    #CUSTOM_NAME=""
-    #LIBRARY="alu"
-    #REFERENCE="fmux"
-    #SYMBOL="fowardMux"
-    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="eeb28e7c-5647-44a5-a09e-bfd1aaf33e09"
-   }
-   COORD (1460,1200)
-   VERTEXES ( (2,192), (4,202), (6,204), (8,208), (10,198), (12,178), (14,180), (16,184) )
-  }
-  INSTANCE  18, 0, 0
   {
    VARIABLES
    {
@@ -1839,10 +1840,10 @@ PAGE ""
     #SYMBOL="dataFowarding"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="76ea9ca3-f550-4016-a33b-180afc09896f"
    }
-   COORD (1000,1540)
-   VERTEXES ( (2,213), (4,210), (6,186), (8,195) )
+   COORD (2880,820)
+   VERTEXES ( (2,140), (4,131), (6,112), (8,106) )
   }
-  INSTANCE  19, 0, 0
+  INSTANCE  18, 0, 0
   {
    VARIABLES
    {
@@ -1853,10 +1854,10 @@ PAGE ""
     #SYMBOL="writeBack"
     #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER="2a48c4ea-0e55-4c5e-be10-a70b6c3f0a6f"
    }
-   COORD (2780,1200)
-   VERTEXES ( (2,149), (4,136) )
+   COORD (2880,1000)
+   VERTEXES ( (2,138), (4,121) )
   }
-  INSTANCE  20, 0, 0
+  INSTANCE  19, 0, 0
   {
    VARIABLES
    {
@@ -1866,9 +1867,9 @@ PAGE ""
     #SYMBOL="Input"
     #VHDL_TYPE="STD_LOGIC"
    }
-   COORD (840,960)
+   COORD (840,700)
   }
-  INSTANCE  21, 0, 0
+  INSTANCE  20, 0, 0
   {
    VARIABLES
    {
@@ -1882,10 +1883,10 @@ PAGE ""
     #SYMBOL="BusInput"
     #VHDL_TYPE="instruc_table"
    }
-   COORD (1880,1460)
-   VERTEXES ( (2,165) )
+   COORD (840,320)
+   VERTEXES ( (2,79) )
   }
-  INSTANCE  22, 0, 0
+  INSTANCE  21, 0, 0
   {
    VARIABLES
    {
@@ -1899,156 +1900,156 @@ PAGE ""
     #SYMBOL="BusBidirectional"
     #VHDL_TYPE="reg_table"
    }
-   COORD (3660,1040)
-   VERTEXES ( (2,116) )
+   COORD (3940,780)
+   VERTEXES ( (2,95) )
+  }
+  TEXT  22, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (2400,960,2400,960)
+   ALIGN 8
+   PARENT 6
   }
   TEXT  23, 0, 0
   {
-   TEXT "$#REFERENCE"
-   RECT (2300,1160,2300,1160)
-   ALIGN 8
-   PARENT 5
+   TEXT "$#COMPONENT"
+   RECT (2400,1080,2400,1080)
+   PARENT 6
   }
   TEXT  24, 0, 0
   {
-   TEXT "$#COMPONENT"
-   RECT (2300,1280,2300,1280)
-   PARENT 5
+   TEXT "$#REFERENCE"
+   RECT (3380,740,3380,740)
+   ALIGN 8
+   PARENT 7
   }
   TEXT  25, 0, 0
   {
-   TEXT "$#REFERENCE"
-   RECT (3220,1000,3220,1000)
-   ALIGN 8
-   PARENT 6
+   TEXT "$#COMPONENT"
+   RECT (3380,1020,3380,1020)
+   PARENT 7
   }
   TEXT  26, 0, 0
   {
-   TEXT "$#COMPONENT"
-   RECT (3220,1280,3220,1280)
-   PARENT 6
+   TEXT "$#REFERENCE"
+   RECT (980,1040,980,1040)
+   ALIGN 8
+   PARENT 8
   }
   TEXT  27, 0, 0
   {
-   TEXT "$#REFERENCE"
-   RECT (1000,1240,1000,1240)
-   ALIGN 8
-   PARENT 7
+   TEXT "$#COMPONENT"
+   RECT (980,1280,980,1280)
+   PARENT 8
   }
   TEXT  28, 0, 0
   {
-   TEXT "$#COMPONENT"
-   RECT (1000,1480,1000,1480)
-   PARENT 7
+   TEXT "$#REFERENCE"
+   RECT (1540,1300,1540,1300)
+   ALIGN 8
+   PARENT 9
   }
   TEXT  29, 0, 0
   {
-   TEXT "$#REFERENCE"
-   RECT (2780,1040,2780,1040)
-   ALIGN 8
-   PARENT 8
+   TEXT "$#COMPONENT"
+   RECT (1540,1420,1540,1420)
+   PARENT 9
   }
   TEXT  30, 0, 0
   {
-   TEXT "$#COMPONENT"
-   RECT (2780,1160,2780,1160)
-   PARENT 8
+   TEXT "$#REFERENCE"
+   RECT (3940,240,3940,240)
+   ALIGN 8
+   PARENT 10
   }
   TEXT  31, 0, 0
   {
-   TEXT "$#REFERENCE"
-   RECT (2300,1380,2300,1380)
-   ALIGN 8
-   PARENT 9
+   TEXT "$#COMPONENT"
+   RECT (3940,400,3940,400)
+   PARENT 10
   }
   TEXT  32, 0, 0
   {
-   TEXT "$#COMPONENT"
-   RECT (2300,1540,2300,1540)
-   PARENT 9
+   TEXT "$#REFERENCE"
+   RECT (1540,1000,1540,1000)
+   ALIGN 8
+   PARENT 15
   }
   TEXT  33, 0, 0
   {
-   TEXT "$#REFERENCE"
-   RECT (1880,1200,1880,1200)
-   ALIGN 8
-   PARENT 16
+   TEXT "$#COMPONENT"
+   RECT (1540,1240,1540,1240)
+   PARENT 15
   }
   TEXT  34, 0, 0
   {
-   TEXT "$#COMPONENT"
-   RECT (1880,1400,1880,1400)
+   TEXT "$#REFERENCE"
+   RECT (1980,1000,1980,1000)
+   ALIGN 8
    PARENT 16
   }
   TEXT  35, 0, 0
   {
-   TEXT "$#REFERENCE"
-   RECT (1460,1200,1460,1200)
-   ALIGN 8
-   PARENT 17
+   TEXT "$#COMPONENT"
+   RECT (1980,1200,1980,1200)
+   PARENT 16
   }
   TEXT  36, 0, 0
   {
-   TEXT "$#COMPONENT"
-   RECT (1460,1440,1460,1440)
+   TEXT "$#REFERENCE"
+   RECT (2880,820,2880,820)
+   ALIGN 8
    PARENT 17
   }
   TEXT  37, 0, 0
   {
-   TEXT "$#REFERENCE"
-   RECT (1000,1540,1000,1540)
-   ALIGN 8
-   PARENT 18
+   TEXT "$#COMPONENT"
+   RECT (2880,940,2880,940)
+   PARENT 17
   }
   TEXT  38, 0, 0
   {
-   TEXT "$#COMPONENT"
-   RECT (1000,1660,1000,1660)
+   TEXT "$#REFERENCE"
+   RECT (2880,1000,2880,1000)
+   ALIGN 8
    PARENT 18
   }
   TEXT  39, 0, 0
   {
-   TEXT "$#REFERENCE"
-   RECT (2780,1200,2780,1200)
-   ALIGN 8
-   PARENT 19
+   TEXT "$#COMPONENT"
+   RECT (2880,1080,2880,1080)
+   PARENT 18
   }
   TEXT  40, 0, 0
   {
-   TEXT "$#COMPONENT"
-   RECT (2780,1280,2780,1280)
+   TEXT "$#REFERENCE"
+   RECT (789,700,789,700)
+   ALIGN 6
    PARENT 19
   }
   TEXT  41, 0, 0
   {
    TEXT "$#REFERENCE"
-   RECT (789,960,789,960)
+   RECT (789,320,789,320)
    ALIGN 6
    PARENT 20
   }
   TEXT  42, 0, 0
   {
    TEXT "$#REFERENCE"
-   RECT (1829,1460,1829,1460)
-   ALIGN 6
+   RECT (4001,780,4001,780)
+   ALIGN 4
    PARENT 21
   }
-  TEXT  43, 0, 0
-  {
-   TEXT "$#REFERENCE"
-   RECT (3721,1040,3721,1040)
-   ALIGN 4
-   PARENT 22
-  }
-  NET WIRE  44, 0, 0
+  NET WIRE  43, 0, 0
   {
    VARIABLES
    {
-    #NAME="rdNum_in_rF"
-    #VHDL_TYPE="INTEGER"
+    #NAME="tempWRG"
+    #VHDL_TYPE="STD_LOGIC"
    }
   }
-  NET MDARRAY  45, 0, 0
+  NET MDARRAY  44, 0, 0
   {
    VARIABLES
    {
@@ -2060,7 +2061,7 @@ PAGE ""
     #VHDL_TYPE="control_arr"
    }
   }
-  NET BUS  46, 0, 0
+  NET BUS  45, 0, 0
   {
    VARIABLES
    {
@@ -2068,112 +2069,15 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
+  NET WIRE  46, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="clk"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+  }
   NET BUS  47, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="control_table.inst(24:0)"
-   }
-  }
-  NET BUS  48, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="control_table.reg1Num(4:0)"
-   }
-  }
-  NET BUS  49, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="control_table.reg2Num(4:0)"
-   }
-  }
-  NET BUS  50, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="control_table.reg3Num(4:0)"
-   }
-  }
-  NET WIRE  51, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="control_table(1).writeReg"
-   }
-  }
-  NET BUS  52, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="control_table.inst(24:0)"
-   }
-  }
-  NET WIRE  53, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="control_table(4).writeReg"
-   }
-  }
-  NET BUS  54, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="fowardingCntrl(0:2)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  55, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rs3Num(4:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  56, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="control_table.fMux_cntrl(2:0)"
-   }
-  }
-  NET WIRE  57, 0, 0
-  {
-   VARIABLES
-   {
-    #INITIAL_VALUE="0"
-    #NAME="pc"
-    #VHDL_TYPE="INTEGER"
-   }
-  }
-  NET BUS  58, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rdNumIn(4:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  59, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rs1Num(4:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  60, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rs2Num(4:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  61, 0, 0
   {
    VARIABLES
    {
@@ -2181,7 +2085,47 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET MDARRAY  62, 0, 0
+  NET BUS  48, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rdNumIn(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  49, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rs1Num(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  50, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rs2Num(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  51, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rs3Num(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET WIRE  52, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="wrToRg"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+  }
+  NET MDARRAY  53, 0, 0
   {
    VARIABLES
    {
@@ -2193,7 +2137,7 @@ PAGE ""
     #VHDL_TYPE="instruc_table"
    }
   }
-  NET BUS  63, 0, 0
+  NET BUS  54, 0, 0
   {
    VARIABLES
    {
@@ -2201,7 +2145,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  64, 0, 0
+  NET BUS  55, 0, 0
   {
    VARIABLES
    {
@@ -2209,7 +2153,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  65, 0, 0
+  NET BUS  56, 0, 0
   {
    VARIABLES
    {
@@ -2217,71 +2161,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  66, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rs1(127:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  67, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rs1ID(127:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  68, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rs2(127:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  69, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rs2ID(127:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  70, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rdNum(4:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  71, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rs3(127:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  72, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="rs3ID(127:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  73, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="outEXWB(127:0)"
-    #VHDL_TYPE="STD_LOGIC_VECTOR"
-   }
-  }
-  NET BUS  74, 0, 0
+  NET BUS  57, 0, 0
   {
    VARIABLES
    {
@@ -2289,7 +2169,15 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  75, 0, 0
+  NET BUS  58, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="outEXWB(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  59, 0, 0
   {
    VARIABLES
    {
@@ -2297,7 +2185,64 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  76, 0, 0
+  NET WIRE  60, 0, 0
+  {
+   VARIABLES
+   {
+    #INITIAL_VALUE="0"
+    #NAME="pc"
+    #VHDL_TYPE="INTEGER"
+   }
+  }
+  NET BUS  61, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rs1(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  62, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rs1ID(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  63, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rs2(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  64, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rs2ID(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  65, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rs3(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  66, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rs3ID(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  67, 0, 0
   {
    VARIABLES
    {
@@ -2305,7 +2250,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  77, 0, 0
+  NET BUS  68, 0, 0
   {
    VARIABLES
    {
@@ -2313,7 +2258,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET MDARRAY  78, 0, 0
+  NET MDARRAY  69, 0, 0
   {
    VARIABLES
    {
@@ -2325,912 +2270,974 @@ PAGE ""
     #VHDL_TYPE="reg_table"
    }
   }
-  NET BUS  79, 0, 0
+  NET BUS  70, 0, 0
   {
    VARIABLES
    {
-    #NAME="rdNum_exOut(4:0)"
+    #NAME="fowardingCntrl(0:2)"
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
+  NET WIRE  71, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="fowardingCntrl(2)"
+   }
+  }
+  NET WIRE  72, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="fowardingCntrl(1)"
+   }
+  }
+  NET WIRE  73, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="fowardingCntrl(0)"
+   }
+  }
+  NET BUS  74, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rdNum(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  75, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rdNum_DFOut(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  VTX  76, 0, 0
+  {
+   COORD (4120,280)
+  }
+  VTX  77, 0, 0
+  {
+   COORD (4180,280)
+  }
+  BUS  78, 0, 0
+  {
+   NET 47
+   VTX 76, 77
+  }
+  VTX  79, 0, 0
+  {
+   COORD (840,320)
+  }
   VTX  80, 0, 0
   {
-   COORD (4061,260)
+   COORD (3940,320)
   }
-  VTX  81, 0, 0
+  MDARRAY  81, 0, 0
   {
-   COORD (4140,260)
+   NET 53
+   VTX 79, 80
   }
-  BUS  82, 0, 0
+  TEXT  82, 0, 1
   {
-   NET 56
-   VTX 80, 81
+   TEXT "$#NAME"
+   RECT (2390,320,2390,320)
+   ALIGN 9
+   PARENT 81
   }
   VTX  83, 0, 0
   {
-   COORD (4061,380)
+   COORD (3940,360)
   }
   VTX  84, 0, 0
   {
-   COORD (4140,380)
+   COORD (3781,360)
   }
-  BUS  85, 0, 0
+  WIRE  85, 0, 0
   {
-   NET 47
+   NET 60
    VTX 83, 84
   }
   VTX  86, 0, 0
   {
-   COORD (4061,500)
+   COORD (3660,900)
   }
   VTX  87, 0, 0
   {
-   COORD (4140,500)
+   COORD (3860,900)
   }
   BUS  88, 0, 0
   {
-   NET 48
+   NET 65
    VTX 86, 87
   }
   VTX  89, 0, 0
   {
-   COORD (4061,620)
+   COORD (3660,820)
   }
   VTX  90, 0, 0
   {
-   COORD (4140,620)
+   COORD (3880,820)
   }
   BUS  91, 0, 0
   {
-   NET 49
+   NET 61
    VTX 89, 90
   }
   VTX  92, 0, 0
   {
-   COORD (4061,740)
+   COORD (3660,860)
   }
   VTX  93, 0, 0
   {
-   COORD (4140,740)
+   COORD (3900,860)
   }
   BUS  94, 0, 0
   {
-   NET 50
+   NET 63
    VTX 92, 93
   }
   VTX  95, 0, 0
   {
-   COORD (4061,860)
+   COORD (3940,780)
   }
-  VTX  96, 0, 0
+  MDARRAY  97, 0, 0
   {
-   COORD (4140,860)
+   NET 69
+   VTX 95, 100
   }
-  WIRE  97, 0, 0
+  TEXT  98, 0, 1
   {
-   NET 51
-   VTX 95, 96
-  }
-  VTX  98, 0, 0
-  {
-   COORD (3500,1080)
+   TEXT "$#NAME"
+   RECT (3930,780,3930,780)
+   ALIGN 9
+   PARENT 97
   }
   VTX  99, 0, 0
   {
-   COORD (3560,1080)
+   COORD (3660,780)
   }
-  BUS  100, 0, 0
+  VTX  100, 0, 0
   {
-   NET 66
-   VTX 98, 99
+   COORD (3920,780)
   }
-  VTX  101, 0, 0
+  MDARRAY  101, 0, 0
   {
-   COORD (3660,500)
+   NET 69
+   VTX 99, 100
   }
-  VTX  102, 0, 0
+  TEXT  102, 0, 1
   {
-   COORD (3560,500)
+   TEXT "$#NAME"
+   RECT (3790,780,3790,780)
+   ALIGN 9
+   PARENT 101
   }
-  BUS  103, 0, 0
+  VTX  103, 0, 0
   {
-   NET 59
-   VTX 101, 102
+   COORD (3380,360)
   }
   VTX  104, 0, 0
   {
-   COORD (3660,620)
+   COORD (3280,360)
   }
-  VTX  105, 0, 0
+  WIRE  105, 0, 0
   {
-   COORD (3560,620)
+   NET 46
+   VTX 103, 104
   }
-  BUS  106, 0, 0
+  VTX  106, 0, 0
   {
-   NET 60
-   VTX 104, 105
+   COORD (3220,900)
   }
   VTX  107, 0, 0
   {
-   COORD (3660,740)
+   COORD (3280,900)
   }
-  VTX  108, 0, 0
+  BUS  108, 0, 0
   {
-   COORD (3560,740)
+   NET 57
+   VTX 106, 107
   }
-  BUS  109, 0, 0
+  VTX  109, 0, 0
   {
-   NET 55
-   VTX 107, 108
+   COORD (3380,860)
   }
-  VTX  110, 0, 0
+  BUS  111, 0, 0
   {
-   COORD (3500,1120)
+   NET 75
+   VTX 109, 113
   }
-  VTX  111, 0, 0
+  VTX  112, 0, 0
   {
-   COORD (3580,1120)
-  }
-  BUS  112, 0, 0
-  {
-   NET 68
-   VTX 110, 111
+   COORD (3220,860)
   }
   VTX  113, 0, 0
   {
-   COORD (3500,1160)
+   COORD (3300,860)
   }
-  VTX  114, 0, 0
+  BUS  114, 0, 0
   {
-   COORD (3600,1160)
+   NET 75
+   VTX 112, 113
   }
-  BUS  115, 0, 0
+  VTX  115, 0, 0
   {
-   NET 71
-   VTX 113, 114
+   COORD (3380,820)
   }
   VTX  116, 0, 0
   {
-   COORD (3660,1040)
+   COORD (3320,820)
   }
-  MDARRAY  118, 0, 0
+  BUS  117, 0, 0
   {
-   NET 78
-   VTX 116, 121
+   NET 67
+   VTX 115, 116
   }
-  TEXT  119, 0, 1
+  VTX  118, 0, 0
   {
-   TEXT "$#NAME"
-   RECT (3640,1040,3640,1040)
-   ALIGN 9
-   PARENT 118
+   COORD (3380,980)
   }
-  VTX  120, 0, 0
+  VTX  119, 0, 0
   {
-   COORD (3500,1040)
+   COORD (3340,980)
+  }
+  BUS  120, 0, 0
+  {
+   NET 59
+   VTX 118, 119
   }
   VTX  121, 0, 0
   {
-   COORD (3620,1040)
+   COORD (3200,1040)
   }
-  MDARRAY  122, 0, 0
+  VTX  122, 0, 0
   {
-   NET 78
-   VTX 120, 121
+   COORD (3340,1040)
   }
-  TEXT  123, 0, 1
+  BUS  123, 0, 0
   {
-   TEXT "$#NAME"
-   RECT (3560,1040,3560,1040)
-   ALIGN 9
-   PARENT 122
+   NET 59
+   VTX 121, 122
   }
   VTX  124, 0, 0
   {
-   COORD (3660,380)
+   COORD (3380,940)
   }
-  BUS  126, 0, 0
+  VTX  125, 0, 0
   {
-   NET 76
-   VTX 124, 236
+   COORD (3340,940)
   }
-  VTX  127, 0, 0
+  MDARRAY  126, 0, 0
   {
-   COORD (3220,1160)
+   NET 69
+   VTX 124, 125
+  }
+  TEXT  127, 0, 1
+  {
+   TEXT "$#NAME"
+   RECT (3360,940,3360,940)
+   ALIGN 9
+   PARENT 126
   }
   VTX  128, 0, 0
   {
-   COORD (3160,1160)
+   COORD (3380,900)
   }
-  WIRE  129, 0, 0
+  VTX  129, 0, 0
   {
-   NET 53
-   VTX 127, 128
+   COORD (3360,900)
   }
-  VTX  130, 0, 0
+  WIRE  130, 0, 0
   {
-   COORD (3220,1080)
+   NET 52
+   VTX 128, 129
   }
-  BUS  132, 0, 0
+  VTX  131, 0, 0
   {
-   NET 76
-   VTX 130, 134
+   COORD (2880,900)
   }
-  VTX  133, 0, 0
+  VTX  132, 0, 0
   {
-   COORD (2980,1080)
+   COORD (2820,900)
+  }
+  BUS  133, 0, 0
+  {
+   NET 74
+   VTX 131, 132
   }
   VTX  134, 0, 0
   {
-   COORD (3160,1080)
+   COORD (2760,1000)
   }
-  BUS  135, 0, 0
+  VTX  135, 0, 0
   {
-   NET 76
-   VTX 133, 134
+   COORD (2820,1000)
   }
-  VTX  136, 0, 0
+  BUS  136, 0, 0
   {
-   COORD (3100,1240)
+   NET 74
+   VTX 134, 135
   }
   VTX  137, 0, 0
   {
-   COORD (3220,1240)
+   COORD (2760,1040)
   }
-  BUS  138, 0, 0
+  VTX  138, 0, 0
   {
-   NET 75
-   VTX 136, 137
+   COORD (2880,1040)
   }
-  VTX  139, 0, 0
+  BUS  139, 0, 0
   {
-   COORD (3220,1200)
+   NET 58
+   VTX 137, 138
   }
   VTX  140, 0, 0
   {
-   COORD (3180,1200)
+   COORD (2880,860)
   }
-  MDARRAY  141, 0, 0
+  BUS  142, 0, 0
   {
-   NET 78
-   VTX 139, 140
-  }
-  TEXT  142, 0, 1
-  {
-   TEXT "$#NAME"
-   RECT (3200,1200,3200,1200)
-   ALIGN 9
-   PARENT 141
+   NET 68
+   VTX 140, 234
   }
   VTX  143, 0, 0
   {
-   COORD (3220,1120)
+   COORD (2400,1000)
   }
   VTX  144, 0, 0
   {
-   COORD (3200,1120)
+   COORD (2360,1000)
   }
   BUS  145, 0, 0
   {
-   NET 79
+   NET 74
    VTX 143, 144
   }
   VTX  146, 0, 0
   {
-   COORD (2660,1200)
-  }
-  VTX  147, 0, 0
-  {
-   COORD (2720,1200)
+   COORD (2400,1040)
   }
   BUS  148, 0, 0
   {
-   NET 79
-   VTX 146, 147
+   NET 68
+   VTX 146, 150
   }
   VTX  149, 0, 0
   {
-   COORD (2780,1240)
+   COORD (2300,1040)
   }
   VTX  150, 0, 0
   {
-   COORD (2660,1240)
+   COORD (2380,1040)
   }
   BUS  151, 0, 0
   {
-   NET 73
+   NET 68
    VTX 149, 150
   }
   VTX  152, 0, 0
   {
-   COORD (2780,1120)
+   COORD (1740,1340)
   }
   VTX  153, 0, 0
   {
-   COORD (2760,1120)
+   COORD (1940,1340)
   }
   BUS  154, 0, 0
   {
-   NET 61
+   NET 67
    VTX 152, 153
   }
   VTX  155, 0, 0
   {
-   COORD (2480,1420)
+   COORD (1980,1160)
   }
   VTX  156, 0, 0
   {
-   COORD (2760,1420)
+   COORD (1940,1160)
   }
   BUS  157, 0, 0
   {
-   NET 61
+   NET 67
    VTX 155, 156
   }
   VTX  158, 0, 0
   {
-   COORD (2200,1240)
+   COORD (1880,1040)
+  }
+  VTX  159, 0, 0
+  {
+   COORD (1980,1040)
   }
   BUS  160, 0, 0
   {
-   NET 77
-   VTX 158, 162
+   NET 54
+   VTX 158, 159
   }
   VTX  161, 0, 0
   {
-   COORD (2300,1240)
+   COORD (1980,1080)
   }
   VTX  162, 0, 0
   {
-   COORD (2260,1240)
+   COORD (1880,1080)
   }
   BUS  163, 0, 0
   {
-   NET 77
+   NET 55
    VTX 161, 162
   }
   VTX  164, 0, 0
   {
-   COORD (2300,1460)
+   COORD (1880,1120)
   }
   VTX  165, 0, 0
   {
-   COORD (1880,1460)
+   COORD (1980,1120)
   }
-  MDARRAY  166, 0, 0
+  BUS  166, 0, 0
   {
-   NET 62
+   NET 56
    VTX 164, 165
   }
-  TEXT  167, 0, 1
+  VTX  167, 0, 0
   {
-   TEXT "$#NAME"
-   RECT (2090,1460,2090,1460)
-   ALIGN 9
-   PARENT 166
+   COORD (1381,1520)
   }
   VTX  168, 0, 0
   {
-   COORD (2300,1500)
+   COORD (1460,1520)
   }
-  VTX  169, 0, 0
+  WIRE  169, 0, 0
   {
-   COORD (2280,1500)
+   NET 73
+   VTX 167, 168
   }
-  WIRE  170, 0, 0
+  VTX  170, 0, 0
   {
-   NET 57
-   VTX 168, 169
+   COORD (1540,1040)
   }
   VTX  171, 0, 0
   {
-   COORD (2300,1200)
+   COORD (1460,1040)
   }
-  VTX  172, 0, 0
-  {
-   COORD (2280,1200)
-  }
-  BUS  173, 0, 0
+  BUS  172, 0, 0
   {
    NET 70
-   VTX 171, 172
+   VTX 170, 171
+  }
+  VTX  173, 0, 0
+  {
+   COORD (1381,1680)
   }
   VTX  174, 0, 0
   {
-   COORD (1880,1360)
+   COORD (1460,1680)
   }
-  VTX  175, 0, 0
+  WIRE  175, 0, 0
   {
-   COORD (1860,1360)
+   NET 72
+   VTX 173, 174
   }
-  BUS  176, 0, 0
+  VTX  176, 0, 0
   {
-   NET 52
-   VTX 174, 175
+   COORD (1381,1360)
   }
   VTX  177, 0, 0
   {
-   COORD (1880,1240)
+   COORD (1460,1360)
   }
-  VTX  178, 0, 0
+  WIRE  178, 0, 0
   {
-   COORD (1800,1240)
+   NET 71
+   VTX 176, 177
   }
-  BUS  179, 0, 0
+  VTX  179, 0, 0
   {
-   NET 63
-   VTX 177, 178
+   COORD (1320,1200)
   }
   VTX  180, 0, 0
   {
-   COORD (1800,1280)
+   COORD (1480,1200)
   }
-  VTX  181, 0, 0
+  BUS  181, 0, 0
   {
-   COORD (1880,1280)
+   NET 74
+   VTX 179, 180
   }
-  BUS  182, 0, 0
+  VTX  182, 0, 0
   {
-   NET 64
-   VTX 180, 181
+   COORD (1320,1080)
   }
   VTX  183, 0, 0
   {
-   COORD (1880,1320)
+   COORD (1540,1080)
   }
-  VTX  184, 0, 0
+  BUS  184, 0, 0
   {
-   COORD (1800,1320)
+   NET 62
+   VTX 182, 183
   }
-  BUS  185, 0, 0
+  VTX  185, 0, 0
   {
-   NET 65
-   VTX 183, 184
+   COORD (1320,1120)
   }
   VTX  186, 0, 0
   {
-   COORD (1340,1580)
+   COORD (1540,1120)
   }
-  VTX  187, 0, 0
+  BUS  187, 0, 0
   {
-   COORD (1400,1580)
+   NET 64
+   VTX 185, 186
   }
-  BUS  188, 0, 0
+  VTX  188, 0, 0
   {
-   NET 79
-   VTX 186, 187
+   COORD (1320,1160)
   }
   VTX  189, 0, 0
   {
-   COORD (1340,1400)
+   COORD (1540,1160)
   }
-  VTX  190, 0, 0
+  BUS  190, 0, 0
   {
-   COORD (1420,1400)
+   NET 66
+   VTX 188, 189
   }
-  BUS  191, 0, 0
+  VTX  191, 0, 0
   {
-   NET 70
-   VTX 189, 190
+   COORD (1540,1200)
   }
   VTX  192, 0, 0
   {
-   COORD (1460,1240)
+   COORD (1520,1200)
   }
-  VTX  193, 0, 0
+  BUS  193, 0, 0
   {
-   COORD (1440,1240)
+   NET 57
+   VTX 191, 192
   }
-  BUS  194, 0, 0
+  VTX  194, 0, 0
   {
-   NET 54
-   VTX 192, 193
+   COORD (980,1240)
   }
   VTX  195, 0, 0
   {
-   COORD (1340,1620)
+   COORD (900,1240)
   }
-  VTX  196, 0, 0
+  BUS  196, 0, 0
   {
-   COORD (1440,1620)
+   NET 48
+   VTX 194, 195
   }
-  BUS  197, 0, 0
+  VTX  197, 0, 0
   {
-   NET 74
-   VTX 195, 196
+   COORD (980,1120)
   }
   VTX  198, 0, 0
   {
-   COORD (1460,1400)
+   COORD (900,1120)
   }
-  VTX  199, 0, 0
+  BUS  199, 0, 0
   {
-   COORD (1440,1400)
+   NET 61
+   VTX 197, 198
   }
-  BUS  200, 0, 0
+  VTX  200, 0, 0
   {
-   NET 74
-   VTX 198, 199
+   COORD (980,1360)
   }
   VTX  201, 0, 0
   {
-   COORD (1340,1280)
+   COORD (900,1360)
   }
-  VTX  202, 0, 0
+  BUS  202, 0, 0
   {
-   COORD (1460,1280)
+   NET 49
+   VTX 200, 201
   }
-  BUS  203, 0, 0
+  VTX  203, 0, 0
   {
-   NET 67
-   VTX 201, 202
+   COORD (980,1680)
   }
   VTX  204, 0, 0
   {
-   COORD (1460,1320)
+   COORD (900,1680)
   }
-  VTX  205, 0, 0
+  BUS  205, 0, 0
   {
-   COORD (1340,1320)
+   NET 50
+   VTX 203, 204
   }
-  BUS  206, 0, 0
+  VTX  206, 0, 0
   {
-   NET 69
-   VTX 204, 205
+   COORD (980,1520)
   }
   VTX  207, 0, 0
   {
-   COORD (1340,1360)
+   COORD (900,1520)
   }
-  VTX  208, 0, 0
+  BUS  208, 0, 0
   {
-   COORD (1460,1360)
+   NET 51
+   VTX 206, 207
   }
-  BUS  209, 0, 0
+  VTX  209, 0, 0
   {
-   NET 72
-   VTX 207, 208
+   COORD (980,1160)
   }
   VTX  210, 0, 0
   {
-   COORD (1000,1620)
+   COORD (920,1160)
   }
-  VTX  211, 0, 0
+  BUS  211, 0, 0
   {
-   COORD (900,1620)
+   NET 63
+   VTX 209, 210
   }
-  BUS  212, 0, 0
+  VTX  212, 0, 0
   {
-   NET 79
-   VTX 210, 211
+   COORD (980,1200)
   }
   VTX  213, 0, 0
   {
-   COORD (1000,1580)
+   COORD (940,1200)
   }
-  VTX  214, 0, 0
+  BUS  214, 0, 0
   {
-   COORD (920,1580)
+   NET 65
+   VTX 212, 213
   }
-  BUS  215, 0, 0
-  {
-   NET 77
-   VTX 213, 214
-  }
-  VTX  216, 0, 0
-  {
-   COORD (1000,1440)
-  }
-  VTX  217, 0, 0
-  {
-   COORD (940,1440)
-  }
-  BUS  218, 0, 0
-  {
-   NET 58
-   VTX 216, 217
-  }
-  VTX  219, 0, 0
-  {
-   COORD (1000,1320)
-  }
-  VTX  220, 0, 0
-  {
-   COORD (940,1320)
-  }
-  BUS  221, 0, 0
-  {
-   NET 66
-   VTX 219, 220
-  }
-  VTX  222, 0, 0
-  {
-   COORD (1000,1360)
-  }
-  VTX  223, 0, 0
-  {
-   COORD (960,1360)
-  }
-  BUS  224, 0, 0
-  {
-   NET 68
-   VTX 222, 223
-  }
-  VTX  225, 0, 0
-  {
-   COORD (1000,1400)
-  }
-  VTX  226, 0, 0
+  VTX  215, 0, 0
   {
    COORD (980,1400)
   }
-  BUS  227, 0, 0
+  VTX  216, 0, 0
   {
-   NET 71
-   VTX 225, 226
+   COORD (960,1400)
+  }
+  BUS  217, 0, 0
+  {
+   NET 75
+   VTX 215, 216
+  }
+  VTX  218, 0, 0
+  {
+   COORD (980,1560)
+  }
+  VTX  219, 0, 0
+  {
+   COORD (960,1560)
+  }
+  BUS  220, 0, 0
+  {
+   NET 75
+   VTX 218, 219
+  }
+  VTX  221, 0, 0
+  {
+   COORD (980,1720)
+  }
+  VTX  222, 0, 0
+  {
+   COORD (960,1720)
+  }
+  BUS  223, 0, 0
+  {
+   NET 75
+   VTX 221, 222
+  }
+  VTX  224, 0, 0
+  {
+   COORD (3280,800)
+  }
+  VTX  225, 0, 0
+  {
+   COORD (1520,800)
+  }
+  VTX  226, 0, 0
+  {
+   COORD (3880,300)
+  }
+  VTX  227, 0, 0
+  {
+   COORD (900,300)
   }
   VTX  228, 0, 0
   {
-   COORD (3560,940)
+   COORD (3900,280)
   }
   VTX  229, 0, 0
   {
-   COORD (940,940)
+   COORD (920,280)
   }
   VTX  230, 0, 0
   {
-   COORD (3580,920)
+   COORD (3860,1460)
   }
   VTX  231, 0, 0
   {
-   COORD (960,920)
+   COORD (940,1460)
   }
   VTX  232, 0, 0
   {
-   COORD (2280,1180)
+   COORD (3320,780)
   }
   VTX  233, 0, 0
   {
-   COORD (1420,1180)
+   COORD (1940,780)
   }
   VTX  234, 0, 0
   {
-   COORD (3600,900)
+   COORD (2380,860)
   }
   VTX  235, 0, 0
   {
-   COORD (980,900)
+   COORD (3920,720)
   }
   VTX  236, 0, 0
   {
-   COORD (3160,380)
+   COORD (3340,720)
   }
   VTX  237, 0, 0
   {
-   COORD (2260,1160)
+   COORD (2360,900)
   }
   VTX  238, 0, 0
   {
-   COORD (920,1160)
+   COORD (2360,980)
   }
   VTX  239, 0, 0
   {
-   COORD (3620,980)
+   COORD (1480,980)
   }
   VTX  240, 0, 0
   {
-   COORD (3180,980)
+   COORD (3300,760)
   }
   VTX  241, 0, 0
   {
-   COORD (3200,1180)
+   COORD (960,760)
   }
-  VTX  242, 0, 0
+  BUS  242, 0, 0
   {
-   COORD (2720,1180)
+   NET 57
+   VTX 224, 225
   }
-  VTX  243, 0, 0
+  BUS  243, 0, 0
   {
-   COORD (2720,1580)
+   NET 61
+   VTX 226, 227
   }
-  VTX  244, 0, 0
+  BUS  244, 0, 0
   {
-   COORD (1400,1520)
+   NET 63
+   VTX 228, 229
   }
-  VTX  245, 0, 0
+  BUS  245, 0, 0
   {
-   COORD (900,1520)
+   NET 65
+   VTX 230, 231
   }
   BUS  246, 0, 0
   {
-   NET 66
-   VTX 228, 229
-  }
-  BUS  247, 0, 0
-  {
-   NET 68
-   VTX 230, 231
-  }
-  BUS  248, 0, 0
-  {
-   NET 70
+   NET 67
    VTX 232, 233
+  }
+  MDARRAY  248, 0, 0
+  {
+   NET 69
+   VTX 235, 236
   }
   BUS  249, 0, 0
   {
-   NET 71
-   VTX 234, 235
+   NET 74
+   VTX 132, 237
+  }
+  BUS  250, 0, 0
+  {
+   NET 74
+   VTX 238, 239
   }
   BUS  251, 0, 0
   {
-   NET 77
-   VTX 237, 238
+   NET 75
+   VTX 240, 241
   }
-  MDARRAY  252, 0, 0
+  VTX  252, 0, 0
   {
-   NET 78
-   VTX 239, 240
+   COORD (4199,220)
   }
-  BUS  253, 0, 0
+  VTX  253, 0, 0
   {
-   NET 79
-   VTX 241, 242
+   COORD (4299,220)
   }
-  BUS  254, 0, 0
+  WIRE  254, 0, 0
   {
-   NET 79
-   VTX 243, 187
+   NET 43
+   VTX 252, 253
   }
-  BUS  255, 0, 0
+  VTX  255, 0, 0
   {
-   NET 79
-   VTX 244, 245
+   COORD (4199,260)
   }
   VTX  256, 0, 0
   {
-   COORD (4159,220)
+   COORD (4299,260)
   }
-  VTX  257, 0, 0
-  {
-   COORD (4259,220)
-  }
-  WIRE  258, 0, 0
+  MDARRAY  257, 0, 0
   {
    NET 44
-   VTX 256, 257
+   VTX 255, 256
+  }
+  TEXT  258, 0, 1
+  {
+   TEXT "$#NAME"
+   RECT (4249,260,4249,260)
+   ALIGN 9
+   PARENT 257
   }
   VTX  259, 0, 0
   {
-   COORD (4159,260)
+   COORD (4199,300)
   }
   VTX  260, 0, 0
   {
-   COORD (4259,260)
+   COORD (4299,300)
   }
-  MDARRAY  261, 0, 0
+  BUS  261, 0, 0
   {
    NET 45
    VTX 259, 260
   }
-  TEXT  262, 0, 1
+  BUS  262, 0, 0
   {
-   TEXT "$#NAME"
-   RECT (4209,260,4209,260)
-   ALIGN 9
-   PARENT 261
+   NET 57
+   VTX 224, 107
   }
-  VTX  263, 0, 0
+  BUS  263, 0, 0
   {
-   COORD (4159,300)
+   NET 57
+   VTX 225, 192
   }
-  VTX  264, 0, 0
+  BUS  264, 0, 0
   {
-   COORD (4259,300)
+   NET 59
+   VTX 119, 122
   }
   BUS  265, 0, 0
   {
-   NET 46
-   VTX 263, 264
+   NET 61
+   VTX 226, 90
   }
   BUS  266, 0, 0
   {
    NET 61
-   VTX 153, 156
+   VTX 227, 198
   }
   BUS  267, 0, 0
   {
-   NET 66
-   VTX 228, 99
+   NET 63
+   VTX 228, 93
   }
   BUS  268, 0, 0
   {
-   NET 66
-   VTX 229, 220
+   NET 63
+   VTX 229, 210
   }
   BUS  269, 0, 0
   {
-   NET 68
-   VTX 230, 111
+   NET 65
+   VTX 87, 230
   }
   BUS  270, 0, 0
   {
-   NET 68
-   VTX 231, 223
+   NET 65
+   VTX 213, 231
   }
   BUS  271, 0, 0
   {
-   NET 70
-   VTX 232, 172
+   NET 67
+   VTX 232, 116
   }
   BUS  272, 0, 0
   {
-   NET 70
-   VTX 233, 190
+   NET 67
+   VTX 233, 156
   }
   BUS  273, 0, 0
   {
-   NET 71
-   VTX 234, 114
+   NET 67
+   VTX 156, 153
   }
   BUS  274, 0, 0
   {
-   NET 71
-   VTX 235, 226
+   NET 68
+   VTX 234, 150
   }
-  BUS  275, 0, 0
+  MDARRAY  276, 0, 0
   {
-   NET 74
-   VTX 199, 196
+   NET 69
+   VTX 235, 100
   }
-  BUS  276, 0, 0
+  MDARRAY  278, 0, 0
   {
-   NET 76
-   VTX 236, 134
+   NET 69
+   VTX 236, 125
   }
-  BUS  278, 0, 0
+  VTX  279, 0, 0
   {
-   NET 77
-   VTX 237, 162
+   COORD (1460,1690)
   }
   BUS  280, 0, 0
   {
-   NET 77
-   VTX 238, 214
+   NET 70
+   VTX 171, 279
+   BUSTAPS ( 177, 168, 174 )
   }
-  MDARRAY  281, 0, 0
+  BUS  281, 0, 0
   {
-   NET 78
-   VTX 239, 121
+   NET 74
+   VTX 132, 135
   }
-  MDARRAY  283, 0, 0
+  BUS  282, 0, 0
   {
-   NET 78
-   VTX 240, 140
+   NET 74
+   VTX 237, 238
+  }
+  BUS  283, 0, 0
+  {
+   NET 74
+   VTX 238, 144
   }
   BUS  284, 0, 0
   {
-   NET 79
-   VTX 144, 241
+   NET 74
+   VTX 239, 180
   }
   BUS  285, 0, 0
   {
-   NET 79
-   VTX 242, 147
-  }
-  BUS  286, 0, 0
-  {
-   NET 79
-   VTX 147, 243
+   NET 75
+   VTX 240, 113
   }
   BUS  287, 0, 0
   {
-   NET 79
-   VTX 244, 187
+   NET 75
+   VTX 241, 216
   }
   BUS  288, 0, 0
   {
-   NET 79
-   VTX 245, 211
+   NET 75
+   VTX 216, 219
+  }
+  BUS  289, 0, 0
+  {
+   NET 75
+   VTX 219, 222
   }
  }
  

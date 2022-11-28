@@ -1,18 +1,18 @@
-448
+460
 ~E 1 "../src/ALU.vhd" 42 addition
 ~A 1 "../src/ALU.vhd" 58 addAlu
 ~E 1 "../src/ALU-tb.vhd" 8 alu_tb
 ~A 1 "../src/ALU-tb.vhd" 11 testbench
 ~E 1 "../src/pipeline.vhd" 13 aluIO
-~A 1 "../src/pipeline.vhd" 26 alu
+~A 0 "" 0 alu
 ~E 1 "../src/pipeline.vhd" 818 dataFowarding
-~A 1 "../src/pipeline.vhd" 852 fowarding
+~A 0 "" 0 fowarding
 ~E 1 "../src/pipeline.vhd" 839 ex_wb
-~A 1 "../src/pipeline.vhd" 874 exWB
+~A 0 "" 0 exWB
 ~E 1 "../src/pipeline.vhd" 797 fowardMux
-~A 1 "../src/pipeline.vhd" 830 fmux
+~A 0 "" 0 fmux
 ~E 1 "../src/pipeline.vhd" 762 id_ex
-~A 1 "../src/pipeline.vhd" 797 idEX
+~A 0 "" 0 idEX
 ~E 1 "../src/pipeline.vhd" 762 if_id
 ~A 1 "../src/pipeline.vhd" 772 ifID
 ~E 1 "../src/IFStage.vhd" 12 IFStage
@@ -30,6 +30,6 @@
 ~E 1 "../src/ALU.vhd" 77 subtraction
 ~A 1 "../src/ALU.vhd" 94 subAlu
 ~E 1 "../src/pipeline.vhd" 872 writeBack
-~A 1 "../src/pipeline.vhd" 904 wb
+~A 0 "" 0 wb
 ~E 1 "../src/pipeline.vhd" 893 writeResult
-~A 1 "../src/pipeline.vhd" 925 write_toResultFile
+~A 0 "" 0 write_toResultFile

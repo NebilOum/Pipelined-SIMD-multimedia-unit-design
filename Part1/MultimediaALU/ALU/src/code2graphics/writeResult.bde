@@ -62,38 +62,42 @@ PAGE ""
   }
   PROCESS  3, 0, 0
   {
-   LABEL "process_892"
+   LABEL "process_928"
    TEXT 
-"process (cycleCounter)\n"+
+"process (clk)\n"+
 "                         variable write_to_result : line;\n"+
+"                         variable cycleCounter : integer := 0;\n"+
 "                       begin\n"+
-"                         FILE_OPEN(resultFile,\"result.txt\",write_mode);\n"+
-"                         WRITE(write_to_result,string'(\"Cycle \"));\n"+
-"                         WRITE(write_to_result,cycleCounter);\n"+
-"                         WRITE(write_to_result,string'(\":\"));\n"+
-"                         WRITELINE(resultFile,write_to_result);\n"+
-"                         WRITE(write_to_result,string'(\"Stage 1: \"));\n"+
-"                         WRITE(write_to_result,stages(1));\n"+
-"                         WRITE(write_to_result,string'(\"Stage 2: \"));\n"+
-"                         WRITE(write_to_result,stages(2));\n"+
-"                         WRITE(write_to_result,string'(\"Stage 3: \"));\n"+
-"                         WRITE(write_to_result,stages(3));\n"+
-"                         WRITE(write_to_result,string'(\"Stage 4: \"));\n"+
-"                         WRITE(write_to_result,stages(4));\n"+
-"                         WRITELINE(resultFile,write_to_result);\n"+
+"                         if (rising_edge(clk)) then\n"+
+"                            FILE_OPEN(resultFile,\"result.txt\",write_mode);\n"+
+"                            WRITE(write_to_result,string'(\"Cycle \"));\n"+
+"                            WRITE(write_to_result,cycleCounter);\n"+
+"                            WRITE(write_to_result,string'(\":\"));\n"+
+"                            WRITELINE(resultFile,write_to_result);\n"+
+"                            WRITE(write_to_result,string'(\"Stage 1: \"));\n"+
+"                            WRITE(write_to_result,stages(1));\n"+
+"                            WRITE(write_to_result,string'(\"Stage 2: \"));\n"+
+"                            WRITE(write_to_result,stages(2));\n"+
+"                            WRITE(write_to_result,string'(\"Stage 3: \"));\n"+
+"                            WRITE(write_to_result,stages(3));\n"+
+"                            WRITE(write_to_result,string'(\"Stage 4: \"));\n"+
+"                            WRITE(write_to_result,stages(4));\n"+
+"                            WRITELINE(resultFile,write_to_result);\n"+
+"                            cycleCounter := cycleCounter + 1;\n"+
+"                         end if;\n"+
 "                       end process;\n"+
 "                      "
-   RECT (1040,240,1441,640)
+   RECT (960,240,1361,640)
    MARGINS (20,20)
    SYNTAXCOLORED
    SHOWTEXT
    CORNER 10
-   VTX (  11, 14 )
+   VTX (  10, 14 )
    VARIABLES
    {
     #UPDATE_SENS_LIST="0"
    }
-   LIST (  11 )
+   LIST (  10 )
   }
   INSTANCE  4, 0, 0
   {
@@ -101,12 +105,12 @@ PAGE ""
    {
     #COMPONENT="Input"
     #LIBRARY="#terminals"
-    #REFERENCE="cycleCounter"
+    #REFERENCE="clk"
     #SYMBOL="Input"
-    #VHDL_TYPE="INTEGER"
+    #VHDL_TYPE="STD_LOGIC"
    }
-   COORD (900,260)
-   VERTEXES ( (2,10) )
+   COORD (820,260)
+   VERTEXES ( (2,11) )
   }
   INSTANCE  5, 0, 0
   {
@@ -122,20 +126,20 @@ PAGE ""
     #SYMBOL="BusInput"
     #VHDL_TYPE="instructions_at_stages"
    }
-   COORD (900,300)
+   COORD (820,300)
    VERTEXES ( (2,13) )
   }
   TEXT  6, 0, 0
   {
    TEXT "$#REFERENCE"
-   RECT (849,260,849,260)
+   RECT (769,260,769,260)
    ALIGN 6
    PARENT 4
   }
   TEXT  7, 0, 0
   {
    TEXT "$#REFERENCE"
-   RECT (849,300,849,300)
+   RECT (769,300,769,300)
    ALIGN 6
    PARENT 5
   }
@@ -143,8 +147,8 @@ PAGE ""
   {
    VARIABLES
    {
-    #NAME="cycleCounter"
-    #VHDL_TYPE="INTEGER"
+    #NAME="clk"
+    #VHDL_TYPE="STD_LOGIC"
    }
   }
   NET MDARRAY  9, 0, 0
@@ -161,11 +165,11 @@ PAGE ""
   }
   VTX  10, 0, 0
   {
-   COORD (900,260)
+   COORD (960,260)
   }
   VTX  11, 0, 0
   {
-   COORD (1040,260)
+   COORD (820,260)
   }
   WIRE  12, 0, 0
   {
@@ -174,11 +178,11 @@ PAGE ""
   }
   VTX  13, 0, 0
   {
-   COORD (900,300)
+   COORD (820,300)
   }
   VTX  14, 0, 0
   {
-   COORD (1040,300)
+   COORD (960,300)
   }
   MDARRAY  15, 0, 0
   {
@@ -188,7 +192,7 @@ PAGE ""
   TEXT  16, 0, 1
   {
    TEXT "$#NAME"
-   RECT (970,300,970,300)
+   RECT (890,300,890,300)
    ALIGN 9
    PARENT 15
   }
