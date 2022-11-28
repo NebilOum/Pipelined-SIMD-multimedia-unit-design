@@ -1,0 +1,1479 @@
+SCHM0106
+
+HEADER
+{
+ FREEID 219
+ VARIABLES
+ {
+  #ARCHITECTURE="alu"
+  #BLOCKTABLE_FILE="#HDL2DIAGRAM.bde"
+  #DEFAULT_RANGE0="<range<index=\"0\"><name=\"inreg1\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE1="<range<index=\"0\"><name=\"inreg2\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE2="<range<index=\"0\"><name=\"inreg3\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE3="<range<index=\"0\"><name=\"insreg\"><left=\"24\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE4="<range<index=\"0\"><name=\"outreg\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE5="<range<index=\"0\"><name=\"t32\"><left=\"31\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE6="<range<index=\"0\"><name=\"t64\"><left=\"63\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE7="<range<index=\"0\"><name=\"tempfull\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"std_logic_vector(to_unsigned(0,128))\"><delay=\"\">>"
+  #DEFAULT_RANGE8="<range<index=\"0\"><name=\"tempout\"><left=\"31\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE9="<range<index=\"0\"><name=\"tempout_half\"><left=\"15\"><direction=\"downto\"><right=\"0\"><initial_value=\"std_logic_vector(to_unsigned(0,16))\"><delay=\"\">>"
+  #DEFAULT_RANGE10="<range<index=\"0\"><name=\"tempout_l\"><left=\"63\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #ENTITY="aluIO"
+  #LANGUAGE="VHDL"
+  AUTHOR="nebil.oumer@stonybrook.edu"
+  COMPANY="none"
+  CREATIONDATE="11/27/2022"
+  SOURCE="..\\src\\pipeline.vhd"
+ }
+}
+
+PAGE ""
+{
+ PAGEHEADER
+ {
+  PAGESIZE (2031,2420)
+  MARGINS (200,200,200,200)
+  RECT (0,0,0,0)
+ }
+ 
+ BODY
+ {
+  VHDLDESIGNUNITHDR  1, 0, 0
+  {
+   LABEL "Design Unit Header"
+   TEXT 
+"library ieee;\n"+
+"use ieee.std_logic_1164.all;\n"+
+"use ieee.NUMERIC_STD.all;"
+   RECT (220,260,620,472)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  ARCHITECTUREDECLARATIONS  2, 0, 0
+  {
+   LABEL "Architecture Declaration"
+   TEXT 
+"procedure mult (signal xsign : IN std_logic;signal in1 : IN std_logic_vector(m - 1 downto 0);signal in2 : IN std_logic_vector(m - 1 downto 0);variable oput : OUT std_logic_vector(m_long - 1 downto 0)) is \n"+
+"                     begin\n"+
+"                       if xsign = '1' then\n"+
+"                          oput := std_logic_vector(resize((signed(in1) * signed(in2)),32));\n"+
+"                       elsif xsign = '0' then\n"+
+"                          oput := std_logic_vector(resize((unsigned(in1) * unsigned(in2)),32));\n"+
+"                       end if;\n"+
+"                     end procedure mult;\n"+
+"procedure mult_long (signal xsign : IN std_logic;signal in1 : IN std_logic_vector(m_long - 1 downto 0);signal in2 : IN std_logic_vector(m_long - 1 downto 0);variable oput : OUT std_logic_vector(63 downto 0)) is \n"+
+"                     begin\n"+
+"                       if xsign = '1' then\n"+
+"                          oput := std_logic_vector(resize((signed(in1) * signed(in2)),64));\n"+
+"                       elsif xsign = '0' then\n"+
+"                          oput := std_logic_vector(resize((unsigned(in1) * unsigned(in2)),64));\n"+
+"                       end if;\n"+
+"                     end procedure mult_long;\n"+
+"procedure add (signal xsign : IN std_logic;variable in1 : IN std_logic_vector(a - 1 downto 0);signal in2 : IN std_logic_vector(a - 1 downto 0);variable oput : OUT std_logic_vector(a - 1 downto 0)) is \n"+
+"                     begin\n"+
+"                       if xsign = '1' then\n"+
+"                          oput := std_logic_vector(resize((signed(in1) + signed(in2)),a));\n"+
+"                       elsif xsign = '0' then\n"+
+"                          oput := std_logic_vector(resize((unsigned(in1) + unsigned(in2)),a));\n"+
+"                       end if;\n"+
+"                     end procedure add;\n"+
+"procedure add_half (signal xsign : IN std_logic;variable in1 : IN std_logic_vector(15 downto 0);signal in2 : IN std_logic_vector(15 downto 0);variable oput : OUT std_logic_vector(15 downto 0)) is \n"+
+"                     begin\n"+
+"                       if xsign = '1' then\n"+
+"                          oput := std_logic_vector(resize((signed(in1) + signed(in2)),16));\n"+
+"                       elsif xsign = '0' then\n"+
+"                          oput := std_logic_vector(resize((unsigned(in1) + unsigned(in2)),16));\n"+
+"                       end if;\n"+
+"                     end procedure add_half;\n"+
+"procedure add_long (signal xsign : IN std_logic;variable in1 : IN std_logic_vector(a_long - 1 downto 0);signal in2 : IN std_logic_vector(a_long - 1 downto 0);variable oput : OUT std_logic_vector(a_long - 1 downto 0)) is \n"+
+"                     begin\n"+
+"                       if xsign = '1' then\n"+
+"                          oput := std_logic_vector(resize((signed(in1) + signed(in2)),a_long));\n"+
+"                       elsif xsign = '0' then\n"+
+"                          oput := std_logic_vector(unsigned(in1) + unsigned(in2));\n"+
+"                       end if;\n"+
+"                     end procedure add_long;\n"+
+"procedure sub_half (signal xsign : IN std_logic;signal in1 : IN std_logic_vector(15 downto 0);variable in2 : IN std_logic_vector(15 downto 0);variable oput : OUT std_logic_vector(15 downto 0)) is \n"+
+"                     begin\n"+
+"                       if xsign = '1' then\n"+
+"                          oput := std_logic_vector(resize((signed(in1) - signed(in2)),16));\n"+
+"                       elsif xsign = '0' then\n"+
+"                          oput := std_logic_vector(resize((unsigned(in1) - unsigned(in2)),16));\n"+
+"                       end if;\n"+
+"                     end procedure sub_half;\n"+
+"procedure sub (signal xsign : IN std_logic;signal in1 : IN std_logic_vector(s - 1 downto 0);variable in2 : IN std_logic_vector(s - 1 downto 0);variable oput : OUT std_logic_vector(s - 1 downto 0)) is \n"+
+"                     begin\n"+
+"                       if xsign = '1' then\n"+
+"                          oput := std_logic_vector(resize((signed(in1) - signed(in2)),s));\n"+
+"                       elsif xsign = '0' then\n"+
+"                          oput := std_logic_vector(resize((unsigned(in1) - unsigned(in2)),s));\n"+
+"                       end if;\n"+
+"                     end procedure sub;\n"+
+"procedure sub_long (signal xsign : IN std_logic;signal in1 : IN std_logic_vector(s_long - 1 downto 0);variable in2 : IN std_logic_vector(s_long - 1 downto 0);variable oput : OUT std_logic_vector(s_long - 1 downto 0)) is \n"+
+"                     begin\n"+
+"                       if xsign = '1' then\n"+
+"                          oput := std_logic_vector(resize((signed(in1) - signed(in2)),s_long));\n"+
+"                       elsif xsign = '0' then\n"+
+"                          oput := std_logic_vector(resize((unsigned(in1) - unsigned(in2)),s_long));\n"+
+"                       end if;\n"+
+"                     end procedure sub_long;\n"+
+"procedure sat_half (signal input : IN std_logic_vector(15 downto 0);variable output : OUT std_logic_vector(15 downto 0)) is \n"+
+"                     begin\n"+
+"                       if (signed(input) > signed(x\"7FFF\")) then\n"+
+"                          output := x\"7FFF\";\n"+
+"                       elsif (signed(input) < signed(x\"8000\")) then\n"+
+"                          output := x\"8000\";\n"+
+"                       end if;\n"+
+"                     end procedure sat_half;\n"+
+"procedure sat_int (signal input : IN std_logic_vector(31 downto 0);variable output : OUT std_logic_vector(31 downto 0)) is \n"+
+"                     begin\n"+
+"                       if (signed(input) > signed(x\"7FFFFFFF\")) then\n"+
+"                          output := x\"7FFFFFFF\";\n"+
+"                       elsif (signed(input) < signed(x\"80000000\")) then\n"+
+"                          output := x\"80000000\";\n"+
+"                       end if;\n"+
+"                     end procedure sat_int;\n"+
+"procedure sat_long (signal input : IN std_logic_vector(63 downto 0);variable output : OUT std_logic_vector(63 downto 0)) is \n"+
+"                     begin\n"+
+"                       if (signed(input) > signed(x\"7FFFFFFFFFFFFFFF\")) then\n"+
+"                          output := x\"7FFFFFFFFFFFFFFF\";\n"+
+"                       elsif (signed(input) < signed(x\"8000000000000000\")) then\n"+
+"                          output := x\"8000000000000000\";\n"+
+"                       end if;\n"+
+"                     end procedure sat_long;\n"+
+"procedure load (signal instruc : IN std_logic_vector(24 downto 0);signal output : OUT std_logic_vector(127 downto 0)) is \n"+
+"                       variable position : integer;\n"+
+"                     begin\n"+
+"                       position := to_integer(unsigned(instruc(23 downto 21)));\n"+
+"                       if position = 0 then\n"+
+"                          output(15 downto 0) <= instruc(20 downto 5);\n"+
+"                       elsif position = 1 then\n"+
+"                          output(31 downto 16) <= instruc(20 downto 5);\n"+
+"                       elsif position = 2 then\n"+
+"                          output(47 downto 32) <= instruc(20 downto 5);\n"+
+"                       elsif position = 3 then\n"+
+"                          output(63 downto 48) <= instruc(20 downto 5);\n"+
+"                       elsif position = 4 then\n"+
+"                          output(79 downto 64) <= instruc(20 downto 5);\n"+
+"                       elsif position = 5 then\n"+
+"                          output(95 downto 80) <= instruc(20 downto 5);\n"+
+"                       elsif position = 6 then\n"+
+"                          output(111 downto 96) <= instruc(20 downto 5);\n"+
+"                       elsif position = 7 then\n"+
+"                          output(127 downto 112) <= instruc(20 downto 5);\n"+
+"                       end if;\n"+
+"                     end procedure load;\n"+
+"procedure clzw (signal input : IN std_logic_vector(31 downto 0);signal output : OUT std_logic_vector(31 downto 0)) is \n"+
+"                       variable i : integer := 31;\n"+
+"                       variable counter : integer := 0;\n"+
+"                     begin\n"+
+"                       while input(i) = '0' loop\n"+
+"                           counter := counter + 1;\n"+
+"                           i := i - 1;\n"+
+"                           if (i < 0) then\n"+
+"                              i := 0;\n"+
+"                           end if;\n"+
+"                       end loop;\n"+
+"                       output <= std_logic_vector(to_unsigned(counter,32));\n"+
+"                     end procedure clzw;\n"+
+"procedure maxws (signal input1 : IN std_logic_vector(31 downto 0);signal input2 : IN std_logic_vector(31 downto 0);signal output : OUT std_logic_vector(31 downto 0)) is \n"+
+"                     begin\n"+
+"                       if (signed(input1) > signed(input2)) then\n"+
+"                          output <= input1;\n"+
+"                       elsif (signed(input1) < signed(input2)) then\n"+
+"                          output <= input2;\n"+
+"                       elsif (signed(input1) = signed(input2)) then\n"+
+"                          output <= input1;\n"+
+"                       end if;\n"+
+"                     end procedure maxws;\n"+
+"procedure minws (signal input1 : IN std_logic_vector(31 downto 0);signal input2 : IN std_logic_vector(31 downto 0);signal output : OUT std_logic_vector(31 downto 0)) is \n"+
+"                     begin\n"+
+"                       if (signed(input1) > signed(input2)) then\n"+
+"                          output <= input2;\n"+
+"                       elsif (signed(input1) < signed(input2)) then\n"+
+"                          output <= input1;\n"+
+"                       elsif (signed(input1) = signed(input2)) then\n"+
+"                          output <= input1;\n"+
+"                       end if;\n"+
+"                     end procedure minws;\n"+
+"procedure MLHCU (signal xsign : IN std_logic;signal in1 : IN std_logic_vector(m - 1 downto 0);signal in2 : IN std_logic_vector(4 downto 0);variable oput : OUT std_logic_vector(m_long - 1 downto 0)) is \n"+
+"                     begin\n"+
+"                       if xsign = '1' then\n"+
+"                          oput := std_logic_vector(resize((signed(in1) * signed(in2)),m_long));\n"+
+"                       else \n"+
+"                          oput := std_logic_vector(resize((unsigned(in1) * unsigned(in2)),m_long));\n"+
+"                       end if;\n"+
+"                     end procedure MLHCU;\n"+
+"procedure PCNTW (signal input : IN std_logic_vector(31 downto 0);signal output : OUT std_logic_vector(31 downto 0)) is \n"+
+"                       variable i : integer := 31;\n"+
+"                       variable counter : integer := 0;\n"+
+"                     begin\n"+
+"                       for i in 31 downto 0 loop\n"+
+"                           if (input(i) = '1') then\n"+
+"                              counter := counter + 1;\n"+
+"                           end if;\n"+
+"                       end loop;\n"+
+"                       output <= std_logic_vector(to_unsigned(counter,32));\n"+
+"                     end procedure PCNTW;\n"+
+"procedure ROTW (signal in1 : IN std_logic_vector(31 downto 0);signal in2 : IN std_logic_vector(31 downto 0);variable output : OUT std_logic_vector(31 downto 0)) is \n"+
+"                       variable rotate : integer;\n"+
+"                       variable finalPos : std_logic_vector(31 downto 0);\n"+
+"                     begin\n"+
+"                       rotate := to_integer(unsigned(in2(4 downto 0)));\n"+
+"                       finalPos := in1(31 downto 0);\n"+
+"                       for i in 1 to rotate loop\n"+
+"                           output := finalPos(0) & finalPos(31 downto 1);\n"+
+"                       end loop;\n"+
+"                     end procedure ROTW;\n"+
+""
+   RECT (220,472,620,872)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  GENERIC  3, 0, 0
+  {
+   LABEL "Generics"
+   TEXT 
+"m : integer := 16;\n"+
+"a : integer := 32;\n"+
+"m_long : integer := 32;\n"+
+"s : integer := 32;\n"+
+"a_long : integer := 64;\n"+
+"s_long : integer := 64;"
+   RECT (220,945,550,1183)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  PROCESS  4, 0, 0
+  {
+   LABEL "process_281"
+   TEXT 
+"process (insReg)\n"+
+"                         variable t_half : std_logic_vector(15 downto 0);\n"+
+"                         variable oT_half : std_logic_vector(15 downto 0);\n"+
+"                         variable t : std_logic_vector(31 downto 0);\n"+
+"                         variable oT : std_logic_vector(31 downto 0);\n"+
+"                         variable t_long : std_logic_vector(63 downto 0);\n"+
+"                         variable oT_long : std_logic_vector(63 downto 0);\n"+
+"                         variable oT_full : std_logic_vector(127 downto 0);\n"+
+"                       begin\n"+
+"                         load : if (insReg(24) = '0') then\n"+
+"                            load(insReg,outReg);\n"+
+"                         end if load;\n"+
+"                         r4 : if (insReg(24 downto 23) = \"10\") then\n"+
+"                            if insReg(22 downto 20) = \"000\" then\n"+
+"                               mult(signOp,inReg3(15 downto 0),inReg2(15 downto 0),t);\n"+
+"                               t32 <= t;\n"+
+"                               add(signOp,t,inReg1(a - 1 downto 0),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(31 downto 0) <= oT;\n"+
+"                               mult(signOp,inReg3(47 downto 32),inReg2(47 downto 32),t);\n"+
+"                               t32 <= t;\n"+
+"                               add(signOp,t,inReg1(63 downto 32),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(63 downto 32) <= oT;\n"+
+"                               mult(signOp,inReg3(79 downto 64),inReg2(79 downto 64),t);\n"+
+"                               t32 <= t;\n"+
+"                               add(signOp,t,inReg1(95 downto 64),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(95 downto 64) <= oT;\n"+
+"                               mult(signOp,inReg3(111 downto 96),inReg2(111 downto 96),t);\n"+
+"                               t32 <= t;\n"+
+"                               add(signOp,t,inReg1(127 downto 96),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(127 downto 96) <= oT;\n"+
+"                            elsif insReg(22 downto 20) = \"001\" then\n"+
+"                               mult(signOp,inReg3(a - 1 downto m),inReg2(a - 1 downto m),t);\n"+
+"                               t32 <= t;\n"+
+"                               add(signOp,t,inReg1(a - 1 downto 0),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(31 downto 0) <= oT;\n"+
+"                               mult(signOp,inReg3(63 downto 48),inReg2(63 downto 48),t);\n"+
+"                               t32 <= t;\n"+
+"                               add(signOp,t,inReg1(63 downto 32),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(63 downto 32) <= oT;\n"+
+"                               mult(signOp,inReg3(95 downto 80),inReg2(95 downto 80),t);\n"+
+"                               t32 <= t;\n"+
+"                               add(signOp,t,inReg1(95 downto 64),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(95 downto 64) <= oT;\n"+
+"                               mult(signOp,inReg3(127 downto 96),inReg2(127 downto 96),t);\n"+
+"                               t32 <= t;\n"+
+"                               add(signOp,t,inReg1(127 downto 96),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(127 downto 96) <= oT;\n"+
+"                            elsif insReg(22 downto 20) = \"010\" then\n"+
+"                               mult(signOp,inReg3(15 downto 0),inReg2(15 downto 0),t);\n"+
+"                               t32 <= t;\n"+
+"                               sub(signOp,inReg1(a - 1 downto 0),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(31 downto 0) <= oT;\n"+
+"                               mult(signOp,inReg3(47 downto 32),inReg2(47 downto 32),t);\n"+
+"                               t32 <= t;\n"+
+"                               sub(signOp,inReg1(63 downto 32),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(63 downto 32) <= oT;\n"+
+"                               mult(signOp,inReg3(79 downto 64),inReg2(79 downto 64),t);\n"+
+"                               t32 <= t;\n"+
+"                               sub(signOp,inReg1(95 downto 64),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(95 downto 64) <= oT;\n"+
+"                               mult(signOp,inReg3(111 downto 96),inReg2(111 downto 96),t);\n"+
+"                               t32 <= t;\n"+
+"                               sub(signOp,inReg1(127 downto 96),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(127 downto 96) <= oT;\n"+
+"                            elsif insReg(22 downto 20) = \"011\" then\n"+
+"                               mult(signOp,inReg3(a - 1 downto m),inReg2(a - 1 downto m),t);\n"+
+"                               t32 <= t;\n"+
+"                               sub(signOp,inReg1(a - 1 downto 0),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(31 downto 0) <= oT;\n"+
+"                               mult(signOp,inReg3(63 downto 48),inReg2(63 downto 48),t);\n"+
+"                               t32 <= t;\n"+
+"                               sub(signOp,inReg1(63 downto 32),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(63 downto 32) <= oT;\n"+
+"                               mult(signOp,inReg3(95 downto 80),inReg2(95 downto 80),t);\n"+
+"                               t32 <= t;\n"+
+"                               sub(signOp,inReg1(95 downto 64),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(95 downto 64) <= oT;\n"+
+"                               mult(signOp,inReg3(127 downto 96),inReg2(127 downto 96),t);\n"+
+"                               t32 <= t;\n"+
+"                               sub(signOp,inReg1(127 downto 96),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(127 downto 96) <= oT;\n"+
+"                            elsif insReg(22 downto 20) = \"100\" then\n"+
+"                               mult_long(signOp,inReg3(31 downto 0),inReg2(31 downto 0),t_long);\n"+
+"                               t64 <= t_long;\n"+
+"                               add_long(signOp,t_long,inReg1(63 downto 0),oT_long);\n"+
+"                               Tempout_L <= oT_long;\n"+
+"                               sat_long(Tempout_L,oT_long);\n"+
+"                               outreg(63 downto 0) <= oT_long;\n"+
+"                               mult_long(signOp,inReg3(95 downto 64),inReg2(95 downto 64),t_long);\n"+
+"                               t64 <= t_long;\n"+
+"                               add_long(signOp,t_long,inReg1(127 downto 64),oT_long);\n"+
+"                               Tempout_L <= oT_long;\n"+
+"                               sat_long(Tempout_L,oT_long);\n"+
+"                               outreg(127 downto 64) <= oT_long;\n"+
+"                            elsif insReg(22 downto 20) = \"101\" then\n"+
+"                               mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long);\n"+
+"                               t64 <= t_long;\n"+
+"                               sub_long(signOp,inReg1(63 downto 0),t_long,oT_long);\n"+
+"                               Tempout_L <= oT_long;\n"+
+"                               sat_long(Tempout_L,oT_long);\n"+
+"                               outreg(63 downto 0) <= oT_long;\n"+
+"                               mult_long(signOp,inReg3(127 downto 96),inReg2(127 downto 96),t_long);\n"+
+"                               t64 <= t_long;\n"+
+"                               sub_long(signOp,inReg1(127 downto 64),t_long,oT_long);\n"+
+"                               Tempout_L <= oT_long;\n"+
+"                               sat_long(Tempout_L,oT_long);\n"+
+"                               outreg(127 downto 64) <= oT_long;\n"+
+"                            elsif insReg(22 downto 20) = \"110\" then\n"+
+"                               mult_long(signOp,inReg3(31 downto 0),inReg2(31 downto 0),t_long);\n"+
+"                               t64 <= t_long;\n"+
+"                               sub_long(signOp,inReg1(63 downto 0),t_long,oT_long);\n"+
+"                               Tempout_L <= oT_long;\n"+
+"                               sat_long(Tempout_L,oT_long);\n"+
+"                               outreg(63 downto 0) <= oT_long;\n"+
+"                               mult_long(signOp,inReg3(a - 1 downto m),inReg2(a - 1 downto m),t_long);\n"+
+"                               t64 <= t_long;\n"+
+"                               sub_long(signOp,inReg1(127 downto 64),t_long,oT_long);\n"+
+"                               Tempout_L <= oT_long;\n"+
+"                               sat_long(Tempout_L,oT_long);\n"+
+"                               outreg(127 downto 64) <= oT_long;\n"+
+"                            elsif insReg(22 downto 20) = \"111\" then\n"+
+"                               mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long);\n"+
+"                               t64 <= t_long;\n"+
+"                               sub_long(signOp,inReg1(63 downto 0),t_long,oT_long);\n"+
+"                               Tempout_L <= oT_long;\n"+
+"                               sat_long(Tempout_L,oT_long);\n"+
+"                               outreg(63 downto 0) <= oT_long;\n"+
+"                               mult_long(signOp,inReg3(127 downto 96),inReg2(127 downto 96),t_long);\n"+
+"                               t64 <= t_long;\n"+
+"                               sub_long(signOp,inReg1(127 downto 64),t_long,oT_long);\n"+
+"                               Tempout_L <= oT_long;\n"+
+"                               sat_long(Tempout_L,oT_long);\n"+
+"                               outreg(127 downto 64) <= oT_long;\n"+
+"                            end if;\n"+
+"                         end if r4;\n"+
+"                         r3 : if (insReg(24 downto 23) = \"11\") then\n"+
+"                            if (insReg(18 downto 15) = \"0000\") then\n"+
+"                               null;\n"+
+"                            elsif (insReg(18 downto 15) = \"0001\") then\n"+
+"                               clzw(inReg1(31 downto 0),outReg(31 downto 0));\n"+
+"                               clzw(inReg1(63 downto 32),outReg(63 downto 32));\n"+
+"                               clzw(inReg1(95 downto 64),outReg(95 downto 64));\n"+
+"                               clzw(inReg1(127 downto 96),outReg(127 downto 96));\n"+
+"                            elsif (insReg(18 downto 15) = \"0010\") then\n"+
+"                               t := inReg1(31 downto 0);\n"+
+"                               add(noSignOp,t,inReg2(31 downto 0),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(31 downto 0) <= oT;\n"+
+"                               t := inReg1(63 downto 32);\n"+
+"                               add(noSignOp,t,inReg2(63 downto 32),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(63 downto 32) <= oT;\n"+
+"                               t := inReg1(95 downto 64);\n"+
+"                               add(noSignOp,t,inReg2(95 downto 64),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(95 downto 64) <= oT;\n"+
+"                               t := inReg1(127 downto 96);\n"+
+"                               add(noSignOp,t,inReg2(127 downto 96),oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(127 downto 96) <= oT;\n"+
+"                            elsif (insReg(18 downto 15) = \"0011\") then\n"+
+"                               t_half := inReg1(15 downto 0);\n"+
+"                               add_half(noSignOp,t_half,inReg2(15 downto 0),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(15 downto 0) <= oT_half;\n"+
+"                               t_half := inReg1(31 downto 16);\n"+
+"                               add_half(noSignOp,t_half,inReg2(31 downto 16),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(31 downto 16) <= oT_half;\n"+
+"                               t_half := inReg1(47 downto 32);\n"+
+"                               add_half(noSignOp,t_half,inReg2(47 downto 32),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(47 downto 32) <= oT_half;\n"+
+"                               t_half := inReg1(63 downto 48);\n"+
+"                               add_half(noSignOp,t_half,inReg2(63 downto 48),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(63 downto 48) <= oT_half;\n"+
+"                               t_half := inReg1(79 downto 64);\n"+
+"                               add_half(noSignOp,t_half,inReg2(79 downto 64),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(79 downto 64) <= oT_half;\n"+
+"                               t_half := inReg1(95 downto 80);\n"+
+"                               add_half(noSignOp,t_half,inReg2(95 downto 80),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(95 downto 80) <= oT_half;\n"+
+"                               t_half := inReg1(111 downto 96);\n"+
+"                               add_half(noSignOp,t_half,inReg2(111 downto 96),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(111 downto 96) <= oT_half;\n"+
+"                               t_half := inReg1(127 downto 112);\n"+
+"                               add_half(noSignOp,t_half,inReg2(127 downto 112),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(127 downto 112) <= oT_half;\n"+
+"                            elsif (insReg(18 downto 15) = \"0100\") then\n"+
+"                               t_half := inReg1(15 downto 0);\n"+
+"                               add_half(signOp,t_half,inReg2(15 downto 0),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(15 downto 0) <= oT_half;\n"+
+"                               t_half := inReg1(31 downto 16);\n"+
+"                               add_half(signOp,t_half,inReg2(31 downto 16),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(31 downto 16) <= oT_half;\n"+
+"                               t_half := inReg1(47 downto 32);\n"+
+"                               add_half(signOp,t_half,inReg2(47 downto 32),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(47 downto 32) <= oT_half;\n"+
+"                               t_half := inReg1(63 downto 48);\n"+
+"                               add_half(signOp,t_half,inReg2(63 downto 48),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(63 downto 48) <= oT_half;\n"+
+"                               t_half := inReg1(79 downto 64);\n"+
+"                               add_half(signOp,t_half,inReg2(79 downto 64),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(79 downto 64) <= oT_half;\n"+
+"                               t_half := inReg1(95 downto 80);\n"+
+"                               add_half(signOp,t_half,inReg2(95 downto 80),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(95 downto 80) <= oT_half;\n"+
+"                               t_half := inReg1(111 downto 96);\n"+
+"                               add_half(signOp,t_half,inReg2(111 downto 96),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(111 downto 96) <= oT_half;\n"+
+"                               t_half := inReg1(127 downto 112);\n"+
+"                               add_half(signOp,t_half,inReg2(127 downto 112),oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(127 downto 112) <= oT_half;\n"+
+"                            elsif (insReg(18 downto 15) = \"0101\") then\n"+
+"                               outReg <= inReg1 and inReg2;\n"+
+"                            elsif (insReg(18 downto 15) = \"0110\") then\n"+
+"                               outReg(31 downto 0) <= inReg1(31 downto 0);\n"+
+"                               outReg(63 downto 32) <= inReg1(31 downto 0);\n"+
+"                               outReg(95 downto 64) <= inReg1(31 downto 0);\n"+
+"                               outReg(127 downto 96) <= inReg1(31 downto 0);\n"+
+"                            elsif (insReg(18 downto 15) = \"0111\") then\n"+
+"                               maxws(inReg1(31 downto 0),inReg2(31 downto 0),outReg(31 downto 0));\n"+
+"                               maxws(inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));\n"+
+"                               maxws(inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));\n"+
+"                               maxws(inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));\n"+
+"                            elsif (insReg(18 downto 15) = \"1000\") then\n"+
+"                               minws(inReg1(31 downto 0),inReg2(31 downto 0),outReg(31 downto 0));\n"+
+"                               minws(inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));\n"+
+"                               minws(inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));\n"+
+"                               minws(inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));\n"+
+"                            elsif (insReg(18 downto 15) = \"1001\") then\n"+
+"                               mult(noSignOp,inReg1(15 downto 0),inReg2(15 downto 0),oT);\n"+
+"                               outreg(31 downto 0) <= oT;\n"+
+"                               mult(noSignOp,inReg1(47 downto 32),inReg2(47 downto 32),oT);\n"+
+"                               outreg(63 downto 32) <= oT;\n"+
+"                               mult(noSignOp,inReg1(79 downto 64),inReg2(79 downto 64),oT);\n"+
+"                               outreg(95 downto 64) <= oT;\n"+
+"                               mult(noSignOp,inReg1(111 downto 96),inReg2(111 downto 96),oT);\n"+
+"                               outreg(127 downto 96) <= oT;\n"+
+"                            elsif (insReg(18 downto 15) = \"1010\") then\n"+
+"                               MLHCU(noSignOp,inReg1(m - 1 downto 0),insReg(14 downto 10),oT);\n"+
+"                               outreg(31 downto 0) <= oT;\n"+
+"                               MLHCU(noSignOp,inReg1(47 downto a),insReg(14 downto 10),oT);\n"+
+"                               outreg(63 downto 32) <= oT;\n"+
+"                               MLHCU(noSignOp,inReg1(79 downto 64),insReg(14 downto 10),oT);\n"+
+"                               outreg(95 downto 64) <= oT;\n"+
+"                               MLHCU(noSignOp,inReg1(111 downto 96),insReg(14 downto 10),oT);\n"+
+"                               outreg(127 downto 96) <= oT;\n"+
+"                            elsif (insReg(18 downto 15) = \"1011\") then\n"+
+"                               outReg <= inReg1 or inReg2;\n"+
+"                            elsif (insReg(18 downto 15) = \"1100\") then\n"+
+"                               PCNTW(inReg1(31 downto 0),outReg(31 downto 0));\n"+
+"                               PCNTW(inReg1(63 downto 32),outReg(63 downto 32));\n"+
+"                               PCNTW(inReg1(95 downto 64),outReg(95 downto 64));\n"+
+"                               PCNTW(inReg1(127 downto 96),outReg(127 downto 96));\n"+
+"                            elsif (insReg(18 downto 15) = \"1101\") then\n"+
+"                               ROTW(inReg1(31 downto 0),inReg2(31 downto 0),oT);\n"+
+"                               outReg(31 downto 0) <= oT;\n"+
+"                               ROTW(inReg1(63 downto 32),inReg2(63 downto 32),oT);\n"+
+"                               outReg(63 downto 32) <= oT;\n"+
+"                               ROTW(inReg1(95 downto 64),inReg2(95 downto 64),oT);\n"+
+"                               outReg(95 downto 64) <= oT;\n"+
+"                               ROTW(inReg1(127 downto 96),inReg2(127 downto 96),oT);\n"+
+"                               outReg(127 downto 96) <= oT;\n"+
+"                            elsif (insReg(18 downto 15) = \"1110\") then\n"+
+"                               t := inReg1(31 downto 0);\n"+
+"                               sub(noSignOp,inReg2(31 downto 0),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(31 downto 0) <= oT;\n"+
+"                               t := inReg1(63 downto 32);\n"+
+"                               sub(noSignOp,inReg2(63 downto 32),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(63 downto 32) <= oT;\n"+
+"                               t := inReg1(95 downto 64);\n"+
+"                               sub(noSignOp,inReg2(95 downto 64),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(95 downto 64) <= oT;\n"+
+"                               t := inReg1(127 downto 96);\n"+
+"                               sub(noSignOp,inReg2(127 downto 96),t,oT);\n"+
+"                               Tempout <= oT;\n"+
+"                               sat_int(Tempout,oT);\n"+
+"                               outreg(127 downto 96) <= oT;\n"+
+"                            elsif (insReg(18 downto 15) = \"1111\") then\n"+
+"                               t_half := inReg1(15 downto 0);\n"+
+"                               sub_half(signOp,inReg2(15 downto 0),t_half,oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(15 downto 0) <= oT_half;\n"+
+"                               t_half := inReg1(31 downto 16);\n"+
+"                               sub_half(signOp,inReg2(31 downto 16),t_half,oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(31 downto 16) <= oT_half;\n"+
+"                               t_half := inReg1(47 downto 32);\n"+
+"                               sub_half(signOp,inReg2(47 downto 32),t_half,oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(47 downto 32) <= oT_half;\n"+
+"                               t_half := inReg1(63 downto 48);\n"+
+"                               sub_half(signOp,inReg2(63 downto 48),t_half,oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(63 downto 48) <= oT_half;\n"+
+"                               t_half := inReg1(79 downto 64);\n"+
+"                               sub_half(signOp,inReg2(79 downto 64),t_half,oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(79 downto 64) <= oT_half;\n"+
+"                               t_half := inReg1(95 downto 80);\n"+
+"                               sub_half(signOp,inReg2(95 downto 80),t_half,oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(95 downto 80) <= oT_half;\n"+
+"                               t_half := inReg1(111 downto 96);\n"+
+"                               sub_half(signOp,inReg2(111 downto 96),t_half,oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                               outreg(111 downto 96) <= oT_half;\n"+
+"                               t_half := inReg1(127 downto 112);\n"+
+"                               sub_half(signOp,inReg2(127 downto 112),t_half,oT_half);\n"+
+"                               tempout_half <= oT_half;\n"+
+"                               sat_half(tempout_half,oT_half);\n"+
+"                            end if;\n"+
+"                         end if r3;\n"+
+"                       end process;\n"+
+"                      "
+   RECT (1060,240,1461,1800)
+   MARGINS (20,20)
+   SYNTAXCOLORED
+   SHOWTEXT
+   CORNER 10
+   VTX (  36, 39, 42, 45, 48, 52, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99, 102, 105, 108, 111, 114, 117, 120, 123, 126, 129, 132, 135, 138, 141, 145, 147, 150, 153, 156, 159, 162, 165, 168, 171, 174, 177, 180, 183 )
+   VARIABLES
+   {
+    #UPDATE_SENS_LIST="0"
+   }
+   LIST (  147 )
+  }
+  INSTANCE  5, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #LIBRARY="#terminals"
+    #REFERENCE="inReg1(127:0)"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (920,1780)
+   VERTEXES ( (2,139) )
+  }
+  INSTANCE  6, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #LIBRARY="#terminals"
+    #REFERENCE="inReg2(127:0)"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (920,1700)
+   VERTEXES ( (2,142) )
+  }
+  INSTANCE  7, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #LIBRARY="#terminals"
+    #REFERENCE="inReg3(127:0)"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (920,1740)
+   VERTEXES ( (2,144) )
+  }
+  INSTANCE  8, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #LIBRARY="#terminals"
+    #REFERENCE="insReg(24:0)"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (920,260)
+   VERTEXES ( (2,148) )
+  }
+  INSTANCE  9, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #LIBRARY="#terminals"
+    #REFERENCE="outReg(127:0)"
+    #SYMBOL="BusOutput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (1560,660)
+   VERTEXES ( (2,51) )
+  }
+  TEXT  10, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (869,1780,869,1780)
+   ALIGN 6
+   PARENT 5
+  }
+  TEXT  11, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (869,1700,869,1700)
+   ALIGN 6
+   PARENT 6
+  }
+  TEXT  12, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (869,1740,869,1740)
+   ALIGN 6
+   PARENT 7
+  }
+  TEXT  13, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (869,260,869,260)
+   ALIGN 6
+   PARENT 8
+  }
+  TEXT  14, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (1611,660,1611,660)
+   ALIGN 4
+   PARENT 9
+  }
+  NET BUS  15, 0, 0
+  {
+   VARIABLES
+   {
+    #INITIAL_VALUE="std_logic_vector(to_unsigned(0,128))"
+    #NAME="tempFull(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  16, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="instruc"
+   }
+  }
+  NET WIRE  17, 0, 0
+  {
+   VARIABLES
+   {
+    #INITIAL_VALUE="'0'"
+    #NAME="noSignOp"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+  }
+  NET WIRE  18, 0, 0
+  {
+   VARIABLES
+   {
+    #INITIAL_VALUE="'1'"
+    #NAME="signOp"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+  }
+  NET BUS  19, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="t32(31:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  20, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="t64(63:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  21, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="Tempout(31:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  22, 0, 0
+  {
+   VARIABLES
+   {
+    #INITIAL_VALUE="std_logic_vector(to_unsigned(0,16))"
+    #NAME="tempOut_half(15:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  23, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="Tempout_L(63:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  24, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="input1"
+   }
+  }
+  NET BUS  25, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="input2"
+   }
+  }
+  NET BUS  26, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="inReg1(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  27, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="inReg2(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  28, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="inReg3(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  29, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="insReg(24:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  30, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="outReg(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  31, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="input"
+   }
+  }
+  NET BUS  32, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="output"
+   }
+  }
+  NET BUS  33, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="in1"
+   }
+  }
+  NET BUS  34, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="in2"
+   }
+  }
+  NET WIRE  35, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="xsign"
+   }
+  }
+  VTX  36, 0, 0
+  {
+   COORD (1461,620)
+  }
+  BUS  38, 0, 0
+  {
+   NET 32
+   VTX 36, 49
+  }
+  VTX  39, 0, 0
+  {
+   COORD (1461,620)
+  }
+  BUS  41, 0, 0
+  {
+   NET 32
+   VTX 39, 49
+  }
+  VTX  42, 0, 0
+  {
+   COORD (1461,620)
+  }
+  BUS  44, 0, 0
+  {
+   NET 32
+   VTX 42, 49
+  }
+  VTX  45, 0, 0
+  {
+   COORD (1461,620)
+  }
+  BUS  47, 0, 0
+  {
+   NET 32
+   VTX 45, 49
+  }
+  VTX  48, 0, 0
+  {
+   COORD (1461,620)
+  }
+  VTX  49, 0, 0
+  {
+   COORD (1540,620)
+  }
+  BUS  50, 0, 0
+  {
+   NET 32
+   VTX 48, 49
+  }
+  VTX  51, 0, 0
+  {
+   COORD (1560,660)
+  }
+  VTX  52, 0, 0
+  {
+   COORD (1461,660)
+  }
+  BUS  53, 0, 0
+  {
+   NET 30
+   VTX 51, 52
+  }
+  VTX  54, 0, 0
+  {
+   COORD (1461,300)
+  }
+  VTX  55, 0, 0
+  {
+   COORD (1540,300)
+  }
+  BUS  56, 0, 0
+  {
+   NET 19
+   VTX 54, 55
+  }
+  VTX  57, 0, 0
+  {
+   COORD (1461,340)
+  }
+  VTX  58, 0, 0
+  {
+   COORD (1540,340)
+  }
+  BUS  59, 0, 0
+  {
+   NET 20
+   VTX 57, 58
+  }
+  VTX  60, 0, 0
+  {
+   COORD (1461,420)
+  }
+  VTX  61, 0, 0
+  {
+   COORD (1540,420)
+  }
+  BUS  62, 0, 0
+  {
+   NET 21
+   VTX 60, 61
+  }
+  VTX  63, 0, 0
+  {
+   COORD (1461,260)
+  }
+  VTX  64, 0, 0
+  {
+   COORD (1540,260)
+  }
+  BUS  65, 0, 0
+  {
+   NET 22
+   VTX 63, 64
+  }
+  VTX  66, 0, 0
+  {
+   COORD (1461,380)
+  }
+  VTX  67, 0, 0
+  {
+   COORD (1540,380)
+  }
+  BUS  68, 0, 0
+  {
+   NET 23
+   VTX 66, 67
+  }
+  VTX  69, 0, 0
+  {
+   COORD (1060,1620)
+  }
+  BUS  71, 0, 0
+  {
+   NET 33
+   VTX 69, 88
+  }
+  VTX  72, 0, 0
+  {
+   COORD (1060,1620)
+  }
+  BUS  74, 0, 0
+  {
+   NET 33
+   VTX 72, 88
+  }
+  VTX  75, 0, 0
+  {
+   COORD (1060,1620)
+  }
+  BUS  77, 0, 0
+  {
+   NET 33
+   VTX 75, 88
+  }
+  VTX  78, 0, 0
+  {
+   COORD (1060,1620)
+  }
+  BUS  80, 0, 0
+  {
+   NET 33
+   VTX 78, 88
+  }
+  VTX  81, 0, 0
+  {
+   COORD (1060,1620)
+  }
+  BUS  83, 0, 0
+  {
+   NET 33
+   VTX 81, 88
+  }
+  VTX  84, 0, 0
+  {
+   COORD (1060,1620)
+  }
+  BUS  86, 0, 0
+  {
+   NET 33
+   VTX 84, 88
+  }
+  VTX  87, 0, 0
+  {
+   COORD (1060,1620)
+  }
+  VTX  88, 0, 0
+  {
+   COORD (1040,1620)
+  }
+  BUS  89, 0, 0
+  {
+   NET 33
+   VTX 87, 88
+  }
+  VTX  90, 0, 0
+  {
+   COORD (1060,1540)
+  }
+  BUS  92, 0, 0
+  {
+   NET 34
+   VTX 90, 109
+  }
+  VTX  93, 0, 0
+  {
+   COORD (1060,1540)
+  }
+  BUS  95, 0, 0
+  {
+   NET 34
+   VTX 93, 109
+  }
+  VTX  96, 0, 0
+  {
+   COORD (1060,1540)
+  }
+  BUS  98, 0, 0
+  {
+   NET 34
+   VTX 96, 109
+  }
+  VTX  99, 0, 0
+  {
+   COORD (1060,1540)
+  }
+  BUS  101, 0, 0
+  {
+   NET 34
+   VTX 99, 109
+  }
+  VTX  102, 0, 0
+  {
+   COORD (1060,1540)
+  }
+  BUS  104, 0, 0
+  {
+   NET 34
+   VTX 102, 109
+  }
+  VTX  105, 0, 0
+  {
+   COORD (1060,1540)
+  }
+  BUS  107, 0, 0
+  {
+   NET 34
+   VTX 105, 109
+  }
+  VTX  108, 0, 0
+  {
+   COORD (1060,1540)
+  }
+  VTX  109, 0, 0
+  {
+   COORD (1040,1540)
+  }
+  BUS  110, 0, 0
+  {
+   NET 34
+   VTX 108, 109
+  }
+  VTX  111, 0, 0
+  {
+   COORD (1060,1060)
+  }
+  BUS  113, 0, 0
+  {
+   NET 31
+   VTX 111, 124
+  }
+  VTX  114, 0, 0
+  {
+   COORD (1060,1060)
+  }
+  BUS  116, 0, 0
+  {
+   NET 31
+   VTX 114, 124
+  }
+  VTX  117, 0, 0
+  {
+   COORD (1060,1060)
+  }
+  BUS  119, 0, 0
+  {
+   NET 31
+   VTX 117, 124
+  }
+  VTX  120, 0, 0
+  {
+   COORD (1060,1060)
+  }
+  BUS  122, 0, 0
+  {
+   NET 31
+   VTX 120, 124
+  }
+  VTX  123, 0, 0
+  {
+   COORD (1060,1060)
+  }
+  VTX  124, 0, 0
+  {
+   COORD (1040,1060)
+  }
+  BUS  125, 0, 0
+  {
+   NET 31
+   VTX 123, 124
+  }
+  VTX  126, 0, 0
+  {
+   COORD (1060,740)
+  }
+  BUS  128, 0, 0
+  {
+   NET 24
+   VTX 126, 130
+  }
+  VTX  129, 0, 0
+  {
+   COORD (1060,740)
+  }
+  VTX  130, 0, 0
+  {
+   COORD (1040,740)
+  }
+  BUS  131, 0, 0
+  {
+   NET 24
+   VTX 129, 130
+  }
+  VTX  132, 0, 0
+  {
+   COORD (1060,780)
+  }
+  BUS  134, 0, 0
+  {
+   NET 25
+   VTX 132, 136
+  }
+  VTX  135, 0, 0
+  {
+   COORD (1060,780)
+  }
+  VTX  136, 0, 0
+  {
+   COORD (1040,780)
+  }
+  BUS  137, 0, 0
+  {
+   NET 25
+   VTX 135, 136
+  }
+  VTX  138, 0, 0
+  {
+   COORD (1060,1780)
+  }
+  VTX  139, 0, 0
+  {
+   COORD (920,1780)
+  }
+  BUS  140, 0, 0
+  {
+   NET 26
+   VTX 138, 139
+  }
+  VTX  141, 0, 0
+  {
+   COORD (1060,1700)
+  }
+  VTX  142, 0, 0
+  {
+   COORD (920,1700)
+  }
+  BUS  143, 0, 0
+  {
+   NET 27
+   VTX 141, 142
+  }
+  VTX  144, 0, 0
+  {
+   COORD (920,1740)
+  }
+  VTX  145, 0, 0
+  {
+   COORD (1060,1740)
+  }
+  BUS  146, 0, 0
+  {
+   NET 28
+   VTX 144, 145
+  }
+  VTX  147, 0, 0
+  {
+   COORD (1060,260)
+  }
+  VTX  148, 0, 0
+  {
+   COORD (920,260)
+  }
+  BUS  149, 0, 0
+  {
+   NET 29
+   VTX 147, 148
+  }
+  VTX  150, 0, 0
+  {
+   COORD (1060,820)
+  }
+  VTX  151, 0, 0
+  {
+   COORD (1040,820)
+  }
+  BUS  152, 0, 0
+  {
+   NET 16
+   VTX 150, 151
+  }
+  VTX  153, 0, 0
+  {
+   COORD (1060,460)
+  }
+  VTX  154, 0, 0
+  {
+   COORD (1040,460)
+  }
+  WIRE  155, 0, 0
+  {
+   NET 17
+   VTX 153, 154
+  }
+  VTX  156, 0, 0
+  {
+   COORD (1060,420)
+  }
+  VTX  157, 0, 0
+  {
+   COORD (1040,420)
+  }
+  WIRE  158, 0, 0
+  {
+   NET 18
+   VTX 156, 157
+  }
+  VTX  159, 0, 0
+  {
+   COORD (1060,1660)
+  }
+  WIRE  161, 0, 0
+  {
+   NET 35
+   VTX 159, 184
+  }
+  VTX  162, 0, 0
+  {
+   COORD (1060,1660)
+  }
+  WIRE  164, 0, 0
+  {
+   NET 35
+   VTX 162, 184
+  }
+  VTX  165, 0, 0
+  {
+   COORD (1060,1660)
+  }
+  WIRE  167, 0, 0
+  {
+   NET 35
+   VTX 165, 184
+  }
+  VTX  168, 0, 0
+  {
+   COORD (1060,1660)
+  }
+  WIRE  170, 0, 0
+  {
+   NET 35
+   VTX 168, 184
+  }
+  VTX  171, 0, 0
+  {
+   COORD (1060,1660)
+  }
+  WIRE  173, 0, 0
+  {
+   NET 35
+   VTX 171, 184
+  }
+  VTX  174, 0, 0
+  {
+   COORD (1060,1660)
+  }
+  WIRE  176, 0, 0
+  {
+   NET 35
+   VTX 174, 184
+  }
+  VTX  177, 0, 0
+  {
+   COORD (1060,1660)
+  }
+  WIRE  179, 0, 0
+  {
+   NET 35
+   VTX 177, 184
+  }
+  VTX  180, 0, 0
+  {
+   COORD (1060,1660)
+  }
+  WIRE  182, 0, 0
+  {
+   NET 35
+   VTX 180, 184
+  }
+  VTX  183, 0, 0
+  {
+   COORD (1060,1660)
+  }
+  VTX  184, 0, 0
+  {
+   COORD (1040,1660)
+  }
+  WIRE  185, 0, 0
+  {
+   NET 35
+   VTX 183, 184
+  }
+  VTX  186, 0, 0
+  {
+   COORD (1630,220)
+  }
+  VTX  187, 0, 0
+  {
+   COORD (1730,220)
+  }
+  BUS  188, 0, 0
+  {
+   NET 15
+   VTX 186, 187
+  }
+ }
+ 
+}
+

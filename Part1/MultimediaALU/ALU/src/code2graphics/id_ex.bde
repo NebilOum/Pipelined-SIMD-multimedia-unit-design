@@ -1,0 +1,450 @@
+SCHM0106
+
+HEADER
+{
+ FREEID 57
+ VARIABLES
+ {
+  #ARCHITECTURE="idEX"
+  #BLOCKTABLE_FILE="#HDL2DIAGRAM.bde"
+  #DEFAULT_RANGE0="<range<index=\"0\"><name=\"datain1\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE1="<range<index=\"0\"><name=\"datain2\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE2="<range<index=\"0\"><name=\"datain3\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE3="<range<index=\"0\"><name=\"dataout1\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE4="<range<index=\"0\"><name=\"dataout2\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE5="<range<index=\"0\"><name=\"dataout3\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE6="<range<index=\"0\"><name=\"rdnumin\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE7="<range<index=\"0\"><name=\"rdnumout\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #ENTITY="id_ex"
+  #LANGUAGE="VHDL"
+  AUTHOR="nebil.oumer@stonybrook.edu"
+  COMPANY="none"
+  CREATIONDATE="11/27/2022"
+  SOURCE="..\\src\\pipeline.vhd"
+ }
+}
+
+PAGE ""
+{
+ PAGEHEADER
+ {
+  MARGINS (200,200,200,200)
+  RECT (0,0,0,0)
+ }
+ 
+ BODY
+ {
+  VHDLDESIGNUNITHDR  1, 0, 0
+  {
+   LABEL "Design Unit Header"
+   TEXT 
+"library ieee;\n"+
+"use ieee.std_logic_1164.all;\n"+
+"use ieee.NUMERIC_STD.all;"
+   RECT (220,260,620,472)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  PROCESS  2, 0, 0
+  {
+   LABEL "process_774"
+   TEXT 
+"process (clk)\n"+
+"                       begin\n"+
+"                         if rising_edge(clk) then\n"+
+"                            dataOut1 <= dataIn1;\n"+
+"                            dataOut2 <= dataIn2;\n"+
+"                            dataOut3 <= dataIn3;\n"+
+"                            rdNumOut <= rdNumIn;\n"+
+"                         end if;\n"+
+"                       end process;\n"+
+"                      "
+   RECT (1060,240,1461,620)
+   MARGINS (20,20)
+   SYNTAXCOLORED
+   SHOWTEXT
+   CORNER 10
+   VTX (  31, 33, 36, 40, 43, 46, 48, 51, 54 )
+   VARIABLES
+   {
+    #UPDATE_SENS_LIST="0"
+   }
+   LIST (  43 )
+  }
+  INSTANCE  3, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="Input"
+    #LIBRARY="#terminals"
+    #REFERENCE="clk"
+    #SYMBOL="Input"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+   COORD (920,260)
+   VERTEXES ( (2,42) )
+  }
+  INSTANCE  4, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #LIBRARY="#terminals"
+    #REFERENCE="dataIn1(127:0)"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (920,300)
+   VERTEXES ( (2,45) )
+  }
+  INSTANCE  5, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #LIBRARY="#terminals"
+    #REFERENCE="dataIn2(127:0)"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (920,420)
+   VERTEXES ( (2,49) )
+  }
+  INSTANCE  6, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #LIBRARY="#terminals"
+    #REFERENCE="dataIn3(127:0)"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (920,340)
+   VERTEXES ( (2,52) )
+  }
+  INSTANCE  7, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #LIBRARY="#terminals"
+    #REFERENCE="rdNumIn(4:0)"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (920,380)
+   VERTEXES ( (2,55) )
+  }
+  INSTANCE  8, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #LIBRARY="#terminals"
+    #REFERENCE="dataOut1(127:0)"
+    #SYMBOL="BusOutput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (1560,380)
+   VERTEXES ( (2,30) )
+  }
+  INSTANCE  9, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #LIBRARY="#terminals"
+    #REFERENCE="dataOut2(127:0)"
+    #SYMBOL="BusOutput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (1560,260)
+   VERTEXES ( (2,34) )
+  }
+  INSTANCE  10, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #LIBRARY="#terminals"
+    #REFERENCE="dataOut3(127:0)"
+    #SYMBOL="BusOutput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (1560,300)
+   VERTEXES ( (2,37) )
+  }
+  INSTANCE  11, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #LIBRARY="#terminals"
+    #REFERENCE="rdNumOut(4:0)"
+    #SYMBOL="BusOutput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (1560,340)
+   VERTEXES ( (2,39) )
+  }
+  TEXT  12, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (869,260,869,260)
+   ALIGN 6
+   PARENT 3
+  }
+  TEXT  13, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (869,300,869,300)
+   ALIGN 6
+   PARENT 4
+  }
+  TEXT  14, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (869,420,869,420)
+   ALIGN 6
+   PARENT 5
+  }
+  TEXT  15, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (869,340,869,340)
+   ALIGN 6
+   PARENT 6
+  }
+  TEXT  16, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (869,380,869,380)
+   ALIGN 6
+   PARENT 7
+  }
+  TEXT  17, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (1611,380,1611,380)
+   ALIGN 4
+   PARENT 8
+  }
+  TEXT  18, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (1611,260,1611,260)
+   ALIGN 4
+   PARENT 9
+  }
+  TEXT  19, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (1611,300,1611,300)
+   ALIGN 4
+   PARENT 10
+  }
+  TEXT  20, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (1611,340,1611,340)
+   ALIGN 4
+   PARENT 11
+  }
+  NET WIRE  21, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="clk"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+  }
+  NET BUS  22, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="dataIn1(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  23, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="dataIn2(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  24, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="dataIn3(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  25, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="dataOut1(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  26, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="dataOut2(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  27, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="dataOut3(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  28, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rdNumIn(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  29, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="rdNumOut(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  VTX  30, 0, 0
+  {
+   COORD (1560,380)
+  }
+  VTX  31, 0, 0
+  {
+   COORD (1461,380)
+  }
+  BUS  32, 0, 0
+  {
+   NET 25
+   VTX 30, 31
+  }
+  VTX  33, 0, 0
+  {
+   COORD (1461,260)
+  }
+  VTX  34, 0, 0
+  {
+   COORD (1560,260)
+  }
+  BUS  35, 0, 0
+  {
+   NET 26
+   VTX 33, 34
+  }
+  VTX  36, 0, 0
+  {
+   COORD (1461,300)
+  }
+  VTX  37, 0, 0
+  {
+   COORD (1560,300)
+  }
+  BUS  38, 0, 0
+  {
+   NET 27
+   VTX 36, 37
+  }
+  VTX  39, 0, 0
+  {
+   COORD (1560,340)
+  }
+  VTX  40, 0, 0
+  {
+   COORD (1461,340)
+  }
+  BUS  41, 0, 0
+  {
+   NET 29
+   VTX 39, 40
+  }
+  VTX  42, 0, 0
+  {
+   COORD (920,260)
+  }
+  VTX  43, 0, 0
+  {
+   COORD (1060,260)
+  }
+  WIRE  44, 0, 0
+  {
+   NET 21
+   VTX 42, 43
+  }
+  VTX  45, 0, 0
+  {
+   COORD (920,300)
+  }
+  VTX  46, 0, 0
+  {
+   COORD (1060,300)
+  }
+  BUS  47, 0, 0
+  {
+   NET 22
+   VTX 45, 46
+  }
+  VTX  48, 0, 0
+  {
+   COORD (1060,420)
+  }
+  VTX  49, 0, 0
+  {
+   COORD (920,420)
+  }
+  BUS  50, 0, 0
+  {
+   NET 23
+   VTX 48, 49
+  }
+  VTX  51, 0, 0
+  {
+   COORD (1060,340)
+  }
+  VTX  52, 0, 0
+  {
+   COORD (920,340)
+  }
+  BUS  53, 0, 0
+  {
+   NET 24
+   VTX 51, 52
+  }
+  VTX  54, 0, 0
+  {
+   COORD (1060,380)
+  }
+  VTX  55, 0, 0
+  {
+   COORD (920,380)
+  }
+  BUS  56, 0, 0
+  {
+   NET 28
+   VTX 54, 55
+  }
+ }
+ 
+}
+

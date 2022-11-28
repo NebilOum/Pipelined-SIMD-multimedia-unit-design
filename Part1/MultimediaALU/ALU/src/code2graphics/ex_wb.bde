@@ -1,0 +1,280 @@
+SCHM0106
+
+HEADER
+{
+ FREEID 33
+ VARIABLES
+ {
+  #ARCHITECTURE="exWB"
+  #BLOCKTABLE_FILE="#HDL2DIAGRAM.bde"
+  #DEFAULT_RANGE0="<range<index=\"0\"><name=\"datain\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE1="<range<index=\"0\"><name=\"outresult\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE2="<range<index=\"0\"><name=\"regwrite_in\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE3="<range<index=\"0\"><name=\"regwrite_out\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #ENTITY="ex_wb"
+  #LANGUAGE="VHDL"
+  AUTHOR="nebil.oumer@stonybrook.edu"
+  COMPANY="none"
+  CREATIONDATE="11/27/2022"
+  SOURCE="..\\src\\pipeline.vhd"
+ }
+}
+
+PAGE ""
+{
+ PAGEHEADER
+ {
+  MARGINS (200,200,200,200)
+  RECT (0,0,0,0)
+ }
+ 
+ BODY
+ {
+  VHDLDESIGNUNITHDR  1, 0, 0
+  {
+   LABEL "Design Unit Header"
+   TEXT 
+"library ieee;\n"+
+"use ieee.std_logic_1164.all;\n"+
+"use ieee.NUMERIC_STD.all;"
+   RECT (220,260,620,472)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  PROCESS  2, 0, 0
+  {
+   LABEL "process_846"
+   TEXT 
+"process (clk)\n"+
+"                       begin\n"+
+"                         if rising_edge(clk) then\n"+
+"                            outResult <= dataIn;\n"+
+"                            regWrite_out <= regWrite_in;\n"+
+"                         end if;\n"+
+"                       end process;\n"+
+"                      "
+   RECT (1080,240,1481,560)
+   MARGINS (20,20)
+   SYNTAXCOLORED
+   SHOWTEXT
+   CORNER 10
+   VTX (  18, 21, 24, 27, 30 )
+   VARIABLES
+   {
+    #UPDATE_SENS_LIST="0"
+   }
+   LIST (  24 )
+  }
+  INSTANCE  3, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="Input"
+    #LIBRARY="#terminals"
+    #REFERENCE="clk"
+    #SYMBOL="Input"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+   COORD (940,260)
+   VERTEXES ( (2,25) )
+  }
+  INSTANCE  4, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #LIBRARY="#terminals"
+    #REFERENCE="regWrite_in(4:0)"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (940,300)
+   VERTEXES ( (2,31) )
+  }
+  INSTANCE  5, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #LIBRARY="#terminals"
+    #REFERENCE="dataIn(127:0)"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (940,340)
+   VERTEXES ( (2,28) )
+  }
+  INSTANCE  6, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #LIBRARY="#terminals"
+    #REFERENCE="regWrite_out(4:0)"
+    #SYMBOL="BusOutput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (1580,300)
+   VERTEXES ( (2,22) )
+  }
+  INSTANCE  7, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #LIBRARY="#terminals"
+    #REFERENCE="outResult(127:0)"
+    #SYMBOL="BusOutput"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (1580,260)
+   VERTEXES ( (2,19) )
+  }
+  TEXT  8, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (889,260,889,260)
+   ALIGN 6
+   PARENT 3
+  }
+  TEXT  9, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (889,300,889,300)
+   ALIGN 6
+   PARENT 4
+  }
+  TEXT  10, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (889,340,889,340)
+   ALIGN 6
+   PARENT 5
+  }
+  TEXT  11, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (1631,300,1631,300)
+   ALIGN 4
+   PARENT 6
+  }
+  TEXT  12, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (1631,260,1631,260)
+   ALIGN 4
+   PARENT 7
+  }
+  NET WIRE  13, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="clk"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+  }
+  NET BUS  14, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="dataIn(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  15, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="outResult(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  16, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="regWrite_in(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  17, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="regWrite_out(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  VTX  18, 0, 0
+  {
+   COORD (1481,260)
+  }
+  VTX  19, 0, 0
+  {
+   COORD (1580,260)
+  }
+  BUS  20, 0, 0
+  {
+   NET 15
+   VTX 18, 19
+  }
+  VTX  21, 0, 0
+  {
+   COORD (1481,300)
+  }
+  VTX  22, 0, 0
+  {
+   COORD (1580,300)
+  }
+  BUS  23, 0, 0
+  {
+   NET 17
+   VTX 21, 22
+  }
+  VTX  24, 0, 0
+  {
+   COORD (1080,260)
+  }
+  VTX  25, 0, 0
+  {
+   COORD (940,260)
+  }
+  WIRE  26, 0, 0
+  {
+   NET 13
+   VTX 24, 25
+  }
+  VTX  27, 0, 0
+  {
+   COORD (1080,340)
+  }
+  VTX  28, 0, 0
+  {
+   COORD (940,340)
+  }
+  BUS  29, 0, 0
+  {
+   NET 14
+   VTX 27, 28
+  }
+  VTX  30, 0, 0
+  {
+   COORD (1080,300)
+  }
+  VTX  31, 0, 0
+  {
+   COORD (940,300)
+  }
+  BUS  32, 0, 0
+  {
+   NET 16
+   VTX 30, 31
+  }
+ }
+ 
+}
+

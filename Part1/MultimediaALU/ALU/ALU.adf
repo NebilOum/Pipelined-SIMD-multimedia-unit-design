@@ -16,15 +16,36 @@ LANGUAGE=VHDL
 REFRESH_FLOW=1
 FLOWTOOLS=NONE
 FAMILY=
+fileopenfolder=C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src
 [Files]
-/ALU.vhd=-1
-/ALU-tb.vhd=-1
+/pipeline.vhd=-1
+/tb.vhd=-1
+/IFStage.vhd=-1
+/InstructionBuffer.vhd=-1
+/Register_File.vhd=-1
+/tb_input.txt=-1
+/result.txt=-1
 [Files.Data]
-.\src\ALU.vhd=VHDL Source Code
-.\src\ALU-tb.vhd=VHDL Source Code
+.\src\pipeline.vhd=VHDL Source Code
+.\src\tb.vhd=VHDL Source Code
+.\src\IFStage.vhd=VHDL Source Code
+.\src\InstructionBuffer.vhd=VHDL Source Code
+.\src\Register_File.vhd=VHDL Source Code
+.\src\tb_input.txt=Text File
+.\src\result.txt=Text File
+.\src\code2graphics\aluIO.bde=Block Diagram
+.\src\code2graphics\dataFowarding.bde=Block Diagram
+.\src\code2graphics\ex_wb.bde=Block Diagram
+.\src\code2graphics\fowardMux.bde=Block Diagram
+.\src\code2graphics\id_ex.bde=Block Diagram
+.\src\code2graphics\multimedia_pipeline.bde=Block Diagram
+.\src\code2graphics\writeBack.bde=Block Diagram
+.\src\code2graphics\writeResult.bde=Block Diagram
 [HierarchyViewer]
 HierarchyInformation=alu_tb|testbench|0
 ShowHide=ShowTopLevel
 Selected=
 [ORDER]
 Synchronize=1
+[Groups]
+code2graphics=1

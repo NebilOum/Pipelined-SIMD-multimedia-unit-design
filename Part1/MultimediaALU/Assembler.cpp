@@ -33,7 +33,7 @@ vector<string> splitStrings(string str, char dl)
 int main() {
     ifstream myfile("input.txt");
 
-ofstream outp("output.txt");
+ofstream outp("tb_input.txt");
 string Fword, LI, opcode, reg1, reg2, reg3, immediate, regdes;
 
 

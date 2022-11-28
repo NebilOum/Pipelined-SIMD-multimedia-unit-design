@@ -1,0 +1,198 @@
+SCHM0106
+
+HEADER
+{
+ FREEID 17
+ VARIABLES
+ {
+  #ARCHITECTURE="write_toResultFile"
+  #BLOCKTABLE_FILE="#HDL2DIAGRAM.bde"
+  #DEFAULT_RANGE0="<range<index=\"0\"><name=\"stages\"><left=\"1\"><direction=\"to\"><right=\"4\"><initial_value=\"\"><delay=\"\">>"
+  #ENTITY="writeResult"
+  #LANGUAGE="VHDL"
+  AUTHOR="nebil.oumer@stonybrook.edu"
+  COMPANY="none"
+  CREATIONDATE="11/27/2022"
+  SOURCE="..\\src\\pipeline.vhd"
+ }
+}
+
+PAGE ""
+{
+ PAGEHEADER
+ {
+  MARGINS (200,200,200,200)
+  RECT (0,0,0,0)
+ }
+ 
+ BODY
+ {
+  VHDLDESIGNUNITHDR  1, 0, 0
+  {
+   LABEL "Design Unit Header"
+   TEXT 
+"library alu;\n"+
+"use alu.myPackage.all;\n"+
+"use std.TEXTIO.all;\n"+
+"library ieee;\n"+
+"use ieee.std_logic_1164.all;\n"+
+"use ieee.NUMERIC_STD.all;\n"+
+"use ieee.STD_LOGIC_TEXTIO.all;"
+   RECT (220,260,620,604)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  ARCHITECTUREDECLARATIONS  2, 0, 0
+  {
+   LABEL "Architecture Declaration"
+   TEXT 
+"file resultFile : text;\n"+
+""
+   RECT (220,604,572,783)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  PROCESS  3, 0, 0
+  {
+   LABEL "process_892"
+   TEXT 
+"process (cycleCounter)\n"+
+"                         variable write_to_result : line;\n"+
+"                       begin\n"+
+"                         FILE_OPEN(resultFile,\"result.txt\",write_mode);\n"+
+"                         WRITE(write_to_result,string'(\"Cycle \"));\n"+
+"                         WRITE(write_to_result,cycleCounter);\n"+
+"                         WRITE(write_to_result,string'(\":\"));\n"+
+"                         WRITELINE(resultFile,write_to_result);\n"+
+"                         WRITE(write_to_result,string'(\"Stage 1: \"));\n"+
+"                         WRITE(write_to_result,stages(1));\n"+
+"                         WRITE(write_to_result,string'(\"Stage 2: \"));\n"+
+"                         WRITE(write_to_result,stages(2));\n"+
+"                         WRITE(write_to_result,string'(\"Stage 3: \"));\n"+
+"                         WRITE(write_to_result,stages(3));\n"+
+"                         WRITE(write_to_result,string'(\"Stage 4: \"));\n"+
+"                         WRITE(write_to_result,stages(4));\n"+
+"                         WRITELINE(resultFile,write_to_result);\n"+
+"                       end process;\n"+
+"                      "
+   RECT (1040,240,1441,640)
+   MARGINS (20,20)
+   SYNTAXCOLORED
+   SHOWTEXT
+   CORNER 10
+   VTX (  11, 14 )
+   VARIABLES
+   {
+    #UPDATE_SENS_LIST="0"
+   }
+   LIST (  11 )
+  }
+  INSTANCE  4, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="Input"
+    #LIBRARY="#terminals"
+    #REFERENCE="cycleCounter"
+    #SYMBOL="Input"
+    #VHDL_TYPE="INTEGER"
+   }
+   COORD (900,260)
+   VERTEXES ( (2,10) )
+  }
+  INSTANCE  5, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #DECLARATION="(1:4)"
+    #LIBRARY="#terminals"
+    #MDA_BASE_TYPE="STD_LOGIC_VECTOR"
+    #MDA_KIND="NORMAL"
+    #MDA_RECORD_TOKEN="MDA"
+    #REFERENCE="stages"
+    #SYMBOL="BusInput"
+    #VHDL_TYPE="instructions_at_stages"
+   }
+   COORD (900,300)
+   VERTEXES ( (2,13) )
+  }
+  TEXT  6, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (849,260,849,260)
+   ALIGN 6
+   PARENT 4
+  }
+  TEXT  7, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (849,300,849,300)
+   ALIGN 6
+   PARENT 5
+  }
+  NET WIRE  8, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="cycleCounter"
+    #VHDL_TYPE="INTEGER"
+   }
+  }
+  NET MDARRAY  9, 0, 0
+  {
+   VARIABLES
+   {
+    #DECLARATION="(1:4)"
+    #MDA_BASE_TYPE="STD_LOGIC_VECTOR"
+    #MDA_KIND="NORMAL"
+    #MDA_RECORD_TOKEN="MDA"
+    #NAME="stages"
+    #VHDL_TYPE="instructions_at_stages"
+   }
+  }
+  VTX  10, 0, 0
+  {
+   COORD (900,260)
+  }
+  VTX  11, 0, 0
+  {
+   COORD (1040,260)
+  }
+  WIRE  12, 0, 0
+  {
+   NET 8
+   VTX 10, 11
+  }
+  VTX  13, 0, 0
+  {
+   COORD (900,300)
+  }
+  VTX  14, 0, 0
+  {
+   COORD (1040,300)
+  }
+  MDARRAY  15, 0, 0
+  {
+   NET 9
+   VTX 13, 14
+  }
+  TEXT  16, 0, 1
+  {
+   TEXT "$#NAME"
+   RECT (970,300,970,300)
+   ALIGN 9
+   PARENT 15
+  }
+ }
+ 
+}
+

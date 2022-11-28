@@ -1,2 +1,5 @@
-.\src\ALU.vhd
-.\src\ALU-tb.vhd
+.\src\pipeline.vhd
+.\src\tb.vhd
+.\src\IFStage.vhd
+.\src\InstructionBuffer.vhd
+.\src\Register_File.vhd

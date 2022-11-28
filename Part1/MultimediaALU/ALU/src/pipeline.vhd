@@ -7,7 +7,8 @@
 library ieee;								  	
 use ieee.std_logic_1164.all; 
 use ieee.numeric_std.all;
-use work.all;  
+use work.all;
+
 
 entity aluIO is   --- the three 128 bit inputs and the one 128 bit output register	
 	generic (
@@ -17,6 +18,7 @@ entity aluIO is   --- the three 128 bit inputs and the one 128 bit output regist
 	port(  
 		inReg1, inReg2, inReg3: in std_logic_vector(127 downto 0);	---- input registers
 		insReg: in std_logic_vector(24 downto 0); ---- instruction input
+		writeToReg : out std_logic;
 		outReg: out std_logic_vector(127 downto 0)--:= std_logic_vector(to_unsigned(0,128))	  ---- output register
 	);
 end aluIO;
@@ -318,6 +320,7 @@ begin
 				Tempout <= oT;	
 				sat_int(Tempout,oT);
 				outreg(127 downto 96) <= oT;
+				writeToReg <= '1';
 				
 			elsif insReg(22 downto 20) = "001" then--signed integer multiply-add high with saturation
 				mult(signOp,inReg3(a-1 downto m),inReg2(a-1 downto m),t); 
@@ -347,6 +350,7 @@ begin
 				Tempout <= oT;	
 				sat_int(Tempout,oT);
 				outreg(127 downto 96) <= oT;
+				writeToReg <= '1';
 				
 			elsif insReg(22 downto 20)="010" then--signed integer multiply-subtract low with saturation
 				mult(signOp,inReg3(15 downto 0),inReg2(15 downto 0),t); 
@@ -375,7 +379,8 @@ begin
 				sub(signOp,inReg1(127 downto 96),t,oT);
 				Tempout <= oT;	
 				sat_int(Tempout,oT);
-				outreg(127 downto 96) <= oT;
+				outreg(127 downto 96) <= oT; 
+				writeToReg <= '1';
 				
 			elsif insReg(22 downto 20)="011" then --signed integer multiply-subtract high with saturation
 				
@@ -406,6 +411,7 @@ begin
 				Tempout <= oT;	
 				sat_int(Tempout,oT);
 				outreg(127 downto 96) <= oT;
+				writeToReg <= '1';
 				
 			elsif insReg(22 downto 20)="100" then  --signed long multiply-add low with saturation
 				mult_long(signOp,inReg3(31 downto 0),inReg2(31 downto 0),t_long); 
@@ -421,6 +427,7 @@ begin
 				Tempout_L <= oT_long;	
 				sat_long(Tempout_L,oT_long);
 				outreg(127 downto 64) <= oT_long;
+				writeToReg <= '1';
 					
 			elsif insReg(22 downto 20)="101" then  --signed long multiply-add high with saturation
 				mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long); 
@@ -436,6 +443,7 @@ begin
 				Tempout_L <= oT_long;	
 				sat_long(Tempout_L,oT_long);
 				outreg(127 downto 64) <= oT_long;
+				writeToReg <= '1';
 				
 			elsif insReg(22 downto 20)="110" then --signed long multiply-subtract low with saturation
 				mult_long(signOp,inReg3(31 downto 0),inReg2(31 downto 0),t_long); 
@@ -451,6 +459,7 @@ begin
 				Tempout_L <= oT_long;	
 				sat_long(Tempout_L,oT_long);
 				outreg(127 downto 64) <= oT_long;
+				writeToReg <= '1';
 				
 			elsif insReg(22 downto 20)="111" then --signed long multiply-subtract high with saturation
 				mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long); 
@@ -465,7 +474,8 @@ begin
 				sub_long(signOp,inReg1(127 downto 64),t_long,oT_long);
 				Tempout_L <= oT_long;	
 				sat_long(Tempout_L,oT_long);
-				outreg(127 downto 64) <= oT_long;
+				outreg(127 downto 64) <= oT_long; 
+				writeToReg <= '1';
 			end if;	--- end of if loop that goes through all possible r4 instructions
 		end if r4;
 			
@@ -474,11 +484,13 @@ begin
 		r3:if(insReg(24 downto 23) = "11") then	  -- checks if a r3 operation is being performed
 			if(insReg(18 downto 15) = "0000" ) then	-- nop operation
 				Null;
+				writeToReg <= '0';
 			elsif (insReg(18 downto 15) = "0001") then	---CLZW operation
 				clzw(inReg1(31 downto 0),outReg(31 downto 0));
 				clzw(inReg1(63 downto 32),outReg(63 downto 32));
 				clzw(inReg1(95 downto 64),outReg(95 downto 64));
 				clzw(inReg1(127 downto 96),outReg(127 downto 96)); 
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "0010") then  ---AU operation
 				t := inReg1(31 downto 0);
 				add(noSignOp,t,inReg2(31 downto 0),oT);
@@ -503,6 +515,7 @@ begin
 				Tempout <= oT;	
 				sat_int(Tempout,oT);
 				outreg(127 downto 96) <= oT;
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "0011") then	---AHU operation
 				t_half := inReg1(15 downto 0);
 				add_half(noSignOp,t_half,inReg2(15 downto 0),oT_half);
@@ -550,7 +563,8 @@ begin
 				add_half(noSignOp,t_half,inReg2(127 downto 112),oT_half);
 				tempout_half <= oT_half;	
 				sat_half(tempout_half,oT_half);
-				outreg(127 downto 112) <= oT_half;
+				outreg(127 downto 112) <= oT_half; 
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "0100") then ---AHS operation
 				t_half := inReg1(15 downto 0);
 				add_half(signOp,t_half,inReg2(15 downto 0),oT_half);
@@ -599,23 +613,28 @@ begin
 				tempout_half <= oT_half;	
 				sat_half(tempout_half,oT_half);
 				outreg(127 downto 112) <= oT_half;
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "0101") then ---AND operation
-				outReg <= inReg1 and inReg2;
+				outReg <= inReg1 and inReg2;   
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "0110") then ---BCW operation
 				outReg(31 downto 0) <= inReg1(31 downto 0);
 				outReg(63 downto 32) <= inReg1(31 downto 0);
 				outReg(95 downto 64) <= inReg1(31 downto 0);
 				outReg(127 downto 96) <= inReg1(31 downto 0);
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "0111") then --- MAXWS operation
 				maxws(inReg1(31 downto 0),inReg2(31 downto 0),outReg(31 downto 0));
 				maxws(inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));
 				maxws(inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));
 				maxws(inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "1000") then	--- MINWS operation
 				minws(inReg1(31 downto 0),inReg2(31 downto 0),outReg(31 downto 0));
 				minws(inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));
 				minws(inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));
 				minws(inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "1001") then 		--MLHU Operation 
 				mult(noSignOp,inReg1(15 downto 0),inReg2(15 downto 0),oT); 
 				outreg(31 downto 0) <= oT;
@@ -627,7 +646,8 @@ begin
 				outreg(95 downto 64) <= oT;	
 				
 				mult(noSignOp,inReg1(111 downto 96),inReg2(111 downto 96),oT); 
-				outreg(127 downto 96) <= oT;
+				outreg(127 downto 96) <= oT; 
+				writeToReg <= '1';
 	        elsif (insReg(18 downto 15) = "1010") then	--MLHCU operation
 				MLHCU(noSignOp,inReg1(m-1 downto 0),insReg(14 downto 10),oT); 
 				outreg(31 downto 0) <= oT;
@@ -636,14 +656,17 @@ begin
 				MLHCU(noSignOp,inReg1(79 downto 64),insReg(14 downto 10),oT);
 				outreg(95 downto 64) <= oT;
 				MLHCU(noSignOp,inReg1(111 downto 96),insReg(14 downto 10),oT);
-				outreg(127 downto 96) <= oT;
+				outreg(127 downto 96) <= oT;	 
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "1011") then	 --OR operation
-				outReg <= inReg1 or inReg2;
+				outReg <= inReg1 or inReg2;	   
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "1100") then --- PCNTW
 				PCNTW(inReg1(31 downto 0),outReg(31 downto 0));
 				PCNTW(inReg1(63 downto 32),outReg(63 downto 32));
 				PCNTW(inReg1(95 downto 64),outReg(95 downto 64));
 				PCNTW(inReg1(127 downto 96),outReg(127 downto 96));
+				writeToReg <= '1';
 			elsif (insReg(18 downto 15) = "1101") then	--ROTW
 				ROTW(inReg1(31 downto 0),inReg2(31 downto 0),oT);
 				outReg(31 downto 0) <= oT; 
@@ -652,7 +675,8 @@ begin
 				ROTW(inReg1(95 downto 64),inReg2(95 downto 64),oT);
 				outReg(95 downto 64) <= oT;
 				ROTW(inReg1(127 downto 96),inReg2(127 downto 96),oT);
-				outReg(127 downto 96) <= oT;
+				outReg(127 downto 96) <= oT; 
+				writeToReg <= '1';
 				
 --				rotate := to_integer(unsigned(inReg2(36 downto 32)));
 --				rT := inReg1(63 downto 32);
@@ -699,6 +723,7 @@ begin
 				Tempout <= oT;	
 				sat_int(Tempout,oT);
 				outreg(127 downto 96) <= oT;
+				writeToReg <= '1';
 		
 			elsif (insReg(18 downto 15) = "1111") then  --SFHS
 				t_half := inReg1(15 downto 0);
@@ -747,92 +772,257 @@ begin
 				sub_half(signOp,inReg2(127 downto 112),t_half,oT_half);
 				tempout_half <= oT_half;	
 				sat_half(tempout_half,oT_half);
+				writeToReg <= '1';
 		  	end if ;
 		end if r3;
 	end process;
-end architecture alu; 
+end architecture alu;  
+-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
+library ieee;								  	
+use ieee.std_logic_1164.all; 
+use ieee.numeric_std.all;
+use work.all; 
+
+entity id_ex is
+	port( 
+		clk : in std_logic;
+		dataIn1,dataIn2,dataIn3: in std_logic_vector(127 downto 0); ---- input values from 2nd stage output
+		rdNumIn: in std_logic_vector(4 downto 0);
+		dataOut1,dataOut2,dataOut3: out std_logic_vector(127 downto 0); ---- input values from 2nd stage output
+		rdNumOut: out std_logic_vector(4 downto 0) ---- output rd number
+	);
+end id_ex; 
+
+architecture idEX of id_ex is
+	signal temp1,temp2,temp3:std_logic_vector(127 downto 0); 
+	signal rdTemp :std_logic_vector (4 downto 0);
+begin
+	 process(clk)
+        begin
+            if rising_edge(clk) then 
+               dataOut1 <= temp1;
+			   dataOut2 <= temp2;
+			   dataOut3 <= temp3;
+			   temp1 <= dataIn1;
+			   temp2 <= dataIn2;
+			   temp3 <= dataIn3;
+			   rdNumOut <= rdTemp;
+			   rdTemp <= rdNumIn;
+            end if;
+     end process;
+end architecture idEX;
 ------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------
+library ieee;								  	
+use ieee.std_logic_1164.all; 
+use ieee.numeric_std.all;
+use work.all;
+
 entity fowardMux is
 	port( 
-		controlSginal : in std_logic; --- Mux control signal
-		dataIn1,dataIn2,dataIn3,dataIn4: in std_logic_vector(128 downto 0); ---- input values from memory stage
-		outReg,outReg1,outReg2,outReg3: out std_logic_vector(3 downto 0) ---- output register
+		selSignal : in std_logic_vector(2 downto 0); --- Mux control signal
+		dataIn1,dataIn2,dataIn3,dataIn4: in std_logic_vector(127 downto 0); ---- input values from register file
+		outReg1,outReg2,outReg3: out std_logic_vector(127 downto 0) ---- output registers
 	);
 end fowardMux;	 
 
-architecture mux of fowardMux is
+architecture fmux of fowardMux is
 begin
-end architecture mux;
+	outReg1 <= dataIn4 when selSignal(2) = '1' else dataIn1;
+	outReg2 <= dataIn4 when selSignal(1) = '1' else dataIn2;
+	outReg3 <= dataIn4 when selSignal(0) = '1' else dataIn3;
+end architecture fmux;
 ------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------ 
+library ieee;								  	
+use ieee.std_logic_1164.all; 
+use ieee.numeric_std.all;
+use work.all;  
+
 entity dataFowarding is
 	port(  
-		dataIn: in std_logic_vector(128 downto 0); ---- input values from memory stage
-		regNumA,regNumB : in std_logic_vector(4 downto 0); ---register number that can get passed back to decode stage
-		outReg: out std_logic_vector(3 downto 0) ---- output register
+		dataIn: in std_logic_vector(127 downto 0); ---- input values from 3rd stage output
+		regNumIn: in std_logic_vector(4 downto 0); ---  input from the alu output
+		regNumOut: out std_logic_vector(4 downto 0); --- register number used to compare with foward mux inputs
+		outResult: out std_logic_vector(127 downto 0) ---- output register
 	);
 end dataFowarding;	 
 
-architecture fowarding of dataForwarding is
-begin
+architecture fowarding of dataFowarding is
+begin 
+	outResult <= dataIn;
+	regNumOut <= regNumIn;
 end architecture fowarding;
 -------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------
+library ieee;								  	
+use ieee.std_logic_1164.all; 
+use ieee.numeric_std.all;
+use work.all; 
+
 entity ex_wb is
-	port(  
-		inControlSignals: in std_logic_vector(0 to 1);	---- input control registers
-		dataIn: in std_logic_vector(128 downto 0); ---- input values from memory stage
-		outControlSignals: out std_logic_vector(1 downto 0);	---- output control registers used in the writeback stage
-		outRegD: out std_logic_vector(128 downto 0) ---- output register
+	port( 
+		clk : in std_logic;
+		regWrite_in: in std_logic_vector(4 downto 0);	---- input register number
+		dataIn: in std_logic_vector(127 downto 0); ---- input values from 3rd stage output
+		regWrite_out: out std_logic_vector(4 downto 0);	---- output register number
+		outResult: out std_logic_vector(127 downto 0) ---- output register value
 	);
 end ex_wb; 
 
-architecture exWB of ex_wb is
+architecture exWB of ex_wb is 
+	signal temp :std_logic_vector(127 downto 0); 
+	signal rdTemp :std_logic_vector (4 downto 0);
 begin
+	
+	 process(clk)
+        begin
+            if rising_edge(clk) then 
+               outResult <= temp;
+			   regWrite_out <= rdTemp;
+			   temp <= dataIn;
+			   rdTemp <= regWrite_in;
+	 			
+            end if;
+     end process;
 end architecture exWB;
 --------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------	
+library ieee;								  	
+use ieee.std_logic_1164.all; 
+use ieee.numeric_std.all;
+use work.all;  	 
+
 entity writeBack is
 	port(  
-		inControlSignals: in std_logic_vector(0 to 1);	---- input control registers
-		aluOut: in std_logic_vector(128 downto 0); ---- input values from memory stage
-		outRegD : out std_logic_vector(128 downto 0) ---- output register
+		aluOut: in std_logic_vector(127 downto 0); ---- input values from 3rd stage output
+		outReg : out std_logic_vector(127 downto 0) ---- output register
 	);
 end writeBack;
 
 architecture wb of writeBack is
 begin
+	outReg <= aluOut;
 end architecture wb;
 --------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all; 
+use ieee.numeric_std.all;
+use std.textio.all;
+use ieee.std_logic_textio.all;
+use work.myPackage.all;
+use work.all;  
+
 entity writeResult is 
 	port(
-	cycleData: in std_logic_vector(2 downto 0);
+		clk : in std_logic;
+		stages : in instructions_at_stages
 	);
 end writeResult; 		 
 
 architecture write_toResultFile of writeResult is
-begin
-end architecture write_toResultFile	
-----------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------
-entity multimedia is
-	port(clk: in std_logic);
-end multimedia;
-
-architecture mmAlu of multimedia is	 
---	signal control: std_logic_vector(4 downto 0);
---	type inst_arr is array (0 to 63) of std_logic_vector(24 downto 0);
---	type truth_table is array(0 to 2) of inst_arr;
+	file resultFile : text;
 begin
 	process(clk)
-	---entity fowardMux port map(=>,=>,=>,=>,out=>);
-	---entity aluIO port map(=>,=>,=>,=>,out=>);
-	---entity ex_wb port map(=>,=>, outCtrlSignals =>,out=>);
-	---entity dataFowarding port map(=>,=>,out=>); 
-	---entity writeBack port map(=>,=>,out=>);	 
-	---entity writeResult port map(=>,=>,=>);
+		variable write_to_result : line;
+		variable cycleCounter: integer := 0;
+	begin
+		if(rising_edge(clk)) then
+			file_open(resultFile, "result.txt",  write_mode);
+			write(write_to_result, string'("Cycle "));
+			write(write_to_result, cycleCounter); 
+			write(write_to_result, string'(":")); 
+			writeline(resultFile, write_to_result);
+			write(write_to_result, string'("Stage 1: "));
+			write(write_to_result, stages(1));
+			write(write_to_result, string'("Stage 2: "));
+			write(write_to_result, stages(2));
+			write(write_to_result, string'("Stage 3: "));
+			write(write_to_result, stages(3));
+			write(write_to_result, string'("Stage 4: "));
+			write(write_to_result, stages(4));
+	        writeline(resultFile, write_to_result);	
+			cycleCounter := cycleCounter + 1;
+		end if;
 	end process;
-end architecture mmALu;
+end architecture write_toResultFile;	
+----------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------- 
+library ieee;							  	
+use ieee.std_logic_1164.all; 
+use ieee.numeric_std.all;
+use work.myPackage.all;
+use work.all;
+
+entity multimedia_pipeline is
+	port(clk: in std_logic;
+	instructs : in instruc_table;
+	register_tble :inout reg_table
+	);
+end multimedia_pipeline;
+
+architecture structural of multimedia_pipeline is
+	type pipeline_ctrl is record
+        inst : std_logic_vector(24 downto 0);
+        fMux_cntrl : std_logic_vector(2 downto 0);
+		writeReg : std_logic;
+		reg1Num,reg2Num,reg3Num: std_logic_vector(4 downto 0);
+    end record; 
+
+    type control_arr is array (1 to 4) of pipeline_ctrl;
+	signal control_table: control_arr;
+    signal inst_if,inst_id : std_logic_vector(24 downto 0);
+
+    signal outWB,outEXWB,outALU,outDF: std_logic_vector (127 downto 0);
+	signal wrToRg : std_logic;
+    signal rs1,rs2,rs3,rd,muxRS1,muxRS2,muxRS3	: std_logic_vector (127 downto 0);
+	signal rs1ID,rs2ID,rs3ID: std_logic_vector (127 downto 0);
+    signal rs1Num,rs2Num,rs3Num : std_logic_vector (4 downto 0);
+    signal rdNumIn,rdNum,rdNum_DFOut : std_logic_vector (4 downto 0); 
+    signal fowardingCntrl : std_logic_vector(0 to 2);
+	signal pc : integer := 0;  
+	--signal rdNum_in_rF : integer;
+begin 	  
+	
+	instfetch: entity InstrctionBuffer port map(clk => clk,inst =>instructs,PC => pc,outp => inst_if);
+		
+	if_id: entity IFStage port map(clk=>clk,Instruction=> inst_if,OutIns=>inst_id);
+		
+--	control_table(1).inst <= inst_id;
+--	control_table(1).fMux_cntrl <= "000";
+--	control_table(1).writeReg <= control_table(4).writeReg;
+--	control_table(1).reg1Num <= rs1Num;
+--	control_table(1).reg2Num <= rs2Num;
+--	control_table(1).reg3Num <= rs3Num;	  
+	
+	id: entity Register_File port map (clk => clk,sele => inst_id,rdNum =>rdNum_DFOut ,write_to_reg => wrToRg ,
+		registers_in => register_tble ,writtenReg => outWB,registers_out => register_tble,r1Num => rs1Num,r2Num => rs2Num,r3Num => rs3Num,out1 => rs1 ,out2 => rs2 ,out3 => rs3);	 
+	
+	id_ex: entity id_ex port map(clk=>clk,dataIn1 => rs1,dataIn2 => rs2,dataIn3 => rs3,rdNumIn =>rdNumIn,dataOut1 => rs1ID , dataOut2 => rs2ID,dataOut3 => rs3ID,rdNumOut => rdNum); 
+	
+	fowardingCntrl(2) <= '1' when rs1Num = rdNum_DFOut else '0';
+	fowardingCntrl(1) <= '1' when rs2Num = rdNum_DFOut else '0';
+	fowardingCntrl(0) <= '1' when rs3Num = rdNum_DFOut else '0';
+	fmux: entity fowardMux port map(selSignal=>fowardingCntrl,dataIn1=>rs1ID,dataIn2=>rs2ID,dataIn3=>rs3ID,dataIn4=>outDF,outReg1=>muxRS1,outReg2=>muxRS2,outReg3=>muxRS3);		  
+		
+	alu :entity aluIO port map(inReg1=>muxRS1,inReg2=>muxRS2,inReg3=>muxRS3,insReg=>inst_id,writeToReg =>wrToRg, outReg=>outALU);
+		
+	ex_wb: entity ex_wb port map(clk=>clk,regWrite_in=>rdNum,dataIn=>outALU, regWrite_out =>rdNum,outResult=>outEXWB);	
+		
+	df: entity dataFowarding port map(dataIn=>outALU,regNumIn=>rdNum,regNumOut=>rdNum_DFOut,outResult=>outDF);	 
+		
+	wb : entity writeBack port map(aluOut=>outEXWB,outReg=>outWB);
+	--wr:  entity writeResult port map(=>,=>,=>);	
+	process(clk) 
+		variable pcInc:integer := 0;
+	begin
+		if (rising_edge(clk)) then
+			pcInc := pcInc + 1;	 
+			pc <= pcInc;
+		end if;
+	end process; 
+	
+end architecture structural;
 -----------------------------------------------------------------------------------------------------

@@ -1,2 +1,5 @@
 i<>.\src\ALU.vhd
 i<>.\src\ALU-tb.vhd
+i<>.\src\IFStage.vhd
+i<>.\src\InstructionBuffer.vhd
+i<>.\src\Register_File.vhd
