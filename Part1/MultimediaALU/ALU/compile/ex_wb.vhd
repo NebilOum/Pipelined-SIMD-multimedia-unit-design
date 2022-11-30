@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\compile\ex_wb.vhd
--- Generated   : Sun Nov 27 20:45:32 2022
+-- Generated   : Tue Nov 29 13:37:31 2022
 -- From        : C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\code2graphics\ex_wb.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -34,6 +34,11 @@ end ex_wb;
 
 architecture exWB of ex_wb is
 
+---- Signal declarations used on the diagram ----
+
+signal rdTemp : STD_LOGIC_VECTOR(4 downto 0);
+signal temp : STD_LOGIC_VECTOR(127 downto 0);
+
 begin
 
 ---- Processes ----
@@ -41,8 +46,10 @@ begin
 process (clk)
                        begin
                          if rising_edge(clk) then
-                            outResult <= dataIn;
-                            regWrite_out <= regWrite_in;
+                            outResult <= temp;
+                            regWrite_out <= rdTemp;
+                            temp <= dataIn;
+                            rdTemp <= regWrite_in;
                          end if;
                        end process;
                       

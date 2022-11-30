@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\compile\writeResult.vhd
--- Generated   : Sun Nov 27 20:45:38 2022
+-- Generated   : Tue Nov 29 13:37:38 2022
 -- From        : C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\code2graphics\writeResult.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -28,7 +28,7 @@ use ieee.STD_LOGIC_TEXTIO.all;
 
 entity writeResult is
   port(
-       cycleCounter : in INTEGER;
+       clk : in STD_LOGIC;
        stages : in instructions_at_stages
   );
 end writeResult;
@@ -44,23 +44,27 @@ begin
 
 ---- Processes ----
 
-process (cycleCounter)
+process (clk)
                          variable write_to_result : line;
+                         variable cycleCounter : integer := 0;
                        begin
-                         FILE_OPEN(resultFile,"result.txt",write_mode);
-                         WRITE(write_to_result,string'("Cycle "));
-                         WRITE(write_to_result,cycleCounter);
-                         WRITE(write_to_result,string'(":"));
-                         WRITELINE(resultFile,write_to_result);
-                         WRITE(write_to_result,string'("Stage 1: "));
-                         WRITE(write_to_result,stages(1));
-                         WRITE(write_to_result,string'("Stage 2: "));
-                         WRITE(write_to_result,stages(2));
-                         WRITE(write_to_result,string'("Stage 3: "));
-                         WRITE(write_to_result,stages(3));
-                         WRITE(write_to_result,string'("Stage 4: "));
-                         WRITE(write_to_result,stages(4));
-                         WRITELINE(resultFile,write_to_result);
+                         if (rising_edge(clk)) then
+                            FILE_OPEN(resultFile,"result.txt",write_mode);
+                            WRITE(write_to_result,string'("Cycle "));
+                            WRITE(write_to_result,cycleCounter);
+                            WRITE(write_to_result,string'(":"));
+                            WRITELINE(resultFile,write_to_result);
+                            WRITE(write_to_result,string'("Stage 1: "));
+                            WRITE(write_to_result,stages(1));
+                            WRITE(write_to_result,string'("Stage 2: "));
+                            WRITE(write_to_result,stages(2));
+                            WRITE(write_to_result,string'("Stage 3: "));
+                            WRITE(write_to_result,stages(3));
+                            WRITE(write_to_result,string'("Stage 4: "));
+                            WRITE(write_to_result,stages(4));
+                            WRITELINE(resultFile,write_to_result);
+                            cycleCounter := cycleCounter + 1;
+                         end if;
                        end process;
                       
 

@@ -32,10 +32,12 @@ end InstrctionBuffer;
 
 architecture behavioral of InstrctionBuffer is
 begin
-    process(clk)
+    process(PC)	
+		variable  opt :std_logic_vector(24 downto 0);
     begin
-        if(rising_edge(clk)) then
-            outp <= inst(PC);
-        end if;
+       -- if(PC >= 0 and PC < 63) then
+			opt := inst(PC);
+			outp <= inst(PC);
+       -- end if;
     end process;
 end architecture behavioral;

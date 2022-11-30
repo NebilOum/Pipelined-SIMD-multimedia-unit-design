@@ -17,7 +17,7 @@ HEADER
   #LANGUAGE="VHDL"
   AUTHOR="nebil.oumer@stonybrook.edu"
   COMPANY="none"
-  CREATIONDATE="11/27/2022"
+  CREATIONDATE="11/29/2022"
   SOURCE="..\\src\\pipeline.vhd"
  }
 }
@@ -49,29 +49,27 @@ PAGE ""
   }
   PROCESS  2, 0, 0
   {
-   LABEL "process_879"
+   LABEL "process_870"
    TEXT 
 "process (clk)\n"+
 "                       begin\n"+
 "                         if rising_edge(clk) then\n"+
-"                            outResult <= temp;\n"+
-"                            regWrite_out <= rdTemp;\n"+
-"                            temp <= dataIn;\n"+
-"                            rdTemp <= regWrite_in;\n"+
+"                            outResult <= dataIn;\n"+
+"                            regWrite_out <= regWrite_in;\n"+
 "                         end if;\n"+
 "                       end process;\n"+
 "                      "
-   RECT (1080,240,1481,620)
+   RECT (1080,240,1481,560)
    MARGINS (20,20)
    SYNTAXCOLORED
    SHOWTEXT
    CORNER 10
-   VTX (  21, 23, 26, 29, 32, 35, 39 )
+   VTX (  20, 23, 27, 29, 32 )
    VARIABLES
    {
     #UPDATE_SENS_LIST="0"
    }
-   LIST (  32 )
+   LIST (  27 )
   }
   INSTANCE  3, 0, 0
   {
@@ -84,7 +82,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC"
    }
    COORD (940,260)
-   VERTEXES ( (2,33) )
+   VERTEXES ( (2,26) )
   }
   INSTANCE  4, 0, 0
   {
@@ -97,7 +95,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (940,300)
-   VERTEXES ( (2,38) )
+   VERTEXES ( (2,33) )
   }
   INSTANCE  5, 0, 0
   {
@@ -110,7 +108,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (940,340)
-   VERTEXES ( (2,36) )
+   VERTEXES ( (2,30) )
   }
   INSTANCE  6, 0, 0
   {
@@ -122,8 +120,8 @@ PAGE ""
     #SYMBOL="BusOutput"
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
-   COORD (1580,260)
-   VERTEXES ( (2,27) )
+   COORD (1580,300)
+   VERTEXES ( (2,24) )
   }
   INSTANCE  7, 0, 0
   {
@@ -135,8 +133,8 @@ PAGE ""
     #SYMBOL="BusOutput"
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
-   COORD (1580,300)
-   VERTEXES ( (2,20) )
+   COORD (1580,260)
+   VERTEXES ( (2,21) )
   }
   TEXT  8, 0, 0
   {
@@ -162,14 +160,14 @@ PAGE ""
   TEXT  11, 0, 0
   {
    TEXT "$#REFERENCE"
-   RECT (1631,260,1631,260)
+   RECT (1631,300,1631,300)
    ALIGN 4
    PARENT 6
   }
   TEXT  12, 0, 0
   {
    TEXT "$#REFERENCE"
-   RECT (1631,300,1631,300)
+   RECT (1631,260,1631,260)
    ALIGN 4
    PARENT 7
   }
@@ -177,7 +175,7 @@ PAGE ""
   {
    VARIABLES
    {
-    #NAME="rdTemp(4:0)"
+    #NAME="temp(127:0)"
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
@@ -185,7 +183,7 @@ PAGE ""
   {
    VARIABLES
    {
-    #NAME="temp(127:0)"
+    #NAME="rdTemp(4:0)"
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
@@ -231,11 +229,11 @@ PAGE ""
   }
   VTX  20, 0, 0
   {
-   COORD (1580,300)
+   COORD (1481,260)
   }
   VTX  21, 0, 0
   {
-   COORD (1481,300)
+   COORD (1580,260)
   }
   BUS  22, 0, 0
   {
@@ -244,80 +242,80 @@ PAGE ""
   }
   VTX  23, 0, 0
   {
-   COORD (1481,380)
+   COORD (1481,300)
   }
   VTX  24, 0, 0
   {
-   COORD (1560,380)
+   COORD (1580,300)
   }
   BUS  25, 0, 0
   {
-   NET 13
+   NET 19
    VTX 23, 24
   }
   VTX  26, 0, 0
   {
-   COORD (1481,260)
+   COORD (940,260)
   }
   VTX  27, 0, 0
   {
-   COORD (1580,260)
+   COORD (1080,260)
   }
-  BUS  28, 0, 0
+  WIRE  28, 0, 0
   {
-   NET 19
+   NET 15
    VTX 26, 27
   }
   VTX  29, 0, 0
   {
-   COORD (1481,340)
+   COORD (1080,340)
   }
   VTX  30, 0, 0
   {
-   COORD (1560,340)
+   COORD (940,340)
   }
   BUS  31, 0, 0
   {
-   NET 14
+   NET 16
    VTX 29, 30
   }
   VTX  32, 0, 0
   {
-   COORD (1080,260)
+   COORD (1080,300)
   }
   VTX  33, 0, 0
   {
-   COORD (940,260)
+   COORD (940,300)
   }
-  WIRE  34, 0, 0
+  BUS  34, 0, 0
   {
-   NET 15
+   NET 18
    VTX 32, 33
   }
   VTX  35, 0, 0
   {
-   COORD (1080,340)
+   COORD (1650,220)
   }
   VTX  36, 0, 0
   {
-   COORD (940,340)
+   COORD (1750,220)
   }
   BUS  37, 0, 0
   {
-   NET 16
+   NET 13
    VTX 35, 36
   }
   VTX  38, 0, 0
   {
-   COORD (940,300)
+   COORD (1650,260)
   }
   VTX  39, 0, 0
   {
-   COORD (1080,300)
+   COORD (1750,260)
   }
   BUS  40, 0, 0
   {
-   NET 18
+   NET 14
    VTX 38, 39
   }
  }

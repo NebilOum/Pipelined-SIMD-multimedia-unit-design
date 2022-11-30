@@ -30,9 +30,9 @@ code2graphics/dataFowarding.bde=-1
 code2graphics/ex_wb.bde=-1
 code2graphics/fowardMux.bde=-1
 code2graphics/id_ex.bde=-1
-code2graphics/multimedia_pipeline.bde=-1
 code2graphics/writeBack.bde=-1
 code2graphics/writeResult.bde=-1
+code2graphics/multimedia_pipeline.bde=-1
 [Files.Data]
 .\src\pipeline.vhd=VHDL Source Code
 .\src\tb.vhd=VHDL Source Code
@@ -46,9 +46,9 @@ code2graphics/writeResult.bde=-1
 .\src\code2graphics\ex_wb.bde=Block Diagram
 .\src\code2graphics\fowardMux.bde=Block Diagram
 .\src\code2graphics\id_ex.bde=Block Diagram
-.\src\code2graphics\multimedia_pipeline.bde=Block Diagram
 .\src\code2graphics\writeBack.bde=Block Diagram
 .\src\code2graphics\writeResult.bde=Block Diagram
+.\src\code2graphics\multimedia_pipeline.bde=Block Diagram
 [HierarchyViewer]
 HierarchyInformation=alu_tb|testbench|0
 ShowHide=ShowTopLevel

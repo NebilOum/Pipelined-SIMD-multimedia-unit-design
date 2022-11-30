@@ -2,7 +2,7 @@ SCHM0106
 
 HEADER
 {
- FREEID 225
+ FREEID 219
  VARIABLES
  {
   #ARCHITECTURE="alu"
@@ -22,7 +22,7 @@ HEADER
   #LANGUAGE="VHDL"
   AUTHOR="nebil.oumer@stonybrook.edu"
   COMPANY="none"
-  CREATIONDATE="11/27/2022"
+  CREATIONDATE="11/29/2022"
   SOURCE="..\\src\\pipeline.vhd"
  }
 }
@@ -258,7 +258,7 @@ PAGE ""
   }
   PROCESS  4, 0, 0
   {
-   LABEL "process_282"
+   LABEL "process_281"
    TEXT 
 "process (insReg)\n"+
 "                         variable t_half : std_logic_vector(15 downto 0);\n"+
@@ -298,7 +298,6 @@ PAGE ""
 "                               Tempout <= oT;\n"+
 "                               sat_int(Tempout,oT);\n"+
 "                               outreg(127 downto 96) <= oT;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif insReg(22 downto 20) = \"001\" then\n"+
 "                               mult(signOp,inReg3(a - 1 downto m),inReg2(a - 1 downto m),t);\n"+
 "                               t32 <= t;\n"+
@@ -324,7 +323,6 @@ PAGE ""
 "                               Tempout <= oT;\n"+
 "                               sat_int(Tempout,oT);\n"+
 "                               outreg(127 downto 96) <= oT;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif insReg(22 downto 20) = \"010\" then\n"+
 "                               mult(signOp,inReg3(15 downto 0),inReg2(15 downto 0),t);\n"+
 "                               t32 <= t;\n"+
@@ -350,7 +348,6 @@ PAGE ""
 "                               Tempout <= oT;\n"+
 "                               sat_int(Tempout,oT);\n"+
 "                               outreg(127 downto 96) <= oT;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif insReg(22 downto 20) = \"011\" then\n"+
 "                               mult(signOp,inReg3(a - 1 downto m),inReg2(a - 1 downto m),t);\n"+
 "                               t32 <= t;\n"+
@@ -376,7 +373,6 @@ PAGE ""
 "                               Tempout <= oT;\n"+
 "                               sat_int(Tempout,oT);\n"+
 "                               outreg(127 downto 96) <= oT;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif insReg(22 downto 20) = \"100\" then\n"+
 "                               mult_long(signOp,inReg3(31 downto 0),inReg2(31 downto 0),t_long);\n"+
 "                               t64 <= t_long;\n"+
@@ -390,7 +386,6 @@ PAGE ""
 "                               Tempout_L <= oT_long;\n"+
 "                               sat_long(Tempout_L,oT_long);\n"+
 "                               outreg(127 downto 64) <= oT_long;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif insReg(22 downto 20) = \"101\" then\n"+
 "                               mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long);\n"+
 "                               t64 <= t_long;\n"+
@@ -404,7 +399,6 @@ PAGE ""
 "                               Tempout_L <= oT_long;\n"+
 "                               sat_long(Tempout_L,oT_long);\n"+
 "                               outreg(127 downto 64) <= oT_long;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif insReg(22 downto 20) = \"110\" then\n"+
 "                               mult_long(signOp,inReg3(31 downto 0),inReg2(31 downto 0),t_long);\n"+
 "                               t64 <= t_long;\n"+
@@ -418,7 +412,6 @@ PAGE ""
 "                               Tempout_L <= oT_long;\n"+
 "                               sat_long(Tempout_L,oT_long);\n"+
 "                               outreg(127 downto 64) <= oT_long;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif insReg(22 downto 20) = \"111\" then\n"+
 "                               mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long);\n"+
 "                               t64 <= t_long;\n"+
@@ -432,19 +425,16 @@ PAGE ""
 "                               Tempout_L <= oT_long;\n"+
 "                               sat_long(Tempout_L,oT_long);\n"+
 "                               outreg(127 downto 64) <= oT_long;\n"+
-"                               writeToReg <= '1';\n"+
 "                            end if;\n"+
 "                         end if r4;\n"+
 "                         r3 : if (insReg(24 downto 23) = \"11\") then\n"+
 "                            if (insReg(18 downto 15) = \"0000\") then\n"+
 "                               null;\n"+
-"                               writeToReg <= '0';\n"+
 "                            elsif (insReg(18 downto 15) = \"0001\") then\n"+
 "                               clzw(inReg1(31 downto 0),outReg(31 downto 0));\n"+
 "                               clzw(inReg1(63 downto 32),outReg(63 downto 32));\n"+
 "                               clzw(inReg1(95 downto 64),outReg(95 downto 64));\n"+
 "                               clzw(inReg1(127 downto 96),outReg(127 downto 96));\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"0010\") then\n"+
 "                               t := inReg1(31 downto 0);\n"+
 "                               add(noSignOp,t,inReg2(31 downto 0),oT);\n"+
@@ -466,7 +456,6 @@ PAGE ""
 "                               Tempout <= oT;\n"+
 "                               sat_int(Tempout,oT);\n"+
 "                               outreg(127 downto 96) <= oT;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"0011\") then\n"+
 "                               t_half := inReg1(15 downto 0);\n"+
 "                               add_half(noSignOp,t_half,inReg2(15 downto 0),oT_half);\n"+
@@ -508,7 +497,6 @@ PAGE ""
 "                               tempout_half <= oT_half;\n"+
 "                               sat_half(tempout_half,oT_half);\n"+
 "                               outreg(127 downto 112) <= oT_half;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"0100\") then\n"+
 "                               t_half := inReg1(15 downto 0);\n"+
 "                               add_half(signOp,t_half,inReg2(15 downto 0),oT_half);\n"+
@@ -550,28 +538,23 @@ PAGE ""
 "                               tempout_half <= oT_half;\n"+
 "                               sat_half(tempout_half,oT_half);\n"+
 "                               outreg(127 downto 112) <= oT_half;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"0101\") then\n"+
 "                               outReg <= inReg1 and inReg2;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"0110\") then\n"+
 "                               outReg(31 downto 0) <= inReg1(31 downto 0);\n"+
 "                               outReg(63 downto 32) <= inReg1(31 downto 0);\n"+
 "                               outReg(95 downto 64) <= inReg1(31 downto 0);\n"+
 "                               outReg(127 downto 96) <= inReg1(31 downto 0);\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"0111\") then\n"+
 "                               maxws(inReg1(31 downto 0),inReg2(31 downto 0),outReg(31 downto 0));\n"+
 "                               maxws(inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));\n"+
 "                               maxws(inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));\n"+
 "                               maxws(inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"1000\") then\n"+
 "                               minws(inReg1(31 downto 0),inReg2(31 downto 0),outReg(31 downto 0));\n"+
 "                               minws(inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));\n"+
 "                               minws(inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));\n"+
 "                               minws(inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"1001\") then\n"+
 "                               mult(noSignOp,inReg1(15 downto 0),inReg2(15 downto 0),oT);\n"+
 "                               outreg(31 downto 0) <= oT;\n"+
@@ -581,7 +564,6 @@ PAGE ""
 "                               outreg(95 downto 64) <= oT;\n"+
 "                               mult(noSignOp,inReg1(111 downto 96),inReg2(111 downto 96),oT);\n"+
 "                               outreg(127 downto 96) <= oT;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"1010\") then\n"+
 "                               MLHCU(noSignOp,inReg1(m - 1 downto 0),insReg(14 downto 10),oT);\n"+
 "                               outreg(31 downto 0) <= oT;\n"+
@@ -591,16 +573,13 @@ PAGE ""
 "                               outreg(95 downto 64) <= oT;\n"+
 "                               MLHCU(noSignOp,inReg1(111 downto 96),insReg(14 downto 10),oT);\n"+
 "                               outreg(127 downto 96) <= oT;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"1011\") then\n"+
 "                               outReg <= inReg1 or inReg2;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"1100\") then\n"+
 "                               PCNTW(inReg1(31 downto 0),outReg(31 downto 0));\n"+
 "                               PCNTW(inReg1(63 downto 32),outReg(63 downto 32));\n"+
 "                               PCNTW(inReg1(95 downto 64),outReg(95 downto 64));\n"+
 "                               PCNTW(inReg1(127 downto 96),outReg(127 downto 96));\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"1101\") then\n"+
 "                               ROTW(inReg1(31 downto 0),inReg2(31 downto 0),oT);\n"+
 "                               outReg(31 downto 0) <= oT;\n"+
@@ -610,7 +589,6 @@ PAGE ""
 "                               outReg(95 downto 64) <= oT;\n"+
 "                               ROTW(inReg1(127 downto 96),inReg2(127 downto 96),oT);\n"+
 "                               outReg(127 downto 96) <= oT;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"1110\") then\n"+
 "                               t := inReg1(31 downto 0);\n"+
 "                               sub(noSignOp,inReg2(31 downto 0),t,oT);\n"+
@@ -632,7 +610,6 @@ PAGE ""
 "                               Tempout <= oT;\n"+
 "                               sat_int(Tempout,oT);\n"+
 "                               outreg(127 downto 96) <= oT;\n"+
-"                               writeToReg <= '1';\n"+
 "                            elsif (insReg(18 downto 15) = \"1111\") then\n"+
 "                               t_half := inReg1(15 downto 0);\n"+
 "                               sub_half(signOp,inReg2(15 downto 0),t_half,oT_half);\n"+
@@ -673,7 +650,6 @@ PAGE ""
 "                               sub_half(signOp,inReg2(127 downto 112),t_half,oT_half);\n"+
 "                               tempout_half <= oT_half;\n"+
 "                               sat_half(tempout_half,oT_half);\n"+
-"                               writeToReg <= '1';\n"+
 "                            end if;\n"+
 "                         end if r3;\n"+
 "                       end process;\n"+
@@ -683,12 +659,12 @@ PAGE ""
    SYNTAXCOLORED
    SHOWTEXT
    CORNER 10
-   VTX (  39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99, 102, 105, 108, 111, 114, 117, 120, 123, 126, 129, 132, 135, 138, 141, 144, 148, 151, 154, 156, 159, 162, 165, 168, 171, 174, 177, 180, 183, 186, 189 )
+   VTX (  36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99, 102, 105, 108, 111, 114, 117, 120, 123, 126, 129, 132, 135, 138, 142, 144, 147, 150, 153, 156, 159, 162, 165, 168, 171, 174, 177, 180, 183 )
    VARIABLES
    {
     #UPDATE_SENS_LIST="0"
    }
-   LIST (  154 )
+   LIST (  147 )
   }
   INSTANCE  5, 0, 0
   {
@@ -701,7 +677,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (920,1780)
-   VERTEXES ( (2,145) )
+   VERTEXES ( (2,139) )
   }
   INSTANCE  6, 0, 0
   {
@@ -714,7 +690,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (920,1700)
-   VERTEXES ( (2,147) )
+   VERTEXES ( (2,141) )
   }
   INSTANCE  7, 0, 0
   {
@@ -727,7 +703,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (920,1740)
-   VERTEXES ( (2,150) )
+   VERTEXES ( (2,145) )
   }
   INSTANCE  8, 0, 0
   {
@@ -740,22 +716,9 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (920,260)
-   VERTEXES ( (2,153) )
+   VERTEXES ( (2,148) )
   }
   INSTANCE  9, 0, 0
-  {
-   VARIABLES
-   {
-    #COMPONENT="Output"
-    #LIBRARY="#terminals"
-    #REFERENCE="writeToReg"
-    #SYMBOL="Output"
-    #VHDL_TYPE="STD_LOGIC"
-   }
-   COORD (1560,700)
-   VERTEXES ( (2,73) )
-  }
-  INSTANCE  10, 0, 0
   {
    VARIABLES
    {
@@ -766,51 +729,44 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
    COORD (1560,660)
-   VERTEXES ( (2,55) )
+   VERTEXES ( (2,52) )
   }
-  TEXT  11, 0, 0
+  TEXT  10, 0, 0
   {
    TEXT "$#REFERENCE"
    RECT (869,1780,869,1780)
    ALIGN 6
    PARENT 5
   }
-  TEXT  12, 0, 0
+  TEXT  11, 0, 0
   {
    TEXT "$#REFERENCE"
    RECT (869,1700,869,1700)
    ALIGN 6
    PARENT 6
   }
-  TEXT  13, 0, 0
+  TEXT  12, 0, 0
   {
    TEXT "$#REFERENCE"
    RECT (869,1740,869,1740)
    ALIGN 6
    PARENT 7
   }
-  TEXT  14, 0, 0
+  TEXT  13, 0, 0
   {
    TEXT "$#REFERENCE"
    RECT (869,260,869,260)
    ALIGN 6
    PARENT 8
   }
-  TEXT  15, 0, 0
-  {
-   TEXT "$#REFERENCE"
-   RECT (1611,700,1611,700)
-   ALIGN 4
-   PARENT 9
-  }
-  TEXT  16, 0, 0
+  TEXT  14, 0, 0
   {
    TEXT "$#REFERENCE"
    RECT (1611,660,1611,660)
    ALIGN 4
-   PARENT 10
+   PARENT 9
   }
-  NET BUS  17, 0, 0
+  NET BUS  15, 0, 0
   {
    VARIABLES
    {
@@ -819,14 +775,14 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  18, 0, 0
+  NET BUS  16, 0, 0
   {
    VARIABLES
    {
     #NAME="instruc"
    }
   }
-  NET WIRE  19, 0, 0
+  NET WIRE  17, 0, 0
   {
    VARIABLES
    {
@@ -835,7 +791,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC"
    }
   }
-  NET WIRE  20, 0, 0
+  NET WIRE  18, 0, 0
   {
    VARIABLES
    {
@@ -844,7 +800,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC"
    }
   }
-  NET BUS  21, 0, 0
+  NET BUS  19, 0, 0
   {
    VARIABLES
    {
@@ -852,7 +808,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  22, 0, 0
+  NET BUS  20, 0, 0
   {
    VARIABLES
    {
@@ -860,7 +816,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  23, 0, 0
+  NET BUS  21, 0, 0
   {
    VARIABLES
    {
@@ -868,7 +824,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  24, 0, 0
+  NET BUS  22, 0, 0
   {
    VARIABLES
    {
@@ -877,7 +833,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  25, 0, 0
+  NET BUS  23, 0, 0
   {
    VARIABLES
    {
@@ -885,21 +841,21 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  26, 0, 0
+  NET BUS  24, 0, 0
   {
    VARIABLES
    {
     #NAME="input1"
    }
   }
-  NET BUS  27, 0, 0
+  NET BUS  25, 0, 0
   {
    VARIABLES
    {
     #NAME="input2"
    }
   }
-  NET BUS  28, 0, 0
+  NET BUS  26, 0, 0
   {
    VARIABLES
    {
@@ -907,7 +863,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  29, 0, 0
+  NET BUS  27, 0, 0
   {
    VARIABLES
    {
@@ -915,7 +871,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  30, 0, 0
+  NET BUS  28, 0, 0
   {
    VARIABLES
    {
@@ -923,7 +879,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  31, 0, 0
+  NET BUS  29, 0, 0
   {
    VARIABLES
    {
@@ -931,7 +887,7 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET BUS  32, 0, 0
+  NET BUS  30, 0, 0
   {
    VARIABLES
    {
@@ -939,48 +895,49 @@ PAGE ""
     #VHDL_TYPE="STD_LOGIC_VECTOR"
    }
   }
-  NET WIRE  33, 0, 0
-  {
-   VARIABLES
-   {
-    #NAME="writeToReg"
-    #VHDL_TYPE="STD_LOGIC"
-   }
-  }
-  NET BUS  34, 0, 0
+  NET BUS  31, 0, 0
   {
    VARIABLES
    {
     #NAME="input"
    }
   }
-  NET BUS  35, 0, 0
+  NET BUS  32, 0, 0
   {
    VARIABLES
    {
     #NAME="output"
    }
   }
-  NET BUS  36, 0, 0
+  NET BUS  33, 0, 0
   {
    VARIABLES
    {
     #NAME="in1"
    }
   }
-  NET BUS  37, 0, 0
+  NET BUS  34, 0, 0
   {
    VARIABLES
    {
     #NAME="in2"
    }
   }
-  NET WIRE  38, 0, 0
+  NET WIRE  35, 0, 0
   {
    VARIABLES
    {
     #NAME="xsign"
    }
+  }
+  VTX  36, 0, 0
+  {
+   COORD (1461,620)
+  }
+  BUS  38, 0, 0
+  {
+   NET 32
+   VTX 36, 49
   }
   VTX  39, 0, 0
   {
@@ -988,8 +945,8 @@ PAGE ""
   }
   BUS  41, 0, 0
   {
-   NET 35
-   VTX 39, 52
+   NET 32
+   VTX 39, 49
   }
   VTX  42, 0, 0
   {
@@ -997,8 +954,8 @@ PAGE ""
   }
   BUS  44, 0, 0
   {
-   NET 35
-   VTX 42, 52
+   NET 32
+   VTX 42, 49
   }
   VTX  45, 0, 0
   {
@@ -1006,121 +963,117 @@ PAGE ""
   }
   BUS  47, 0, 0
   {
-   NET 35
-   VTX 45, 52
+   NET 32
+   VTX 45, 49
   }
   VTX  48, 0, 0
   {
    COORD (1461,620)
   }
-  BUS  50, 0, 0
-  {
-   NET 35
-   VTX 48, 52
-  }
-  VTX  51, 0, 0
-  {
-   COORD (1461,620)
-  }
-  VTX  52, 0, 0
+  VTX  49, 0, 0
   {
    COORD (1540,620)
   }
+  BUS  50, 0, 0
+  {
+   NET 32
+   VTX 48, 49
+  }
+  VTX  51, 0, 0
+  {
+   COORD (1461,660)
+  }
+  VTX  52, 0, 0
+  {
+   COORD (1560,660)
+  }
   BUS  53, 0, 0
   {
-   NET 35
+   NET 30
    VTX 51, 52
   }
   VTX  54, 0, 0
   {
-   COORD (1461,660)
+   COORD (1461,300)
   }
   VTX  55, 0, 0
   {
-   COORD (1560,660)
+   COORD (1540,300)
   }
   BUS  56, 0, 0
   {
-   NET 32
+   NET 19
    VTX 54, 55
   }
   VTX  57, 0, 0
   {
-   COORD (1461,300)
+   COORD (1461,340)
   }
   VTX  58, 0, 0
   {
-   COORD (1540,300)
+   COORD (1540,340)
   }
   BUS  59, 0, 0
   {
-   NET 21
+   NET 20
    VTX 57, 58
   }
   VTX  60, 0, 0
   {
-   COORD (1461,340)
+   COORD (1461,420)
   }
   VTX  61, 0, 0
   {
-   COORD (1540,340)
+   COORD (1540,420)
   }
   BUS  62, 0, 0
   {
-   NET 22
+   NET 21
    VTX 60, 61
   }
   VTX  63, 0, 0
   {
-   COORD (1461,420)
+   COORD (1461,260)
   }
   VTX  64, 0, 0
   {
-   COORD (1540,420)
+   COORD (1540,260)
   }
   BUS  65, 0, 0
   {
-   NET 23
+   NET 22
    VTX 63, 64
   }
   VTX  66, 0, 0
   {
-   COORD (1461,260)
+   COORD (1461,380)
   }
   VTX  67, 0, 0
   {
-   COORD (1540,260)
+   COORD (1540,380)
   }
   BUS  68, 0, 0
   {
-   NET 24
+   NET 23
    VTX 66, 67
   }
   VTX  69, 0, 0
   {
-   COORD (1461,380)
-  }
-  VTX  70, 0, 0
-  {
-   COORD (1540,380)
+   COORD (1060,1620)
   }
   BUS  71, 0, 0
   {
-   NET 25
-   VTX 69, 70
+   NET 33
+   VTX 69, 88
   }
   VTX  72, 0, 0
   {
-   COORD (1461,700)
+   COORD (1060,1620)
   }
-  VTX  73, 0, 0
-  {
-   COORD (1560,700)
-  }
-  WIRE  74, 0, 0
+  BUS  74, 0, 0
   {
    NET 33
-   VTX 72, 73
+   VTX 72, 88
   }
   VTX  75, 0, 0
   {
@@ -1128,8 +1081,8 @@ PAGE ""
   }
   BUS  77, 0, 0
   {
-   NET 36
-   VTX 75, 94
+   NET 33
+   VTX 75, 88
   }
   VTX  78, 0, 0
   {
@@ -1137,8 +1090,8 @@ PAGE ""
   }
   BUS  80, 0, 0
   {
-   NET 36
-   VTX 78, 94
+   NET 33
+   VTX 78, 88
   }
   VTX  81, 0, 0
   {
@@ -1146,8 +1099,8 @@ PAGE ""
   }
   BUS  83, 0, 0
   {
-   NET 36
-   VTX 81, 94
+   NET 33
+   VTX 81, 88
   }
   VTX  84, 0, 0
   {
@@ -1155,39 +1108,39 @@ PAGE ""
   }
   BUS  86, 0, 0
   {
-   NET 36
-   VTX 84, 94
+   NET 33
+   VTX 84, 88
   }
   VTX  87, 0, 0
   {
    COORD (1060,1620)
   }
-  BUS  89, 0, 0
-  {
-   NET 36
-   VTX 87, 94
-  }
-  VTX  90, 0, 0
-  {
-   COORD (1060,1620)
-  }
-  BUS  92, 0, 0
-  {
-   NET 36
-   VTX 90, 94
-  }
-  VTX  93, 0, 0
-  {
-   COORD (1060,1620)
-  }
-  VTX  94, 0, 0
+  VTX  88, 0, 0
   {
    COORD (1040,1620)
   }
+  BUS  89, 0, 0
+  {
+   NET 33
+   VTX 87, 88
+  }
+  VTX  90, 0, 0
+  {
+   COORD (1060,1540)
+  }
+  BUS  92, 0, 0
+  {
+   NET 34
+   VTX 90, 109
+  }
+  VTX  93, 0, 0
+  {
+   COORD (1060,1540)
+  }
   BUS  95, 0, 0
   {
-   NET 36
-   VTX 93, 94
+   NET 34
+   VTX 93, 109
   }
   VTX  96, 0, 0
   {
@@ -1195,8 +1148,8 @@ PAGE ""
   }
   BUS  98, 0, 0
   {
-   NET 37
-   VTX 96, 115
+   NET 34
+   VTX 96, 109
   }
   VTX  99, 0, 0
   {
@@ -1204,8 +1157,8 @@ PAGE ""
   }
   BUS  101, 0, 0
   {
-   NET 37
-   VTX 99, 115
+   NET 34
+   VTX 99, 109
   }
   VTX  102, 0, 0
   {
@@ -1213,8 +1166,8 @@ PAGE ""
   }
   BUS  104, 0, 0
   {
-   NET 37
-   VTX 102, 115
+   NET 34
+   VTX 102, 109
   }
   VTX  105, 0, 0
   {
@@ -1222,39 +1175,39 @@ PAGE ""
   }
   BUS  107, 0, 0
   {
-   NET 37
-   VTX 105, 115
+   NET 34
+   VTX 105, 109
   }
   VTX  108, 0, 0
   {
    COORD (1060,1540)
   }
-  BUS  110, 0, 0
-  {
-   NET 37
-   VTX 108, 115
-  }
-  VTX  111, 0, 0
-  {
-   COORD (1060,1540)
-  }
-  BUS  113, 0, 0
-  {
-   NET 37
-   VTX 111, 115
-  }
-  VTX  114, 0, 0
-  {
-   COORD (1060,1540)
-  }
-  VTX  115, 0, 0
+  VTX  109, 0, 0
   {
    COORD (1040,1540)
   }
+  BUS  110, 0, 0
+  {
+   NET 34
+   VTX 108, 109
+  }
+  VTX  111, 0, 0
+  {
+   COORD (1060,1060)
+  }
+  BUS  113, 0, 0
+  {
+   NET 31
+   VTX 111, 124
+  }
+  VTX  114, 0, 0
+  {
+   COORD (1060,1060)
+  }
   BUS  116, 0, 0
   {
-   NET 37
-   VTX 114, 115
+   NET 31
+   VTX 114, 124
   }
   VTX  117, 0, 0
   {
@@ -1262,8 +1215,8 @@ PAGE ""
   }
   BUS  119, 0, 0
   {
-   NET 34
-   VTX 117, 130
+   NET 31
+   VTX 117, 124
   }
   VTX  120, 0, 0
   {
@@ -1271,78 +1224,86 @@ PAGE ""
   }
   BUS  122, 0, 0
   {
-   NET 34
-   VTX 120, 130
+   NET 31
+   VTX 120, 124
   }
   VTX  123, 0, 0
   {
    COORD (1060,1060)
   }
+  VTX  124, 0, 0
+  {
+   COORD (1040,1060)
+  }
   BUS  125, 0, 0
   {
-   NET 34
-   VTX 123, 130
+   NET 31
+   VTX 123, 124
   }
   VTX  126, 0, 0
   {
-   COORD (1060,1060)
+   COORD (1060,740)
   }
   BUS  128, 0, 0
   {
-   NET 34
+   NET 24
    VTX 126, 130
   }
   VTX  129, 0, 0
   {
-   COORD (1060,1060)
+   COORD (1060,740)
   }
   VTX  130, 0, 0
   {
-   COORD (1040,1060)
+   COORD (1040,740)
   }
   BUS  131, 0, 0
   {
-   NET 34
+   NET 24
    VTX 129, 130
   }
   VTX  132, 0, 0
   {
-   COORD (1060,740)
+   COORD (1060,780)
   }
   BUS  134, 0, 0
   {
-   NET 26
+   NET 25
    VTX 132, 136
   }
   VTX  135, 0, 0
   {
-   COORD (1060,740)
+   COORD (1060,780)
   }
   VTX  136, 0, 0
   {
-   COORD (1040,740)
+   COORD (1040,780)
   }
   BUS  137, 0, 0
   {
-   NET 26
+   NET 25
    VTX 135, 136
   }
   VTX  138, 0, 0
   {
-   COORD (1060,780)
+   COORD (1060,1780)
+  }
+  VTX  139, 0, 0
+  {
+   COORD (920,1780)
   }
   BUS  140, 0, 0
   {
-   NET 27
-   VTX 138, 142
+   NET 26
+   VTX 138, 139
   }
   VTX  141, 0, 0
   {
-   COORD (1060,780)
+   COORD (920,1700)
   }
   VTX  142, 0, 0
   {
-   COORD (1040,780)
+   COORD (1060,1700)
   }
   BUS  143, 0, 0
   {
@@ -1351,11 +1312,11 @@ PAGE ""
   }
   VTX  144, 0, 0
   {
-   COORD (1060,1780)
+   COORD (1060,1740)
   }
   VTX  145, 0, 0
   {
-   COORD (920,1780)
+   COORD (920,1740)
   }
   BUS  146, 0, 0
   {
@@ -1364,11 +1325,11 @@ PAGE ""
   }
   VTX  147, 0, 0
   {
-   COORD (920,1700)
+   COORD (1060,260)
   }
   VTX  148, 0, 0
   {
-   COORD (1060,1700)
+   COORD (920,260)
   }
   BUS  149, 0, 0
   {
@@ -1377,68 +1338,60 @@ PAGE ""
   }
   VTX  150, 0, 0
   {
-   COORD (920,1740)
+   COORD (1060,820)
   }
   VTX  151, 0, 0
   {
-   COORD (1060,1740)
+   COORD (1040,820)
   }
   BUS  152, 0, 0
   {
-   NET 30
+   NET 16
    VTX 150, 151
   }
   VTX  153, 0, 0
   {
-   COORD (920,260)
+   COORD (1060,460)
   }
   VTX  154, 0, 0
   {
-   COORD (1060,260)
+   COORD (1040,460)
   }
-  BUS  155, 0, 0
+  WIRE  155, 0, 0
   {
-   NET 31
+   NET 17
    VTX 153, 154
   }
   VTX  156, 0, 0
   {
-   COORD (1060,820)
+   COORD (1060,420)
   }
   VTX  157, 0, 0
   {
-   COORD (1040,820)
+   COORD (1040,420)
   }
-  BUS  158, 0, 0
+  WIRE  158, 0, 0
   {
    NET 18
    VTX 156, 157
   }
   VTX  159, 0, 0
   {
-   COORD (1060,460)
-  }
-  VTX  160, 0, 0
-  {
-   COORD (1040,460)
+   COORD (1060,1660)
   }
   WIRE  161, 0, 0
   {
-   NET 19
-   VTX 159, 160
+   NET 35
+   VTX 159, 184
   }
   VTX  162, 0, 0
   {
-   COORD (1060,420)
-  }
-  VTX  163, 0, 0
-  {
-   COORD (1040,420)
+   COORD (1060,1660)
   }
   WIRE  164, 0, 0
   {
-   NET 20
-   VTX 162, 163
+   NET 35
+   VTX 162, 184
   }
   VTX  165, 0, 0
   {
@@ -1446,8 +1399,8 @@ PAGE ""
   }
   WIRE  167, 0, 0
   {
-   NET 38
-   VTX 165, 190
+   NET 35
+   VTX 165, 184
   }
   VTX  168, 0, 0
   {
@@ -1455,8 +1408,8 @@ PAGE ""
   }
   WIRE  170, 0, 0
   {
-   NET 38
-   VTX 168, 190
+   NET 35
+   VTX 168, 184
   }
   VTX  171, 0, 0
   {
@@ -1464,8 +1417,8 @@ PAGE ""
   }
   WIRE  173, 0, 0
   {
-   NET 38
-   VTX 171, 190
+   NET 35
+   VTX 171, 184
   }
   VTX  174, 0, 0
   {
@@ -1473,8 +1426,8 @@ PAGE ""
   }
   WIRE  176, 0, 0
   {
-   NET 38
-   VTX 174, 190
+   NET 35
+   VTX 174, 184
   }
   VTX  177, 0, 0
   {
@@ -1482,8 +1435,8 @@ PAGE ""
   }
   WIRE  179, 0, 0
   {
-   NET 38
-   VTX 177, 190
+   NET 35
+   VTX 177, 184
   }
   VTX  180, 0, 0
   {
@@ -1491,52 +1444,34 @@ PAGE ""
   }
   WIRE  182, 0, 0
   {
-   NET 38
-   VTX 180, 190
+   NET 35
+   VTX 180, 184
   }
   VTX  183, 0, 0
   {
    COORD (1060,1660)
   }
-  WIRE  185, 0, 0
-  {
-   NET 38
-   VTX 183, 190
-  }
-  VTX  186, 0, 0
-  {
-   COORD (1060,1660)
-  }
-  WIRE  188, 0, 0
-  {
-   NET 38
-   VTX 186, 190
-  }
-  VTX  189, 0, 0
-  {
-   COORD (1060,1660)
-  }
-  VTX  190, 0, 0
+  VTX  184, 0, 0
   {
    COORD (1040,1660)
   }
-  WIRE  191, 0, 0
+  WIRE  185, 0, 0
   {
-   NET 38
-   VTX 189, 190
+   NET 35
+   VTX 183, 184
   }
-  VTX  192, 0, 0
+  VTX  186, 0, 0
   {
    COORD (1630,220)
   }
-  VTX  193, 0, 0
+  VTX  187, 0, 0
   {
    COORD (1730,220)
   }
-  BUS  194, 0, 0
+  BUS  188, 0, 0
   {
-   NET 17
-   VTX 192, 193
+   NET 15
+   VTX 186, 187
   }
  }
  

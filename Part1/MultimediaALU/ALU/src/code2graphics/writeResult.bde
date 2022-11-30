@@ -12,7 +12,7 @@ HEADER
   #LANGUAGE="VHDL"
   AUTHOR="nebil.oumer@stonybrook.edu"
   COMPANY="none"
-  CREATIONDATE="11/27/2022"
+  CREATIONDATE="11/29/2022"
   SOURCE="..\\src\\pipeline.vhd"
  }
 }
@@ -62,7 +62,7 @@ PAGE ""
   }
   PROCESS  3, 0, 0
   {
-   LABEL "process_928"
+   LABEL "process_919"
    TEXT 
 "process (clk)\n"+
 "                         variable write_to_result : line;\n"+
@@ -74,16 +74,17 @@ PAGE ""
 "                            WRITE(write_to_result,cycleCounter);\n"+
 "                            WRITE(write_to_result,string'(\":\"));\n"+
 "                            WRITELINE(resultFile,write_to_result);\n"+
-"                            WRITE(write_to_result,string'(\"Stage 1: \"));\n"+
+"                            WRITE(write_to_result,string'(\"Instruction at Stage 1: \"));\n"+
 "                            WRITE(write_to_result,stages(1));\n"+
-"                            WRITE(write_to_result,string'(\"Stage 2: \"));\n"+
+"                            WRITE(write_to_result,string'(\"Instruction at Stage 2: \"));\n"+
 "                            WRITE(write_to_result,stages(2));\n"+
-"                            WRITE(write_to_result,string'(\"Stage 3: \"));\n"+
+"                            WRITE(write_to_result,string'(\"Instruction at Stage 3: \"));\n"+
 "                            WRITE(write_to_result,stages(3));\n"+
-"                            WRITE(write_to_result,string'(\"Stage 4: \"));\n"+
+"                            WRITE(write_to_result,string'(\"Instruction at Stage 4: \"));\n"+
 "                            WRITE(write_to_result,stages(4));\n"+
 "                            WRITELINE(resultFile,write_to_result);\n"+
 "                            cycleCounter := cycleCounter + 1;\n"+
+"                            FILE_CLOSE(resultFile);\n"+
 "                         end if;\n"+
 "                       end process;\n"+
 "                      "
@@ -92,7 +93,7 @@ PAGE ""
    SYNTAXCOLORED
    SHOWTEXT
    CORNER 10
-   VTX (  10, 14 )
+   VTX (  10, 13 )
    VARIABLES
    {
     #UPDATE_SENS_LIST="0"
@@ -127,7 +128,7 @@ PAGE ""
     #VHDL_TYPE="instructions_at_stages"
    }
    COORD (820,300)
-   VERTEXES ( (2,13) )
+   VERTEXES ( (2,14) )
   }
   TEXT  6, 0, 0
   {
@@ -178,11 +179,11 @@ PAGE ""
   }
   VTX  13, 0, 0
   {
-   COORD (820,300)
+   COORD (960,300)
   }
   VTX  14, 0, 0
   {
-   COORD (960,300)
+   COORD (820,300)
   }
   MDARRAY  15, 0, 0
   {

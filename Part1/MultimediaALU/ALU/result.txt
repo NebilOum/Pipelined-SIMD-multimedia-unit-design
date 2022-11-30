@@ -1,0 +1,6 @@
+Cycle 2:
+Instruction at Stage 1: 0000000000000011000110001
+Instruction at Stage 2: 0010000000000011000010001
+Instruction at Stage 3: UUUUUUUUUUUUUUUUUUUUUUUUU
+Instruction at Stage 4: UUUUUUUUUUUUUUUUUUUUUUUUU
+-------------------------------------------------------------------------------

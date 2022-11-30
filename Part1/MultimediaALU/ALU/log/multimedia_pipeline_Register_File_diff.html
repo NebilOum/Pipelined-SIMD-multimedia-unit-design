@@ -6,7 +6,7 @@
 <!--                                                                         -->
 
 <HEAD>
-<TITLE>Compare interfaces - Register_File(Symbol) to Register_File(VHDL Source Code)</TITLE>
+<TITLE>Compare interfaces - Register_File(Symbol) to Register_File(Block Diagram)</TITLE>
 <STYLE>
 * {font-family: sans-serif;}
 .Err	{color:#FF0000;cursor:hand;text-decoration:underline;}
@@ -90,14 +90,13 @@ End Sub
 <!--                             END VBSCRIPT                                -->
 <!----------------------------------------------------------------------------->
 
-<H2>Compare interfaces - Register_File(Symbol) to Register_File(VHDL Source Code)</H2>
+<H2>Compare interfaces - Register_File(Symbol) to Register_File(Block Diagram)</H2>
 
-Created on Son 2022-11-27 at 20:46:39
+Created on Tue 2022-11-29 at 20:36:16
 <hr style="height:2px;border-width:0;color:#008080;background-color:#008080">
 <SPAN class=Info1>Comparing interfaces:</SPAN><BR>
 <SPAN class=Info1>Symbol Register_File.</SPAN><BR>
-<SPAN class=Info1>VHDL Source Code C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/Register_File.vhd.</SPAN><BR>
-<SPAN class=Warn1>VHDL Source Code cannot be updated.</SPAN><BR>
+<SPAN class=Info1>Block Diagram C:/Users/seene/Desktop/Stony Brook/Fall 2022/ESE 345/Project/Pipelined-SIMD-multimedia-unit-design/Part1/MultimediaALU/ALU/src/code2graphics/Register_File.bde.</SPAN><BR>
 <SPAN class=Info1><br>
 <table style=text-align:center;vertical-align:center;font-size:15px;border-collapse:collapse>
 	<tr>
@@ -178,7 +177,7 @@ Created on Son 2022-11-27 at 20:46:39
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>registers_in</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>(0 to 31)</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>Input</td>
-		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>REG_TABLE</td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>reg_table</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
 	</tr>
 	<tr style=background-color:#ffffff;color:#000000>
@@ -204,7 +203,7 @@ Created on Son 2022-11-27 at 20:46:39
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>registers_out</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>(0 to 31)</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>Output</td>
-		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>REG_TABLE</td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>reg_table</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
 	</tr>
 	<tr style=background-color:#ffffff;color:#000000>
@@ -280,6 +279,19 @@ Created on Son 2022-11-27 at 20:46:39
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>missing left</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>r3Num</td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>(4 downto 0)</td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>Output</td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>STD_LOGIC_VECTOR</td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
+	</tr>
+	<tr style=background-color:#ffffff;color:#008000>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>missing left</td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>rdNumOut</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>(4 downto 0)</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>Output</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>STD_LOGIC_VECTOR</td>
@@ -418,9 +430,18 @@ Created on Son 2022-11-27 at 20:46:39
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>(4 downto 0)</td>
 		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
 	</tr>
+	<tr style=background-color:#ffffff;color:#000000>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>identical</td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>rdNumOut</td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px>(4 downto 0)</td>
+		<td style=border-style:solid;border-width:1px;border-color:#7f7f7f;padding:3px></td>
+	</tr>
 </table>
 <br></SPAN><BR>
-<SPAN class=Warn1>Found 4 differences.</SPAN><BR>
+<SPAN class=Warn1>Found 5 differences and a different port order.</SPAN><BR>
 </tt>
 </BODY>
 
