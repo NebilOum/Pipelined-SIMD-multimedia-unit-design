@@ -29,23 +29,21 @@ end entity Register_File;
 
 architecture behavioral of Register_File is
 			signal r1NumT,r2NumT,r3NumT : integer:= 0;
-		    signal r1,r2,r3:integer := 0;
 			
 begin 
-	
+	--registers_in(to_integer(unsigned(rdNum))) <= writtenReg when write_to_reg = '1';
 	process(sele)
 		variable r1,r2,r3: integer:=0;
 		variable r_in :reg_table;
 	begin
 		if	(write_to_reg = '1') then
-			r_in(to_integer(unsigned(rdNum))) := writtenReg;
-			registers_in <= r_in;
+			--r_in(to_integer(unsigned(rdNum))) := writtenReg;
+			registers_in(to_integer(unsigned(rdNum))) <= writtenReg;
 		end if;
 		rdNumOut <= sele(4 downto 0);
 		r1Num <= sele(9 downto 5);
 		r2Num <= sele(14 downto 10);
 		r3Num <= sele(19 downto 15);
-		--registers_in(to_integer(unsigned(rdNum))) <= writtenReg when ; --and (rising_edge(clk));
 	
 		r1 := to_integer(unsigned (sele(9 downto 5)));
 		r1NumT <= r1;
@@ -55,7 +53,7 @@ begin
 		r3NumT <= r3;
 		
 		
-		if sele(24 downto 23) = "11" then  --r3 instructions
+		 if sele(24 downto 23) = "11" then  --r3 instructions
 					if sele(18 downto 15) = "0000" then
 						f_write_to_reg <= '0'; 
 					else 
@@ -65,7 +63,7 @@ begin
 			 f_write_to_reg <= '1';
 		 elsif sele(24 downto 23) ="11" then
 			 f_write_to_reg <= '1';
-      end if;
+         end if;
 	end process;
 	out1 <= registers_in(r1NumT)(127 downto 0);
 	out2 <= registers_in(r2NumT)(127 downto 0);

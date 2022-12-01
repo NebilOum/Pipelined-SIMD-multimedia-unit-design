@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\compile\writeResult.vhd
--- Generated   : Tue Nov 29 13:37:38 2022
+-- Generated   : Thu Dec  1 14:16:11 2022
 -- From        : C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\code2graphics\writeResult.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -54,16 +54,17 @@ process (clk)
                             WRITE(write_to_result,cycleCounter);
                             WRITE(write_to_result,string'(":"));
                             WRITELINE(resultFile,write_to_result);
-                            WRITE(write_to_result,string'("Stage 1: "));
+                            WRITE(write_to_result,string'("Instruction at Stage 1: "));
                             WRITE(write_to_result,stages(1));
-                            WRITE(write_to_result,string'("Stage 2: "));
+                            WRITE(write_to_result,string'("Instruction at Stage 2: "));
                             WRITE(write_to_result,stages(2));
-                            WRITE(write_to_result,string'("Stage 3: "));
+                            WRITE(write_to_result,string'("Instruction at Stage 3: "));
                             WRITE(write_to_result,stages(3));
-                            WRITE(write_to_result,string'("Stage 4: "));
+                            WRITE(write_to_result,string'("Instruction at Stage 4: "));
                             WRITE(write_to_result,stages(4));
                             WRITELINE(resultFile,write_to_result);
                             cycleCounter := cycleCounter + 1;
+                            FILE_CLOSE(resultFile);
                          end if;
                        end process;
                       

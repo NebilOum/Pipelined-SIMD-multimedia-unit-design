@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\compile\id_ex.vhd
--- Generated   : Tue Nov 29 13:37:32 2022
+-- Generated   : Thu Dec  1 14:16:10 2022
 -- From        : C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\code2graphics\id_ex.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -52,14 +52,10 @@ begin
 process (clk)
                        begin
                          if rising_edge(clk) then
-                            dataOut1 <= temp1;
-                            dataOut2 <= temp2;
-                            dataOut3 <= temp3;
-                            temp1 <= dataIn1;
-                            temp2 <= dataIn2;
-                            temp3 <= dataIn3;
-                            rdNumOut <= rdTemp;
-                            rdTemp <= rdNumIn;
+                            dataOut1 <= dataIn1;
+                            dataOut2 <= dataIn2;
+                            dataOut3 <= dataIn3;
+                            rdNumOut <= rdNumIn;
                          end if;
                        end process;
                       

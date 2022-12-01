@@ -23,8 +23,15 @@ fileopenfolder=C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipe
 /IFStage.vhd=-1
 /InstructionBuffer.vhd=-1
 /Register_File.vhd=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\pipelineTest.asdb=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\pipelineTest.awc=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveformALU.asdb=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveformALU.awc=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveformFMUX.asdb=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveformFMUX.awc=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\waveFormRF.awc=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\waveFormRF.asdb=-1
 /tb_input.txt=-1
-/result.txt=-1
 code2graphics/aluIO.bde=-1
 code2graphics/dataFowarding.bde=-1
 code2graphics/ex_wb.bde=-1
@@ -39,8 +46,16 @@ code2graphics/multimedia_pipeline.bde=-1
 .\src\IFStage.vhd=VHDL Source Code
 .\src\InstructionBuffer.vhd=VHDL Source Code
 .\src\Register_File.vhd=VHDL Source Code
-.\src\tb_input.txt=Text File
 .\src\result.txt=Text File
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\pipelineTest.asdb=Accelerated Waveform File
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\pipelineTest.awc=Accelerated Waveform Configuration
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveformALU.asdb=Accelerated Waveform File
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveformALU.awc=Accelerated Waveform Configuration
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveformFMUX.asdb=Accelerated Waveform File
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveformFMUX.awc=Accelerated Waveform Configuration
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\waveFormRF.awc=Accelerated Waveform Configuration
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\waveFormRF.asdb=Accelerated Waveform File
+.\src\tb_input.txt=Text File
 .\src\code2graphics\aluIO.bde=Block Diagram
 .\src\code2graphics\dataFowarding.bde=Block Diagram
 .\src\code2graphics\ex_wb.bde=Block Diagram
@@ -57,3 +72,17 @@ Selected=
 Synchronize=1
 [Groups]
 code2graphics=1
+[file_out:code2graphics/aluIO.bde]
+code2graphics/..\..\compile\aluIO.vhd=-1
+[file_out:code2graphics/dataFowarding.bde]
+code2graphics/..\..\compile\dataFowarding.vhd=-1
+[file_out:code2graphics/ex_wb.bde]
+code2graphics/..\..\compile\ex_wb.vhd=-1
+[file_out:code2graphics/fowardMux.bde]
+code2graphics/..\..\compile\fowardMux.vhd=-1
+[file_out:code2graphics/id_ex.bde]
+code2graphics/..\..\compile\id_ex.vhd=-1
+[file_out:code2graphics/writeBack.bde]
+code2graphics/..\..\compile\writeBack.vhd=-1
+[file_out:code2graphics/writeResult.bde]
+code2graphics/..\..\compile\writeResult.vhd=-1

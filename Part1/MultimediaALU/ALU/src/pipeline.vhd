@@ -667,28 +667,6 @@ begin
 				outReg(95 downto 64) <= oT;
 				ROTW(inReg1(127 downto 96),inReg2(127 downto 96),oT);
 				outReg(127 downto 96) <= oT; 
-				 
-				
---				rotate := to_integer(unsigned(inReg2(36 downto 32)));
---				rT := inReg1(63 downto 32);
---				for i in 1 to rotate loop
---					rT := rT(0) & rT(31 downto 1);	
---				end loop;
---				outReg(63 downto 32) <= rt;
---				
---				rotate := to_integer(unsigned(inReg2(68 downto 64)));
---				rT := inReg1(95 downto 64);
---				for i in 1 to rotate loop
---					rT := rT(0) & rT(31 downto 1);	
---				end loop;
---				outReg(95 downto 64) <= rt;
---				
---				rotate := to_integer(unsigned(inReg2(100 downto 96)));
---				rT := inReg1(127 downto 96);
---				for i in 1 to rotate loop
---					rT := rT(0) & rT(31 downto 1);	
---				end loop;
---				outReg(127 downto 96) <= rt;
 				
 			elsif (insReg(18 downto 15) = "1110") then	--SFWU
 				t := inReg1(31 downto 0);
@@ -964,7 +942,8 @@ use work.all;
 entity multimedia_pipeline is
 	port(clk: in std_logic;
 	instructs : in instruc_table;
-	register_tble :inout reg_table
+	register_tble :inout reg_table;
+	stages : inout instructions_at_stages
 	);
 end multimedia_pipeline;
 
@@ -994,7 +973,7 @@ architecture structural of multimedia_pipeline is
 begin 	  
 	
 	instfetch: entity InstrctionBuffer port map(clk => clk,inst =>instructs,PC => pc,outp => inst_if);
-	--stages(1) <= inst_if;	
+	stages(1) <= inst_if;	
 	if_id: entity IFStage port map(clk=>clk,Instruction=> inst_if,OutIns=>inst_id); 
 	control_table(1).inst <= inst_if;
 	control_table(2).inst <= inst_id;
@@ -1013,46 +992,14 @@ begin
 	fmux: entity fowardMux port map(selSignal=>fowardingCntrl,dataIn1=>rs1ID,dataIn2=>rs2ID,dataIn3=>rs3ID,dataIn4=>outDF,outReg1=>muxRS1,outReg2=>muxRS2,outReg3=>muxRS3);		  
 		
 	alu :entity aluIO port map(inReg1=>muxRS1,inReg2=>muxRS2,inReg3=>muxRS3,insReg=>control_table(3).inst, outReg=>outALU);
-	--wrToRg <= tempWRG;
 		
-	ex_wb: entity ex_wb port map(clk=>clk,regWrite_in=>rdNum,dataIn=>outALU, regWrite_out =>rdNum,outResult=>outEXWB);	
+	ex_wb: entity ex_wb port map(clk=>clk,regWrite_in=>control_table(3).rdNum,dataIn=>outALU, regWrite_out =>rdNum,outResult=>outEXWB);	
 		
-	df: entity dataFowarding port map(dataIn=>outEXWB,regNumIn=>rdNum,regNumOut=>rdNum_DFOut,outResult=>outDF);	 
+	df: entity dataFowarding port map(dataIn=>outEXWB,regNumIn=>rdNum,regNumOut=>control_table(4).rdNum,outResult=>outDF);
+	rdNum_DFOut <= control_table(4).rdNum;
 		
-	wb : entity writeBack port map(aluOut=>outEXWB,outReg=>outWB);
-	
-	--wr:  entity writeResult port map(clk=>clk,stages=>writeInstToFile);
-		
---	process
---		variable write_to_result : line;
---		variable cycleCounter: integer := 0;
---	begin
---		--if(rising_edge(clk)) then
---			file_open(resultFile, "die.txt",  write_mode);
---			write(write_to_result, string'("Cycle "));
---			write(write_to_result, cycleCounter); 
---			write(write_to_result, string'(":")); 
---			writeline(resultFile, write_to_result);
---			
---			write(write_to_result, string'("Instruction at Stage 1: "));
---			write(write_to_result, writeInstToFile(1));
---			write(write_to_result, string'(" | Instruction at Stage 2: "));
---			write(write_to_result, writeInstToFile(2));
---			write(write_to_result, string'(" | Instruction at Stage 3: "));
---			write(write_to_result, writeInstToFile(3));
---			write(write_to_result, string'(" | Instruction at Stage 4: "));
---			write(write_to_result, writeInstToFile(4));
---	        writeline(resultFile, write_to_result);
---			
---			cycleCounter := cycleCounter + 1;
---			--if cycleCounter = 63 then
---				
---			--end if;
-----		end if;
---		file_close(resultFile);
---	    wait;
---	end process;
-	
+	wb : entity writeBack port map(aluOut=>outEXWB,outReg=>outWB);	
+
 	process(clk)
 		variable pcInc:integer := 0;
 	begin
@@ -1060,15 +1007,13 @@ begin
 			pc <= pcInc;
 			control_table(4) <= control_table(3); 
 			control_table(3) <= control_table(2);
---			control_table(2) <= control_table(1);
---			writeInstToFile(4) <= writeInstToFile(3);
---			writeInstToFile(3) <= writeInstToFile(2);
---			writeInstToFile(2) <= writeInstToFile(1);
-			--control_table(1).inst <= instructs(pcInc);
-			--writeInstToFile(1) <= instructs(pcInc);
-			pcInc := pcInc + 1;
+			--control_table(2) <= control_table(1);
+			stages(4) <= stages(3);
+			stages(3) <= stages(2);
+			stages(2) <= stages(1);
 			
-			--control_table(1).writeReg <= control_table(4).writeReg;
+			--control_table(1).inst <= instructs(pcInc);
+			pcInc := pcInc + 1;
 		end if;
 	end process; 
 	

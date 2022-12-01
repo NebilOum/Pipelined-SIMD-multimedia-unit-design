@@ -7,6 +7,14 @@ HEADER
  {
   #ARCHITECTURE="structural"
   #BLOCKTABLE_FILE="#HDL2DIAGRAM.bde"
+  #CONVERSIONFUNCTION1=
+"aldec_slv2intdddb85a2d4fd480e9e2a2bf2123f961flibrary ieee;\n"+
+"use ieee.std_logic_1164.all;\n"+
+"use ieee.std_logic_arith.all;\n"+
+"dddb85a2d4fd480e9e2a2bf2123f961ffunction aldec_slv2int (val:std_logic_vector) return integer is\n"+
+"begin\n"+
+"return conv_integer(unsigned(val));\n"+
+"end aldec_slv2int;"
   #DEFAULT_RANGE0="<range<index=\"0\"><name=\"fowardingcntrl\"><left=\"0\"><direction=\"to\"><right=\"2\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE1="<range<index=\"0\"><name=\"instructs\"><left=\"0\"><direction=\"to\"><right=\"63\"><initial_value=\"\"><delay=\"\">>"
   #DEFAULT_RANGE2="<range<index=\"0\"><name=\"inst_id\"><left=\"24\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
@@ -1676,6 +1684,8 @@ PAGE ""
    }
    COORD (1360,700)
    VERTEXES ( (4,221), (6,224), (8,227), (10,233), (12,230), (16,209), (18,212), (20,216) )
+   PINPROP 6,"#PIN_STATE","6"
+   PINPROP 6,"#PORTFUNCTION","aldec_slv2int"
   }
   INSTANCE  7, 0, 0
   {
@@ -3280,7 +3290,7 @@ PAGE ""
   {
    NET 77
    VTX 144, 298
-   BUSTAPS ( 150, 147, 141 )
+   BUSTAPS ( 141, 147, 150 )
   }
   BUS  301, 0, 0
   {

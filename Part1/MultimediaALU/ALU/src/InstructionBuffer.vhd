@@ -35,9 +35,10 @@ begin
     process(PC)	
 		variable  opt :std_logic_vector(24 downto 0);
     begin
-       -- if(PC >= 0 and PC < 63) then
-			opt := inst(PC);
+		--outp <= inst(PC);
+        if(PC <= 63) then
+--			opt := inst(PC);
 			outp <= inst(PC);
-       -- end if;
+        end if;
     end process;
 end architecture behavioral;

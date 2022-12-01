@@ -44,6 +44,7 @@ int convert;
 while (!myfile.eof()) {
     vector<string> splitt;
     string end;
+    int n,newVal;
     getline(myfile, end);
     //cout << end;
     //outp << end << endl;
@@ -54,11 +55,17 @@ while (!myfile.eof()) {
         }
        
         if (Fword == "li") {
+            n=0;
+            convert = 0;
+  
             for (int i = 0; i < splitt[1].size(); i++) {
                 if (isdigit(splitt[1][i])) {
-                    convert = int(splitt[1][i]);
-                    regdes = bitset<5>(convert).to_string();
+                     if(n > 0) convert = convert * 10;
+                     newVal = int(splitt[1][i]);
+                     convert = newVal + convert;
+                     n++;      
                 }
+                if(i = splitt[1].size()-1) regdes = bitset<5>(convert).to_string();
             }
             for (int i = 0; i < splitt[2].size(); i++) {
                 if (isdigit(splitt[2][i])) {

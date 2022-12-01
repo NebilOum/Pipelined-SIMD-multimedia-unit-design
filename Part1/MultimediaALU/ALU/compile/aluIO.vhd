@@ -8,7 +8,7 @@
 -------------------------------------------------------------------------------
 --
 -- File        : C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\compile\aluIO.vhd
--- Generated   : Tue Nov 29 20:36:12 2022
+-- Generated   : Thu Dec  1 14:16:08 2022
 -- From        : C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\code2graphics\aluIO.bde
 -- By          : Bde2Vhdl ver. 2.6
 --
@@ -36,7 +36,6 @@ entity aluIO is
        inReg2 : in STD_LOGIC_VECTOR(127 downto 0);
        inReg3 : in STD_LOGIC_VECTOR(127 downto 0);
        insReg : in STD_LOGIC_VECTOR(24 downto 0);
-       writeToReg : out STD_LOGIC;
        outReg : out STD_LOGIC_VECTOR(127 downto 0)
   );
 end aluIO;
@@ -280,7 +279,6 @@ process (insReg)
                                Tempout <= oT;
                                sat_int(Tempout,oT);
                                outreg(127 downto 96) <= oT;
-                               writeToReg <= '1';
                             elsif insReg(22 downto 20) = "001" then
                                mult(signOp,inReg3(a - 1 downto m),inReg2(a - 1 downto m),t);
                                t32 <= t;
@@ -306,7 +304,6 @@ process (insReg)
                                Tempout <= oT;
                                sat_int(Tempout,oT);
                                outreg(127 downto 96) <= oT;
-                               writeToReg <= '1';
                             elsif insReg(22 downto 20) = "010" then
                                mult(signOp,inReg3(15 downto 0),inReg2(15 downto 0),t);
                                t32 <= t;
@@ -332,7 +329,6 @@ process (insReg)
                                Tempout <= oT;
                                sat_int(Tempout,oT);
                                outreg(127 downto 96) <= oT;
-                               writeToReg <= '1';
                             elsif insReg(22 downto 20) = "011" then
                                mult(signOp,inReg3(a - 1 downto m),inReg2(a - 1 downto m),t);
                                t32 <= t;
@@ -358,7 +354,6 @@ process (insReg)
                                Tempout <= oT;
                                sat_int(Tempout,oT);
                                outreg(127 downto 96) <= oT;
-                               writeToReg <= '1';
                             elsif insReg(22 downto 20) = "100" then
                                mult_long(signOp,inReg3(31 downto 0),inReg2(31 downto 0),t_long);
                                t64 <= t_long;
@@ -372,7 +367,6 @@ process (insReg)
                                Tempout_L <= oT_long;
                                sat_long(Tempout_L,oT_long);
                                outreg(127 downto 64) <= oT_long;
-                               writeToReg <= '1';
                             elsif insReg(22 downto 20) = "101" then
                                mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long);
                                t64 <= t_long;
@@ -386,7 +380,6 @@ process (insReg)
                                Tempout_L <= oT_long;
                                sat_long(Tempout_L,oT_long);
                                outreg(127 downto 64) <= oT_long;
-                               writeToReg <= '1';
                             elsif insReg(22 downto 20) = "110" then
                                mult_long(signOp,inReg3(31 downto 0),inReg2(31 downto 0),t_long);
                                t64 <= t_long;
@@ -400,7 +393,6 @@ process (insReg)
                                Tempout_L <= oT_long;
                                sat_long(Tempout_L,oT_long);
                                outreg(127 downto 64) <= oT_long;
-                               writeToReg <= '1';
                             elsif insReg(22 downto 20) = "111" then
                                mult_long(signOp,inReg3(63 downto 31),inReg2(63 downto 31),t_long);
                                t64 <= t_long;
@@ -414,19 +406,16 @@ process (insReg)
                                Tempout_L <= oT_long;
                                sat_long(Tempout_L,oT_long);
                                outreg(127 downto 64) <= oT_long;
-                               writeToReg <= '1';
                             end if;
                          end if r4;
                          r3 : if (insReg(24 downto 23) = "11") then
                             if (insReg(18 downto 15) = "0000") then
                                null;
-                               writeToReg <= '0';
                             elsif (insReg(18 downto 15) = "0001") then
                                clzw(inReg1(31 downto 0),outReg(31 downto 0));
                                clzw(inReg1(63 downto 32),outReg(63 downto 32));
                                clzw(inReg1(95 downto 64),outReg(95 downto 64));
                                clzw(inReg1(127 downto 96),outReg(127 downto 96));
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "0010") then
                                t := inReg1(31 downto 0);
                                add(noSignOp,t,inReg2(31 downto 0),oT);
@@ -448,7 +437,6 @@ process (insReg)
                                Tempout <= oT;
                                sat_int(Tempout,oT);
                                outreg(127 downto 96) <= oT;
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "0011") then
                                t_half := inReg1(15 downto 0);
                                add_half(noSignOp,t_half,inReg2(15 downto 0),oT_half);
@@ -490,7 +478,6 @@ process (insReg)
                                tempout_half <= oT_half;
                                sat_half(tempout_half,oT_half);
                                outreg(127 downto 112) <= oT_half;
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "0100") then
                                t_half := inReg1(15 downto 0);
                                add_half(signOp,t_half,inReg2(15 downto 0),oT_half);
@@ -532,28 +519,23 @@ process (insReg)
                                tempout_half <= oT_half;
                                sat_half(tempout_half,oT_half);
                                outreg(127 downto 112) <= oT_half;
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "0101") then
                                outReg <= inReg1 and inReg2;
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "0110") then
                                outReg(31 downto 0) <= inReg1(31 downto 0);
                                outReg(63 downto 32) <= inReg1(31 downto 0);
                                outReg(95 downto 64) <= inReg1(31 downto 0);
                                outReg(127 downto 96) <= inReg1(31 downto 0);
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "0111") then
                                maxws(inReg1(31 downto 0),inReg2(31 downto 0),outReg(31 downto 0));
                                maxws(inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));
                                maxws(inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));
                                maxws(inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "1000") then
                                minws(inReg1(31 downto 0),inReg2(31 downto 0),outReg(31 downto 0));
                                minws(inReg1(63 downto 32),inReg2(63 downto 32),outReg(63 downto 32));
                                minws(inReg1(95 downto 64),inReg2(95 downto 64),outReg(95 downto 64));
                                minws(inReg1(127 downto 96),inReg2(127 downto 96),outReg(127 downto 96));
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "1001") then
                                mult(noSignOp,inReg1(15 downto 0),inReg2(15 downto 0),oT);
                                outreg(31 downto 0) <= oT;
@@ -563,7 +545,6 @@ process (insReg)
                                outreg(95 downto 64) <= oT;
                                mult(noSignOp,inReg1(111 downto 96),inReg2(111 downto 96),oT);
                                outreg(127 downto 96) <= oT;
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "1010") then
                                MLHCU(noSignOp,inReg1(m - 1 downto 0),insReg(14 downto 10),oT);
                                outreg(31 downto 0) <= oT;
@@ -573,16 +554,13 @@ process (insReg)
                                outreg(95 downto 64) <= oT;
                                MLHCU(noSignOp,inReg1(111 downto 96),insReg(14 downto 10),oT);
                                outreg(127 downto 96) <= oT;
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "1011") then
                                outReg <= inReg1 or inReg2;
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "1100") then
                                PCNTW(inReg1(31 downto 0),outReg(31 downto 0));
                                PCNTW(inReg1(63 downto 32),outReg(63 downto 32));
                                PCNTW(inReg1(95 downto 64),outReg(95 downto 64));
                                PCNTW(inReg1(127 downto 96),outReg(127 downto 96));
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "1101") then
                                ROTW(inReg1(31 downto 0),inReg2(31 downto 0),oT);
                                outReg(31 downto 0) <= oT;
@@ -592,7 +570,6 @@ process (insReg)
                                outReg(95 downto 64) <= oT;
                                ROTW(inReg1(127 downto 96),inReg2(127 downto 96),oT);
                                outReg(127 downto 96) <= oT;
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "1110") then
                                t := inReg1(31 downto 0);
                                sub(noSignOp,inReg2(31 downto 0),t,oT);
@@ -614,7 +591,6 @@ process (insReg)
                                Tempout <= oT;
                                sat_int(Tempout,oT);
                                outreg(127 downto 96) <= oT;
-                               writeToReg <= '1';
                             elsif (insReg(18 downto 15) = "1111") then
                                t_half := inReg1(15 downto 0);
                                sub_half(signOp,inReg2(15 downto 0),t_half,oT_half);
@@ -655,7 +631,6 @@ process (insReg)
                                sub_half(signOp,inReg2(127 downto 112),t_half,oT_half);
                                tempout_half <= oT_half;
                                sat_half(tempout_half,oT_half);
-                               writeToReg <= '1';
                             end if;
                          end if r3;
                        end process;

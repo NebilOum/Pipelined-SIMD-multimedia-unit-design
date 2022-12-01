@@ -14,21 +14,58 @@ end pipeline_tb;
 architecture testbench of pipeline_tb is
 	signal tb_clk : std_logic;
 	signal tb_instruct : instruc_table;
-	signal tb_rgTable : reg_table; 	
+	signal tb_rgTable : reg_table; 
+	signal stages : instructions_at_stages;
 	file input_txt : text;
+	file resultFile: text open write_mode is "result.txt";
 	constant period : time := 10ns;
 begin
 	uut:entity multimedia_pipeline port map(
 		clk=>tb_clk,
 	    instructs =>tb_instruct,
-	    register_tble => tb_rgTable
+	    register_tble => tb_rgTable,
+		stages => stages
 		); 
+		
+	process(stages)
+		variable write_to_result : line;
+		variable cycleCounter: integer := 0;
+	begin
+			--file_open(resultFile, "result.txt",  write_mode);
+			write(write_to_result, string'("Cycle "));
+			write(write_to_result, cycleCounter); 
+			write(write_to_result, string'(":")); 
+			writeline(resultFile, write_to_result);
+			
+			write(write_to_result, string'("Instruction at Stage 1: "));
+			write(write_to_result, stages(1));
+			writeline(resultFile, write_to_result);
+			write(write_to_result, string'("Instruction at Stage 2: "));
+			write(write_to_result, stages(2));
+			writeline(resultFile, write_to_result);
+			write(write_to_result, string'("Instruction at Stage 3: "));
+			write(write_to_result, stages(3));
+			writeline(resultFile, write_to_result);
+			write(write_to_result, string'("Instruction at Stage 4: "));
+			write(write_to_result, stages(4));
+	        writeline(resultFile, write_to_result);
+			
+			write(write_to_result, 
+			string'("-------------------------------------------------------------------------------"));
+	        writeline(resultFile, write_to_result);
+			cycleCounter := cycleCounter + 1;
+			--file_close(resultFile);
+			--if cycleCounter = 63 then
+--		end if;
+		--wait;
+		
+	end process;
 
 	uut_test:process
 			begin 	
-				tb_clk <= '0';
+				tb_clk <= '0'; 
 				wait for period/2;
-				tb_clk <= '1';
+				tb_clk <= '1'; 
 				wait for period/2;
 			end process;
 	
@@ -153,17 +190,18 @@ begin
 		for i in 0 to 63 loop 
 			tb_instruct(i) <= std_logic_vector(to_unsigned(i,25));
 		end loop;
-	wait;
+		wait;
+	end process;
 	
-	end process; 
 	uut_clock:process
-			begin 	
+			  begin 	
 				tb_clk <= '0';
 				wait for period/2;
-				tb_clk <= '1';
-				wait for period/2;
 				pc <= pc+1;
-			end process;
+				tb_clk <= '1';	  
+				wait for period/2;
+			  end process;
+			
 end architecture testbench;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 library ieee;
@@ -178,7 +216,7 @@ entity registerFile_tb is
 end registerFile_tb; 
 
 architecture testbench of registerFile_tb is 
-	signal tb_clk,writeToReg : std_logic;
+	signal tb_clk,writeToReg,f_writeToReg : std_logic;
 	signal tb_instruct : instruc_table;
 	signal tb_rgTable : reg_table;	
 	signal rdNumI,rdNumO  : std_logic_vector(4 downto 0);
@@ -195,6 +233,7 @@ begin
 		registers_in => tb_rgTable,
         writtenReg => data_write, 
 		--registers_out => tb_rgTable,
+		f_write_to_reg=>f_writeToReg,
         out1 => rs1,
         out2 => rs2,
         out3 => rs3,
@@ -229,12 +268,12 @@ begin
 	end process;
 	
 	uut_clock:process
-				variable i : integer := 0;
+				variable i : integer := -1;
 			  begin 	
 				tb_clk <= '0';
-				writeToReg <= '1';
 				wait for period/2;
-				tb_clk <= '1';	 
+				tb_clk <= '1';
+				i:=i+1;
 				if (i >= 63) then
 					tlb_instruction <= tb_instruct(63);
 				else 
@@ -242,10 +281,9 @@ begin
 				end if;
 				data_write <= std_logic_vector(to_unsigned(i+1,128));
 				rdNumI <= std_logic_vector(to_unsigned(i+1,5));
-				i:=i+1;
-				if (i = 16) then
+				if (f_writeToReg = '0') then
 					writeToReg <= '0';
-				else
+				elsif (f_writeToReg = '1')then
 					writeToReg <= '1';
 				end if;
 				
@@ -287,7 +325,47 @@ begin
 	end process; 
 end architecture testbench;
 -------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all; 
+use ieee.numeric_std.all;
+use std.textio.all;
+use ieee.std_logic_textio.all;
+use work.myPackage.all;
+use work.all;  
 
+entity fmux_tb is
+end fmux_tb; 
+
+architecture testbench of fmux_tb is 
+	signal dIn1,dIn2,dIn3,dIn4,dOut1,dOut2,dOut3 : std_logic_vector(127 downto 0);
+	signal select_signal : std_logic_vector(2 downto 0);
+	constant period : time := 10ns;
+begin
+	uut:entity fowardMux port map(
+			selSignal => select_signal,
+			dataIn1 => dIn1,
+			dataIn2 => dIn2,
+			dataIn3 => dIn3,
+			dataIn4 => dIn4,
+			outReg1 => dOut1,
+			outReg2 => dOut2,
+			outReg3 => dOut3
+	);
+	dIn1 <= std_logic_vector(to_unsigned(1,128));
+	dIn2 <= std_logic_vector(to_unsigned(2,128)); 
+	dIn3 <= std_logic_vector(to_unsigned(3,128));
+	dIn4 <= std_logic_vector(to_unsigned(4,128));
+	process
+		--variable i: integer := 0;
+	begin 
+		for i in 0 to 7 loop
+			select_signal <= std_logic_vector(to_unsigned(i,3));
+			wait for period/2;
+		end loop;
+	--wait;
+	end process; 
+end architecture testbench;
+-------------------------------------------------------------------------
 
 
 
