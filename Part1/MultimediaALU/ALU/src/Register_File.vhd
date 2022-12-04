@@ -31,15 +31,15 @@ architecture behavioral of Register_File is
 			signal r1NumT,r2NumT,r3NumT : integer:= 0;
 			
 begin 
-	--registers_in(to_integer(unsigned(rdNum))) <= writtenReg when write_to_reg = '1';
+	registers_in(to_integer(unsigned(rdNum))) <= writtenReg when write_to_reg = '1';
 	process(sele)
 		variable r1,r2,r3: integer:=0;
 		variable r_in :reg_table;
 	begin
-		if	(write_to_reg = '1') then
-			--r_in(to_integer(unsigned(rdNum))) := writtenReg;
-			registers_in(to_integer(unsigned(rdNum))) <= writtenReg;
-		end if;
+		--if(write_to_reg = '1') then
+--			--r_in(to_integer(unsigned(rdNum))) := writtenReg;
+--			registers_in(to_integer(unsigned(rdNum))) <= writtenReg;
+--		end if;
 		rdNumOut <= sele(4 downto 0);
 		r1Num <= sele(9 downto 5);
 		r2Num <= sele(14 downto 10);

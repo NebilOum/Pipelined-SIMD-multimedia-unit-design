@@ -32,21 +32,25 @@ fileopenfolder=C:\Users\seene\Desktop\Stony Brook\Fall 2022\ESE 345\Project\Pipe
 /..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\waveFormRF.awc=-1
 /..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\waveFormRF.asdb=-1
 /tb_input.txt=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormPipeline.asdb=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormPipeline.awc=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormIF.asdb=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormIF.awc=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormDF.asdb=-1
+/..\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormDF.awc=-1
 code2graphics/aluIO.bde=-1
 code2graphics/dataFowarding.bde=-1
 code2graphics/ex_wb.bde=-1
 code2graphics/fowardMux.bde=-1
 code2graphics/id_ex.bde=-1
-code2graphics/writeBack.bde=-1
-code2graphics/writeResult.bde=-1
 code2graphics/multimedia_pipeline.bde=-1
+code2graphics/writeBack.bde=-1
 [Files.Data]
 .\src\pipeline.vhd=VHDL Source Code
 .\src\tb.vhd=VHDL Source Code
 .\src\IFStage.vhd=VHDL Source Code
 .\src\InstructionBuffer.vhd=VHDL Source Code
 .\src\Register_File.vhd=VHDL Source Code
-.\src\result.txt=Text File
 .\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\pipelineTest.asdb=Accelerated Waveform File
 .\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\pipelineTest.awc=Accelerated Waveform Configuration
 .\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveformALU.asdb=Accelerated Waveform File
@@ -56,33 +60,24 @@ code2graphics/multimedia_pipeline.bde=-1
 .\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\waveFormRF.awc=Accelerated Waveform Configuration
 .\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\waveFormRF.asdb=Accelerated Waveform File
 .\src\tb_input.txt=Text File
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormPipeline.asdb=Accelerated Waveform File
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormPipeline.awc=Accelerated Waveform Configuration
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormIF.asdb=Accelerated Waveform File
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormIF.awc=Accelerated Waveform Configuration
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormDF.asdb=Accelerated Waveform File
+.\..\..\..\..\..\..\..\..\StonyBrook\Fall2022\ESE345\Project\Pipelined-SIMD-multimedia-unit-design\Part1\MultimediaALU\ALU\src\Testbench-waveforms\waveFormDF.awc=Accelerated Waveform Configuration
 .\src\code2graphics\aluIO.bde=Block Diagram
 .\src\code2graphics\dataFowarding.bde=Block Diagram
 .\src\code2graphics\ex_wb.bde=Block Diagram
 .\src\code2graphics\fowardMux.bde=Block Diagram
 .\src\code2graphics\id_ex.bde=Block Diagram
-.\src\code2graphics\writeBack.bde=Block Diagram
-.\src\code2graphics\writeResult.bde=Block Diagram
 .\src\code2graphics\multimedia_pipeline.bde=Block Diagram
+.\src\code2graphics\writeBack.bde=Block Diagram
 [HierarchyViewer]
-HierarchyInformation=alu_tb|testbench|0
+HierarchyInformation=datafoward_tb|testbench|0 fmux_tb|testbench|0 instructionbuffer_tb|testbench|0 pipeline_tb|testbench|0 registerfile_tb|testbench|0
 ShowHide=ShowTopLevel
 Selected=
 [ORDER]
 Synchronize=1
 [Groups]
 code2graphics=1
-[file_out:code2graphics/aluIO.bde]
-code2graphics/..\..\compile\aluIO.vhd=-1
-[file_out:code2graphics/dataFowarding.bde]
-code2graphics/..\..\compile\dataFowarding.vhd=-1
-[file_out:code2graphics/ex_wb.bde]
-code2graphics/..\..\compile\ex_wb.vhd=-1
-[file_out:code2graphics/fowardMux.bde]
-code2graphics/..\..\compile\fowardMux.vhd=-1
-[file_out:code2graphics/id_ex.bde]
-code2graphics/..\..\compile\id_ex.vhd=-1
-[file_out:code2graphics/writeBack.bde]
-code2graphics/..\..\compile\writeBack.vhd=-1
-[file_out:code2graphics/writeResult.bde]
-code2graphics/..\..\compile\writeResult.vhd=-1

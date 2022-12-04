@@ -8,6 +8,5 @@
 .\src\code2graphics\ex_wb.bde
 .\src\code2graphics\fowardMux.bde
 .\src\code2graphics\id_ex.bde
-.\src\code2graphics\writeBack.bde
-.\src\code2graphics\writeResult.bde
 .\src\code2graphics\multimedia_pipeline.bde
+.\src\code2graphics\writeBack.bde

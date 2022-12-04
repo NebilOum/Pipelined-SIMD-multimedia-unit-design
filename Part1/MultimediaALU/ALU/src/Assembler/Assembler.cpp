@@ -1091,12 +1091,28 @@ int main() {
         }
         ///////////////////////////////////////// end if r3 instructons
         instructionArray.push_back(opcode);
-        exp << "Cycle " << z << ": " << endl;
-        for (int u = 0; u < 4; u++) {
-            
-            exp << instructionArray(u) << endl;
-        }
-        exp << "----------------------------------------------------------" << endl;
+        
     } while (!myfile.eof());
+    int counter=1;
+    for (int t = 0; t < 63; t++) { /// all possible cycles
+        exp << "Cycle " << z << ": " << endl; 
+        for (int u = t-1; u < t+3; u++) { /// printing 4 cycle group
+            if (u <= t and u >= 0) {
+                exp << "Instruction at Stage" << counter << ": " << instructionArray[u] << endl;
+                counter++;
+            }
+            else if (u < 0) {
+                exp << "Instruction at Stage" << counter << ": " << "UUUUUUUUUUUUUUUUUUUUUUUUU" << endl;
+                counter++;
+            }
+            else if (u > t) {
+                exp << "Instruction at Stage" << counter << ": " << "UUUUUUUUUUUUUUUUUUUUUUUUU" << endl;
+                counter++;
+            }
+        }
+        z++;
+        counter = 1;
+        exp << "----------------------------------------------------------" << endl;
+    }
 
 } 

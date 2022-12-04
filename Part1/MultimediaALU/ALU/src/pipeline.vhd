@@ -874,61 +874,7 @@ architecture wb of writeBack is
 begin
 	outReg <= aluOut;
 end architecture wb;
---------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------
-library ieee;
-use ieee.std_logic_1164.all; 
-use ieee.numeric_std.all;
-use std.textio.all;
-use ieee.std_logic_textio.all;
-use work.myPackage.all;
-use work.all;  
-
-entity writeResult is 
-	port(
-		clk : in std_logic;
-		stages : in instructions_at_stages
-	);
-end writeResult; 		 
-
-architecture write_toResultFile of writeResult is
-	file resultFile : text;
-begin
-	process(clk)
-		variable write_to_result : line;
-		variable cycleCounter: integer := 0;
-	begin
-		file_open(resultFile, "result.txt",  write_mode);
-		if(rising_edge(clk)) then
-			write(write_to_result, string'("Cycle "));
-			write(write_to_result, cycleCounter); 
-			write(write_to_result, string'(":")); 
-			writeline(resultFile, write_to_result);
-			
-			write(write_to_result, string'("Instruction at Stage 1: "));
-			write(write_to_result, stages(1));
-			writeline(resultFile, write_to_result);
-			write(write_to_result, string'("Instruction at Stage 2: "));
-			write(write_to_result, stages(2));
-			writeline(resultFile, write_to_result);
-			write(write_to_result, string'("Instruction at Stage 3: "));
-			write(write_to_result, stages(3));
-			writeline(resultFile, write_to_result);
-			write(write_to_result, string'("Instruction at Stage 4: "));
-			write(write_to_result, stages(4));
-	        writeline(resultFile, write_to_result);
-			
-			write(write_to_result, 
-			string'("-------------------------------------------------------------------------------"));
-	        writeline(resultFile, write_to_result);
-			cycleCounter := cycleCounter + 1;
-			--if cycleCounter = 63 then
-				
-			end if;
---		end if;
-		file_close(resultFile);
-	end process;
-end architecture write_toResultFile;	
+--------------------------------------------------------------------------------------------------	
 ----------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------- 
 library ieee;							  	
@@ -964,17 +910,17 @@ architecture structural of multimedia_pipeline is
     signal rs1,rs2,rs3,rd,muxRS1,muxRS2,muxRS3	: std_logic_vector (127 downto 0);
 	signal rs1ID,rs2ID,rs3ID: std_logic_vector (127 downto 0);
     signal rs1Num,rs2Num,rs3Num : std_logic_vector (4 downto 0);
-    signal rdNumIn,rdNum,rdNum_DFOut,rdNum_RFOut : std_logic_vector (4 downto 0); 
+    signal rdNumIn,rdNum,rdNum_DFOut,rdNum_EXWBOut : std_logic_vector (4 downto 0); 
     signal fowardingCntrl : std_logic_vector(0 to 2);
 	signal pc : integer := 0;
 	signal writeInstToFile : instructions_at_stages;
 	--signal rdNum_in_rF : integer;
 	file resultFile : text;
 begin 	  
-	
+	---------------------------------------------------------------------------------------------------------- start of stage 1
 	instfetch: entity InstrctionBuffer port map(clk => clk,inst =>instructs,PC => pc,outp => inst_if);
 	stages(1) <= inst_if;	
-	if_id: entity IFStage port map(clk=>clk,Instruction=> inst_if,OutIns=>inst_id); 
+	if_id: entity IFStage port map(clk=>clk,Instruction=> inst_if,OutIns=>inst_id); ------------------------- end of stage 1, start of stage 2
 	control_table(1).inst <= inst_if;
 	control_table(2).inst <= inst_id;
 	
@@ -983,8 +929,8 @@ begin
 	writtenReg => outWB,r1Num => control_table(2).reg1Num,r2Num => control_table(2).reg2Num,r3Num => control_table(2).reg3Num,rdNumOut => control_table(2).rdNum,
 	f_write_to_reg => control_table(2).writeReg ,out1 => rs1 ,out2 => rs2 ,out3 => rs3);
 	
-	id_ex: entity id_ex port map(clk=>clk,dataIn1 => rs1,dataIn2 => rs2,dataIn3 => rs3,rdNumIn => control_table(3).rdNum,
-		                         dataOut1 => rs1ID , dataOut2 => rs2ID,dataOut3 => rs3ID,rdNumOut => rdNum); 
+	id_ex: entity id_ex port map(clk=>clk,dataIn1 => rs1,dataIn2 => rs2,dataIn3 => rs3,rdNumIn => control_table(2).rdNum,  ------- end of stage 2, start of stage 3
+		                         dataOut1 => rs1ID , dataOut2 => rs2ID,dataOut3 => rs3ID,rdNumOut => control_table(3).rdNum); 
 	
 	fowardingCntrl(2) <= '1' when control_table(3).reg1Num = control_table(4).rdNUm else '0';
 	fowardingCntrl(1) <= '1' when control_table(3).reg2Num = control_table(4).rdNUm else '0';
@@ -993,9 +939,10 @@ begin
 		
 	alu :entity aluIO port map(inReg1=>muxRS1,inReg2=>muxRS2,inReg3=>muxRS3,insReg=>control_table(3).inst, outReg=>outALU);
 		
-	ex_wb: entity ex_wb port map(clk=>clk,regWrite_in=>control_table(3).rdNum,dataIn=>outALU, regWrite_out =>rdNum,outResult=>outEXWB);	
+	ex_wb: entity ex_wb port map(clk=>clk,regWrite_in=>control_table(3).rdNum,dataIn=>outALU, regWrite_out =>rdNum_EXWBOUT,outResult=>outEXWB);--- end of stage 4, start of stage 4
+	
 		
-	df: entity dataFowarding port map(dataIn=>outEXWB,regNumIn=>rdNum,regNumOut=>control_table(4).rdNum,outResult=>outDF);
+	df: entity dataFowarding port map(dataIn=>outEXWB,regNumIn=>rdNum_EXWBOUT,regNumOut=>control_table(4).rdNum,outResult=>outDF);
 	rdNum_DFOut <= control_table(4).rdNum;
 		
 	wb : entity writeBack port map(aluOut=>outEXWB,outReg=>outWB);	
@@ -1005,8 +952,19 @@ begin
 	begin
 		if (rising_edge(clk)) then
 			pc <= pcInc;
-			control_table(4) <= control_table(3); 
-			control_table(3) <= control_table(2);
+			 --control_table(4).rdNum <= control_table(3).rdNum;
+			control_table(4).reg3Num <= control_table(3).reg3Num;
+			control_table(4).reg2Num <= control_table(3).reg2Num;
+			control_table(4).reg1Num <= control_table(3).reg1Num;
+			control_table(4).writeReg <= control_table(3).writeReg;
+			control_table(4).inst <= control_table(3).inst;
+			
+			control_table(3).reg3Num <= control_table(2).reg3Num;
+			control_table(3).reg2Num <= control_table(2).reg2Num;
+			control_table(3).reg1Num <= control_table(2).reg1Num; 
+			control_table(3).writeReg <= control_table(2).writeReg;
+			control_table(3).inst <= control_table(2).inst;
+			--control_table(3) <= control_table(2);
 			--control_table(2) <= control_table(1);
 			stages(4) <= stages(3);
 			stages(3) <= stages(2);
